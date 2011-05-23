@@ -12,6 +12,7 @@ namespace DomainModel.Membership
 
         public static void Init(string sqlCnnStr)
         {
+            //repo = new Repository.Fake.Roles();
             repo = new Repository.Sql.Roles(sqlCnnStr);
 
             cache = repo.GetAll();
@@ -20,9 +21,9 @@ namespace DomainModel.Membership
         }
 
 
-        internal static Role GetById(Int32 aclId)
+        internal static Role GetById(Int32 taskId)
         {
-            return cache.FindById(aclId);
+            return cache.FindById(taskId);
         }
 
 

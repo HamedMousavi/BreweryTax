@@ -29,6 +29,10 @@ namespace TaxDataStore
             SetupToolBar();
             SetupStatusBar();
             SetupFormManager();
+
+            DomainModel.Application.Status.Update(
+                StatusController.Abstract.StatusTypes.Info, 
+                "app_welcome");
         }
 
 
@@ -39,7 +43,7 @@ namespace TaxDataStore
             Presentation.View.MainWindow = this;
 
             this.ScreenManager = new Presentation.SccreenManager();
-            //this.ScreenManager.Attach(this, DomainModel.Application.User);
+            this.ScreenManager.Attach(this, DomainModel.Application.User);
         }
 
 
@@ -52,11 +56,15 @@ namespace TaxDataStore
 
         private void SetupToolBar()
         {
+            this.ToolBar = new Presentation.Controls.Toolbar(1);
+            this.barsHolder.TopToolStripPanel.Controls.Add(this.ToolBar);
         }
 
 
         private void SetupStatusBar()
         {
+            this.StatusBar = new Presentation.Controls.Statusbar(DomainModel.Application.Status.Controller);
+            this.barsHolder.BottomToolStripPanel.Controls.Add(this.StatusBar);
         }
 
 

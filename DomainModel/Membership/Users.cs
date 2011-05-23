@@ -44,8 +44,7 @@ namespace DomainModel.Membership
 
             return user.IsAuthenticated;
         }
-
-
+        
 
         public static UserCollection GetAll()
         {

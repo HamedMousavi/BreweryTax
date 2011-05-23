@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="SplitButton.vs2008">
+</Property><Property Name="Solution File" Value="C:\Users\Hamed\Downloads\SplitButton\SplitButton.vs2008.sln">
+</Property><Property Name="Date" Value="Sunday, February 13, 2011">
+</Property><Property Name="Time" Value="10:40 AM">
+</Property></Properties><Event ErrorLevel="0" Project="SplitButton" Source="SplitButton.csproj" Description="The project file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="SplitButton" Source="SplitButton.csproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="" Source="SplitButton.vs2008.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="SplitButton.vs2008.sln" Description="Converted">
+</Event></UpgradeLog>

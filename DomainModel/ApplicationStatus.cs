@@ -1,9 +1,12 @@
 ﻿
 namespace DomainModel
 {
+
     public class ApplicationStatus
     {
+
         private StatusController.Controller.StatusController status;
+
 
         public void Update(StatusController.Abstract.StatusTypes type, string resourceName)
         {
@@ -17,9 +20,12 @@ namespace DomainModel
                 new StatusController.Entities.StatusInfo(0, 0, type, 0, null, text));
         }
 
+
         internal void Init(StatusController.Controller.StatusController statusController)
         {
             status = statusController;
         }
+
+        public StatusController.Controller.StatusController Controller { get { return status; } }
     }
 }

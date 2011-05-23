@@ -267,4 +267,7 @@
   <data name="select_role" xml:space="preserve">
     <value>Move mouse pointer over a role name to see or edit it's tasks or select a role to edit it's name.</value>
   </data>
+  <data name="app_welcome" xml:space="preserve">
+    <value>Welcome </value>
+  </data>
 </root>

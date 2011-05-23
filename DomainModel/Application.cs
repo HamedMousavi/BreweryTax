@@ -40,6 +40,9 @@ namespace DomainModel
             Membership.UserSettings.Init(settings.SqlConnectionString);
             Membership.Users.Init(settings.SqlConnectionString, Cultures.GetAll());
 
+            Employees.Init(settings.SqlConnectionString);
+            Tours.Init(settings.SqlConnectionString);
+
             // Set a default invalid user for application
             user = new Entities.User();
         }

@@ -41,6 +41,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presentation\Controls\EmployeesMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\EmployeesSplitButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\Tours\FrmTourDetailEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\Tours\FrmTourDetailEditor.Designer.cs">
+      <DependentUpon>FrmTourDetailEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Forms\Tours\FrmTourEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\Tours\FrmTourEditor.Designer.cs">
+      <DependentUpon>FrmTourEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Controls\FlatGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\Tours\FrmDailyTours.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\Tours\FrmDailyTours.Designer.cs">
+      <DependentUpon>FrmDailyTours.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\AsyncCalls.cs" />
+    <Compile Include="Presentation\Controls\ToolbarButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Presentation\Forms\Membership\FrmRoleEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,8 +118,12 @@
     <Compile Include="Presentation\Controls\MenuItem.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\Statusbar.cs" />
-    <Compile Include="Presentation\Controls\Toolbar.cs" />
+    <Compile Include="Presentation\Controls\Statusbar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\Toolbar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Presentation\Forms\Membership\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +155,15 @@
     <Compile Include="Presentation\Controls\UsersManager.Designer.cs">
       <DependentUpon>UsersManager.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Presentation\Forms\Tours\FrmTourDetailEditor.resx">
+      <DependentUpon>FrmTourDetailEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Forms\Tours\FrmTourEditor.resx">
+      <DependentUpon>FrmTourEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Forms\Tours\FrmDailyTours.resx">
+      <DependentUpon>FrmDailyTours.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Controls\RoleManager.resx">
       <DependentUpon>RoleManager.cs</DependentUpon>
     </EmbeddedResource>
@@ -173,6 +217,10 @@
     <ProjectReference Include="..\Resources\Resources.csproj">
       <Project>{D6632E21-6AD2-42A6-984E-5FE39EF8AE71}</Project>
       <Name>Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SplitButton\SplitButton.csproj">
+      <Project>{CE9CFA95-EB8D-40B5-8795-B89C7AA853A5}</Project>
+      <Name>SplitButton</Name>
     </ProjectReference>
     <ProjectReference Include="..\StatusController\StatusController.csproj">
       <Project>{F6413A9D-39FE-4939-99B4-CD4028050CB6}</Project>

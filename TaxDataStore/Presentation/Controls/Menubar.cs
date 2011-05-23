@@ -111,7 +111,7 @@ namespace TaxDataStore.Presentation.Controls
 
             this.miToolsUserSettings = new MenuItem(
                 "user_settings",
-                "hammer",
+                "gear",
                 string.Empty,
                 Presentation.Controllers.Users.Settings);
 

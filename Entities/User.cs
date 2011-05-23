@@ -1,10 +1,11 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace Entities
 {
     public class User
     {
-        public Int32 Id { get; set; }
+
         public string Name { get; set; }
         public string Password { get; set; }
         public Entities.Culture Culture { get; set; }
@@ -13,6 +14,8 @@ namespace Entities
         public Role Role { get; set; }
         public bool IsAuthenticated { get; set; }
 
+        [BrowsableAttribute(false)]
+        public Int32 Id { get; set; }
 
         public User()
         {

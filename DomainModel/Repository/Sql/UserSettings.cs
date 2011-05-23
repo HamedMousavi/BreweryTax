@@ -74,7 +74,7 @@ namespace DomainModel.Repository.Sql
                     " WindowBoundsX = @WindowBoundsX," +
                     " WindowBoundsY = @WindowBoundsY," +
                     " WindowBoundsWidth = @WindowBoundsWidth," +
-                    " WindowBoundsHeight = @WindowBoundsHeight," +
+                    " WindowBoundsHeight = @WindowBoundsHeight" +
                     " WHERE UserId = @UserId";
 
                 using (SqlCommand cmd = new SqlCommand(query, cnn))

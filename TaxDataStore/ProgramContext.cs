@@ -38,11 +38,9 @@ namespace TaxDataStore
         private void BeginAuthenticate()
         {
 #if DEBUG
-            DomainModel.Application.User.Id = 0;
-            DomainModel.Application.User.IsAuthenticated = true;
-            DomainModel.Application.User.IsEnabled = true;
-            DomainModel.Application.User.Name = "hamed";
-            DomainModel.Application.User.Culture = new Entities.Culture("German", "de-DE");
+            DomainModel.Membership.Users.Authenticate(
+                new Entities.User("Hamed", "1"));
+
             EndAuthenticate(true);
 #else
 

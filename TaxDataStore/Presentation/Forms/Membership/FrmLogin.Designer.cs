@@ -44,10 +44,10 @@
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btnLogin.Location = new System.Drawing.Point(128, 4);
+            this.btnLogin.Location = new System.Drawing.Point(184, 4);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(80, 28);
+            this.btnLogin.Size = new System.Drawing.Size(75, 26);
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "&Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -57,10 +57,10 @@
             // 
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btnExit.Location = new System.Drawing.Point(216, 4);
+            this.btnExit.Location = new System.Drawing.Point(267, 4);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(80, 28);
+            this.btnExit.Size = new System.Drawing.Size(75, 26);
             this.btnExit.TabIndex = 1;
             this.btnExit.Text = "E&xit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -90,7 +90,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(300, 146);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(346, 174);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -103,13 +103,13 @@
             this.tableLayoutPanel2.Controls.Add(this.btnExit, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnLogin, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 111);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 139);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(300, 35);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(346, 35);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
             // lblUserName
@@ -145,7 +145,7 @@
             this.cbxUserName.Location = new System.Drawing.Point(84, 51);
             this.cbxUserName.Margin = new System.Windows.Forms.Padding(4);
             this.cbxUserName.Name = "cbxUserName";
-            this.cbxUserName.Size = new System.Drawing.Size(212, 26);
+            this.cbxUserName.Size = new System.Drawing.Size(258, 26);
             this.cbxUserName.TabIndex = 2;
             // 
             // tbxPassword
@@ -154,8 +154,9 @@
             this.tbxPassword.Location = new System.Drawing.Point(84, 81);
             this.tbxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbxPassword.Name = "tbxPassword";
-            this.tbxPassword.Size = new System.Drawing.Size(212, 26);
+            this.tbxPassword.Size = new System.Drawing.Size(258, 26);
             this.tbxPassword.TabIndex = 4;
+            this.tbxPassword.UseSystemPasswordChar = true;
             // 
             // lblLogonProcess
             // 
@@ -164,9 +165,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.lblLogonProcess, 2);
             this.lblLogonProcess.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.lblLogonProcess.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblLogonProcess.Location = new System.Drawing.Point(10, 5);
+            this.lblLogonProcess.Location = new System.Drawing.Point(19, 5);
             this.lblLogonProcess.Name = "lblLogonProcess";
-            this.lblLogonProcess.Size = new System.Drawing.Size(279, 32);
+            this.lblLogonProcess.Size = new System.Drawing.Size(308, 32);
             this.lblLogonProcess.TabIndex = 0;
             this.lblLogonProcess.Text = "Please choose your user from users list,  enter your password to log in.";
             this.lblLogonProcess.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -177,7 +178,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(300, 146);
+            this.ClientSize = new System.Drawing.Size(346, 174);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

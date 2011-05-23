@@ -79,6 +79,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Welcome .
+        /// </summary>
+        public static string app_welcome {
+            get {
+                return ResourceManager.GetString("app_welcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &amp;Cancel.
         /// </summary>
         public static string cancel {

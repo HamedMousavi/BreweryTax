@@ -61,15 +61,16 @@
             this.tlpMain.ColumnCount = 2;
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tlpMain.Controls.Add(this.gpxUsers, 0, 0);
-            this.tlpMain.Controls.Add(this.gpxDetails, 1, 0);
+            this.tlpMain.Controls.Add(this.gpxUsers, 0, 2);
+            this.tlpMain.Controls.Add(this.gpxDetails, 1, 2);
             this.tlpMain.Controls.Add(this.tlpButtons, 0, 1);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Name = "tlpMain";
-            this.tlpMain.RowCount = 2;
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpMain.RowCount = 3;
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpMain.Size = new System.Drawing.Size(525, 475);
             this.tlpMain.TabIndex = 0;
             // 
@@ -77,9 +78,9 @@
             // 
             this.gpxUsers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gpxUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.gpxUsers.Location = new System.Drawing.Point(3, 3);
+            this.gpxUsers.Location = new System.Drawing.Point(3, 45);
             this.gpxUsers.Name = "gpxUsers";
-            this.gpxUsers.Size = new System.Drawing.Size(151, 437);
+            this.gpxUsers.Size = new System.Drawing.Size(151, 427);
             this.gpxUsers.TabIndex = 0;
             this.gpxUsers.TabStop = false;
             this.gpxUsers.Text = "Users";
@@ -89,9 +90,9 @@
             this.gpxDetails.Controls.Add(this.tlpDetails);
             this.gpxDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gpxDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.gpxDetails.Location = new System.Drawing.Point(160, 3);
+            this.gpxDetails.Location = new System.Drawing.Point(160, 45);
             this.gpxDetails.Name = "gpxDetails";
-            this.gpxDetails.Size = new System.Drawing.Size(362, 437);
+            this.gpxDetails.Size = new System.Drawing.Size(362, 427);
             this.gpxDetails.TabIndex = 1;
             this.gpxDetails.TabStop = false;
             this.gpxDetails.Text = "Details";
@@ -122,7 +123,7 @@
             this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpDetails.Size = new System.Drawing.Size(356, 418);
+            this.tlpDetails.Size = new System.Drawing.Size(356, 408);
             this.tlpDetails.TabIndex = 0;
             // 
             // lblRoleName
@@ -222,7 +223,7 @@
             this.tlpButtons.Controls.Add(this.btnDeleteUser, 2, 0);
             this.tlpButtons.Controls.Add(this.btnEnableUser, 3, 0);
             this.tlpButtons.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpButtons.Location = new System.Drawing.Point(0, 443);
+            this.tlpButtons.Location = new System.Drawing.Point(0, 10);
             this.tlpButtons.Margin = new System.Windows.Forms.Padding(0);
             this.tlpButtons.Name = "tlpButtons";
             this.tlpButtons.RowCount = 1;
