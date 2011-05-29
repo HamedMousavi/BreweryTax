@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 
 namespace TaxDataStore.Presentation.Controls
@@ -22,12 +23,13 @@ namespace TaxDataStore.Presentation.Controls
         protected BindingSource bs;
         protected DataGridViewCellStyle headerCellStyle;
         protected DataGridViewCellStyle defaultCellStyle;
+        protected List<string> hiddenColumnNames;
 
 
         public FlatGridView(bool bReadonly = true, bool bRowSelect = true)
             : base()
         {
-            Color headTextColor = Color.Green;
+            Color headTextColor = Color.Gray;
             Color headBkColor = Color.White;
 
             Color bkColor = Color.White;
@@ -92,11 +94,24 @@ namespace TaxDataStore.Presentation.Controls
                 DataGridViewSelectionMode.FullRowSelect :
                 DataGridViewSelectionMode.CellSelect;
 
-            this.Columns.CollectionChanged +=
-                new CollectionChangeEventHandler(Columns_CollectionChanged);
+            this.hiddenColumnNames = new List<string>();
+
+            this.DataBindingComplete += new 
+                DataGridViewBindingCompleteEventHandler(FlatGridView_DataBindingComplete);
 
             this.bs = new BindingSource();
             this.DataSource = this.bs;
+        }
+
+
+        void FlatGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewColumn column in this.Columns)
+            {
+                if (this.hiddenColumnNames.Contains(column.Name)) column.Visible = false;
+            }
+
+            AdjustColumns();
         }
 
 
@@ -119,18 +134,18 @@ namespace TaxDataStore.Presentation.Controls
 
         }
 
-
+        /*
         void Columns_CollectionChanged(object sender, System.ComponentModel.CollectionChangeEventArgs e)
         {
-            if (this.Columns.Count > 0) AdjustColumns();
+            //if (this.Columns.Count > 0) AdjustColumns();
         }
+        */
 
-
-        private void AdjustColumns()
+        protected void AdjustColumns()
         {
             foreach (DataGridViewColumn column in this.Columns)
             {
-                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
 
             if (this.Columns.Count > 0)

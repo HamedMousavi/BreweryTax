@@ -74,6 +74,13 @@ namespace Resources {
             }
         }
         
+        public static System.Drawing.Bitmap address_book {
+            get {
+                object obj = ResourceManager.GetObject("address_book", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         public static System.Drawing.Bitmap alarm_clock__minus {
             get {
                 object obj = ResourceManager.GetObject("alarm_clock__minus", resourceCulture);
@@ -105,6 +112,20 @@ namespace Resources {
         public static System.Drawing.Bitmap app_settings {
             get {
                 object obj = ResourceManager.GetObject("app_settings", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap calendar_day {
+            get {
+                object obj = ResourceManager.GetObject("calendar_day", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap calendar_select_days {
+            get {
+                object obj = ResourceManager.GetObject("calendar_select_days", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -186,6 +207,13 @@ namespace Resources {
             }
         }
         
+        public static System.Drawing.Bitmap fax {
+            get {
+                object obj = ResourceManager.GetObject("fax", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         public static System.Drawing.Bitmap gear {
             get {
                 object obj = ResourceManager.GetObject("gear", resourceCulture);
@@ -214,6 +242,13 @@ namespace Resources {
             }
         }
         
+        public static System.Drawing.Bitmap mail {
+            get {
+                object obj = ResourceManager.GetObject("mail", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         public static System.Drawing.Bitmap manage_users {
             get {
                 object obj = ResourceManager.GetObject("manage_users", resourceCulture);
@@ -221,9 +256,30 @@ namespace Resources {
             }
         }
         
+        public static System.Drawing.Bitmap mobile_phone {
+            get {
+                object obj = ResourceManager.GetObject("mobile_phone", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap money_coin {
+            get {
+                object obj = ResourceManager.GetObject("money_coin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         public static System.Drawing.Bitmap pencil {
             get {
                 object obj = ResourceManager.GetObject("pencil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap telephone {
+            get {
+                object obj = ResourceManager.GetObject("telephone", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -238,6 +294,13 @@ namespace Resources {
         public static System.Drawing.Bitmap user_black_female {
             get {
                 object obj = ResourceManager.GetObject("user_black_female", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap users {
+            get {
+                object obj = ResourceManager.GetObject("users", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

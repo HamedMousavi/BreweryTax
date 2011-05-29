@@ -1,9 +1,9 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using Entities;
 using Entities.Abstract;
 using Entities.Abstract.Repository;
-using System;
 
 
 namespace DomainModel.Repository.Sql

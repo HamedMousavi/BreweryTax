@@ -9,51 +9,39 @@ namespace TaxDataStore
     public partial class FrmTourEditor : Form
     {
 
-        protected Entities.Tour tour;
-        protected Entities.Tour editTour;
-        protected FlatGridView fgvEmployees;
-        protected FlatGridView fgvDetails;
+        protected EmployeesGridView dgvEmployees;
+        protected PaymentsGridView dgvPayments;
+        protected MembersGridView dgvMembers;
+        protected ContactsGridView dgvContacts;
+        
         protected EmployeesSplitButton spbEmployees;
 
+        protected TypeComboBox cbxTourTypes;
+        protected TypeComboBox cbxSignUpTypes;
 
-        public FrmTourEditor(Entities.Tour editTour = null)
+        protected Entities.Tour tour;
+        protected Entities.Tour editTour;
+        
+
+        public FrmTourEditor()
         {
             InitializeComponent();
 
             this.tour = new Entities.Tour();
+
+            SetupControls();
+            BindControls();
+        }
+
+
+        public FrmTourEditor(Entities.Tour editTour)
+            : this()
+        {
             this.editTour = editTour;
             if (editTour != null)
             {
                 this.editTour.CopyTo(this.tour);
             }
-            
-            this.fgvEmployees = new FlatGridView();
-            this.fgvEmployees.GridColor = this.BackColor;
-            this.fgvEmployees.BackgroundColor = this.BackColor;
-            this.fgvEmployees.DefaultCellStyle.BackColor = this.BackColor;
-            this.fgvEmployees.ColumnHeadersDefaultCellStyle.BackColor = this.BackColor;
-
-
-            this.fgvDetails = new FlatGridView();
-            this.fgvDetails.GridColor = this.BackColor;
-            this.fgvDetails.BackgroundColor = this.BackColor;
-            this.fgvDetails.DefaultCellStyle.BackColor = this.BackColor;
-            this.fgvDetails.ColumnHeadersDefaultCellStyle.BackColor = this.BackColor;
-
-            this.tlpEmployees.Controls.Add(this.fgvEmployees);
-            this.tlpDetails.Controls.Add(this.fgvDetails);
-
-            this.tlpEmployees.SetColumnSpan(this.fgvEmployees, 2);
-
-            this.spbEmployees = new EmployeesSplitButton(OnMenuItemClicked);
-            this.tlpEmployees.Controls.Add(this.spbEmployees, 0, 0);
-
-            this.btnAddDetail.Image = DomainModel.Application.ResourceManager.GetImage("add");
-            this.btnEditDetail.Image = DomainModel.Application.ResourceManager.GetImage("pencil");
-            this.btnRemoveEmployee.Image = DomainModel.Application.ResourceManager.GetImage("delete");
-            this.btnRemoveDetail.Image = DomainModel.Application.ResourceManager.GetImage("delete");
-
-            BindData();
         }
 
 
@@ -67,9 +55,102 @@ namespace TaxDataStore
         }
 
 
-        private void BindData()
+        private void SetupControls()
         {
-            this.dtpTourTime.DataBindings.Add(
+            this.spbEmployees = new EmployeesSplitButton(OnMenuItemClicked);
+            this.tlpEmployeeToolbar.Controls.Add(this.spbEmployees, 1, 0);
+
+            this.dgvEmployees = new EmployeesGridView(this.tour.Employees);
+            this.tlpStaff.Controls.Add(this.dgvEmployees, 0, 1);
+
+            this.dgvPayments = new PaymentsGridView(this.tour.Payments);
+            this.tlpPayments.Controls.Add(this.dgvPayments, 0, 1);
+            this.tlpPayments.SetColumnSpan(this.dgvPayments, 3);
+            this.tlpPayments.SetRowSpan(this.dgvPayments, 2);
+
+            this.dgvMembers = new MembersGridView(this.tour.Members);
+            this.tlpTourMembers.Controls.Add(this.dgvMembers, 0, 1);
+            this.tlpTourMembers.SetColumnSpan(this.dgvMembers, 3);
+            this.tlpTourMembers.SetRowSpan(this.dgvMembers, 2);
+
+            this.dgvContacts = new ContactsGridView(this.dgvMembers.BindingSource, "Contacts");
+            this.tlpTourMembers.Controls.Add(this.dgvContacts, 3, 1);
+            this.tlpTourMembers.SetRowSpan(this.dgvContacts, 2);
+
+            SetupControlImages();
+            SetupControlTexts();
+
+            this.cbxTourTypes = new TypeComboBox("TourType");
+            this.cbxSignUpTypes = new TypeComboBox("SignupType");
+            this.tlpTour.Controls.Add(this.cbxTourTypes, 1, 2);
+            this.tlpTour.Controls.Add(this.cbxSignUpTypes, 1, 3);
+
+            this.cbxTourTypes.Anchor = (AnchorStyles.Top | AnchorStyles.Left) | AnchorStyles.Right;
+            this.cbxSignUpTypes.Anchor = (AnchorStyles.Top | AnchorStyles.Left) | AnchorStyles.Right;
+
+            this.Load += new EventHandler(FrmTourEditor_Load);
+
+        }
+
+
+        private void SetupControlImages()
+        {
+            this.btnAddTourMember.Image = DomainModel.Application.ResourceManager.GetImage("add");
+            this.btnEditTourMember.Image = DomainModel.Application.ResourceManager.GetImage("pencil");
+            this.btnRemoveTourMember.Image = DomainModel.Application.ResourceManager.GetImage("delete");
+            
+            this.btnRemoveEmployee.Image = DomainModel.Application.ResourceManager.GetImage("delete");
+
+            this.btnEditPayment.Image = DomainModel.Application.ResourceManager.GetImage("pencil");
+            this.btnAddPayment.Image = DomainModel.Application.ResourceManager.GetImage("add");
+            this.btnRemovePayment.Image = DomainModel.Application.ResourceManager.GetImage("delete");
+            
+            this.tabMain.ImageList = new ImageList();
+            this.tabMain.ImageList.Images.Add(DomainModel.Application.ResourceManager.GetImage("calendar_day"));
+            this.tabMain.ImageList.Images.Add(DomainModel.Application.ResourceManager.GetImage("money_coin"));
+            this.tabMain.ImageList.Images.Add(DomainModel.Application.ResourceManager.GetImage("address_book"));
+            this.tabMain.ImageList.Images.Add(DomainModel.Application.ResourceManager.GetImage("users"));
+
+            this.tbpTour.ImageIndex = 0;
+            this.tbpPayments.ImageIndex = 1;
+            this.tbpMembers.ImageIndex = 2;
+            this.tbpStaff.ImageIndex = 3;
+        }
+
+
+        private void SetupControlTexts()
+        {
+            this.Text = Resources.Texts.frm_title_tour_editor;
+            this.tbpMembers.Text = Resources.Texts.tab_title_members;
+            this.tbpPayments.Text = Resources.Texts.tab_title_payments;
+            this.tbpStaff.Text = Resources.Texts.tab_title_staff;
+            this.tbpTour.Text = Resources.Texts.tab_title_tour;
+
+            this.lblComments.Text = Resources.Texts.lbl_comments;
+            this.lblDate.Text = Resources.Texts.lbl_date;
+            this.lblEmployees.Text = Resources.Texts.lbl_employees;
+            this.lblParticipantCount.Text = Resources.Texts.lbl_participant_count;
+            this.lblSignupCount.Text = Resources.Texts.lbl_signup_count;
+            this.lblSignupType.Text = Resources.Texts.lbl_signup_type;
+            this.lblTime.Text = Resources.Texts.lbl_time;
+            this.lblTourStatusLabel.Text = Resources.Texts.lbl_tour_status;
+            this.lblTourType.Text = Resources.Texts.lbl_tour_type;
+
+            this.btnSave.Text = Resources.Texts.save;
+            this.btnCancel.Text = Resources.Texts.cancel;
+        }
+
+
+        void FrmTourEditor_Load(object sender, EventArgs e)
+        {
+            this.tour.SignUpType = (Entities.GeneralType)this.cbxSignUpTypes.SelectedItem;
+            this.tour.TourType = (Entities.GeneralType)this.cbxTourTypes.SelectedItem;
+        }
+
+
+        private void BindControls()
+        {
+            this.dtpTime.DataBindings.Add(
                 new Binding(
                     "Value",
                     this.tour.Time,
@@ -80,7 +161,7 @@ namespace TaxDataStore
                     string.Empty,
                     null));
 
-            this.dtpTourDate.DataBindings.Add(
+            this.dtpDate.DataBindings.Add(
                 new Binding(
                     "Value",
                     this.tour.Time,
@@ -91,8 +172,82 @@ namespace TaxDataStore
                     string.Empty,
                     null));
 
-            this.fgvEmployees.DataSource = this.tour.Employees;
-            this.fgvDetails.DataSource = this.tour.Details;
+            this.tbxSignupCount.DataBindings.Add(
+                new Binding(
+                    "Text",
+                    this.tour,
+                    "SignUpCount",
+                    false,
+                    DataSourceUpdateMode.OnPropertyChanged,
+                    0,
+                    string.Empty,
+                    null));
+
+            this.tbxParticipantCount.DataBindings.Add(
+                new Binding(
+                    "Text",
+                    this.tour,
+                    "ParticipantsCount",
+                    false,
+                    DataSourceUpdateMode.OnPropertyChanged,
+                    string.Empty,
+                    string.Empty,
+                    null));
+
+            this.rtbComments.DataBindings.Add(
+                new Binding(
+                    "Text",
+                    this.tour,
+                    "Comments",
+                    false,
+                    DataSourceUpdateMode.OnPropertyChanged,
+                    0.00M,
+                    string.Empty,
+                    null));
+            /*
+            this.cbxPaymentType.DataBindings.Add(
+                new Binding(
+                    "Text",
+                    this.detail,
+                    "PaymentType",
+                    false,
+                    DataSourceUpdateMode.OnPropertyChanged,
+                    string.Empty,
+                    string.Empty,
+                    null));
+*/
+            this.cbxSignUpTypes.DataBindings.Add(
+                new Binding(
+                    "SelectedItem",
+                    this.tour,
+                    "SignUpType",
+                    false,
+                    DataSourceUpdateMode.OnPropertyChanged,
+                    null,
+                    string.Empty,
+                    null));
+
+            this.cbxTourTypes.DataBindings.Add(
+                new Binding(
+                    "SelectedItem",
+                    this.tour,
+                    "TourType",
+                    false,
+                    DataSourceUpdateMode.OnPropertyChanged,
+                    null,
+                    string.Empty,
+                    null));
+            /*
+            this.lblTourStatus.DataBindings.Add(
+                new Binding(
+                    "Text",
+                    this.tour.Status,
+                    "Name",
+                    false,
+                    DataSourceUpdateMode.OnPropertyChanged,
+                    null,
+                    string.Empty,
+                    null));*/
         }
 
 
@@ -101,15 +256,41 @@ namespace TaxDataStore
             Entities.Employee emp = DomainModel.Employees.GetByName(itemName);
             if (emp != null)
             {
-                this.tour.Employees.Add(emp);
+                if (!this.tour.Employees.Contains(emp))
+                {
+                    this.tour.Employees.Add(emp);
+                }
             }
+        }
+
+
+        private void btnRemoveEmployee_Click(object sender, EventArgs e)
+        {
+            Entities.Employee selected = (Entities.Employee)this.dgvEmployees.SelectedItem;
+            if (selected != null)
+            {
+                this.tour.Employees.Remove(selected);
+            }
+            // UNDONE: Highlight next item
+            // UNDONE: Turn buttons on/off based on data source
+        }
+
+
+        private void btnAddTourMember_Click(object sender, EventArgs e)
+        {
+            Presentation.Controllers.Tours.AddMember(this.tour);
+        }
+
+
+        private void btnRemoveTourMember_Click(object sender, EventArgs e)
+        {
+
         }
 
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             bool res = false;
-
 
             if (this.editTour != null)
             {
@@ -137,46 +318,26 @@ namespace TaxDataStore
         }
 
 
-        private void btnAddDetail_Click(object sender, EventArgs e)
+        private void btnAddPayment_Click(object sender, EventArgs e)
         {
-            Presentation.Controllers.Tours.AddDetail(this.tour);
+
         }
 
 
-        private void btnRemoveDetail_Click(object sender, EventArgs e)
+        private void btnRemovePayment_Click(object sender, EventArgs e)
         {
-            Entities.TourDetail selected = (Entities.TourDetail)this.fgvDetails.SelectedItem;
-            if (selected != null)
-            {
-                this.tour.Details.Remove(selected);
-            }
-            // UNDONE: Highlight next item
-            // UNDONE: Turn buttons on/off based on data source
+
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+
         }
 
 
-        private void btnRemoveEmployee_Click(object sender, EventArgs e)
+        private void btnEditPayment_Click(object sender, EventArgs e)
         {
-            Entities.Employee selected = (Entities.Employee)this.fgvEmployees.SelectedItem;
-            if (selected != null)
-            {
-                this.tour.Employees.Remove(selected);
-            }
-            // UNDONE: Highlight next item
-            // UNDONE: Turn buttons on/off based on data source
-        }
 
-
-        private void btnEditDetail_Click(object sender, EventArgs e)
-        {
-            Entities.TourDetail selected = (Entities.TourDetail)this.fgvDetails.SelectedItem;
-            if (selected != null)
-            {
-                Presentation.Controllers.Tours.EditDetail(selected);
-                this.fgvDetails.UpdateBinding();
-                this.fgvDetails.Update();
-                this.fgvDetails.Refresh();
-            }
         }
     }
 }

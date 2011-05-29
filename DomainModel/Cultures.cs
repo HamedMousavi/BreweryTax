@@ -7,13 +7,21 @@ namespace DomainModel
     public class Cultures
     {
         private static CultureCollection cultures;
+        private static Repository.Sql.Languages repo;
 
 
-        public static void Init()
+        public static void Init(string sqlConnectionString)
+        {
+            repo = new Repository.Sql.Languages(sqlConnectionString);
+            
+            LoadCultures();
+        }
+
+
+        private static void LoadCultures()
         {
             cultures = new CultureCollection();
-            cultures.Add(new Culture("English", "en-us"));
-            cultures.Add(new Culture("German", "de-DE"));
+            repo.Load(cultures);
         }
 
 

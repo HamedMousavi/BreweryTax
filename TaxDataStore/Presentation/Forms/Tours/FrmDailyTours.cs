@@ -8,24 +8,22 @@ namespace TaxDataStore
 
     public partial class FrmDailyTours : Form
     {
-        protected FlatGridView fgvTimeList;
+        protected ToursGridView fgvTours;
         protected FlatGridView fgvEmployees;
-        protected FlatGridView fgvDetails;
-
+        protected FlatGridView fgvTourContacts;
+        protected FlatGridView fgvMemberContacts;
 
         protected Entities.TourCollection tours;
 
         protected BindingSource bstMaster;
-        protected BindingSource bstTimes;
         protected BindingSource bstEmployees;
-        protected BindingSource bstDetails;
+        protected BindingSource bstTourContacts;
+        protected BindingSource bstMemberContacts;
 
 
         public FrmDailyTours()
         {
             InitializeComponent();
-
-            SetupControls();
 
             this.tours = new Entities.TourCollection();
             UpdateTourList();
@@ -33,46 +31,58 @@ namespace TaxDataStore
             bstMaster = new BindingSource();
             bstMaster.DataSource = this.tours;
 
-            bstTimes = new BindingSource();
-            bstTimes.DataSource = bstMaster;
-            bstTimes.DataMember = "Time";
-
             bstEmployees = new BindingSource();
             bstEmployees.DataSource = bstMaster;
             bstEmployees.DataMember = "Employees";
 
-            bstDetails = new BindingSource();
-            bstDetails.DataSource = bstMaster;
-            bstDetails.DataMember = "Details";
+            bstTourContacts = new BindingSource();
+            bstTourContacts.DataSource = bstMaster;
+            bstTourContacts.DataMember = "Members";
 
-            this.fgvTimeList.DataSource = this.bstMaster;
-            this.fgvEmployees.DataSource = this.bstEmployees;
-            this.fgvDetails.DataSource = this.bstDetails;
+            bstMemberContacts = new BindingSource();
+            bstMemberContacts.DataSource = bstTourContacts;
+            bstMemberContacts.DataMember = "Contacts";
+
+            this.rtbComments.DataBindings.Add(
+                new Binding(
+                    "Text",
+                    this.bstMaster,
+                    "Comments",
+                    false,
+                    DataSourceUpdateMode.OnPropertyChanged,
+                    string.Empty,
+                    string.Empty,
+                    null));
+
+            SetupControls();
         }
-
 
 
         private void SetupControls()
         {
-            this.fgvTimeList = new FlatGridView();
-            this.fgvTimeList.ColumnHeadersVisible = false;
-
+            this.fgvTours = new ToursGridView(this.bstMaster);
             this.fgvEmployees = new FlatGridView();
-            this.fgvDetails = new FlatGridView();
+            this.fgvTourContacts = new FlatGridView();
+            this.fgvMemberContacts = new FlatGridView();
 
+            this.gpxTours.Controls.Add(this.fgvTours);
             this.gpxEmployees.Controls.Add(this.fgvEmployees);
-            this.gpxTimeList.Controls.Add(this.fgvTimeList);
-            this.gpxTourDetails.Controls.Add(this.fgvDetails);
+            this.gpxTourMembers.Controls.Add(this.fgvTourContacts);
+            this.gpxMemberContacts.Controls.Add(this.fgvMemberContacts);
 
             this.btnAddTour.Image = DomainModel.Application.ResourceManager.GetImage("add");
             this.btnDeleteTour.Image = DomainModel.Application.ResourceManager.GetImage("delete");
             this.btnEditTour.Image = DomainModel.Application.ResourceManager.GetImage("pencil");
+            
+            this.fgvEmployees.DataSource = this.bstEmployees;
+            this.fgvTourContacts.DataSource = this.bstTourContacts;
+            this.fgvMemberContacts.DataSource = this.bstMemberContacts;
         }
 
 
         private void btnEditTour_Click(object sender, EventArgs e)
         {
-            Entities.Tour tour =  (Entities.Tour)this.fgvTimeList.SelectedItem;
+            Entities.Tour tour =  (Entities.Tour)this.fgvTours.SelectedItem;
             if (tour != null)
             {
                 Presentation.Controllers.Tours.Edit(tour);
@@ -90,7 +100,7 @@ namespace TaxDataStore
 
         private void btnDeleteTour_Click(object sender, EventArgs e)
         {
-            Entities.Tour tour = (Entities.Tour)this.fgvTimeList.SelectedItem;
+            Entities.Tour tour = (Entities.Tour)this.fgvTours.SelectedItem;
             if (tour != null)
             {
                 Presentation.Controllers.Tours.Delete(tour);

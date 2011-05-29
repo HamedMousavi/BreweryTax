@@ -1,0 +1,122 @@
+﻿using System;
+using System.Windows.Forms;
+using Entities;
+using TaxDataStore.Presentation.Controls;
+
+
+namespace TaxDataStore
+{
+
+    public partial class FrmTourMemberEditor : Form
+    {
+
+        protected ContactsGridView dgvContacts;
+        protected TypeComboBox cbxTitle;
+        protected TourMemberCollection members;
+        protected TourMember member;
+
+
+        public FrmTourMemberEditor()
+        {
+            InitializeComponent();
+
+            this.btnAddContact.Image = DomainModel.Application.ResourceManager.GetImage("add");
+            this.btnRemoveContact.Image = DomainModel.Application.ResourceManager.GetImage("delete");
+
+            this.Text = Resources.Texts.frm_title_member_editor;
+            this.lblFirstName.Text = Resources.Texts.lbl_first_name;
+            this.lblLastName.Text = Resources.Texts.lbl_last_name;
+            this.lblTitle.Text = Resources.Texts.lbl_title;
+            this.gpxContacts.Text = Resources.Texts.gpx_contacts;
+            
+            this.member = new TourMember();
+            this.cbxTitle = new TypeComboBox("PersonTitleTypes");
+
+            this.tbxFirstName.DataBindings.Add(
+                new Binding(
+                    "Text",
+                    this.member,
+                    "FirstName",
+                    false,
+                    DataSourceUpdateMode.OnPropertyChanged,
+                    string.Empty,
+                    string.Empty,
+                    null));
+
+            this.tbxLastName.DataBindings.Add(
+                new Binding(
+                    "Text",
+                    this.member,
+                    "LastName",
+                    false,
+                    DataSourceUpdateMode.OnPropertyChanged,
+                    string.Empty,
+                    string.Empty,
+                    null));
+
+            this.cbxTitle.DataBindings.Add(
+                new Binding(
+                    "SelectedItem",
+                    this.member,
+                    "Title",
+                    false,
+                    DataSourceUpdateMode.OnPropertyChanged,
+                    null,
+                    string.Empty,
+                    null));
+
+            this.cbxTitle.Anchor = (AnchorStyles.Top | AnchorStyles.Left) | AnchorStyles.Right;
+
+            this.tlpMain.Controls.Add(this.cbxTitle, 1, 0);
+
+            this.dgvContacts = new ContactsGridView(this.member.Contacts);
+            this.tlpContacts.Controls.Add(this.dgvContacts, 0, 1);
+            this.tlpContacts.SetColumnSpan(this.dgvContacts, 2);
+        }
+
+
+        public FrmTourMemberEditor(TourMemberCollection members)
+            : this()
+        {
+            this.members = members;
+        }
+
+
+        private void btnAddContact_Click(object sender, EventArgs e)
+        {
+            Contact contact = new Contact();
+            this.member.Contacts.Add(contact);
+
+            try
+            {
+                int lastId = Math.Max(this.dgvContacts.Rows.Count - 1, 0);
+                this.dgvContacts.Rows[lastId].Cells[0].Selected = true;
+                this.dgvContacts.BeginEdit(true);
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+
+        private void btnRemoveContact_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            this.members.Add(this.member);
+            this.DialogResult = DialogResult.OK;
+            Close();
+        }
+
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            Close();
+        }
+    }
+}

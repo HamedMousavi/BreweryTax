@@ -25,7 +25,7 @@ namespace TaxDataStore.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=\"(local)\\SQLEXPRESS, 1434\";Initial Catalog=IntegratedTaxSystem;User I" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=\"(local)\\SQLEXPRESS, 1435\";Initial Catalog=IntegratedTaxSystem;User I" +
             "D=IntegratedTaxSystemApplication;Password=ITS*%{940}^Z;")]
         public string DatabaseConnectionString {
             get {

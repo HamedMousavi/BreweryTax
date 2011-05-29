@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Entities</RootNamespace>
     <AssemblyName>Entities</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,12 +43,18 @@
     <Compile Include="Abstract\Repository\ITask.cs" />
     <Compile Include="Abstract\Repository\IUsers.cs" />
     <Compile Include="Abstract\Repository\IUserSettings.cs" />
+    <Compile Include="Contact.cs" />
+    <Compile Include="ContactCollection.cs" />
     <Compile Include="Culture.cs" />
     <Compile Include="CultureCollection.cs" />
     <Compile Include="Datetime.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeCollection.cs" />
+    <Compile Include="GeneralType.cs" />
+    <Compile Include="GeneralTypeCollection.cs" />
     <Compile Include="Money.cs" />
+    <Compile Include="MoneyCurrency.cs" />
+    <Compile Include="MoneyCurrencyCollection.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="RoleCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -55,8 +62,11 @@
     <Compile Include="TaskCollection.cs" />
     <Compile Include="Tour.cs" />
     <Compile Include="TourCollection.cs" />
-    <Compile Include="TourDetail.cs" />
-    <Compile Include="TourDetailCollection.cs" />
+    <Compile Include="TourMember.cs" />
+    <Compile Include="TourMemberCollection.cs" />
+    <Compile Include="TourPayment.cs" />
+    <Compile Include="TourPaymentCollection.cs" />
+    <Compile Include="TourStatus.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserCollection.cs" />
     <Compile Include="UserSettings.cs" />

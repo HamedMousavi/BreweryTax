@@ -1,6 +1,6 @@
-﻿
+﻿using System;
 
-using System;
+
 namespace TaxDataStore.Presentation.Controllers
 {
 
@@ -45,17 +45,9 @@ namespace TaxDataStore.Presentation.Controllers
         }
 
 
-        internal static void AddDetail(Entities.Tour tour)
+        internal static void AddMember(Entities.Tour tour)
         {
-            using (FrmTourDetailEditor frm = new FrmTourDetailEditor(tour))
-            {
-                frm.ShowDialog();
-            }
-        }
-
-        internal static void EditDetail(Entities.TourDetail detail)
-        {
-            using (FrmTourDetailEditor frm = new FrmTourDetailEditor(null, detail))
+            using (FrmTourMemberEditor frm = new FrmTourMemberEditor(tour.Members))
             {
                 frm.ShowDialog();
             }

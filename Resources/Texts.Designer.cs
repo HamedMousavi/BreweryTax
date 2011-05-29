@@ -178,11 +178,209 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit member.
+        /// </summary>
+        public static string frm_title_member_editor {
+            get {
+                return ResourceManager.GetString("frm_title_member_editor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit tour.
+        /// </summary>
+        public static string frm_title_tour_editor {
+            get {
+                return ResourceManager.GetString("frm_title_tour_editor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contacts.
+        /// </summary>
+        public static string gpx_contacts {
+            get {
+                return ResourceManager.GetString("gpx_contacts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Participants.
+        /// </summary>
+        public static string grid_title_participants {
+            get {
+                return ResourceManager.GetString("grid_title_participants", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Payment type.
+        /// </summary>
+        public static string grid_title_payment_type {
+            get {
+                return ResourceManager.GetString("grid_title_payment_type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price per person.
+        /// </summary>
+        public static string grid_title_price_per_person {
+            get {
+                return ResourceManager.GetString("grid_title_price_per_person", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Signed up.
+        /// </summary>
+        public static string grid_title_signup_count {
+            get {
+                return ResourceManager.GetString("grid_title_signup_count", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SigneUp type.
+        /// </summary>
+        public static string grid_title_signup_type {
+            get {
+                return ResourceManager.GetString("grid_title_signup_type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time.
+        /// </summary>
+        public static string grid_title_time {
+            get {
+                return ResourceManager.GetString("grid_title_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tour type.
+        /// </summary>
+        public static string grid_title_tour_type {
+            get {
+                return ResourceManager.GetString("grid_title_tour_type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Language.
         /// </summary>
         public static string language {
             get {
                 return ResourceManager.GetString("language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Comments.
+        /// </summary>
+        public static string lbl_comments {
+            get {
+                return ResourceManager.GetString("lbl_comments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        public static string lbl_date {
+            get {
+                return ResourceManager.GetString("lbl_date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employees.
+        /// </summary>
+        public static string lbl_employees {
+            get {
+                return ResourceManager.GetString("lbl_employees", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First name.
+        /// </summary>
+        public static string lbl_first_name {
+            get {
+                return ResourceManager.GetString("lbl_first_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last name.
+        /// </summary>
+        public static string lbl_last_name {
+            get {
+                return ResourceManager.GetString("lbl_last_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Participants count.
+        /// </summary>
+        public static string lbl_participant_count {
+            get {
+                return ResourceManager.GetString("lbl_participant_count", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sign up count.
+        /// </summary>
+        public static string lbl_signup_count {
+            get {
+                return ResourceManager.GetString("lbl_signup_count", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sign up type.
+        /// </summary>
+        public static string lbl_signup_type {
+            get {
+                return ResourceManager.GetString("lbl_signup_type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to time.
+        /// </summary>
+        public static string lbl_time {
+            get {
+                return ResourceManager.GetString("lbl_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        public static string lbl_title {
+            get {
+                return ResourceManager.GetString("lbl_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        public static string lbl_tour_status {
+            get {
+                return ResourceManager.GetString("lbl_tour_status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string lbl_tour_type {
+            get {
+                return ResourceManager.GetString("lbl_tour_type", resourceCulture);
             }
         }
         
@@ -471,6 +669,42 @@ namespace Resources {
         public static string select_user {
             get {
                 return ResourceManager.GetString("select_user", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guest.
+        /// </summary>
+        public static string tab_title_members {
+            get {
+                return ResourceManager.GetString("tab_title_members", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Payments.
+        /// </summary>
+        public static string tab_title_payments {
+            get {
+                return ResourceManager.GetString("tab_title_payments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Staff.
+        /// </summary>
+        public static string tab_title_staff {
+            get {
+                return ResourceManager.GetString("tab_title_staff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tour.
+        /// </summary>
+        public static string tab_title_tour {
+            get {
+                return ResourceManager.GetString("tab_title_tour", resourceCulture);
             }
         }
         

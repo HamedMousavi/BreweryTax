@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
+            this.gpxNotes = new System.Windows.Forms.GroupBox();
+            this.rtbComments = new System.Windows.Forms.RichTextBox();
+            this.gpxEmployees = new System.Windows.Forms.GroupBox();
+            this.gpxTours = new System.Windows.Forms.GroupBox();
             this.tlpDate = new System.Windows.Forms.TableLayoutPanel();
             this.dtpCurrentDate = new System.Windows.Forms.DateTimePicker();
             this.lblDate = new System.Windows.Forms.Label();
@@ -36,17 +40,15 @@
             this.btnAddTour = new System.Windows.Forms.Button();
             this.btnEditTour = new System.Windows.Forms.Button();
             this.btnDeleteTour = new System.Windows.Forms.Button();
-            this.tlpTourDetails = new System.Windows.Forms.TableLayoutPanel();
-            this.gpxTourDetails = new System.Windows.Forms.GroupBox();
-            this.tlpEmployeeNotes = new System.Windows.Forms.TableLayoutPanel();
-            this.gpxEmployees = new System.Windows.Forms.GroupBox();
-            this.gpxNotes = new System.Windows.Forms.GroupBox();
-            this.gpxTimeList = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.gpxTourMembers = new System.Windows.Forms.GroupBox();
+            this.gpxMemberContacts = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tlpMain.SuspendLayout();
+            this.gpxNotes.SuspendLayout();
             this.tlpDate.SuspendLayout();
             this.tlpButtons.SuspendLayout();
-            this.tlpTourDetails.SuspendLayout();
-            this.tlpEmployeeNotes.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpMain
@@ -54,17 +56,68 @@
             this.tlpMain.ColumnCount = 2;
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpMain.Controls.Add(this.gpxNotes, 1, 3);
+            this.tlpMain.Controls.Add(this.gpxEmployees, 0, 3);
+            this.tlpMain.Controls.Add(this.gpxTours, 0, 1);
             this.tlpMain.Controls.Add(this.tlpDate, 0, 0);
-            this.tlpMain.Controls.Add(this.tlpTourDetails, 1, 1);
-            this.tlpMain.Controls.Add(this.gpxTimeList, 0, 1);
+            this.tlpMain.Controls.Add(this.tableLayoutPanel1, 0, 2);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Name = "tlpMain";
-            this.tlpMain.RowCount = 2;
+            this.tlpMain.RowCount = 4;
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.44444F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
             this.tlpMain.Size = new System.Drawing.Size(649, 456);
             this.tlpMain.TabIndex = 0;
+            // 
+            // gpxNotes
+            // 
+            this.gpxNotes.Controls.Add(this.rtbComments);
+            this.gpxNotes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gpxNotes.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.gpxNotes.Location = new System.Drawing.Point(163, 364);
+            this.gpxNotes.Name = "gpxNotes";
+            this.gpxNotes.Size = new System.Drawing.Size(483, 89);
+            this.gpxNotes.TabIndex = 6;
+            this.gpxNotes.TabStop = false;
+            this.gpxNotes.Text = "Notes";
+            // 
+            // rtbComments
+            // 
+            this.rtbComments.BackColor = System.Drawing.Color.White;
+            this.rtbComments.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbComments.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbComments.Location = new System.Drawing.Point(3, 18);
+            this.rtbComments.Name = "rtbComments";
+            this.rtbComments.ReadOnly = true;
+            this.rtbComments.Size = new System.Drawing.Size(477, 68);
+            this.rtbComments.TabIndex = 0;
+            this.rtbComments.Text = "";
+            // 
+            // gpxEmployees
+            // 
+            this.gpxEmployees.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gpxEmployees.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.gpxEmployees.Location = new System.Drawing.Point(3, 364);
+            this.gpxEmployees.Name = "gpxEmployees";
+            this.gpxEmployees.Size = new System.Drawing.Size(154, 89);
+            this.gpxEmployees.TabIndex = 0;
+            this.gpxEmployees.TabStop = false;
+            this.gpxEmployees.Text = "Employees";
+            // 
+            // gpxTours
+            // 
+            this.tlpMain.SetColumnSpan(this.gpxTours, 2);
+            this.gpxTours.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gpxTours.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.gpxTours.Location = new System.Drawing.Point(3, 35);
+            this.gpxTours.Name = "gpxTours";
+            this.gpxTours.Size = new System.Drawing.Size(643, 182);
+            this.gpxTours.TabIndex = 0;
+            this.gpxTours.TabStop = false;
+            this.gpxTours.Text = "Tours";
             // 
             // tlpDate
             // 
@@ -130,12 +183,13 @@
             // 
             // btnAddTour
             // 
+            this.btnAddTour.AutoSize = true;
+            this.btnAddTour.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnAddTour.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddTour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddTour.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnAddTour.Location = new System.Drawing.Point(3, 3);
             this.btnAddTour.Name = "btnAddTour";
-            this.btnAddTour.Size = new System.Drawing.Size(100, 26);
+            this.btnAddTour.Size = new System.Drawing.Size(66, 24);
             this.btnAddTour.TabIndex = 0;
             this.btnAddTour.Text = "Add tour";
             this.btnAddTour.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -145,12 +199,13 @@
             // 
             // btnEditTour
             // 
+            this.btnEditTour.AutoSize = true;
+            this.btnEditTour.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnEditTour.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditTour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditTour.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnEditTour.Location = new System.Drawing.Point(109, 3);
+            this.btnEditTour.Location = new System.Drawing.Point(75, 3);
             this.btnEditTour.Name = "btnEditTour";
-            this.btnEditTour.Size = new System.Drawing.Size(100, 26);
+            this.btnEditTour.Size = new System.Drawing.Size(65, 24);
             this.btnEditTour.TabIndex = 1;
             this.btnEditTour.Text = "Edit tour";
             this.btnEditTour.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -160,12 +215,13 @@
             // 
             // btnDeleteTour
             // 
+            this.btnDeleteTour.AutoSize = true;
+            this.btnDeleteTour.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnDeleteTour.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeleteTour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteTour.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDeleteTour.Location = new System.Drawing.Point(215, 3);
+            this.btnDeleteTour.Location = new System.Drawing.Point(146, 3);
             this.btnDeleteTour.Name = "btnDeleteTour";
-            this.btnDeleteTour.Size = new System.Drawing.Size(100, 26);
+            this.btnDeleteTour.Size = new System.Drawing.Size(80, 24);
             this.btnDeleteTour.TabIndex = 2;
             this.btnDeleteTour.Text = "Delete tour";
             this.btnDeleteTour.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -173,82 +229,60 @@
             this.btnDeleteTour.UseVisualStyleBackColor = true;
             this.btnDeleteTour.Click += new System.EventHandler(this.btnDeleteTour_Click);
             // 
-            // tlpTourDetails
+            // tableLayoutPanel1
             // 
-            this.tlpTourDetails.ColumnCount = 1;
-            this.tlpTourDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpTourDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpTourDetails.Controls.Add(this.gpxTourDetails, 0, 1);
-            this.tlpTourDetails.Controls.Add(this.tlpEmployeeNotes, 0, 0);
-            this.tlpTourDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpTourDetails.Location = new System.Drawing.Point(160, 32);
-            this.tlpTourDetails.Margin = new System.Windows.Forms.Padding(0);
-            this.tlpTourDetails.Name = "tlpTourDetails";
-            this.tlpTourDetails.RowCount = 2;
-            this.tlpTourDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpTourDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpTourDetails.Size = new System.Drawing.Size(489, 424);
-            this.tlpTourDetails.TabIndex = 1;
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tlpMain.SetColumnSpan(this.tableLayoutPanel1, 2);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.Controls.Add(this.gpxTourMembers, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.gpxMemberContacts, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox2, 2, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 220);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(649, 141);
+            this.tableLayoutPanel1.TabIndex = 7;
             // 
-            // gpxTourDetails
+            // gpxTourMembers
             // 
-            this.gpxTourDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gpxTourDetails.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.gpxTourDetails.Location = new System.Drawing.Point(3, 215);
-            this.gpxTourDetails.Name = "gpxTourDetails";
-            this.gpxTourDetails.Size = new System.Drawing.Size(483, 206);
-            this.gpxTourDetails.TabIndex = 0;
-            this.gpxTourDetails.TabStop = false;
-            this.gpxTourDetails.Text = "Tour details";
+            this.gpxTourMembers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gpxTourMembers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gpxTourMembers.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.gpxTourMembers.Location = new System.Drawing.Point(3, 3);
+            this.gpxTourMembers.Name = "gpxTourMembers";
+            this.gpxTourMembers.Size = new System.Drawing.Size(156, 135);
+            this.gpxTourMembers.TabIndex = 5;
+            this.gpxTourMembers.TabStop = false;
+            this.gpxTourMembers.Text = "Tour members";
             // 
-            // tlpEmployeeNotes
+            // gpxMemberContacts
             // 
-            this.tlpEmployeeNotes.ColumnCount = 2;
-            this.tlpEmployeeNotes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
-            this.tlpEmployeeNotes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpEmployeeNotes.Controls.Add(this.gpxEmployees, 0, 0);
-            this.tlpEmployeeNotes.Controls.Add(this.gpxNotes, 1, 0);
-            this.tlpEmployeeNotes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpEmployeeNotes.Location = new System.Drawing.Point(3, 3);
-            this.tlpEmployeeNotes.Name = "tlpEmployeeNotes";
-            this.tlpEmployeeNotes.RowCount = 1;
-            this.tlpEmployeeNotes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpEmployeeNotes.Size = new System.Drawing.Size(483, 206);
-            this.tlpEmployeeNotes.TabIndex = 1;
+            this.gpxMemberContacts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gpxMemberContacts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gpxMemberContacts.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.gpxMemberContacts.Location = new System.Drawing.Point(165, 3);
+            this.gpxMemberContacts.Name = "gpxMemberContacts";
+            this.gpxMemberContacts.Size = new System.Drawing.Size(221, 135);
+            this.gpxMemberContacts.TabIndex = 5;
+            this.gpxMemberContacts.TabStop = false;
+            this.gpxMemberContacts.Text = "Member contacts";
             // 
-            // gpxEmployees
+            // groupBox2
             // 
-            this.gpxEmployees.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gpxEmployees.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.gpxEmployees.Location = new System.Drawing.Point(3, 3);
-            this.gpxEmployees.Name = "gpxEmployees";
-            this.gpxEmployees.Size = new System.Drawing.Size(154, 200);
-            this.gpxEmployees.TabIndex = 0;
-            this.gpxEmployees.TabStop = false;
-            this.gpxEmployees.Text = "Employees";
-            // 
-            // gpxNotes
-            // 
-            this.gpxNotes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gpxNotes.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.gpxNotes.Location = new System.Drawing.Point(163, 3);
-            this.gpxNotes.Name = "gpxNotes";
-            this.gpxNotes.Size = new System.Drawing.Size(317, 200);
-            this.gpxNotes.TabIndex = 0;
-            this.gpxNotes.TabStop = false;
-            this.gpxNotes.Text = "Notes";
-            // 
-            // gpxTimeList
-            // 
-            this.gpxTimeList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gpxTimeList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gpxTimeList.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.gpxTimeList.Location = new System.Drawing.Point(3, 35);
-            this.gpxTimeList.Name = "gpxTimeList";
-            this.gpxTimeList.Size = new System.Drawing.Size(154, 418);
-            this.gpxTimeList.TabIndex = 4;
-            this.gpxTimeList.TabStop = false;
-            this.gpxTimeList.Text = "Time of day";
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.groupBox2.Location = new System.Drawing.Point(392, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(254, 135);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Tour payments";
             // 
             // FrmDailyTours
             // 
@@ -261,11 +295,12 @@
             this.Name = "FrmDailyTours";
             this.Text = "Daily tours";
             this.tlpMain.ResumeLayout(false);
+            this.gpxNotes.ResumeLayout(false);
             this.tlpDate.ResumeLayout(false);
             this.tlpDate.PerformLayout();
             this.tlpButtons.ResumeLayout(false);
-            this.tlpTourDetails.ResumeLayout(false);
-            this.tlpEmployeeNotes.ResumeLayout(false);
+            this.tlpButtons.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -277,14 +312,16 @@
         private System.Windows.Forms.Button btnAddTour;
         private System.Windows.Forms.Button btnEditTour;
         private System.Windows.Forms.Button btnDeleteTour;
-        private System.Windows.Forms.TableLayoutPanel tlpTourDetails;
-        private System.Windows.Forms.GroupBox gpxTimeList;
         private System.Windows.Forms.TableLayoutPanel tlpDate;
         private System.Windows.Forms.DateTimePicker dtpCurrentDate;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.GroupBox gpxEmployees;
-        private System.Windows.Forms.GroupBox gpxTourDetails;
-        private System.Windows.Forms.TableLayoutPanel tlpEmployeeNotes;
+        private System.Windows.Forms.GroupBox gpxTours;
         private System.Windows.Forms.GroupBox gpxNotes;
+        private System.Windows.Forms.RichTextBox rtbComments;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.GroupBox gpxTourMembers;
+        private System.Windows.Forms.GroupBox gpxMemberContacts;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

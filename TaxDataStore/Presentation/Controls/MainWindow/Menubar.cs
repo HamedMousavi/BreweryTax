@@ -65,7 +65,7 @@ namespace TaxDataStore.Presentation.Controls
 
             this.miTours = new MenuItem(
                 "tours",
-                "currency_euro",
+                "calendar_select_days",
                 string.Empty,
                 Presentation.Controllers.Tours.Today);
 

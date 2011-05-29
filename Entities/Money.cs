@@ -5,33 +5,92 @@ using System.ComponentModel;
 namespace Entities
 {
 
-    public class Money
+    public class Money : INotifyPropertyChanged
     {
-
-        [BrowsableAttribute(false)]
-        public enum Currencies
+        protected decimal value;
+        public decimal Value 
         {
-            Eur = 0,
-            USD = 1
+            get { return this.value; }
+            set
+            {
+                if (this.value != value)
+                {
+                    this.value = value;
+                    RaisePropertyChanged("Value");
+                }
+            }
         }
 
 
-        public Decimal Value { get; set; }
-
-
-        public Currencies Currency { get; set; }
-
-
-        public Money(Decimal value, Currencies currency)
+        /*
+        public Int64 Integer 
         {
-            this.Value = value;
-            this.Currency = currency;
+            get {  }
+            set
+            {
+            }
+        }
+
+        public Int64 Fraction 
+        {
+            get {}
+            set
+            {
+            }
+        }
+        */
+
+
+        protected MoneyCurrency currency;
+        public MoneyCurrency Currency
+        {
+            get { return this.currency; }
+            set
+            {
+                if (this.currency != value)
+                {
+                    this.currency = value;
+                    RaisePropertyChanged("Currency");
+                }
+            }
+        }
+
+
+        public Money(decimal value, MoneyCurrency currency)
+        {
+            this.value = value;
+
+            this.currency = currency;
         }
 
 
         public override string ToString()
         {
-            return string.Format("{0} {1}", this.Value, this.Currency);
+            if (this.currency == null)
+            {
+                return string.Format("{0}", this.value);
+            }
+            else
+            {
+                return string.Format("{0} {1}", this.value, this.Currency.Symbol);
+            }
+        }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+
+        internal void CopyTo(Money money)
+        {
+            money.Currency = this.currency;
+            money.Value = this.value;
         }
     }
 }

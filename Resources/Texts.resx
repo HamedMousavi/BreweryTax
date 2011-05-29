@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="add" xml:space="preserve">
     <value>&amp;Add</value>
@@ -269,5 +269,83 @@
   </data>
   <data name="app_welcome" xml:space="preserve">
     <value>Welcome </value>
+  </data>
+  <data name="grid_title_participants" xml:space="preserve">
+    <value>Participants</value>
+  </data>
+  <data name="grid_title_payment_type" xml:space="preserve">
+    <value>Payment type</value>
+  </data>
+  <data name="grid_title_price_per_person" xml:space="preserve">
+    <value>Price per person</value>
+  </data>
+  <data name="grid_title_signup_count" xml:space="preserve">
+    <value>Signed up</value>
+  </data>
+  <data name="grid_title_signup_type" xml:space="preserve">
+    <value>SigneUp type</value>
+  </data>
+  <data name="grid_title_time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="grid_title_tour_type" xml:space="preserve">
+    <value>Tour type</value>
+  </data>
+  <data name="frm_title_tour_editor" xml:space="preserve">
+    <value>Edit tour</value>
+  </data>
+  <data name="lbl_comments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="lbl_date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="lbl_employees" xml:space="preserve">
+    <value>Employees</value>
+  </data>
+  <data name="lbl_participant_count" xml:space="preserve">
+    <value>Participants count</value>
+  </data>
+  <data name="lbl_signup_count" xml:space="preserve">
+    <value>Sign up count</value>
+  </data>
+  <data name="lbl_signup_type" xml:space="preserve">
+    <value>Sign up type</value>
+  </data>
+  <data name="lbl_time" xml:space="preserve">
+    <value>time</value>
+  </data>
+  <data name="lbl_tour_status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="lbl_tour_type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="tab_title_members" xml:space="preserve">
+    <value>Guest</value>
+  </data>
+  <data name="tab_title_payments" xml:space="preserve">
+    <value>Payments</value>
+  </data>
+  <data name="tab_title_staff" xml:space="preserve">
+    <value>Staff</value>
+  </data>
+  <data name="tab_title_tour" xml:space="preserve">
+    <value>Tour</value>
+  </data>
+  <data name="frm_title_member_editor" xml:space="preserve">
+    <value>Edit member</value>
+  </data>
+  <data name="gpx_contacts" xml:space="preserve">
+    <value>Contacts</value>
+  </data>
+  <data name="lbl_first_name" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="lbl_last_name" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="lbl_title" xml:space="preserve">
+    <value>Title</value>
   </data>
 </root>

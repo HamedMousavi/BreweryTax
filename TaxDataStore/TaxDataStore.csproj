@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TaxDataStore</RootNamespace>
     <AssemblyName>TaxDataStore</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -41,17 +42,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Presentation\Controls\EmployeesMenu.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Presentation\Controls\EmployeesSplitButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Presentation\Forms\Tours\FrmTourDetailEditor.cs">
+    <Compile Include="Presentation\Forms\Tours\FrmTourMemberEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\Forms\Tours\FrmTourDetailEditor.Designer.cs">
-      <DependentUpon>FrmTourDetailEditor.cs</DependentUpon>
+    <Compile Include="Presentation\Forms\Tours\FrmTourMemberEditor.Designer.cs">
+      <DependentUpon>FrmTourMemberEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Controls\ContactsGrid\ContactMediaTypeCbxColumn.cs" />
+    <Compile Include="Presentation\Controls\ContactsGrid\ContactMediaTypeCell.cs" />
+    <Compile Include="Presentation\Controls\ContactsGrid\ContactMediaTypeColumn.cs" />
+    <Compile Include="Presentation\Controls\ContactsGrid\ContactsGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\EmployeesGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\ContactsGrid\ImageComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\MembersGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\PaymentsGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\TypeComboBox.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Presentation\Forms\Tours\FrmTourEditor.cs">
       <SubType>Form</SubType>
@@ -59,7 +75,28 @@
     <Compile Include="Presentation\Forms\Tours\FrmTourEditor.Designer.cs">
       <DependentUpon>FrmTourEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUserSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUserSettings.Designer.cs">
+      <DependentUpon>FrmUserSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Controls\MoneyPicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\MoneyPicker.Designer.cs">
+      <DependentUpon>MoneyPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Controls\EmployeesMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\EmployeesSplitButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Presentation\Controls\FlatGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\ToursGridView.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Presentation\Forms\Tours\FrmDailyTours.cs">
@@ -69,7 +106,7 @@
       <DependentUpon>FrmDailyTours.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\AsyncCalls.cs" />
-    <Compile Include="Presentation\Controls\ToolbarButton.cs">
+    <Compile Include="Presentation\Controls\MainWindow\ToolbarButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Presentation\Forms\Membership\FrmRoleEditor.cs">
@@ -79,10 +116,10 @@
       <DependentUpon>FrmRoleEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Controllers\Roles.cs" />
-    <Compile Include="Presentation\Controls\RolesListView.cs">
+    <Compile Include="Presentation\Controls\Membership\RolesListView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\TasksCheckedListBox.cs">
+    <Compile Include="Presentation\Controls\Membership\TasksCheckedListBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Presentation\Forms\Membership\FrmUserEditor.cs">
@@ -97,7 +134,7 @@
     <Compile Include="Presentation\Controls\GeneralAppSettings.Designer.cs">
       <DependentUpon>GeneralAppSettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Controls\UsersListView.cs">
+    <Compile Include="Presentation\Controls\Membership\UsersListView.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Presentation\Forms\Application\FrmAppSettings.cs">
@@ -109,19 +146,19 @@
     <Compile Include="Presentation\ClientFormManager.cs" />
     <Compile Include="Presentation\Controllers\Help.cs" />
     <Compile Include="Presentation\Controllers\Tours.cs" />
-    <Compile Include="Presentation\Controls\HLayoutPanel.cs">
+    <Compile Include="Presentation\Controls\MainWindow\HLayoutPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\Menubar.cs">
+    <Compile Include="Presentation\Controls\MainWindow\Menubar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\MenuItem.cs">
+    <Compile Include="Presentation\Controls\MainWindow\MenuItem.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\Statusbar.cs">
+    <Compile Include="Presentation\Controls\MainWindow\Statusbar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\Toolbar.cs">
+    <Compile Include="Presentation\Controls\MainWindow\Toolbar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Presentation\Forms\Membership\FrmLogin.cs">
@@ -143,28 +180,34 @@
     <Compile Include="Program.cs" />
     <Compile Include="ProgramContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Presentation\Controls\RoleManager.cs">
+    <Compile Include="Presentation\Controls\Membership\RoleManager.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\RoleManager.Designer.cs">
+    <Compile Include="Presentation\Controls\Membership\RoleManager.Designer.cs">
       <DependentUpon>RoleManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Controls\UsersManager.cs">
+    <Compile Include="Presentation\Controls\Membership\UsersManager.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\UsersManager.Designer.cs">
+    <Compile Include="Presentation\Controls\Membership\UsersManager.Designer.cs">
       <DependentUpon>UsersManager.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Presentation\Forms\Tours\FrmTourDetailEditor.resx">
-      <DependentUpon>FrmTourDetailEditor.cs</DependentUpon>
+    <EmbeddedResource Include="Presentation\Forms\Tours\FrmTourMemberEditor.resx">
+      <DependentUpon>FrmTourMemberEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUserSettings.resx">
+      <DependentUpon>FrmUserSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Forms\Tours\FrmTourEditor.resx">
       <DependentUpon>FrmTourEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Controls\MoneyPicker.resx">
+      <DependentUpon>MoneyPicker.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Forms\Tours\FrmDailyTours.resx">
       <DependentUpon>FrmDailyTours.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\Controls\RoleManager.resx">
+    <EmbeddedResource Include="Presentation\Controls\Membership\RoleManager.resx">
       <DependentUpon>RoleManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Forms\Membership\FrmRoleEditor.resx">
@@ -173,7 +216,7 @@
     <EmbeddedResource Include="Presentation\Forms\Membership\FrmUserEditor.resx">
       <DependentUpon>FrmUserEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\Controls\UsersManager.resx">
+    <EmbeddedResource Include="Presentation\Controls\Membership\UsersManager.resx">
       <DependentUpon>UsersManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Forms\Application\FrmAppSettings.resx">
@@ -193,6 +236,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
@@ -227,7 +271,9 @@
       <Name>StatusController</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -53,7 +53,7 @@ namespace TaxDataStore.Presentation.Controls
             // Create buttons
             this.tbbTours = new ToolbarButton(
                 "tours",
-                "currency_euro",
+                "calendar_select_days",
                 "View daily tours",
                 Presentation.Controllers.Tours.Today);
 
