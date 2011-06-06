@@ -57,13 +57,20 @@
     <Compile Include="Repository\Sql\Languages.cs" />
     <Compile Include="Repository\Sql\Roles.cs" />
     <Compile Include="Repository\Sql\Tasks.cs" />
+    <Compile Include="Repository\Sql\TourBasePrice.cs" />
+    <Compile Include="Repository\Sql\TourPaymentGroups.cs" />
+    <Compile Include="Repository\Sql\TourPaymentRules.cs" />
     <Compile Include="Repository\Sql\Types.cs" />
     <Compile Include="Repository\Sql\Users.cs" />
     <Compile Include="Repository\Sql\UserSettings.cs" />
     <Compile Include="Repository\Sql\Utils.cs" />
+    <Compile Include="TourBasePrices.cs" />
     <Compile Include="ResourceManager.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="SimpleCrypt.cs" />
+    <Compile Include="TourPaymentGroups.cs" />
+    <Compile Include="TourPaymentRule.cs" />
+    <Compile Include="TourTypes.cs" />
     <Compile Include="Tours.cs" />
     <Compile Include="Types.cs" />
   </ItemGroup>

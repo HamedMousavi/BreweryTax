@@ -87,4 +87,8 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		BuildVersion_BuildVersioningStyle = YearStamp.MonthAndDayStamp.Increment.TimeStamp
+		BuildVersion_ConfigurationName = Release
+	EndGlobalSection
 EndGlobal

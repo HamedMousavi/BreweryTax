@@ -13,6 +13,21 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -42,13 +57,70 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presentation\Forms\Application\FrmSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\Application\FrmSplashScreen.Designer.cs">
+      <DependentUpon>FrmSplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Controllers\SplashScreen.cs" />
+    <Compile Include="Presentation\Controls\Tour\TourPaymentDetailsGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\Tour\RulesCheckedListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\Tour\TourPaymentGroupsGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\Tours\FrmTourPaymentGroupEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\Tours\FrmTourPaymentGroupEditor.Designer.cs">
+      <DependentUpon>FrmTourPaymentGroupEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Controls\Tour\TourFormulaOperationComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\Tour\TourPaymentRuleFormulaColumn.cs" />
+    <Compile Include="Presentation\Controls\Tour\TourPaymentRulesGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\Tours\FrmRuleEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\Tours\FrmRuleEditor.Designer.cs">
+      <DependentUpon>FrmRuleEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Forms\Tours\FrmTourPriceEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\Tours\FrmTourPriceEditor.Designer.cs">
+      <DependentUpon>FrmTourPriceEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Controllers\TourFinance.cs" />
+    <Compile Include="Presentation\Controls\GeneralTypeDataGridViewColumn.cs" />
+    <Compile Include="Presentation\Controls\Tour\TourBasePriceGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\Tour\TourPaymentSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\Tour\TourPaymentSettings.Designer.cs">
+      <DependentUpon>TourPaymentSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Forms\Employees\FrmStaffTimeRecorder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\Employees\FrmStaffTimeRecorder.Designer.cs">
+      <DependentUpon>FrmStaffTimeRecorder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\Forms\Tours\FrmTourMemberEditor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentation\Forms\Tours\FrmTourMemberEditor.Designer.cs">
       <DependentUpon>FrmTourMemberEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Controls\ContactsGrid\ContactMediaTypeCbxColumn.cs" />
     <Compile Include="Presentation\Controls\ContactsGrid\ContactMediaTypeCell.cs" />
     <Compile Include="Presentation\Controls\ContactsGrid\ContactMediaTypeColumn.cs" />
     <Compile Include="Presentation\Controls\ContactsGrid\ContactsGridView.cs">
@@ -63,7 +135,7 @@
     <Compile Include="Presentation\Controls\MembersGridView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\PaymentsGridView.cs">
+    <Compile Include="Presentation\Controls\Tour\PaymentsGridView.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Presentation\Controls\TypeComboBox.cs">
@@ -75,10 +147,10 @@
     <Compile Include="Presentation\Forms\Tours\FrmTourEditor.Designer.cs">
       <DependentUpon>FrmTourEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmUserSettings.cs">
+    <Compile Include="Presentation\Forms\Membership\FrmUserSettings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmUserSettings.Designer.cs">
+    <Compile Include="Presentation\Forms\Membership\FrmUserSettings.Designer.cs">
       <DependentUpon>FrmUserSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Controls\MoneyPicker.cs">
@@ -96,7 +168,7 @@
     <Compile Include="Presentation\Controls\FlatGridView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\ToursGridView.cs">
+    <Compile Include="Presentation\Controls\Tour\ToursGridView.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Presentation\Forms\Tours\FrmDailyTours.cs">
@@ -175,6 +247,8 @@
     </Compile>
     <Compile Include="Presentation\Controllers\Application.cs" />
     <Compile Include="Presentation\Controllers\Users.cs" />
+    <Compile Include="Presentation\Models\PriceOperationItem.cs" />
+    <Compile Include="Presentation\Models\ValueOperationItem.cs" />
     <Compile Include="Presentation\SccreenManager.cs" />
     <Compile Include="Presentation\View.cs" />
     <Compile Include="Program.cs" />
@@ -192,10 +266,28 @@
     <Compile Include="Presentation\Controls\Membership\UsersManager.Designer.cs">
       <DependentUpon>UsersManager.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Presentation\Forms\Application\FrmSplashScreen.resx">
+      <DependentUpon>FrmSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Controls\GeneralAppSettings.resx">
+      <DependentUpon>GeneralAppSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Forms\Tours\FrmRuleEditor.resx">
+      <DependentUpon>FrmRuleEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Forms\Tours\FrmTourPaymentGroupEditor.resx">
+      <DependentUpon>FrmTourPaymentGroupEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Forms\Tours\FrmTourPriceEditor.resx">
+      <DependentUpon>FrmTourPriceEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Controls\Tour\TourPaymentSettings.resx">
+      <DependentUpon>TourPaymentSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Forms\Tours\FrmTourMemberEditor.resx">
       <DependentUpon>FrmTourMemberEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmUserSettings.resx">
+    <EmbeddedResource Include="Presentation\Forms\Membership\FrmUserSettings.resx">
       <DependentUpon>FrmUserSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Forms\Tours\FrmTourEditor.resx">
@@ -274,7 +366,34 @@
   <ItemGroup>
     <Folder Include="Properties\DataSources\" />
   </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" BuildVersion_BuildVersioningStyle="YearStamp.Increment.MonthAndDayStamp.TimeStamp" BuildVersion_ConfigurationName="Release" />
+    </VisualStudio>
+  </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -15,5 +15,10 @@ namespace Entities
             status.Id = Id;
             status.Name = status.Name;
         }
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 }

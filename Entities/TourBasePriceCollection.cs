@@ -4,16 +4,16 @@
 namespace Entities
 {
 
-    public class TourPaymentCollection : BindingList<TourPayment>
+    public class TourBasePriceCollection : BindingList<TourBasePrice>
     {
-        internal void CopyTo(TourPaymentCollection payments)
+        internal void CopyTo(TourBasePriceCollection payments)
         {
             payments.Clear();
 
-            foreach (TourPayment payment in this)
+            foreach (TourBasePrice payment in this)
             {
                 // UNDONE: SHALL WE DUPLICATE DETAILS OR JUST A REFRENCE IS ENOUGH?!
-                TourPayment newpayment = new TourPayment();
+                TourBasePrice newpayment = new TourBasePrice();
                 payment.CopyTo(newpayment);
 
                 payments.Add(newpayment);

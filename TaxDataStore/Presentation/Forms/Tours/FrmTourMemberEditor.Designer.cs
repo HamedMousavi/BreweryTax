@@ -75,27 +75,33 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.ForeColor = System.Drawing.Color.Gray;
             this.lblTitle.Location = new System.Drawing.Point(3, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(31, 14);
+            this.lblTitle.Size = new System.Drawing.Size(32, 13);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Title";
             // 
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(3, 14);
+            this.lblFirstName.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblFirstName.ForeColor = System.Drawing.Color.Gray;
+            this.lblFirstName.Location = new System.Drawing.Point(3, 13);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(60, 14);
+            this.lblFirstName.Size = new System.Drawing.Size(64, 13);
             this.lblFirstName.TabIndex = 2;
             this.lblFirstName.Text = "FirstName";
             // 
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(3, 42);
+            this.lblLastName.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblLastName.ForeColor = System.Drawing.Color.Gray;
+            this.lblLastName.Location = new System.Drawing.Point(3, 41);
             this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(60, 14);
+            this.lblLastName.Size = new System.Drawing.Size(63, 13);
             this.lblLastName.TabIndex = 4;
             this.lblLastName.Text = "LastName";
             // 
@@ -104,7 +110,9 @@
             this.tlpMain.SetColumnSpan(this.gpxContacts, 2);
             this.gpxContacts.Controls.Add(this.tlpContacts);
             this.gpxContacts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gpxContacts.Location = new System.Drawing.Point(3, 73);
+            this.gpxContacts.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gpxContacts.ForeColor = System.Drawing.Color.Gray;
+            this.gpxContacts.Location = new System.Drawing.Point(3, 72);
             this.gpxContacts.Name = "gpxContacts";
             this.gpxContacts.Size = new System.Drawing.Size(308, 200);
             this.gpxContacts.TabIndex = 6;
@@ -119,14 +127,16 @@
             this.tlpContacts.Controls.Add(this.btnAddContact, 0, 0);
             this.tlpContacts.Controls.Add(this.btnRemoveContact, 1, 0);
             this.tlpContacts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpContacts.Location = new System.Drawing.Point(3, 18);
+            this.tlpContacts.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tlpContacts.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tlpContacts.Location = new System.Drawing.Point(3, 17);
             this.tlpContacts.Margin = new System.Windows.Forms.Padding(0);
             this.tlpContacts.Name = "tlpContacts";
             this.tlpContacts.RowCount = 2;
             this.tlpContacts.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpContacts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpContacts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpContacts.Size = new System.Drawing.Size(302, 179);
+            this.tlpContacts.Size = new System.Drawing.Size(302, 180);
             this.tlpContacts.TabIndex = 0;
             // 
             // btnAddContact
@@ -157,12 +167,12 @@
             this.tableLayoutPanel2.Controls.Add(this.btnCancel, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnSave, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 276);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 275);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(314, 45);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(314, 46);
             this.tableLayoutPanel2.TabIndex = 7;
             // 
             // btnCancel
@@ -189,18 +199,18 @@
             // 
             this.tbxFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxFirstName.Location = new System.Drawing.Point(69, 17);
+            this.tbxFirstName.Location = new System.Drawing.Point(73, 16);
             this.tbxFirstName.Name = "tbxFirstName";
-            this.tbxFirstName.Size = new System.Drawing.Size(242, 22);
+            this.tbxFirstName.Size = new System.Drawing.Size(238, 22);
             this.tbxFirstName.TabIndex = 3;
             // 
             // tbxLastName
             // 
             this.tbxLastName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxLastName.Location = new System.Drawing.Point(69, 45);
+            this.tbxLastName.Location = new System.Drawing.Point(73, 44);
             this.tbxLastName.Name = "tbxLastName";
-            this.tbxLastName.Size = new System.Drawing.Size(242, 22);
+            this.tbxLastName.Size = new System.Drawing.Size(238, 22);
             this.tbxLastName.TabIndex = 5;
             // 
             // FrmTourMemberEditor

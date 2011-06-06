@@ -9,6 +9,19 @@ namespace DomainModel
 
         private ApplicationSettingsBase appSettings;
 
+        public ApplicationSettingsBase AppSettings
+        {
+            get
+            {
+                return this.appSettings;
+            }
+
+            set
+            {
+                this.appSettings = value;
+            }
+        }
+
 
         public Settings(ApplicationSettingsBase applicationSettings)
         {
@@ -28,8 +41,7 @@ namespace DomainModel
         {
             get
             {
-                return (string)this.appSettings.
-                    Properties["DefaultLocale"].DefaultValue;
+                return (string)this.appSettings["DefaultLocale"];
             }
         }
 
@@ -37,8 +49,7 @@ namespace DomainModel
         {
             get
             {
-                return (string)this.appSettings.
-                    Properties["DatabaseConnectionString"].DefaultValue;
+                return (string)this.appSettings["DatabaseConnectionString"];
             }
         }
     }

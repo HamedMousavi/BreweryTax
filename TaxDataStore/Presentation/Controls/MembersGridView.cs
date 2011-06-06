@@ -1,4 +1,4 @@
-﻿using System.Linq;
+﻿using System.Drawing;
 using System.Windows.Forms;
 using Entities;
 
@@ -11,24 +11,15 @@ namespace TaxDataStore.Presentation.Controls
         public MembersGridView(TourMemberCollection members)
             : base()
         {
-            this.ColumnHeadersVisible = false;
+            this.ColumnHeadersDefaultCellStyle.BackColor = Color.WhiteSmoke;
+            this.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            this.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 8.25F, FontStyle.Bold);
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.GridColor = Color.LightGray;
 
-            this.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(EmployeesGridView_DataBindingComplete);
+            this.hiddenColumnNames.Add("Title");
+            this.hiddenColumnNames.Add("Contacts");
+            this.hiddenColumnNames.Add("MemberShip");
             this.SetDataSource(members);
-        }
-
-
-        void EmployeesGridView_DataBindingComplete(object sender, System.Windows.Forms.DataGridViewBindingCompleteEventArgs e)
-        {
-            //this.Columns["PaymentType"].HeaderText = Resources.Texts.grid_title_payment_type;
-
-            string[] invisibles = new string[] { "Title", "Contacts", "MemberShip"};
-            foreach (DataGridViewColumn column in this.Columns)
-            {
-                if (invisibles.Contains(column.Name)) column.Visible = false;
-            }
-
-            AdjustColumns();
         }
     }}

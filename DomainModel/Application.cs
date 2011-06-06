@@ -42,24 +42,36 @@ namespace DomainModel
             Status = new ApplicationStatus();
             Status.Init(new StatusController.Controller.StatusController());
 
-            // Init repositories
-            Membership.Tasks.Init(settings.SqlConnectionString);
-            Membership.Roles.Init(settings.SqlConnectionString);
-            Membership.UserSettings.Init(settings.SqlConnectionString);
-            Membership.Users.Init(settings.SqlConnectionString, Cultures.GetAll());
-
-            Types.Init(settings.SqlConnectionString);
-            Employees.Init(settings.SqlConnectionString);
-            Tours.Init(settings.SqlConnectionString);
+            // Init repository
+            InitRepository();
 
             // Set a default invalid user for application
             user = new Entities.User();
         }
 
 
+        private static void InitRepository()
+        {
+            Membership.Tasks.Init(settings.SqlConnectionString);
+            Membership.Roles.Init(settings.SqlConnectionString);
+            Membership.UserSettings.Init(settings.SqlConnectionString);
+            Membership.Users.Init(settings.SqlConnectionString, Cultures.GetAll());
+
+            Currencies.Init(settings.SqlConnectionString);
+            Types.Init(settings.SqlConnectionString);
+            Employees.Init(settings.SqlConnectionString);
+            Tours.Init(settings.SqlConnectionString);
+            TourPaymentRules.Init(settings.SqlConnectionString);
+            TourPaymentGroups.Init(settings.SqlConnectionString);
+        }
+
+
         private static void Init(Entities.Culture culture)
         {
             ContactMediaTypes.Init(settings.SqlConnectionString, culture);
+            TourTypes.Init(settings.SqlConnectionString, culture);
+
+            TourBasePrices.Init(settings.SqlConnectionString);
         }
     }
 }

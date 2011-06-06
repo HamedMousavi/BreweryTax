@@ -16,9 +16,17 @@ namespace TaxDataStore
 
         private void StartApplication()
         {
+            ShowSplashScreen();
             InitApplication();
             LoadAppSettings();
+            HideSplashScreen();
             BeginAuthenticate();
+        }
+
+
+        private void ShowSplashScreen()
+        {
+            Presentation.Controllers.SplashScreen.Show();
         }
 
 
@@ -32,6 +40,12 @@ namespace TaxDataStore
         private void InitApplication()
         { 
             DomainModel.Application.Init(Properties.Settings.Default);
+        }
+
+
+        private void HideSplashScreen()
+        {
+            Presentation.Controllers.SplashScreen.Hide();
         }
 
 

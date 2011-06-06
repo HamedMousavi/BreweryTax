@@ -178,7 +178,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit member.
+        ///   Looks up a localized string similar to Price details.
+        /// </summary>
+        public static string frm_title_base_price_editor {
+            get {
+                return ResourceManager.GetString("frm_title_base_price_editor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Member details.
         /// </summary>
         public static string frm_title_member_editor {
             get {
@@ -187,11 +196,29 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit tour.
+        ///   Looks up a localized string similar to Rule details.
+        /// </summary>
+        public static string frm_title_rule_editor {
+            get {
+                return ResourceManager.GetString("frm_title_rule_editor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tour details.
         /// </summary>
         public static string frm_title_tour_editor {
             get {
                 return ResourceManager.GetString("frm_title_tour_editor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Group details.
+        /// </summary>
+        public static string frm_title_tour_payment_group_editor {
+            get {
+                return ResourceManager.GetString("frm_title_tour_payment_group_editor", resourceCulture);
             }
         }
         
@@ -313,6 +340,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Formula.
+        /// </summary>
+        public static string lbl_formula {
+            get {
+                return ResourceManager.GetString("lbl_formula", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guest contacts.
+        /// </summary>
+        public static string lbl_guest_contacts {
+            get {
+                return ResourceManager.GetString("lbl_guest_contacts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guests.
+        /// </summary>
+        public static string lbl_guests {
+            get {
+                return ResourceManager.GetString("lbl_guests", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last name.
         /// </summary>
         public static string lbl_last_name {
@@ -327,6 +381,24 @@ namespace Resources {
         public static string lbl_participant_count {
             get {
                 return ResourceManager.GetString("lbl_participant_count", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Price.
+        /// </summary>
+        public static string lbl_price {
+            get {
+                return ResourceManager.GetString("lbl_price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rule name.
+        /// </summary>
+        public static string lbl_rule_name {
+            get {
+                return ResourceManager.GetString("lbl_rule_name", resourceCulture);
             }
         }
         
@@ -363,6 +435,15 @@ namespace Resources {
         public static string lbl_title {
             get {
                 return ResourceManager.GetString("lbl_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Group name.
+        /// </summary>
+        public static string lbl_tour_group_name {
+            get {
+                return ResourceManager.GetString("lbl_tour_group_name", resourceCulture);
             }
         }
         

@@ -32,6 +32,7 @@
             this.tbpGeneral = new System.Windows.Forms.TabPage();
             this.tbpUsers = new System.Windows.Forms.TabPage();
             this.tbpRoles = new System.Windows.Forms.TabPage();
+            this.tbpTourPayment = new System.Windows.Forms.TabPage();
             this.tabUsers.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,7 +41,9 @@
             this.tabUsers.Controls.Add(this.tbpGeneral);
             this.tabUsers.Controls.Add(this.tbpUsers);
             this.tabUsers.Controls.Add(this.tbpRoles);
+            this.tabUsers.Controls.Add(this.tbpTourPayment);
             this.tabUsers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabUsers.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.tabUsers.Location = new System.Drawing.Point(0, 0);
             this.tabUsers.Name = "tabUsers";
             this.tabUsers.SelectedIndex = 0;
@@ -75,6 +78,16 @@
             this.tbpRoles.Text = "Roles";
             this.tbpRoles.UseVisualStyleBackColor = true;
             // 
+            // tbpTourPayment
+            // 
+            this.tbpTourPayment.Location = new System.Drawing.Point(4, 22);
+            this.tbpTourPayment.Name = "tbpTourPayment";
+            this.tbpTourPayment.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpTourPayment.Size = new System.Drawing.Size(509, 339);
+            this.tbpTourPayment.TabIndex = 3;
+            this.tbpTourPayment.Text = "Tour Payment";
+            this.tbpTourPayment.UseVisualStyleBackColor = true;
+            // 
             // FrmAppSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -94,6 +107,7 @@
         private System.Windows.Forms.TabPage tbpGeneral;
         private System.Windows.Forms.TabPage tbpRoles;
         private System.Windows.Forms.TabPage tbpUsers;
+        private System.Windows.Forms.TabPage tbpTourPayment;
 
     }
 }

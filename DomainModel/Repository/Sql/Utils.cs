@@ -141,6 +141,31 @@ namespace DomainModel.Repository.Sql
 
             return false;
         }
+
+
+        internal static decimal GetSafeDecimal(SqlDataReader reader, string fieldName)
+        {
+            try
+            {
+                object objDbVal = reader[fieldName];
+                if (objDbVal != DBNull.Value && null != objDbVal)
+                {
+                    return Convert.ToDecimal(objDbVal, CultureInfo.InvariantCulture);
+                }
+            }
+            catch (Exception ex)
+            {/*
+                ApplicationState.Instance.Controller.UpdateStatus(
+                    new StatusController.Entities.StatusInfo(
+                    (Int16)StatusCodes.Assemblies.Codes.DomainModel,
+                    (Int16)StatusCodes.Sections.Codes.Repository,
+                    StatusController.Abstract.StatusTypes.Error,
+                    (Int32)StatusCodes.Errors.Codes.General,
+                    null, ex.ToString()));*/
+            }
+
+            return 0.0m;
+        }
     }
 
 }

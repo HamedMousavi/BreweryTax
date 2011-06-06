@@ -1,8 +1,7 @@
 ﻿using System.Collections;
-using System.ComponentModel;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Collections.Generic;
 
 
 namespace TaxDataStore.Presentation.Controls
@@ -17,6 +16,12 @@ namespace TaxDataStore.Presentation.Controls
             {
                 return this.bs;
             }
+
+            set
+            {
+                this.bs = value;
+                this.DataSource = this.bs;
+            }
         }
 
 
@@ -24,6 +29,8 @@ namespace TaxDataStore.Presentation.Controls
         protected DataGridViewCellStyle headerCellStyle;
         protected DataGridViewCellStyle defaultCellStyle;
         protected List<string> hiddenColumnNames;
+        protected List<string> readonlyColumnNames;
+        protected Dictionary<string, string> headerColumnNames;
 
 
         public FlatGridView(bool bReadonly = true, bool bRowSelect = true)
@@ -35,8 +42,8 @@ namespace TaxDataStore.Presentation.Controls
             Color bkColor = Color.White;
             Color textColor = Color.Black;
 
-            Color selectedTextColor = Color.Black;
-            Color selectedBkColor = Color.FromArgb(255, 250, 245, 255);
+            Color selectedTextColor = Color.White;
+            Color selectedBkColor = Color.CornflowerBlue;
 
             this.headerCellStyle = new DataGridViewCellStyle();
 
@@ -45,7 +52,7 @@ namespace TaxDataStore.Presentation.Controls
             this.headerCellStyle.SelectionBackColor = headBkColor;
             this.headerCellStyle.SelectionForeColor = headTextColor;
 
-            this.headerCellStyle.Font = new Font("Tahoma", 9.25F, FontStyle.Bold);
+            this.headerCellStyle.Font = new Font("Tahoma", 10.25F, FontStyle.Bold);
             this.headerCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             this.headerCellStyle.WrapMode = DataGridViewTriState.True;
 
@@ -95,23 +102,14 @@ namespace TaxDataStore.Presentation.Controls
                 DataGridViewSelectionMode.CellSelect;
 
             this.hiddenColumnNames = new List<string>();
+            this.readonlyColumnNames = new List<string>();
+            this.headerColumnNames = new Dictionary<string, string>();
 
-            this.DataBindingComplete += new 
+            this.DataBindingComplete += new
                 DataGridViewBindingCompleteEventHandler(FlatGridView_DataBindingComplete);
 
             this.bs = new BindingSource();
             this.DataSource = this.bs;
-        }
-
-
-        void FlatGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            foreach (DataGridViewColumn column in this.Columns)
-            {
-                if (this.hiddenColumnNames.Contains(column.Name)) column.Visible = false;
-            }
-
-            AdjustColumns();
         }
 
 
@@ -166,6 +164,30 @@ namespace TaxDataStore.Presentation.Controls
         public void UpdateBinding()
         {
             this.bs.ResetBindings(true);
+        }
+
+
+        void FlatGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewColumn column in this.Columns)
+            {
+                if (this.hiddenColumnNames.Contains(column.Name))
+                {
+                    column.Visible = false;
+                }
+                
+                if (headerColumnNames.ContainsKey(column.Name))
+                {
+                    column.HeaderText = headerColumnNames[column.Name];
+                }
+
+                if (readonlyColumnNames.Contains(column.Name))
+                {
+                    column.ReadOnly = true;
+                }
+            }
+
+            AdjustColumns();
         }
 
 

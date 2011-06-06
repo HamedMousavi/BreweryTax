@@ -52,5 +52,20 @@ namespace TaxDataStore.Presentation.Controllers
                 frm.ShowDialog();
             }
         }
+
+
+        internal static void EditMember(Entities.TourMember member)
+        {
+            using (FrmTourMemberEditor frm = new FrmTourMemberEditor(member))
+            {
+                frm.ShowDialog();
+            }
+        }
+
+        internal static bool DeleteMember(Entities.TourMember member)
+        {
+            // UNDONE
+            return true;
+        }
     }
 }

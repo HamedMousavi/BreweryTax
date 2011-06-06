@@ -9,19 +9,14 @@ namespace Entities
     {
 
         public Datetime Time { get; set; }
-
         public GeneralType TourType { get; set; }
-
         public GeneralType SignUpType { get; set; }
-        public Int32 SignUpCount { get; set; }
-        public Int32 ParticipantsCount { get; set; }
-
-        public string Comments { get; set; }
-        
         public TourStatus Status { get; set; }
         public EmployeeCollection Employees { get; set; }
         public TourMemberCollection Members { get; set; }
-        public TourPaymentCollection Payments { get; set; }
+        public TourPaymentDetailCollection PaymentDetails { get; set; }
+
+        public string Comments { get; set; }
 
         [BrowsableAttribute(false)]
         public Int32 Id { get; set; }
@@ -30,11 +25,11 @@ namespace Entities
         public Tour()
         {
             this.Status = new TourStatus();
-            this.Time = new Datetime("hh:mm");
+            this.Time = new Datetime("HH:mm");
 
             this.Employees = new Entities.EmployeeCollection();
             this.Members = new TourMemberCollection();
-            this.Payments = new TourPaymentCollection();
+            this.PaymentDetails = new TourPaymentDetailCollection();
 
             this.TourType = new GeneralType();
             this.SignUpType = new GeneralType();
@@ -42,18 +37,31 @@ namespace Entities
         }
 
 
+        public Tour(TourPaymentGroupCollection paymentGroups)
+            : this()
+        {
+            foreach (TourPaymentGroup group in paymentGroups)
+            {
+                TourPaymentDetail detail = new TourPaymentDetail();
+                detail.PaymentGroup = group;
+
+                this.PaymentDetails.Add(detail);
+            }
+        }
+
+
         public void CopyTo(Tour tour)
         {
             this.Time.CopyTo(tour.Time);
             this.Employees.CopyTo(tour.Employees);
-            this.Payments.CopyTo(tour.Payments);
+            this.Members.CopyTo(tour.Members);
+            this.PaymentDetails.CopyTo(tour.PaymentDetails);
             this.Status.CopyTo(tour.Status);
 
             tour.SignUpType = this.SignUpType;
             tour.TourType = this.TourType;
             tour.Comments = this.Comments;
-            tour.SignUpCount = this.SignUpCount;
-            tour.ParticipantsCount = this.ParticipantsCount;
+
             tour.Id = this.Id;
         }
     }

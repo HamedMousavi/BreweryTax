@@ -13,7 +13,8 @@ namespace TaxDataStore
         protected PaymentsGridView dgvPayments;
         protected MembersGridView dgvMembers;
         protected ContactsGridView dgvContacts;
-        
+        protected TourPaymentDetailsGridView dgvPaymentDetails;
+
         protected EmployeesSplitButton spbEmployees;
 
         protected TypeComboBox cbxTourTypes;
@@ -27,7 +28,7 @@ namespace TaxDataStore
         {
             InitializeComponent();
 
-            this.tour = new Entities.Tour();
+            this.tour = new Entities.Tour(DomainModel.TourPaymentGroups.GetAll());
 
             SetupControls();
             BindControls();
@@ -63,19 +64,19 @@ namespace TaxDataStore
             this.dgvEmployees = new EmployeesGridView(this.tour.Employees);
             this.tlpStaff.Controls.Add(this.dgvEmployees, 0, 1);
 
-            this.dgvPayments = new PaymentsGridView(this.tour.Payments);
+            this.dgvPayments = new PaymentsGridView(this.tour.PaymentDetails);
             this.tlpPayments.Controls.Add(this.dgvPayments, 0, 1);
             this.tlpPayments.SetColumnSpan(this.dgvPayments, 3);
             this.tlpPayments.SetRowSpan(this.dgvPayments, 2);
 
             this.dgvMembers = new MembersGridView(this.tour.Members);
             this.tlpTourMembers.Controls.Add(this.dgvMembers, 0, 1);
-            this.tlpTourMembers.SetColumnSpan(this.dgvMembers, 3);
-            this.tlpTourMembers.SetRowSpan(this.dgvMembers, 2);
 
             this.dgvContacts = new ContactsGridView(this.dgvMembers.BindingSource, "Contacts");
             this.tlpTourMembers.Controls.Add(this.dgvContacts, 3, 1);
-            this.tlpTourMembers.SetRowSpan(this.dgvContacts, 2);
+
+            this.dgvPaymentDetails = new TourPaymentDetailsGridView(this.tour.PaymentDetails);
+            this.gpxPaymentGroups.Controls.Add(this.dgvPaymentDetails);
 
             SetupControlImages();
             SetupControlTexts();
@@ -129,12 +130,12 @@ namespace TaxDataStore
             this.lblComments.Text = Resources.Texts.lbl_comments;
             this.lblDate.Text = Resources.Texts.lbl_date;
             this.lblEmployees.Text = Resources.Texts.lbl_employees;
-            this.lblParticipantCount.Text = Resources.Texts.lbl_participant_count;
-            this.lblSignupCount.Text = Resources.Texts.lbl_signup_count;
             this.lblSignupType.Text = Resources.Texts.lbl_signup_type;
             this.lblTime.Text = Resources.Texts.lbl_time;
             this.lblTourStatusLabel.Text = Resources.Texts.lbl_tour_status;
             this.lblTourType.Text = Resources.Texts.lbl_tour_type;
+            this.lblGuest.Text = Resources.Texts.lbl_guests;
+            this.lblGuestContacts.Text = Resources.Texts.lbl_guest_contacts;
 
             this.btnSave.Text = Resources.Texts.save;
             this.btnCancel.Text = Resources.Texts.cancel;
@@ -172,27 +173,6 @@ namespace TaxDataStore
                     string.Empty,
                     null));
 
-            this.tbxSignupCount.DataBindings.Add(
-                new Binding(
-                    "Text",
-                    this.tour,
-                    "SignUpCount",
-                    false,
-                    DataSourceUpdateMode.OnPropertyChanged,
-                    0,
-                    string.Empty,
-                    null));
-
-            this.tbxParticipantCount.DataBindings.Add(
-                new Binding(
-                    "Text",
-                    this.tour,
-                    "ParticipantsCount",
-                    false,
-                    DataSourceUpdateMode.OnPropertyChanged,
-                    string.Empty,
-                    string.Empty,
-                    null));
 
             this.rtbComments.DataBindings.Add(
                 new Binding(
@@ -204,18 +184,7 @@ namespace TaxDataStore
                     0.00M,
                     string.Empty,
                     null));
-            /*
-            this.cbxPaymentType.DataBindings.Add(
-                new Binding(
-                    "Text",
-                    this.detail,
-                    "PaymentType",
-                    false,
-                    DataSourceUpdateMode.OnPropertyChanged,
-                    string.Empty,
-                    string.Empty,
-                    null));
-*/
+
             this.cbxSignUpTypes.DataBindings.Add(
                 new Binding(
                     "SelectedItem",
@@ -282,9 +251,33 @@ namespace TaxDataStore
         }
 
 
+        private void btnEditTourMember_Click(object sender, EventArgs e)
+        {
+            Entities.TourMember member = (Entities.TourMember) this.dgvMembers.SelectedItem;
+            if (member != null)
+            {
+                Presentation.Controllers.Tours.EditMember(member);
+            }
+        }
+
+
         private void btnRemoveTourMember_Click(object sender, EventArgs e)
         {
-
+            Entities.TourMember member = (Entities.TourMember) this.dgvMembers.SelectedItem;
+            if (member != null)
+            {
+                if (member.Id >= 0)
+                {
+                    if (Presentation.Controllers.Tours.DeleteMember(member))
+                    {
+                        this.tour.Members.Remove(member);
+                    }
+                }
+                else
+                {
+                    this.tour.Members.Remove(member);
+                }
+            }
         }
 
 

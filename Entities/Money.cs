@@ -72,7 +72,7 @@ namespace Entities
             }
             else
             {
-                return string.Format("{0} {1}", this.value, this.Currency.Symbol);
+                return string.Format("{0:0.00} {1}", this.value, this.Currency.Symbol);
             }
         }
 

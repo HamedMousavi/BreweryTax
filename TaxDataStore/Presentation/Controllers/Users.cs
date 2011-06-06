@@ -10,6 +10,7 @@ namespace TaxDataStore.Presentation.Controllers
 
         private static FrmLogin frmLogin;
         private static ProgramContext program;
+        private static FrmStaffTimeRecorder frmStaffTimeRecorder;
 
 
         internal static void DisplayLoginWindow(ProgramContext programContext)
@@ -33,16 +34,22 @@ namespace TaxDataStore.Presentation.Controllers
 
 
         public static void Settings()
-        {/*
-            using (FrmAppSettings frm = new FrmAppSettings())
+        {
+            using (FrmUserSettings frm = new FrmUserSettings())
             {
                 frm.ShowDialog();
-            }*/
+            }
         }
 
 
         public static void Presence()
         {
+            if (frmStaffTimeRecorder == null)
+            {
+                frmStaffTimeRecorder = new FrmStaffTimeRecorder();
+            }
+
+            View.MainWindow.ClientFormManager.DisplayClientForm(frmStaffTimeRecorder);
         }
 
 

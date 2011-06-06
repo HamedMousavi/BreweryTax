@@ -25,5 +25,17 @@ namespace Entities
             this.Contacts = new ContactCollection();
             this.Id = -1;
         }
+
+
+        public void CopyTo(TourMember member)
+        {
+            member.FirstName = this.FirstName;
+            member.LastName = this.LastName;
+            member.Title = this.Title;
+            member.MemberShip = this.MemberShip;
+            member.Id = this.Id;
+
+            this.Contacts.CopyTo(member.Contacts);
+        }
     }
 }

@@ -32,7 +32,9 @@ namespace TaxDataStore
 
             DomainModel.Application.Status.Update(
                 StatusController.Abstract.StatusTypes.Info, 
-                "app_welcome");
+                "app_welcome",
+                " " +
+                DomainModel.Application.User.Name + "!");
         }
 
 

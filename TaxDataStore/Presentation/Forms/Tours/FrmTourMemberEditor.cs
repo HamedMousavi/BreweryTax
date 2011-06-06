@@ -14,6 +14,7 @@ namespace TaxDataStore
         protected TypeComboBox cbxTitle;
         protected TourMemberCollection members;
         protected TourMember member;
+        protected TourMember editMember;
 
 
         public FrmTourMemberEditor()
@@ -82,9 +83,24 @@ namespace TaxDataStore
         }
 
 
+        public FrmTourMemberEditor(TourMember member)
+            : this()
+        {
+            this.editMember = member;
+            this.editMember.CopyTo(this.member);
+        }
+
+
         private void btnAddContact_Click(object sender, EventArgs e)
         {
+            GeneralTypeCollection medias = 
+                DomainModel.ContactMediaTypes.GetAll();
+
             Contact contact = new Contact();
+            if (medias != null && medias.Count > 0)
+            {
+                contact.Media = medias[0];
+            }
             this.member.Contacts.Add(contact);
 
             try
@@ -101,13 +117,26 @@ namespace TaxDataStore
 
         private void btnRemoveContact_Click(object sender, EventArgs e)
         {
-
+            Contact contact = (Contact)this.dgvContacts.SelectedItem;
+            if (contact != null)
+            {
+                this.member.Contacts.Remove(contact);
+            }
         }
 
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            this.members.Add(this.member);
+            if (this.editMember != null && this.members == null)
+            {
+                // Update edit user and database
+                this.member.CopyTo(this.editMember);
+            }
+            else
+            {
+                this.members.Add(this.member);
+            }
+
             this.DialogResult = DialogResult.OK;
             Close();
         }

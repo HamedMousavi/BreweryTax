@@ -20,5 +20,10 @@ namespace Entities
         {
             get { return this; }
         }
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 }

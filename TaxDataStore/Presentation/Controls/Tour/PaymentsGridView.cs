@@ -7,7 +7,7 @@ namespace TaxDataStore.Presentation.Controls
     public class PaymentsGridView : FlatGridView
     {
 
-        public PaymentsGridView(TourPaymentCollection payments)
+        public PaymentsGridView(TourPaymentDetailCollection payments)
             : base()
         {
             this.ColumnHeadersVisible = false;

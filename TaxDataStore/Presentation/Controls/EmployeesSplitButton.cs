@@ -19,10 +19,10 @@ namespace TaxDataStore.Presentation.Controls
             this.ctxMenu = new EmployeesMenu();
             this.ctxMenu.ClickAction = ClickAction;
 
-            this.TabIndex = 0;
+            this.Location = new Point(0, 0);
             this.Name = "btnAddEmployee";
             this.Size = new Size(24, 24);
-            this.Anchor = AnchorStyles.Left;
+            this.Anchor = AnchorStyles.Left | AnchorStyles.Top;
             this.TextImageRelation = TextImageRelation.ImageBeforeText;
             this.SplitMenu = this.ctxMenu;
             this.ShowSplit = false;

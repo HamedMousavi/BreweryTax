@@ -5,19 +5,19 @@ using System.ComponentModel;
 namespace Entities
 {
 
-    public class TourPayment
+    public class TourBasePrice
     {
 
         public Money PricePerPerson { get; set; }
-        public GeneralType PaymentType { get; set; }
+        public GeneralType TourType { get; set; }
 
         [BrowsableAttribute(false)]
         public Int32 Id { get; set; }
 
 
-        public TourPayment()
+        public TourBasePrice()
         {
-            this.PaymentType = new GeneralType();
+            this.TourType = new GeneralType();
 
             this.PricePerPerson = new Money(0.0M, null);
 
@@ -25,10 +25,10 @@ namespace Entities
         }
 
 
-        internal void CopyTo(TourPayment payment)
+        internal void CopyTo(TourBasePrice payment)
         {
             payment.Id = this.Id;
-            payment.PaymentType = this.PaymentType;
+            payment.TourType = this.TourType;
             payment.PricePerPerson = this.PricePerPerson;
         }
     }

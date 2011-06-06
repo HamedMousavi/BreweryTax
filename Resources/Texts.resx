@@ -292,7 +292,7 @@
     <value>Tour type</value>
   </data>
   <data name="frm_title_tour_editor" xml:space="preserve">
-    <value>Edit tour</value>
+    <value>Tour details</value>
   </data>
   <data name="lbl_comments" xml:space="preserve">
     <value>Comments</value>
@@ -334,7 +334,7 @@
     <value>Tour</value>
   </data>
   <data name="frm_title_member_editor" xml:space="preserve">
-    <value>Edit member</value>
+    <value>Member details</value>
   </data>
   <data name="gpx_contacts" xml:space="preserve">
     <value>Contacts</value>
@@ -347,5 +347,32 @@
   </data>
   <data name="lbl_title" xml:space="preserve">
     <value>Title</value>
+  </data>
+  <data name="lbl_guests" xml:space="preserve">
+    <value>Guests</value>
+  </data>
+  <data name="lbl_guest_contacts" xml:space="preserve">
+    <value>Guest contacts</value>
+  </data>
+  <data name="frm_title_base_price_editor" xml:space="preserve">
+    <value>Price details</value>
+  </data>
+  <data name="lbl_price" xml:space="preserve">
+    <value>&amp;Price</value>
+  </data>
+  <data name="frm_title_rule_editor" xml:space="preserve">
+    <value>Rule details</value>
+  </data>
+  <data name="lbl_formula" xml:space="preserve">
+    <value>Formula</value>
+  </data>
+  <data name="lbl_rule_name" xml:space="preserve">
+    <value>Rule name</value>
+  </data>
+  <data name="frm_title_tour_payment_group_editor" xml:space="preserve">
+    <value>Group details</value>
+  </data>
+  <data name="lbl_tour_group_name" xml:space="preserve">
+    <value>Group name</value>
   </data>
 </root>
