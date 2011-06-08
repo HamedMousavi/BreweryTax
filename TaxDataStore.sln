@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entiti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SplitButton", "SplitButton\SplitButton.csproj", "{CE9CFA95-EB8D-40B5-8795-B89C7AA853A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxDataStoreUpdater", "TaxDataStoreUpdater\TaxDataStoreUpdater.csproj", "{4CE36C58-BE8A-41E2-B6FA-7E91BECC0360}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,12 +85,22 @@ Global
 		{CE9CFA95-EB8D-40B5-8795-B89C7AA853A5}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{CE9CFA95-EB8D-40B5-8795-B89C7AA853A5}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{CE9CFA95-EB8D-40B5-8795-B89C7AA853A5}.Release|x86.ActiveCfg = Release|Any CPU
+		{4CE36C58-BE8A-41E2-B6FA-7E91BECC0360}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{4CE36C58-BE8A-41E2-B6FA-7E91BECC0360}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{4CE36C58-BE8A-41E2-B6FA-7E91BECC0360}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{4CE36C58-BE8A-41E2-B6FA-7E91BECC0360}.Debug|x86.ActiveCfg = Debug|x86
+		{4CE36C58-BE8A-41E2-B6FA-7E91BECC0360}.Debug|x86.Build.0 = Debug|x86
+		{4CE36C58-BE8A-41E2-B6FA-7E91BECC0360}.Release|Any CPU.ActiveCfg = Release|x86
+		{4CE36C58-BE8A-41E2-B6FA-7E91BECC0360}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{4CE36C58-BE8A-41E2-B6FA-7E91BECC0360}.Release|Mixed Platforms.Build.0 = Release|x86
+		{4CE36C58-BE8A-41E2-B6FA-7E91BECC0360}.Release|x86.ActiveCfg = Release|x86
+		{4CE36C58-BE8A-41E2-B6FA-7E91BECC0360}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		BuildVersion_BuildVersioningStyle = YearStamp.MonthAndDayStamp.Increment.TimeStamp
 		BuildVersion_ConfigurationName = Release
+		BuildVersion_BuildVersioningStyle = YearStamp.MonthAndDayStamp.Increment.TimeStamp
 	EndGlobalSection
 EndGlobal

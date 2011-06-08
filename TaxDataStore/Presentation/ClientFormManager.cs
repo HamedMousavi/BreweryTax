@@ -106,7 +106,7 @@ namespace TaxDataStore.Presentation
 
         public Form SetCurrentForm(string strFormName)
         {
-            if (string.IsNullOrEmpty(strFormName)) return null;
+            if (string.IsNullOrWhiteSpace(strFormName)) return null;
 
             Form frm = FindByName(strFormName);
             if (frm == null) return null;
@@ -168,7 +168,7 @@ namespace TaxDataStore.Presentation
 
         public bool DisplayClientForm(string strFormName)
         {
-            if (string.IsNullOrEmpty(strFormName)) return false;
+            if (string.IsNullOrWhiteSpace(strFormName)) return false;
 
             if (this.frmCurrent == null || this.frmCurrent.Name != strFormName)
             {

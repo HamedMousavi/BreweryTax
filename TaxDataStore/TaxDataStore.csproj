@@ -362,6 +362,10 @@
       <Project>{F6413A9D-39FE-4939-99B4-CD4028050CB6}</Project>
       <Name>StatusController</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TaxDataStoreUpdater\TaxDataStoreUpdater.csproj">
+      <Project>{4CE36C58-BE8A-41E2-B6FA-7E91BECC0360}</Project>
+      <Name>TaxDataStoreUpdater</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\DataSources\" />

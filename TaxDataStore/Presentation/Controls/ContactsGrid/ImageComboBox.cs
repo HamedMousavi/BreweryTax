@@ -87,7 +87,7 @@ namespace TaxDataStore.Presentation.Controls
 */
         private Image GetContactImage(GeneralType contactMedia)
         {
-            if (contactMedia == null || string.IsNullOrEmpty(contactMedia.Name)) return null;
+            if (contactMedia == null || string.IsNullOrWhiteSpace(contactMedia.Name)) return null;
 
             string name = contactMedia.Name.ToLower();
             name = name.Replace(' ', '_');

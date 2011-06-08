@@ -34,7 +34,7 @@ namespace DomainModel
             if (!stringCache.ContainsKey(resourceName))
             {
                 string res = textResMon.GetString(resourceName, culture) as string;
-                if (!string.IsNullOrEmpty(res))
+                if (!string.IsNullOrWhiteSpace(res))
                 {
                     stringCache.Add(resourceName, res);
                 }

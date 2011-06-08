@@ -11,7 +11,7 @@ namespace DomainModel
         public void Update(StatusController.Abstract.StatusTypes type, string resourceName)
         {
             string text = Application.ResourceManager.GetText(resourceName);
-            if (string.IsNullOrEmpty(text))
+            if (string.IsNullOrWhiteSpace(text))
             {
                 text = resourceName;
             }
@@ -24,7 +24,7 @@ namespace DomainModel
         public void Update(StatusController.Abstract.StatusTypes type, string resourceName, string customText)
         {
             string text = Application.ResourceManager.GetText(resourceName);
-            if (string.IsNullOrEmpty(text))
+            if (string.IsNullOrWhiteSpace(text))
             {
                 text = resourceName;
             }

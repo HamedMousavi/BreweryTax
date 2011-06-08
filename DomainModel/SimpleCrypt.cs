@@ -15,7 +15,7 @@ namespace DomainModel
 
         public string Encrypt(string plainText)
         {
-            if (string.IsNullOrEmpty(plainText)) return string.Empty;
+            if (string.IsNullOrWhiteSpace(plainText)) return string.Empty;
 
             byte[] dataToEncrypt = Encoding.UTF8.GetBytes(plainText);
             byte[] cipherBytes = Encrypt(dataToEncrypt);
@@ -24,7 +24,7 @@ namespace DomainModel
 
         public string Decrypt(string cipherText)
         {
-            if (string.IsNullOrEmpty(cipherText)) return string.Empty;
+            if (string.IsNullOrWhiteSpace(cipherText)) return string.Empty;
 
             byte[] cipherBytes = Convert.FromBase64String(cipherText);
             byte[] decryptedData = Decryp(cipherBytes);

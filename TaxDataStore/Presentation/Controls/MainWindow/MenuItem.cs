@@ -19,7 +19,7 @@ namespace TaxDataStore.Presentation.Controls
             this.Text = DomainModel.Application.ResourceManager.GetText("mnu_caption_" + this.Name);
             this.ToolTipText = DomainModel.Application.ResourceManager.GetText("mnu_tip_" + this.Name);
 
-            if (!string.IsNullOrEmpty(imageName))
+            if (!string.IsNullOrWhiteSpace(imageName))
             {
                 this.Image = DomainModel.Application.ResourceManager.GetImage(imageName);
             }
@@ -33,7 +33,7 @@ namespace TaxDataStore.Presentation.Controls
 
         private void SetVisibility(string taskName)
         {
-            if (string.IsNullOrEmpty(taskName)) return;
+            if (string.IsNullOrWhiteSpace(taskName)) return;
 
             this.Visible = DomainModel.Membership.Users.Authorise(taskName);
         }

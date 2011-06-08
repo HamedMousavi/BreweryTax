@@ -25,7 +25,7 @@ namespace TaxDataStore
             this.tbxDatabaseCatalog.Text = cnn.InitialCatalog;
             this.tbxDatabasePassword.Text = cnn.Password;
             this.tbxDatabaseUserId.Text = cnn.UserID;
-            if (!string.IsNullOrEmpty(cnn.DataSource))
+            if (!string.IsNullOrWhiteSpace(cnn.DataSource))
             {
                 string[] chuncks = cnn.DataSource.Split(',');
                 if (chuncks != null && chuncks.Length > 1)
@@ -49,7 +49,7 @@ namespace TaxDataStore
             cnn.InitialCatalog = this.tbxDatabaseCatalog.Text;
             cnn.Password = this.tbxDatabasePassword.Text;
             cnn.UserID = this.tbxDatabaseUserId.Text;
-            if (!string.IsNullOrEmpty(this.tbxDatabaseTcpPort.Text))
+            if (!string.IsNullOrWhiteSpace(this.tbxDatabaseTcpPort.Text))
             {
                 cnn.DataSource =
                     this.tbxDatabaseServerName.Text +

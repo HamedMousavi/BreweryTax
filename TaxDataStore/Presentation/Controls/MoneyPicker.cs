@@ -26,7 +26,7 @@ namespace TaxDataStore.Presentation.Controls
 
             set
             {
-                if (!string.IsNullOrEmpty(value))
+                if (!string.IsNullOrWhiteSpace(value))
                 {
                     value = value.Replace(".", this.decimalSeprator);
                     value = value.Replace(",", this.decimalSeprator);

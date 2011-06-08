@@ -19,6 +19,7 @@ namespace TaxDataStore
             ShowSplashScreen();
             InitApplication();
             LoadAppSettings();
+            SetupUpdater();
             HideSplashScreen();
             BeginAuthenticate();
         }
@@ -40,6 +41,28 @@ namespace TaxDataStore
         private void InitApplication()
         { 
             DomainModel.Application.Init(Properties.Settings.Default);
+        }
+
+
+        private void SetupUpdater()
+        {
+            if (TaxDataStoreUpdater.ServiceInterface.ServiceExists)
+            {
+                //TaxDataStoreUpdater.ServiceInterface.UnInstall();
+                //return;
+            }
+            else
+            {
+                TaxDataStoreUpdater.ServiceInterface.Install();
+            }
+
+            if (TaxDataStoreUpdater.ServiceInterface.ServiceIsRunning)
+            {
+            }
+            else
+            {
+                TaxDataStoreUpdater.ServiceInterface.Start();
+            }
         }
 
 

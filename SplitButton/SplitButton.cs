@@ -399,7 +399,7 @@ namespace wyDay.Controls
                 textFormatFlags = textFormatFlags | TextFormatFlags.HidePrefix;
 
             //draw the text
-            if (!string.IsNullOrEmpty(Text))
+            if (!string.IsNullOrWhiteSpace(Text))
             {
                 if (Enabled)
                     TextRenderer.DrawText(g, Text, Font, text_rectangle, ForeColor, textFormatFlags);
@@ -433,7 +433,7 @@ namespace wyDay.Controls
                 if (AutoSize)
                     return CalculateButtonAutoSize();
                 
-                if (!string.IsNullOrEmpty(Text) && TextRenderer.MeasureText(Text, Font).Width + SplitSectionWidth > preferredSize.Width)
+                if (!string.IsNullOrWhiteSpace(Text) && TextRenderer.MeasureText(Text, Font).Width + SplitSectionWidth > preferredSize.Width)
                     return preferredSize + new Size(SplitSectionWidth + BorderSize * 2, 0);
             }
 
