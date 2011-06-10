@@ -6,9 +6,10 @@ using System.ServiceProcess;
 
 namespace TaxDataStoreUpdater
 {
-
     static class Program
     {
+        static Updater updater;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -44,10 +45,11 @@ namespace TaxDataStoreUpdater
 
         private static void StartWinService()
         {
-            ServiceController controller = ServiceInterface.FindService();
-
             try
             {
+                ServiceController controller = 
+                    ServiceInterface.FindService();
+
                 if (controller != null)
                 {
                     controller.Start();
@@ -82,6 +84,12 @@ namespace TaxDataStoreUpdater
                 catch (Exception e)
                 {
                     bClearToExit = false;
+
+                    try
+                    {
+                        EventLogger.Instance.Add("Critical error: " + e.Message);
+                    }
+                    catch { }
                 }
             }
 
@@ -93,7 +101,8 @@ namespace TaxDataStoreUpdater
         {
             EventLogger.Instance.Add("Installing TaxDataStoreWindows Services...");
 
-            using (AssemblyInstaller inst = new AssemblyInstaller(typeof(Program).Assembly, new string[] { }))
+            using (AssemblyInstaller inst = new AssemblyInstaller(
+                typeof(Program).Assembly, new string[] { }))
             {
                 IDictionary state = new Hashtable();
                 inst.UseNewContext = true;
@@ -127,7 +136,8 @@ namespace TaxDataStoreUpdater
         {
             EventLogger.Instance.Add("Removing TaxDataStoreWindows Services...");
 
-            using (AssemblyInstaller inst = new AssemblyInstaller(typeof(Program).Assembly, new string[] { }))
+            using (AssemblyInstaller inst = new 
+                AssemblyInstaller(typeof(Program).Assembly, new string[] { }))
             {
                 IDictionary state = new Hashtable();
                 inst.UseNewContext = true;

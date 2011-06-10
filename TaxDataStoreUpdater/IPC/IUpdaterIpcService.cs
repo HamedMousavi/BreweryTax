@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.ServiceModel;
+﻿using System.ServiceModel;
 
 
 namespace TaxDataStoreUpdater
@@ -11,11 +7,26 @@ namespace TaxDataStoreUpdater
     [ServiceContract(Namespace = "TaxDataStoreUpdater")]
     public interface IUpdaterIpcService
     {
-        void CheckForUpdates();
-        void DownloadUpdates();
-        void ApplyUpdates();
+
+        [OperationContract]
+        bool CheckForUpdates();
+
+        [OperationContract]
+        bool DownloadUpdates();
+
+        [OperationContract]
+        bool ApplyUpdates();
+
+        [OperationContract]
         bool UpdateExists();
+
+        [OperationContract]
         bool IsDownloadComplete();
+
+        [OperationContract]
         int GetStatus();
+
+        [OperationContract]
+        bool ReloadSettings();
     }
 }

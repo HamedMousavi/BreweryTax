@@ -34,7 +34,7 @@ namespace TaxDataStoreUpdater
         }
 
         
-        public void Start()
+        private void Start()
         {
             try
             {
@@ -48,6 +48,14 @@ namespace TaxDataStoreUpdater
             {
                 EventLogger.Instance.Add("Error starting IPC: " + e.Message);
             }
+        }
+
+
+        internal void Start(Updater updater)
+        {
+            IpcServiceDependencies.Instance.Updater = updater;
+            
+            Start();
         }
     }
 }

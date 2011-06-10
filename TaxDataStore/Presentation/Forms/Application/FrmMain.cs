@@ -35,6 +35,36 @@ namespace TaxDataStore
                 "app_welcome",
                 " " +
                 DomainModel.Application.User.Name + "!");
+
+            this.Load += new EventHandler(FrmMain_Load);
+        }
+
+
+        void FrmMain_Load(object sender, EventArgs e)
+        {
+            UpdaterService.UpdaterIpcServiceClient sc = new UpdaterService.UpdaterIpcServiceClient();
+            string[] states = new string[]
+            {
+                "Idle",
+                "DownloadingManifest",
+                "DownloadingPackage",
+                "ApplyingUpdates",
+                "CheckingVersion",
+                "ManifestDownloadCompleted"
+            };
+
+
+            while (true)
+            {
+                int state = sc.GetStatus();
+
+                DomainModel.Application.Status.Update(
+                    StatusController.Abstract.StatusTypes.Info,
+                    states[state]);
+
+                Application.DoEvents();
+                System.Threading.Thread.Sleep(2000);
+            }
         }
 
 

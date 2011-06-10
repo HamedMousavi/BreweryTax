@@ -46,9 +46,12 @@ namespace TaxDataStoreUpdater
         public Settings()
         {
             // Set default directory of updater files
-            this.directoryName = 
-                System.IO.Path.DirectorySeparatorChar + 
-                "Updater";
+            this.directoryName ="Updater";
+            this.updateUri = "http://localhost/updater/UpdateManifest.xml";// "http://www.mywebsite.com/update_dir/manifest.xml";
+            this.AutoCheckForUpdates = true;
+            this.AutoUpdateCheckInterval = 60;
+            this.AutoDownloadUpdate = false;
+            this.UpdateApplicationName = "settlement.exe";
         }
 
 
@@ -90,7 +93,7 @@ namespace TaxDataStoreUpdater
 
         public string DownloadDirectoryName
         {
-            get { return System.IO.Path.DirectorySeparatorChar + "Downloads"; }
+            get { return "Downloads"; }
         }
 
 
@@ -101,7 +104,6 @@ namespace TaxDataStoreUpdater
         }
 
 
-        [DefaultValue("www.mywebsite.com/update_dir/manifest.xml")]
         public string UpdateUri
         {
             get { return this.updateUri; }
@@ -109,7 +111,6 @@ namespace TaxDataStoreUpdater
         }
 
 
-        [DefaultValue(true)]
         public bool AutoCheckForUpdates
         {
             get
@@ -124,8 +125,7 @@ namespace TaxDataStoreUpdater
         }
 
 
-        // Seconds
-        [DefaultValue(60)]
+        // In Seconds
         public int AutoUpdateCheckInterval
         {
             get
@@ -140,7 +140,6 @@ namespace TaxDataStoreUpdater
         }
 
 
-        [DefaultValue(false)]
         public bool AutoDownloadUpdate
         {
             get
@@ -155,7 +154,6 @@ namespace TaxDataStoreUpdater
         }
 
 
-        [DefaultValue("settlement.exe")]
         public string UpdateApplicationName
         {
             get

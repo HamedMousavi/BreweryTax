@@ -6,7 +6,7 @@ using System.Net;
 namespace TaxDataStoreUpdater
 {
 
-    public class Downloader
+    public class Downloader : IDisposable
     {
 
         public enum Downloadables
@@ -16,9 +16,18 @@ namespace TaxDataStoreUpdater
         }
 
 
+        public enum DownloaderState
+        {
+            Idle,
+            DownloadingManifest,
+            DownloadingPackage,
+            DownloadCompleted
+        }
+
+
         protected WebClient webClient;
         protected Uri updateManifestUri;
-        protected bool isDownloading;
+        protected StateHandler downloadState;
 
 
         public event DownloadProgressChangedEventHandler DownloadProgressChanged
@@ -37,35 +46,28 @@ namespace TaxDataStoreUpdater
 
         public Downloader()
         {
-            this.isDownloading = false;
+            this.downloadState = new StateHandler(DownloaderState.Idle);
 
             this.updateManifestUri = new Uri(Settings.Instance.UpdateUri);
 
             this.webClient = new WebClient();
-            this.webClient.DownloadFileCompleted += new 
+            this.webClient.DownloadFileCompleted += new
                 AsyncCompletedEventHandler(OnDownloadFileCompleted);
-        }
-
-
-        void OnDownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
-        {
-            DownloadInfo inf = (DownloadInfo)e.UserState;
-            inf.Cancelled = e.Cancelled;
-            inf.Error = e.Error;
-
-            RaiseDownloadCompleted(inf);
-
-            this.isDownloading = false;
         }
 
 
         internal bool BeginDownloadManifest()
         {
-            if (this.isDownloading) return false;
-            this.isDownloading = true;
-
             try
             {
+                if ((DownloaderState)this.downloadState.Current != DownloaderState.Idle)
+                {
+                    EventLogger.Instance.Add("Cannot download manifest. Downloader state isn't idle.");
+                    return false;
+                }
+                this.downloadState.Current = DownloaderState.DownloadingManifest;
+                EventLogger.Instance.Add("Downloading manifest...");
+
                 ServiceIo.CleanDownloadFolder();
 
                 DownloadInfo inf = new DownloadInfo();
@@ -74,13 +76,15 @@ namespace TaxDataStoreUpdater
 
                 this.webClient.DownloadFileAsync(
                     this.updateManifestUri,
-                    ServiceIo.GetDownloadDirectoryPath(true),
+                    ServiceIo.GetManifestFilePath(),
                     inf);
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                this.downloadState.Current = DownloaderState.Idle;
+                EventLogger.Instance.Add(ex.Message);
             }
 
             return false;
@@ -89,29 +93,65 @@ namespace TaxDataStoreUpdater
 
         internal bool BeginDownloadPackage(UpdateManifestInfo manifest)
         {
-            if (this.isDownloading) return false;
-            this.isDownloading = true;
-
             try
             {
+                if ((DownloaderState)this.downloadState.Current == DownloaderState.DownloadingManifest ||
+                    (DownloaderState)this.downloadState.Current == DownloaderState.DownloadingPackage)
+                {
+                    EventLogger.Instance.Add("Cannot download package. Downloader is already downloading.");
+                    return false;
+                }
+
+                if (manifest == null) return false;
+                EventLogger.Instance.Add("Downloading package...");
+
+                this.downloadState.Current = DownloaderState.DownloadingPackage;
+
                 DownloadInfo inf = new DownloadInfo();
                 inf.Manifest = manifest;
                 inf.DownloadId = (Int32)Downloadables.UpdatePackage;
 
                 this.webClient.DownloadFileAsync(
                     new Uri(manifest.UpdatePackageUri),
-                    ServiceIo.GetDownloadDirectoryPath(true),
+                    ServiceIo.GetPackageFilePath(inf.Manifest),
                     inf);
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                this.downloadState.Current = DownloaderState.Idle;
+                EventLogger.Instance.Add(ex.Message);
             }
 
             return false;
         }
 
+
+        void OnDownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            try
+            {
+                this.downloadState.Current = DownloaderState.DownloadCompleted;
+
+                DownloadInfo inf = (DownloadInfo)e.UserState;
+                inf.Cancelled = e.Cancelled;
+                inf.Error = e.Error;
+
+                RaiseDownloadCompleted(inf);
+
+                this.downloadState.Current = DownloaderState.Idle;
+                EventLogger.Instance.Add("Download completed.");
+            }
+            catch (Exception ex)
+            {
+                EventLogger.Instance.Add(ex.Message);
+            }
+
+        }
+
+
+        #region Events
 
         public delegate void DownloadCompleteEventHandler(object sender, DownloadCompleteEventArgs e);
         public event DownloadCompleteEventHandler DownloadCompleted;
@@ -122,6 +162,17 @@ namespace TaxDataStoreUpdater
             {
                 DownloadCompleted(this, new DownloadCompleteEventArgs(inf));
             }
+        }
+
+        #endregion Events
+
+
+        public void Dispose()
+        {
+            this.webClient.DownloadFileCompleted -= new
+                AsyncCompletedEventHandler(OnDownloadFileCompleted);
+            this.webClient.Dispose();
+            this.downloadState.Current = DownloaderState.Idle;
         }
     }
 }

@@ -131,5 +131,5 @@ namespace TaxDataStoreUpdater
 
             return res;
         }
-   }
+    }
 }

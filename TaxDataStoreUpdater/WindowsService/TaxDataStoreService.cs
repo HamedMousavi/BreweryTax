@@ -38,7 +38,7 @@ namespace TaxDataStoreUpdater
         protected override void OnStart(string[] args)
         {
             this.updater.Start();
-            this.ipcService.Start();
+            this.ipcService.Start(this.updater);
         }
 
 
@@ -54,7 +54,7 @@ namespace TaxDataStoreUpdater
         protected override void OnContinue()
         {
             this.updater.Start();
-            this.ipcService.Start();
+            this.ipcService.Start(this.updater);
 
             base.OnContinue();
         }

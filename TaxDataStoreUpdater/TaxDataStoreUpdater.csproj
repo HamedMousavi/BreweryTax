@@ -63,9 +63,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IPC\IpcServiceDependencies.cs" />
     <Compile Include="IPC\IUpdaterIpcService.cs" />
     <Compile Include="IPC\UpdaterIpcService.cs" />
     <Compile Include="IPC\UpdaterIpcServiceController.cs" />
+    <Compile Include="Updater\StateHandler.cs" />
     <Compile Include="Updater\DownloadCompleteEventArgs.cs" />
     <Compile Include="Updater\Downloader.cs" />
     <Compile Include="Updater\DownloadInfo.cs" />
@@ -74,6 +76,7 @@
     <Compile Include="Updater\UpdateEventArgs.cs" />
     <Compile Include="Updater\UpdateManifestInfo.cs" />
     <Compile Include="Updater\Updater.cs" />
+    <Compile Include="Updater\WindowsProcessController.cs" />
     <Compile Include="WindowsService\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WindowsService\ServiceUtil.cs" />

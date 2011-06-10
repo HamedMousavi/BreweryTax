@@ -11,7 +11,7 @@ namespace TaxDataStoreUpdater
         ConcurrencyMode = ConcurrencyMode.Multiple)
     ]
     [AspNetCompatibilityRequirements(RequirementsMode =
-        AspNetCompatibilityRequirementsMode.NotAllowed)]
+        AspNetCompatibilityRequirementsMode.Allowed)]
     public class UpdaterIpcService : IUpdaterIpcService
     {
 
@@ -20,44 +20,103 @@ namespace TaxDataStoreUpdater
 
         public UpdaterIpcService()
         {
+            this.updater = IpcServiceDependencies.Instance.Updater;
         }
 
 
-        public UpdaterIpcService(Updater updater) :
-            this()
+        public bool CheckForUpdates()
         {
-            this.updater = updater;
-        }
-        
-
-        public void CheckForUpdates()
-        {
-            this.updater.CheckNow();
-        }
-
-        public void DownloadUpdates()
-        {
-            this.updater.DownloadUpdate();
+            try
+            {
+                this.updater.CheckNow();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                EventLogger.Instance.Add(ex.Message);
+            }
+            return false;
         }
 
-        public void ApplyUpdates()
+        public bool DownloadUpdates()
         {
-            this.updater.ApplyUpdate();
+            try
+            {
+                this.updater.DownloadUpdate();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                EventLogger.Instance.Add(ex.Message);
+            }
+            return false;
+        }
+
+        public bool ApplyUpdates()
+        {
+            try
+            {
+                this.updater.ApplyUpdate();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                EventLogger.Instance.Add(ex.Message);
+            }
+            return false;
         }
 
         public bool UpdateExists()
         {
-            return this.updater.IsNewVersionAvailable;
+            try
+            {
+                return this.updater.IsNewVersionAvailable;
+            }
+            catch (Exception ex)
+            {
+                EventLogger.Instance.Add(ex.Message);
+            }
+            return false;
         }
 
         public bool IsDownloadComplete()
         {
-            return this.updater.IsDownloadComplete;
+            try
+            {
+                return this.updater.IsDownloadComplete;
+            }
+            catch (Exception ex)
+            {
+                EventLogger.Instance.Add(ex.Message);
+            }
+            return false;
         }
-        
+
         public int GetStatus()
         {
-            return (Int32)this.updater.Status;
+            try
+            {
+                return (Int32)this.updater.Status;
+            }
+            catch (Exception ex)
+            {
+                EventLogger.Instance.Add(ex.Message);
+            } 
+            
+            return 0;
+        }
+
+        public bool ReloadSettings()
+        {
+            try
+            {
+                return ServiceIo.LoadSettings();
+            }
+            catch (Exception ex)
+            {
+                EventLogger.Instance.Add(ex.Message);
+            }
+            return false;
         }
     }
 }

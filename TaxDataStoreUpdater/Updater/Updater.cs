@@ -14,101 +14,182 @@ namespace TaxDataStoreUpdater
             DownloadingManifest = 1,
             DownloadingPackage = 2,
             ApplyingUpdates = 3,
-            CheckingVersion = 4
+            CheckingVersion = 4,
+            ManifestDownloadCompleted
         }
 
-        protected Thread updaterHandler;
+
+        protected Thread updaterThread;
         protected const int ShutdownHandle = 0;
         protected const int ManualCheckHandle = 1;
         protected const int DownloadUpdateHandle = 2;
         protected const int ApplyUpdateHandle = 3;
         protected WaitHandle[] handles;
 
-        protected bool isChecking;
-        protected UpdaterStatus status;
+        protected StateHandler state;
 
         protected Downloader downloader;
 
 
         public Updater()
         {
+            InitState();
+            SetupThread();
+        }
+
+
+        private void InitState()
+        {
             this.IsNewVersionAvailable = false;
             this.IsDownloadComplete = false;
-            this.status = UpdaterStatus.Idle;
 
-            SetupDownloader();
-            SetupThread();
+            this.state = new StateHandler(UpdaterStatus.Idle);
         }
 
 
         private void SetupDownloader()
         {
-            this.downloader = new Downloader();
-            this.downloader.DownloadCompleted += new
-                TaxDataStoreUpdater.Downloader.
-                    DownloadCompleteEventHandler(OnDownloadCompleted);
+            try
+            {
+                this.downloader = new Downloader();
+                this.downloader.DownloadCompleted += new
+                    TaxDataStoreUpdater.Downloader.
+                        DownloadCompleteEventHandler(OnDownloadCompleted);
+            }
+            catch (Exception ex)
+            {
+                EventLogger.Instance.Add(ex.Message);
+            }
         }
 
 
         private void SetupThread()
         {
-            this.isChecking = false;
+            try
+            {
+                this.handles = new WaitHandle[4];
+                this.handles[ShutdownHandle] = new AutoResetEvent(false);
+                this.handles[ManualCheckHandle] = new AutoResetEvent(false);
+                this.handles[DownloadUpdateHandle] = new AutoResetEvent(false);
+                this.handles[ApplyUpdateHandle] = new AutoResetEvent(false);
 
-            this.handles = new WaitHandle[4];
-            this.handles[ShutdownHandle] = new AutoResetEvent(false);
-            this.handles[ManualCheckHandle] = new AutoResetEvent(false);
-            this.handles[DownloadUpdateHandle] = new AutoResetEvent(false);
-            this.handles[ApplyUpdateHandle] = new AutoResetEvent(false);
-
-            this.updaterHandler = new Thread(new ThreadStart(UpdaterThread));
+                this.updaterThread = new Thread(new ThreadStart(UpdaterThread));
+            }
+            catch (Exception ex)
+            {
+                EventLogger.Instance.Add(ex.Message);
+            }
         }
 
 
         public void Start()
         {
-            if (this.updaterHandler == null)
+            try
             {
-                SetupThread();
+                SetupDownloader();
+                if (this.updaterThread == null)
+                {
+                    SetupThread();
+                }
+
+                if (!this.updaterThread.IsAlive) this.updaterThread.Start();
             }
-            
-            if (!this.updaterHandler.IsAlive) this.updaterHandler.Start();
+            catch (Exception ex)
+            {
+                EventLogger.Instance.Add(ex.Message);
+            }
         }
 
 
         public void Stop()
         {
-            if ((this.updaterHandler != null) && (this.updaterHandler.IsAlive) && this.handles != null)
-            {
-                ((AutoResetEvent)this.handles[ShutdownHandle]).Set();
+            StopThread();
+            CloseDownloader();
+            InitState();
+        }
 
-                this.updaterHandler = null;
+
+        private void CloseDownloader()
+        {
+            try
+            {
+                this.downloader.DownloadCompleted -= new
+                        TaxDataStoreUpdater.Downloader.
+                            DownloadCompleteEventHandler(OnDownloadCompleted);
+                this.downloader.Dispose();
+                this.downloader = null;
+            }
+            catch (Exception ex)
+            {
+                EventLogger.Instance.Add(ex.Message);
+            }
+        }
+
+
+        private void StopThread()
+        {
+            try
+            {
+                if (this.updaterThread != null &&
+                    this.updaterThread.IsAlive &&
+                    this.handles != null)
+                {
+                    ((AutoResetEvent)this.handles[ShutdownHandle]).Set();
+
+                    this.updaterThread = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                EventLogger.Instance.Add(ex.Message);
             }
         }
 
 
         public void CheckNow()
         {
-            if ((this.updaterHandler != null) && (this.updaterHandler.IsAlive) && this.handles != null)
+            try
             {
-                ((AutoResetEvent)this.handles[ManualCheckHandle]).Set();
+                if ((this.updaterThread != null) && (this.updaterThread.IsAlive) && this.handles != null)
+                {
+                    ((AutoResetEvent)this.handles[ManualCheckHandle]).Set();
+                }
+            }
+            catch (Exception ex)
+            {
+                EventLogger.Instance.Add(ex.Message);
             }
         }
 
 
         public void DownloadUpdate()
         {
-            if ((this.updaterHandler != null) && (this.updaterHandler.IsAlive) && this.handles != null)
+            try
             {
-                ((AutoResetEvent)this.handles[DownloadUpdateHandle]).Set();
+                if ((this.updaterThread != null) && (this.updaterThread.IsAlive) && this.handles != null)
+                {
+                    ((AutoResetEvent)this.handles[DownloadUpdateHandle]).Set();
+                }
+            }
+            catch (Exception ex)
+            {
+                EventLogger.Instance.Add(ex.Message);
             }
         }
 
 
         public void ApplyUpdate()
         {
-            if ((this.updaterHandler != null) && (this.updaterHandler.IsAlive) && this.handles != null)
+            try
             {
-                ((AutoResetEvent)this.handles[ApplyUpdateHandle]).Set();
+                if ((this.updaterThread != null) && (this.updaterThread.IsAlive) && this.handles != null)
+                {
+                    ((AutoResetEvent)this.handles[ApplyUpdateHandle]).Set();
+                }
+            }
+            catch (Exception ex)
+            {
+                EventLogger.Instance.Add(ex.Message);
             }
         }
 
@@ -165,110 +246,166 @@ namespace TaxDataStoreUpdater
 
         void OnDownloadCompleted(object sender, DownloadCompleteEventArgs e)
         {
-            if (e.DownloadInfo.Cancelled || e.DownloadInfo.Error != null)
+            try
             {
-                EventLogger.Instance.Add("Async download cancelled or failed:");
-                if (e.DownloadInfo.Error != null)
+                if (e.DownloadInfo.Cancelled || e.DownloadInfo.Error != null)
                 {
-                    EventLogger.Instance.Add(e.DownloadInfo.Error.Message);
+                    EventLogger.Instance.Add("Async download cancelled or failed:");
+                    if (e.DownloadInfo.Error != null)
+                    {
+                        EventLogger.Instance.Add(e.DownloadInfo.Error.Message);
+                    }
+
+                    return;
                 }
 
-                return;
+                if (e.DownloadInfo.DownloadId == (Int32)Downloader.Downloadables.UpdateManifest)
+                {
+                    OnManifestDownloadComplete(e.DownloadInfo);
+                }
+                else if (e.DownloadInfo.DownloadId == (Int32)Downloader.Downloadables.UpdatePackage)
+                {
+                    OnPackageDownloadComplete(e.DownloadInfo);
+                }
             }
-
-            if (e.DownloadInfo.DownloadId == (Int32)Downloader.Downloadables.UpdateManifest)
+            catch (Exception ex)
             {
-                OnManifestDownloadComplete(e.DownloadInfo);
-            }
-            else if (e.DownloadInfo.DownloadId == (Int32)Downloader.Downloadables.UpdatePackage)
-            {
-                OnPackageDownloadComplete(e.DownloadInfo);
+                EventLogger.Instance.Add(ex.Message);
             }
         }
 
 
         private void OnManifestDownloadComplete(DownloadInfo downloadInfo)
         {
+            this.state.Current = UpdaterStatus.ManifestDownloadCompleted;
             DownloadNewVersion(true);
         }
 
 
         private void OnPackageDownloadComplete(DownloadInfo downloadInfo)
         {
-            if (ServiceIo.ExtractDownloadedPackage(downloadInfo.Manifest))
+            try
             {
-                this.IsDownloadComplete = true;
-                RaiseNewVersionDownloaded(downloadInfo);
+                if (ServiceIo.ExtractDownloadedPackage(downloadInfo.Manifest))
+                {
+                    ServiceIo.Cleanup(downloadInfo.Manifest);
+
+                    this.IsDownloadComplete = true;
+                    RaiseNewVersionDownloaded(downloadInfo);
+                }
+            }
+            catch (Exception ex)
+            {
+                EventLogger.Instance.Add(ex.Message);
             }
         }
 
 
-        private void CheckForUpdates()
+        private bool CheckForUpdates()
         {
-            if (this.isChecking) return;
-            this.isChecking = true;
+            // There's already a new version ready to set up
+            if (IsDownloadComplete) return false;
 
-            this.status = UpdaterStatus.DownloadingManifest;
-            this.downloader.BeginDownloadManifest();
+            // If an operation is being done, do not interfere
+            if ((UpdaterStatus)this.state.Current != UpdaterStatus.Idle) return false;
+            this.state.Current = UpdaterStatus.DownloadingManifest;
 
-            this.isChecking = false;
+            return this.downloader.BeginDownloadManifest();
         }
 
 
         // download latest updates
-        private void DownloadNewVersion(bool checkAutoDownloadFlag = false)
+        private bool DownloadNewVersion(bool checkAutoDownloadFlag = false)
         {
-            UpdateManifestInfo info = GetNewVersionInfo();
-            if (info != null)
+            bool res = false;
+            try
             {
-                if ((checkAutoDownloadFlag && Settings.Instance.AutoDownloadUpdate) ||
-                    !checkAutoDownloadFlag)
+                // There's already a new version ready to set up
+                if (this.IsDownloadComplete) return res;
+
+                // If an operation is being done, do not interfere
+                UpdaterStatus state = (UpdaterStatus)this.state.Current;
+                if ((state == UpdaterStatus.ManifestDownloadCompleted ||
+                    state == UpdaterStatus.Idle))
                 {
-                    this.status = UpdaterStatus.DownloadingPackage;
-                    this.downloader.BeginDownloadPackage(info);
+                    res = true;
+                    UpdateManifestInfo info = GetNewVersionInfo();
+                    if (info != null)
+                    {
+                        if ((checkAutoDownloadFlag && Settings.Instance.AutoDownloadUpdate) ||
+                            !checkAutoDownloadFlag)
+                        {
+                            EventLogger.Instance.Add("Found new version.");
+
+                            this.state.Current = UpdaterStatus.DownloadingPackage;
+                            res = this.downloader.BeginDownloadPackage(info);
+                        }
+                        else
+                        {
+                            EventLogger.Instance.Add("Found new version auto download is off. It'll not be downloaded.");
+                        }
+                    }
+
+                    if ((UpdaterStatus)this.state.Current != UpdaterStatus.DownloadingPackage)
+                    {
+                        this.state.Current = UpdaterStatus.Idle;
+                    }
                 }
             }
-
-            if (this.status != UpdaterStatus.DownloadingPackage)
+            catch (Exception ex)
             {
-                this.status = UpdaterStatus.Idle;
+                this.state.Current = UpdaterStatus.Idle;
+                EventLogger.Instance.Add(ex.Message);
+                res = false;
             }
+
+            return res;
         }
 
 
         private UpdateManifestInfo GetNewVersionInfo()
         {
-            this.status = UpdaterStatus.CheckingVersion;
-
-            UpdateManifestInfo info = GetManifestInfo();
-            if (info == null)
+            try
             {
-                EventLogger.Instance.Add("Cannot get manifest file info. Version comparison failed.");
-            }
-            else
-            {
-                System.Reflection.AssemblyName asm = ServiceIo.GetUpdateAssembly();
+                object tmpCurr = this.state.Current;
+                this.state.Current = UpdaterStatus.CheckingVersion;
 
-                if (asm == null)
+                UpdateManifestInfo info = GetManifestInfo();
+                if (info == null)
                 {
-                    EventLogger.Instance.Add("Cannot get update application assembly. Version comparison failed.");
+                    EventLogger.Instance.Add("Cannot get manifest file info. Version comparison failed.");
                 }
                 else
                 {
-                    Version currentVersion = asm.Version;
-                    Version latestVersion = new Version(info.UpdateVersion);
+                    System.Reflection.AssemblyName asm = ServiceIo.GetUpdateAssembly();
 
-                    if (latestVersion > currentVersion)
+                    if (asm == null)
                     {
-                        this.IsNewVersionAvailable = true;
-                        RaiseNewVersionExists(info);
-                        return info;
+                        EventLogger.Instance.Add("Cannot get update application assembly. Version comparison failed.");
                     }
                     else
                     {
-                        this.IsNewVersionAvailable = false;
+                        Version currentVersion = asm.Version;
+                        Version latestVersion = new Version(info.UpdateVersion);
+
+                        if (latestVersion > currentVersion)
+                        {
+                            this.IsNewVersionAvailable = true;
+                            RaiseNewVersionExists(info);
+                            return info;
+                        }
+                        else
+                        {
+                            this.IsNewVersionAvailable = false;
+                        }
                     }
                 }
+                this.state.Current = tmpCurr;
+            }
+            catch (Exception ex)
+            {
+                //this.state.Current = UpdaterStatus.Idle;
+                EventLogger.Instance.Add(ex.Message);
             }
 
             return null;
@@ -276,17 +413,59 @@ namespace TaxDataStoreUpdater
 
 
         // closes app, overwrites downloaded files and returns
-        private void ApplyDownloadedUpdate()
+        private bool ApplyDownloadedUpdate()
         {
-            if (!this.IsNewVersionAvailable) return;
-            this.status = UpdaterStatus.ApplyingUpdates;
+            try
+            {
+                if (!this.IsNewVersionAvailable) return false;
+                this.state.Current = UpdaterStatus.ApplyingUpdates;
 
-            // UNDONE: Ensure app is closed
-            ServiceIo.OverwriteDownloadedFiles();
+                // Ensure app is closed
+                if (WindowsProcessController.IsProcessAlive(Settings.Instance.UpdateApplicationName))
+                {
+                    System.Threading.Thread.Sleep(1000);
 
-            this.IsDownloadComplete = false;
-            this.IsNewVersionAvailable = false;
-            this.status = UpdaterStatus.Idle;
+                    if (WindowsProcessController.IsProcessAlive(Settings.Instance.UpdateApplicationName))
+                    {
+                        WindowsProcessController.KillProcess(Settings.Instance.UpdateApplicationName);
+                        System.Threading.Thread.Sleep(1000);
+                    }
+                }
+
+                if (WindowsProcessController.IsProcessAlive(Settings.Instance.UpdateApplicationName))
+                {
+                    return false;
+                }
+
+                // Backup before overwriting files
+                if (!ServiceIo.BackupStartupDirectory())
+                {
+                    return false;
+                }
+
+                // Restore backup if overwrite failed
+                if (!ServiceIo.OverwriteDownloadedFiles())
+                {
+                    ServiceIo.RestoreStartupDirectory();
+                }
+
+                // Clean up
+                ServiceIo.CleanupBackups();
+
+                // Update state
+                this.IsDownloadComplete = false;
+                this.IsNewVersionAvailable = false;
+                this.state.Current = UpdaterStatus.Idle;
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                this.state.Current = UpdaterStatus.Idle;
+                EventLogger.Instance.Add(ex.Message);
+            }
+
+            return false;
         }
 
 
@@ -307,7 +486,7 @@ namespace TaxDataStoreUpdater
         {
             get
             {
-                return (Int32) this.status;
+                return (Int32)(UpdaterStatus) this.state.Current;
             }
         }
 

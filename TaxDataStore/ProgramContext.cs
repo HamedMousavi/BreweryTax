@@ -46,6 +46,7 @@ namespace TaxDataStore
 
         private void SetupUpdater()
         {
+            /*
             if (TaxDataStoreUpdater.ServiceInterface.ServiceExists)
             {
                 //TaxDataStoreUpdater.ServiceInterface.UnInstall();
@@ -62,7 +63,7 @@ namespace TaxDataStore
             else
             {
                 TaxDataStoreUpdater.ServiceInterface.Start();
-            }
+            }*/
         }
 
 

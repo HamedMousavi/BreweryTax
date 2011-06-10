@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="adc263fc-521d-4d5b-957a-678159d94452" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.pipe://localhost/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TaxDataStoreUpdater.wsdl" MetadataType="Wsdl" ID="e3ccfe41-1337-4b84-bac2-ae96c7182a18" SourceId="1" SourceUrl="net.pipe://localhost/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="910066d7-ccb7-4610-9036-fae4d1bce387" SourceId="1" SourceUrl="net.pipe://localhost/mex" />
+    <MetadataFile FileName="TaxDataStoreUpdater.xsd" MetadataType="Schema" ID="3d240892-9374-435a-9204-f66c883db653" SourceId="1" SourceUrl="net.pipe://localhost/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="3f753d61-d96b-45f5-8648-b745552b7f9a" SourceId="1" SourceUrl="net.pipe://localhost/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
