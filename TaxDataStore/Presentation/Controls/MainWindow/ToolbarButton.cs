@@ -20,6 +20,7 @@ namespace TaxDataStore.Presentation.Controls
             this.Size = new System.Drawing.Size(23, 22);
             this.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            //this.TextImageRelation = TextImageRelation.ImageBeforeText;
 
             this.Text = DomainModel.Application.ResourceManager.GetText("mnu_caption_" + this.Name);
             this.ToolTipText = DomainModel.Application.ResourceManager.GetText("mnu_tip_" + this.Name);

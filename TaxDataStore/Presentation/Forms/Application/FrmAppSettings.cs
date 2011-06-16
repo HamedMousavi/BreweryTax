@@ -7,10 +7,13 @@ namespace TaxDataStore
 
     public partial class FrmAppSettings : Form
     {
+        protected Presentation.Controls.Settings.Database ctrlDatabase;
+        protected Presentation.Controls.Settings.Updates ctrlUpdates;
+        protected Presentation.Controls.Settings.General ctrlGeneral;
+        protected Presentation.Controls.Settings.Types ctrlTypes;
 
         protected UsersManager ctrlUsers;
         protected RoleManager ctrlRoles;
-        protected GeneralAppSettings ctrlGeneralSettings;
         protected TourPaymentSettings ctrlTourPaymentSettings;
 
 
@@ -31,10 +34,19 @@ namespace TaxDataStore
                 DomainModel.Application.ResourceManager.GetImage("manage_users"));
             this.tabUsers.ImageList.Images.Add(
                 DomainModel.Application.ResourceManager.GetImage("money_coin"));
+            this.tabUsers.ImageList.Images.Add(
+                DomainModel.Application.ResourceManager.GetImage("database"));
+            this.tabUsers.ImageList.Images.Add(
+                DomainModel.Application.ResourceManager.GetImage("globe_green"));
+            this.tabUsers.ImageList.Images.Add(
+                DomainModel.Application.ResourceManager.GetImage("node_select_all"));
 
             this.tbpRoles.ImageIndex = 0;
             this.tbpUsers.ImageIndex = 1;
             this.tbpTourPayment.ImageIndex = 2;
+            this.tbpUpdates.ImageIndex = 4;
+            this.tbpDatabase.ImageIndex = 3;
+            this.tbpCategories.ImageIndex = 5;
 
             if (DomainModel.Membership.Users.Authorise("User management"))
             {
@@ -57,13 +69,22 @@ namespace TaxDataStore
                 this.tabUsers.Controls.Remove(this.tbpRoles);
             }
 
-
-            this.ctrlGeneralSettings = new GeneralAppSettings();
-                this.tbpGeneral.Controls.Add(this.ctrlGeneralSettings);
-            
+            /*
+            this.ctrlGeneral = new Presentation.Controls.Settings.General();
+                this.tbpGeneral.Controls.Add(this.ctrlGeneral);
+            */
             
             this.ctrlTourPaymentSettings = new TourPaymentSettings();
             this.tbpTourPayment.Controls.Add(this.ctrlTourPaymentSettings);
+
+            this.ctrlDatabase = new Presentation.Controls.Settings.Database();
+            this.tbpDatabase.Controls.Add(this.ctrlDatabase);
+            
+            this.ctrlUpdates = new Presentation.Controls.Settings.Updates();
+            this.tbpUpdates.Controls.Add(this.ctrlUpdates);
+
+            this.ctrlTypes = new Presentation.Controls.Settings.Types();
+            this.tbpCategories.Controls.Add(this.ctrlTypes);
         }
     }
 }

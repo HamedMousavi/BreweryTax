@@ -20,5 +20,23 @@ namespace DomainModel
         {
             return repo.GetByName(typeName, culture.Id);
         }
+
+
+        public static bool Update(CategorySub sub, GeneralType type, string name)
+        {
+            return repo.Update(sub.Language.Id, type.Id, name);
+        }
+
+
+        public static bool Insert(CategoryClass category, CategorySub sub, GeneralType type)
+        {
+            return repo.Insert(category.Id, sub.Language.Id, type);
+        }
+
+
+        public static bool DeleteById(int typeId)
+        {
+            return repo.DeleteById(typeId);
+        }
     }
 }

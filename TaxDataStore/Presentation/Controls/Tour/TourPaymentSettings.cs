@@ -30,7 +30,7 @@ namespace TaxDataStore.Presentation.Controls
             this.btnEditTourPrice.Image = DomainModel.Application.ResourceManager.GetImage("pencil");
 
             this.dgvTourPrices = new TourBasePriceGridView();
-            this.tlpTourPrices.Controls.Add(this.dgvTourPrices, 0, 1);
+            this.tlpTourPriceContainer.Controls.Add(this.dgvTourPrices, 0, 1);
 
             this.dgvRules = new TourPaymentRulesGridView();
             this.dgvRules.SetDataSource(DomainModel.TourPaymentRules.GetAll());

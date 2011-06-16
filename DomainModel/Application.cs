@@ -28,10 +28,11 @@ namespace DomainModel
         }
 
 
-        public static void Init(ApplicationSettingsBase applicationSettings)
+        public static void Init(ApplicationSettingsBase applicationSettings, string startupPath)
         {
             // Load application settings
             settings = new DomainModel.Settings(applicationSettings);
+            settings.StartupPath = startupPath;
 
             Cultures.Init(settings.SqlConnectionString);
             //culture = Cultures.GetAll()["en-us"];
@@ -63,6 +64,7 @@ namespace DomainModel
             Tours.Init(settings.SqlConnectionString);
             TourPaymentRules.Init(settings.SqlConnectionString);
             TourPaymentGroups.Init(settings.SqlConnectionString);
+            Categories.Init(settings.SqlConnectionString);
         }
 
 

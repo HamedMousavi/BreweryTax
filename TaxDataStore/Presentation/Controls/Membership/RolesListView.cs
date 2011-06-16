@@ -25,6 +25,7 @@ namespace TaxDataStore.Presentation.Controls
             this.TabIndex = 0;
             this.UseCompatibleStateImageBehavior = false;
             this.Visible = true;
+            //this.Margin = new Padding(0);
 
             this.View = System.Windows.Forms.View.Details;
             this.MultiSelect = false;

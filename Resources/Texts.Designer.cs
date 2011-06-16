@@ -70,6 +70,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Copyright © 2011 SarvSoft.
+        /// </summary>
+        public static string app_copyright {
+            get {
+                return ResourceManager.GetString("app_copyright", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settlement.
         /// </summary>
         public static string app_name {
@@ -232,6 +241,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Updates.
+        /// </summary>
+        public static string gpx_updates {
+            get {
+                return ResourceManager.GetString("gpx_updates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Participants.
         /// </summary>
         public static string grid_title_participants {
@@ -304,6 +322,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please wait. Loading....
+        /// </summary>
+        public static string lbl_app_loading {
+            get {
+                return ResourceManager.GetString("lbl_app_loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Comments.
         /// </summary>
         public static string lbl_comments {
@@ -313,11 +340,65 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Version.
+        /// </summary>
+        public static string lbl_current_version {
+            get {
+                return ResourceManager.GetString("lbl_current_version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Date.
         /// </summary>
         public static string lbl_date {
             get {
                 return ResourceManager.GetString("lbl_date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Database.
+        /// </summary>
+        public static string lbl_db_name {
+            get {
+                return ResourceManager.GetString("lbl_db_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string lbl_db_password {
+            get {
+                return ResourceManager.GetString("lbl_db_password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Port number.
+        /// </summary>
+        public static string lbl_db_port {
+            get {
+                return ResourceManager.GetString("lbl_db_port", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server name.
+        /// </summary>
+        public static string lbl_db_server {
+            get {
+                return ResourceManager.GetString("lbl_db_server", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username.
+        /// </summary>
+        public static string lbl_db_srv_user {
+            get {
+                return ResourceManager.GetString("lbl_db_srv_user", resourceCulture);
             }
         }
         
@@ -376,6 +457,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Last checked.
+        /// </summary>
+        public static string lbl_last_update_check {
+            get {
+                return ResourceManager.GetString("lbl_last_update_check", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Participants count.
         /// </summary>
         public static string lbl_participant_count {
@@ -390,6 +480,24 @@ namespace Resources {
         public static string lbl_price {
             get {
                 return ResourceManager.GetString("lbl_price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Produced by.
+        /// </summary>
+        public static string lbl_produced_by {
+            get {
+                return ResourceManager.GetString("lbl_produced_by", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registered to.
+        /// </summary>
+        public static string lbl_registered_to {
+            get {
+                return ResourceManager.GetString("lbl_registered_to", resourceCulture);
             }
         }
         
@@ -462,6 +570,69 @@ namespace Resources {
         public static string lbl_tour_type {
             get {
                 return ResourceManager.GetString("lbl_tour_type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable automatic update.
+        /// </summary>
+        public static string lbl_upd_auto_check {
+            get {
+                return ResourceManager.GetString("lbl_upd_auto_check", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download new version automatically.
+        /// </summary>
+        public static string lbl_upd_auto_download {
+            get {
+                return ResourceManager.GetString("lbl_upd_auto_download", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check for updates every.
+        /// </summary>
+        public static string lbl_upd_interval {
+            get {
+                return ResourceManager.GetString("lbl_upd_interval", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to seconds.
+        /// </summary>
+        public static string lbl_upd_sseconds {
+            get {
+                return ResourceManager.GetString("lbl_upd_sseconds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update URL.
+        /// </summary>
+        public static string lbl_upd_url {
+            get {
+                return ResourceManager.GetString("lbl_upd_url", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New version.
+        /// </summary>
+        public static string lbl_update_state {
+            get {
+                return ResourceManager.GetString("lbl_update_state", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updater is.
+        /// </summary>
+        public static string lbl_updater_state {
+            get {
+                return ResourceManager.GetString("lbl_updater_state", resourceCulture);
             }
         }
         
@@ -700,11 +871,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New version is available to download.
+        /// </summary>
+        public static string new_version_exists {
+            get {
+                return ResourceManager.GetString("new_version_exists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New version is ready to install.
+        /// </summary>
+        public static string new_version_is_ready_to_install {
+            get {
+                return ResourceManager.GetString("new_version_is_ready_to_install", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &amp;Password.
         /// </summary>
         public static string password {
             get {
                 return ResourceManager.GetString("password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Program is up to date.
+        /// </summary>
+        public static string program_is_up_to_date {
+            get {
+                return ResourceManager.GetString("program_is_up_to_date", resourceCulture);
             }
         }
         
@@ -795,6 +993,69 @@ namespace Resources {
         public static string tasks {
             get {
                 return ResourceManager.GetString("tasks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check now.
+        /// </summary>
+        public static string update_check_now {
+            get {
+                return ResourceManager.GetString("update_check_now", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download.
+        /// </summary>
+        public static string update_download_now {
+            get {
+                return ResourceManager.GetString("update_download_now", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Install.
+        /// </summary>
+        public static string update_install_now {
+            get {
+                return ResourceManager.GetString("update_install_now", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Install.
+        /// </summary>
+        public static string update_install_service {
+            get {
+                return ResourceManager.GetString("update_install_service", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove.
+        /// </summary>
+        public static string update_remove_service {
+            get {
+                return ResourceManager.GetString("update_remove_service", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updater service is installed.
+        /// </summary>
+        public static string updater_is_installed {
+            get {
+                return ResourceManager.GetString("updater_is_installed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updater service is not installed.
+        /// </summary>
+        public static string updater_is_not_installed {
+            get {
+                return ResourceManager.GetString("updater_is_not_installed", resourceCulture);
             }
         }
         

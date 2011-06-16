@@ -29,5 +29,7 @@ namespace TaxDataStore.Presentation
                 DomainModel.Application.ResourceManager.SetCulture(value);
             }
         }
+
+        public static Theme Theme { get; set; }
     }
 }

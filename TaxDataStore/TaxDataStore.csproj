@@ -59,6 +59,51 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presentation\Controllers\MessageBox.cs" />
+    <Compile Include="Presentation\Controls\ContainerLayoutPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\FlatButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\Settings\CategoryVirtualListDataSource.cs" />
+    <Compile Include="Presentation\Controls\Settings\CategoryListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\GeneralTypeTextEditor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\ObjectListView.cs" />
+    <Compile Include="Presentation\Controls\Settings\Database.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\Settings\Database.Designer.cs">
+      <DependentUpon>Database.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Controls\Settings\General.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\Settings\General.Designer.cs">
+      <DependentUpon>General.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Controls\Settings\Types.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\Settings\Types.Designer.cs">
+      <DependentUpon>Types.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Controls\Settings\Updates.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\Settings\Updates.Designer.cs">
+      <DependentUpon>Updates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Forms\Application\FrmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\Application\FrmAbout.Designer.cs">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\Forms\Application\FrmSplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,7 +146,7 @@
       <DependentUpon>FrmTourPriceEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Controllers\TourFinance.cs" />
-    <Compile Include="Presentation\Controls\GeneralTypeDataGridViewColumn.cs" />
+    <Compile Include="Presentation\Controls\Settings\GeneralTypeDataGridViewColumn.cs" />
     <Compile Include="Presentation\Controls\Tour\TourBasePriceGridView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -202,12 +247,6 @@
     <Compile Include="Presentation\Forms\Membership\FrmUserEditor.Designer.cs">
       <DependentUpon>FrmUserEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Controls\GeneralAppSettings.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Presentation\Controls\GeneralAppSettings.Designer.cs">
-      <DependentUpon>GeneralAppSettings.cs</DependentUpon>
-    </Compile>
     <Compile Include="Presentation\Controls\Membership\UsersListView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -252,6 +291,10 @@
     <Compile Include="Presentation\Models\PriceOperationItem.cs" />
     <Compile Include="Presentation\Models\ValueOperationItem.cs" />
     <Compile Include="Presentation\SccreenManager.cs" />
+    <Compile Include="Presentation\Theme.cs" />
+    <Compile Include="Presentation\Controls\ToolbarLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Presentation\View.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProgramContext.cs" />
@@ -273,11 +316,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Presentation\Controls\Settings\Database.resx">
+      <DependentUpon>Database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Controls\Settings\General.resx">
+      <DependentUpon>General.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Controls\Settings\Types.resx">
+      <DependentUpon>Types.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Controls\Settings\Updates.resx">
+      <DependentUpon>Updates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Forms\Application\FrmAbout.resx">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Forms\Application\FrmSplashScreen.resx">
       <DependentUpon>FrmSplashScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\Controls\GeneralAppSettings.resx">
-      <DependentUpon>GeneralAppSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Forms\Tours\FrmRuleEditor.resx">
       <DependentUpon>FrmRuleEditor.cs</DependentUpon>
@@ -338,6 +393,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="Properties\DataSources\Entities.CategoryClass.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -347,16 +403,20 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Service References\UpdaterService\ApplicationUpdater.wsdl" />
+    <None Include="Service References\UpdaterService\ApplicationUpdater.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\UpdaterService\service.wsdl" />
     <None Include="Service References\UpdaterService\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\UpdaterService\TaxDataStoreUpdater.wsdl" />
-    <None Include="Service References\UpdaterService\TaxDataStoreUpdater.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ApplicationUpdater\ApplicationUpdater.csproj">
+      <Project>{4308981E-F253-4521-88D3-732A87B6193C}</Project>
+      <Name>ApplicationUpdater</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DomainModel\DomainModel.csproj">
       <Project>{13BB5104-B8FE-4213-A38B-B89AFD37FA43}</Project>
       <Name>DomainModel</Name>
@@ -364,6 +424,10 @@
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{3F27A938-24F2-4AB3-B3DC-FCA877D80DED}</Project>
       <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ObjectListView\ObjectListView2010.csproj">
+      <Project>{18FEDA0C-D147-4286-B39A-01204808106A}</Project>
+      <Name>ObjectListView2010</Name>
     </ProjectReference>
     <ProjectReference Include="..\Resources\Resources.csproj">
       <Project>{D6632E21-6AD2-42A6-984E-5FE39EF8AE71}</Project>
@@ -377,14 +441,8 @@
       <Project>{F6413A9D-39FE-4939-99B4-CD4028050CB6}</Project>
       <Name>StatusController</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TaxDataStoreUpdater\TaxDataStoreUpdater.csproj">
-      <Project>{4CE36C58-BE8A-41E2-B6FA-7E91BECC0360}</Project>
-      <Name>TaxDataStoreUpdater</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\DataSources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
       <Visible>False</Visible>
@@ -428,7 +486,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_ConfigurationName="Release" BuildVersion_BuildVersioningStyle="YearStamp.Increment.MonthAndDayStamp.TimeStamp" BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" />
+      <UserProperties BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" BuildVersion_BuildVersioningStyle="Increment.YearStamp.MonthAndDayStamp.TimeStamp" BuildVersion_ConfigurationName="Release" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

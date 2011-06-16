@@ -1,5 +1,7 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
+using Entities;
 
 
 namespace DomainModel.Repository.Sql
@@ -53,6 +55,78 @@ namespace DomainModel.Repository.Sql
             }
 
             return types;
+        }
+
+
+        internal bool Insert(int classId, int languageId, GeneralType type)
+        {
+            bool res = false;
+
+            using (SqlConnection cnn = new SqlConnection(sqlCnnStr))
+            {
+                using (SqlCommand cmd = new SqlCommand("AppTypesAdd", cnn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@TypeId", type.Id));
+                    cmd.Parameters.Add(new SqlParameter("@LanguageId", languageId));
+                    cmd.Parameters.Add(new SqlParameter("@TypeClassId", classId));
+                    cmd.Parameters.Add(new SqlParameter("@TypeName", type.Name));
+                    cnn.Open();
+
+                    object id = cmd.ExecuteScalar();
+                    if (id != null)
+                    {
+                        type.Id = Convert.ToInt32(id);
+                        res = true;
+                    }
+                }
+            }
+
+            return res;
+        }
+
+
+        internal bool Update(int languageId, int typeId, string name)
+        {
+            bool res = false;
+
+            using (SqlConnection cnn = new SqlConnection(sqlCnnStr))
+            {
+                using (SqlCommand cmd = new SqlCommand("AppTypesUpdateById", cnn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@TypeId", typeId));
+                    cmd.Parameters.Add(new SqlParameter("@LanguageId", languageId));
+                    cmd.Parameters.Add(new SqlParameter("@TypeName", name));
+                    cnn.Open();
+
+                    int affected = cmd.ExecuteNonQuery();
+                    res = (affected > 0);
+                }
+            }
+
+            return res;
+        }
+
+
+        internal bool DeleteById(int typeId)
+        {
+            bool res = false;
+
+            using (SqlConnection cnn = new SqlConnection(sqlCnnStr))
+            {
+                using (SqlCommand cmd = new SqlCommand("AppTypesDelete", cnn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@TypeId", typeId));
+                    cnn.Open();
+
+                    int affected = cmd.ExecuteNonQuery();
+                    res = (affected > 0);
+                }
+            }
+
+            return res;
         }
     }
 }

@@ -52,5 +52,7 @@ namespace DomainModel
                 return (string)this.appSettings["DatabaseConnectionString"];
             }
         }
+
+        public string StartupPath { get; set; }
     }
 }

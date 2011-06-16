@@ -24,8 +24,8 @@ namespace TaxDataStore
 
         private void SetupControls()
         {
-            this.gpxDetails.Text = Resources.Texts.details;
-            this.gpxUsers.Text = Resources.Texts.users;
+            this.lblDetails.Text = Resources.Texts.details;
+            this.lblUsers.Text = Resources.Texts.users;
 
             this.lblIsEnabled.ForeColor = Color.Red;
             this.lblIsEnabled.Text = Resources.Texts.select_user;
@@ -54,7 +54,7 @@ namespace TaxDataStore
 
             this.lsvUsers = new UsersListView();
             this.lsvUsers.ContextMenuStrip = this.mnuUsers;
-            this.gpxUsers.Controls.Add(this.lsvUsers);
+            this.tlpMain.Controls.Add(this.lsvUsers, 0, 1);
             this.lsvUsers.MouseUp += new MouseEventHandler(lsvUsers_MouseUp);
             this.lsvUsers.SelectedIndexChanged += new EventHandler(lsvUsers_SelectedIndexChanged);
         }

@@ -65,7 +65,7 @@ namespace TaxDataStore
             this.fgvTourContacts = new FlatGridView();
             this.fgvMemberContacts = new FlatGridView();
 
-            this.gpxTours.Controls.Add(this.fgvTours);
+            this.tlpTours.Controls.Add(this.fgvTours);
             this.gpxEmployees.Controls.Add(this.fgvEmployees);
             this.gpxTourMembers.Controls.Add(this.fgvTourContacts);
             this.gpxMemberContacts.Controls.Add(this.fgvMemberContacts);

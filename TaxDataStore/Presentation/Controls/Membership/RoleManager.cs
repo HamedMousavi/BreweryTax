@@ -29,10 +29,10 @@ namespace TaxDataStore
 
             this.chlbxTasks = new TasksCheckedListBox();
             this.chlbxTasks.Dock = DockStyle.Fill;
-            this.gpxTasks.Controls.Add(this.chlbxTasks);
+            this.panelTasks.Controls.Add(this.chlbxTasks);
 
-            this.gpxRoles.Text = Resources.Texts.roles;
-            this.gpxTasks.Text = Resources.Texts.tasks;
+            this.lblRoles.Text = Resources.Texts.roles;
+            this.lblTasks.Text = Resources.Texts.tasks;
 
             this.btnAddRole.Text = Resources.Texts.add;
             this.btnDeleteRole.Text = Resources.Texts.delete;
@@ -51,7 +51,7 @@ namespace TaxDataStore
 
             this.lsvRoles = new RolesListView();
             this.lsvRoles.ContextMenuStrip = this.mnuRoles;
-            this.gpxRoles.Controls.Add(this.lsvRoles);
+            this.tlpMain.Controls.Add(this.lsvRoles, 0, 1);
 
             this.lsvRoles.MouseUp += new MouseEventHandler(lsvRoles_MouseUp);
             this.lsvRoles.SelectedIndexChanged += new EventHandler(lsvRoles_SelectedIndexChanged);

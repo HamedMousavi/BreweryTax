@@ -28,11 +28,15 @@ namespace TaxDataStore
         private void ShowSplashScreen()
         {
             Presentation.Controllers.SplashScreen.Show();
+            Application.DoEvents();
         }
 
 
         private void LoadAppSettings()
         {
+            Presentation.View.Theme =
+                new Presentation.Theme();
+
             Presentation.View.Locale =
                 Properties.Settings.Default.DefaultLocale;
         }
@@ -40,30 +44,18 @@ namespace TaxDataStore
 
         private void InitApplication()
         { 
-            DomainModel.Application.Init(Properties.Settings.Default);
+            DomainModel.Application.Init(
+                Properties.Settings.Default, 
+                Application.StartupPath);
         }
 
 
         private void SetupUpdater()
         {
-            /*
-            if (TaxDataStoreUpdater.ServiceInterface.ServiceExists)
-            {
-                //TaxDataStoreUpdater.ServiceInterface.UnInstall();
-                //return;
-            }
-            else
-            {
-                TaxDataStoreUpdater.ServiceInterface.Install();
-            }
-
-            if (TaxDataStoreUpdater.ServiceInterface.ServiceIsRunning)
-            {
-            }
-            else
-            {
-                TaxDataStoreUpdater.ServiceInterface.Start();
-            }*/
+            System.Diagnostics.Process.Start(
+                Application.StartupPath + 
+                System.IO.Path.DirectorySeparatorChar +
+                "ApplicationUpdater.exe");
         }
 
 

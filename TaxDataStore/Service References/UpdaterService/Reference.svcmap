@@ -21,9 +21,9 @@
     <MetadataSource Address="net.pipe://localhost/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="TaxDataStoreUpdater.wsdl" MetadataType="Wsdl" ID="e3ccfe41-1337-4b84-bac2-ae96c7182a18" SourceId="1" SourceUrl="net.pipe://localhost/mex" />
+    <MetadataFile FileName="ApplicationUpdater.wsdl" MetadataType="Wsdl" ID="ffb98b12-1b1c-405d-a1e9-01e3a63f2818" SourceId="1" SourceUrl="net.pipe://localhost/mex" />
     <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="910066d7-ccb7-4610-9036-fae4d1bce387" SourceId="1" SourceUrl="net.pipe://localhost/mex" />
-    <MetadataFile FileName="TaxDataStoreUpdater.xsd" MetadataType="Schema" ID="3d240892-9374-435a-9204-f66c883db653" SourceId="1" SourceUrl="net.pipe://localhost/mex" />
+    <MetadataFile FileName="ApplicationUpdater.xsd" MetadataType="Schema" ID="f55cb4f4-29cd-41fe-8d3f-1893d8181599" SourceId="1" SourceUrl="net.pipe://localhost/mex" />
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="3f753d61-d96b-45f5-8648-b745552b7f9a" SourceId="1" SourceUrl="net.pipe://localhost/mex" />
   </Metadata>
   <Extensions>

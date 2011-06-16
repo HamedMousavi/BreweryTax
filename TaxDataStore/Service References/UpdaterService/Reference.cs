@@ -12,29 +12,35 @@ namespace TaxDataStore.UpdaterService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="TaxDataStoreUpdater", ConfigurationName="UpdaterService.IUpdaterIpcService")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="ApplicationUpdater", ConfigurationName="UpdaterService.IUpdaterIpcService")]
     public interface IUpdaterIpcService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="TaxDataStoreUpdater/IUpdaterIpcService/CheckForUpdates", ReplyAction="TaxDataStoreUpdater/IUpdaterIpcService/CheckForUpdatesResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="ApplicationUpdater/IUpdaterIpcService/CheckForUpdates", ReplyAction="ApplicationUpdater/IUpdaterIpcService/CheckForUpdatesResponse")]
         bool CheckForUpdates();
         
-        [System.ServiceModel.OperationContractAttribute(Action="TaxDataStoreUpdater/IUpdaterIpcService/DownloadUpdates", ReplyAction="TaxDataStoreUpdater/IUpdaterIpcService/DownloadUpdatesResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="ApplicationUpdater/IUpdaterIpcService/DownloadUpdates", ReplyAction="ApplicationUpdater/IUpdaterIpcService/DownloadUpdatesResponse")]
         bool DownloadUpdates();
         
-        [System.ServiceModel.OperationContractAttribute(Action="TaxDataStoreUpdater/IUpdaterIpcService/ApplyUpdates", ReplyAction="TaxDataStoreUpdater/IUpdaterIpcService/ApplyUpdatesResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="ApplicationUpdater/IUpdaterIpcService/ApplyUpdates", ReplyAction="ApplicationUpdater/IUpdaterIpcService/ApplyUpdatesResponse")]
         bool ApplyUpdates();
         
-        [System.ServiceModel.OperationContractAttribute(Action="TaxDataStoreUpdater/IUpdaterIpcService/UpdateExists", ReplyAction="TaxDataStoreUpdater/IUpdaterIpcService/UpdateExistsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="ApplicationUpdater/IUpdaterIpcService/UpdateExists", ReplyAction="ApplicationUpdater/IUpdaterIpcService/UpdateExistsResponse")]
         bool UpdateExists();
         
-        [System.ServiceModel.OperationContractAttribute(Action="TaxDataStoreUpdater/IUpdaterIpcService/IsDownloadComplete", ReplyAction="TaxDataStoreUpdater/IUpdaterIpcService/IsDownloadCompleteResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="ApplicationUpdater/IUpdaterIpcService/IsDownloadComplete", ReplyAction="ApplicationUpdater/IUpdaterIpcService/IsDownloadCompleteResponse")]
         bool IsDownloadComplete();
         
-        [System.ServiceModel.OperationContractAttribute(Action="TaxDataStoreUpdater/IUpdaterIpcService/GetStatus", ReplyAction="TaxDataStoreUpdater/IUpdaterIpcService/GetStatusResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="ApplicationUpdater/IUpdaterIpcService/GetStatus", ReplyAction="ApplicationUpdater/IUpdaterIpcService/GetStatusResponse")]
         int GetStatus();
         
-        [System.ServiceModel.OperationContractAttribute(Action="TaxDataStoreUpdater/IUpdaterIpcService/ReloadSettings", ReplyAction="TaxDataStoreUpdater/IUpdaterIpcService/ReloadSettingsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="ApplicationUpdater/IUpdaterIpcService/ReloadSettings", ReplyAction="ApplicationUpdater/IUpdaterIpcService/ReloadSettingsResponse")]
         bool ReloadSettings();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ApplicationUpdater/IUpdaterIpcService/GetLastCheckTimestamp", ReplyAction="ApplicationUpdater/IUpdaterIpcService/GetLastCheckTimestampResponse")]
+        System.Nullable<System.DateTime> GetLastCheckTimestamp();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="ApplicationUpdater/IUpdaterIpcService/GetNewVersionDetails", ReplyAction="ApplicationUpdater/IUpdaterIpcService/GetNewVersionDetailsResponse")]
+        string GetNewVersionDetails();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -90,6 +96,14 @@ namespace TaxDataStore.UpdaterService {
         
         public bool ReloadSettings() {
             return base.Channel.ReloadSettings();
+        }
+        
+        public System.Nullable<System.DateTime> GetLastCheckTimestamp() {
+            return base.Channel.GetLastCheckTimestamp();
+        }
+        
+        public string GetNewVersionDetails() {
+            return base.Channel.GetNewVersionDetails();
         }
     }
 }

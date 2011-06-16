@@ -375,4 +375,91 @@
   <data name="gpx_contacts" xml:space="preserve">
     <value>Contacts</value>
   </data>
+  <data name="app_copyright" xml:space="preserve">
+    <value>Copyright © 2011 SarvSoft</value>
+  </data>
+  <data name="gpx_updates" xml:space="preserve">
+    <value>Updates</value>
+  </data>
+  <data name="lbl_current_version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="lbl_last_update_check" xml:space="preserve">
+    <value>Last checked</value>
+  </data>
+  <data name="lbl_produced_by" xml:space="preserve">
+    <value>Produced by</value>
+  </data>
+  <data name="lbl_registered_to" xml:space="preserve">
+    <value>Registered to</value>
+  </data>
+  <data name="lbl_updater_state" xml:space="preserve">
+    <value>Updater is</value>
+  </data>
+  <data name="lbl_update_state" xml:space="preserve">
+    <value>New version</value>
+  </data>
+  <data name="update_check_now" xml:space="preserve">
+    <value>Check now</value>
+  </data>
+  <data name="update_download_now" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="update_install_now" xml:space="preserve">
+    <value>Install</value>
+  </data>
+  <data name="update_install_service" xml:space="preserve">
+    <value>Install</value>
+  </data>
+  <data name="update_remove_service" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="new_version_exists" xml:space="preserve">
+    <value>New version is available to download</value>
+  </data>
+  <data name="program_is_up_to_date" xml:space="preserve">
+    <value>Program is up to date</value>
+  </data>
+  <data name="updater_is_installed" xml:space="preserve">
+    <value>Updater service is installed</value>
+  </data>
+  <data name="updater_is_not_installed" xml:space="preserve">
+    <value>Updater service is not installed</value>
+  </data>
+  <data name="new_version_is_ready_to_install" xml:space="preserve">
+    <value>New version is ready to install</value>
+  </data>
+  <data name="lbl_app_loading" xml:space="preserve">
+    <value>Please wait. Loading...</value>
+  </data>
+  <data name="lbl_db_name" xml:space="preserve">
+    <value>Database</value>
+  </data>
+  <data name="lbl_db_password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="lbl_db_port" xml:space="preserve">
+    <value>Port number</value>
+  </data>
+  <data name="lbl_db_server" xml:space="preserve">
+    <value>Server name</value>
+  </data>
+  <data name="lbl_db_srv_user" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="lbl_upd_auto_check" xml:space="preserve">
+    <value>Enable automatic update</value>
+  </data>
+  <data name="lbl_upd_auto_download" xml:space="preserve">
+    <value>Download new version automatically</value>
+  </data>
+  <data name="lbl_upd_interval" xml:space="preserve">
+    <value>Check for updates every</value>
+  </data>
+  <data name="lbl_upd_sseconds" xml:space="preserve">
+    <value>seconds</value>
+  </data>
+  <data name="lbl_upd_url" xml:space="preserve">
+    <value>Update URL</value>
+  </data>
 </root>

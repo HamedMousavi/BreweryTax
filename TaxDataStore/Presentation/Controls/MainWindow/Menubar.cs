@@ -49,7 +49,9 @@ namespace TaxDataStore.Presentation.Controls
             this.TabIndex = 0;
             this.Name = "menuBar";
             this.Text = "mainMenu";
-            this.Font = new Font("Tahoma", 9, FontStyle.Regular);
+            this.Font = new Font("Tahoma", 9, FontStyle.Bold);
+            this.BackColor = Color.FromArgb(255, 35, 50, 65);
+            this.ForeColor = Color.Silver;
 
             SetupMenuItems();
         }

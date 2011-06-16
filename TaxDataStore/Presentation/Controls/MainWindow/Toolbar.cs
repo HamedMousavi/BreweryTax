@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace TaxDataStore.Presentation.Controls
@@ -15,6 +13,7 @@ namespace TaxDataStore.Presentation.Controls
         private ToolbarButton tbbTours;
         private ToolbarButton tbbStaffPresence;
         private ToolbarButton tbbSettings;
+        private ToolbarButton tbbAppSettings;
 
         #endregion
 
@@ -31,6 +30,9 @@ namespace TaxDataStore.Presentation.Controls
             this.Location = new System.Drawing.Point(0, 24);
             this.Size = new System.Drawing.Size(800, 25);
             this.RightToLeft = View.LayoutDirection;
+            
+            this.BackColor = Color.FromArgb(255, 35, 50, 65);
+            this.ForeColor = Color.WhiteSmoke;
 
             // Initialize buttons
             SetupButtons();
@@ -64,10 +66,16 @@ namespace TaxDataStore.Presentation.Controls
                 Presentation.Controllers.Users.Presence);
 
             this.tbbSettings = new ToolbarButton(
-                "UserSettings",
+                "user_settings",
                 "gear",
                 string.Empty,
                 Presentation.Controllers.Users.Settings);
+
+            this.tbbAppSettings = new ToolbarButton(
+                "app_settings",
+                "app_settings",
+                string.Empty,
+                Presentation.Controllers.Application.Settings);
 
             // Now add all buttons to this toolbar
             this.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -75,7 +83,8 @@ namespace TaxDataStore.Presentation.Controls
             this.separators[0],
             this.tbbStaffPresence,
             this.separators[1],
-            this.tbbSettings});
+            this.tbbSettings,
+            this.tbbAppSettings});
         }
     }
 }

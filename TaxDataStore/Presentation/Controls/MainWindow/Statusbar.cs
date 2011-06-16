@@ -26,6 +26,8 @@ namespace TaxDataStore.Presentation.Controls
             this.RenderMode = ToolStripRenderMode.ManagerRenderMode;
             this.AutoSize = false;
             this.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BackColor = Color.FromArgb(255, 35, 50, 65);
+            
             this.asyncHelper = new AsyncCalls();
             this.currentState = StatusTypes.Info;
 
@@ -57,7 +59,8 @@ namespace TaxDataStore.Presentation.Controls
                     this.BackColor = this.colors[(int)StatusTypes.Info];
                 }
             }
-
+            
+            /*
             if (this.label.ForeColor != Color.Black)
             {
                 lock (this)
@@ -65,7 +68,7 @@ namespace TaxDataStore.Presentation.Controls
                     this.label.ForeColor = Color.Black;
                 }
             }
-
+            */
         }
 
 
@@ -80,13 +83,14 @@ namespace TaxDataStore.Presentation.Controls
             this.label.Anchor = AnchorStyles.Left;
             this.label.BorderSides = ToolStripStatusLabelBorderSides.None;
             this.label.ImageAlign = ContentAlignment.MiddleLeft;
+            this.label.ForeColor = Color.White;
             this.Items.Add(this.label);
 
             this.lblUser = new ToolStripStatusLabel();
             this.lblUser.Name = "status_user";
             this.lblUser.RightToLeft = View.LayoutDirection;
             this.lblUser.Font = new Font("Tahoma", 9, FontStyle.Bold);
-            this.lblUser.ForeColor = Color.DarkGreen;
+            this.lblUser.ForeColor = Color.White;
             this.lblUser.Text = DomainModel.Application.User.Name;
             this.lblUser.Image = DomainModel.Application.ResourceManager.GetImage("user_black_female");
             this.Items.Add(this.lblUser);
@@ -129,6 +133,7 @@ namespace TaxDataStore.Presentation.Controls
 
             lock (this)
             {
+                // Delay important messages
                 if ((this.currentState == StatusTypes.Error || this.currentState == StatusTypes.Warning) &&
                     (status.Type == StatusTypes.Info || status.Type == StatusTypes.Success))
                 {
@@ -138,6 +143,7 @@ namespace TaxDataStore.Presentation.Controls
                 this.currentState = status.Type;
             }
 
+            // Ensure inside UI thread
             if (!this.asyncHelper.Execute(
                 this, new SetStatusDelegate(SetStatus), status)) return;
 
@@ -148,7 +154,9 @@ namespace TaxDataStore.Presentation.Controls
                 this.label.Text = status.Message;
                 this.label.Image = this.images[(int)status.Type];
                 this.BackColor = this.colors[(int)status.Type];
+                //this.label.ForeColor = Color.White;
 
+                /*
                 if (status.Type == StatusTypes.Info)
                 {
                     this.label.ForeColor = Color.Black;
@@ -156,7 +164,7 @@ namespace TaxDataStore.Presentation.Controls
                 else
                 {
                     this.label.ForeColor = Color.White;
-                }
+                }*/
             }
 
             this.backColorTimer.Start();

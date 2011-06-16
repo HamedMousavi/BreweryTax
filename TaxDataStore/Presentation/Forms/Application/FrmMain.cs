@@ -42,7 +42,9 @@ namespace TaxDataStore
 
         void FrmMain_Load(object sender, EventArgs e)
         {
-            UpdaterService.UpdaterIpcServiceClient sc = new UpdaterService.UpdaterIpcServiceClient();
+            //UpdaterService.UpdaterIpcServiceClient sc = new UpdaterService.UpdaterIpcServiceClient();
+            //sc.ReloadSettings();
+
             string[] states = new string[]
             {
                 "Idle",
@@ -53,18 +55,32 @@ namespace TaxDataStore
                 "ManifestDownloadCompleted"
             };
 
-
+            /*
             while (true)
             {
+                string text = "";
+
                 int state = sc.GetStatus();
+                if (sc.UpdateExists())
+                {
+                    text = " V : ";
+                    sc.DownloadUpdates();
+                }
+
+                text += states[state];
 
                 DomainModel.Application.Status.Update(
                     StatusController.Abstract.StatusTypes.Info,
-                    states[state]);
+                    text);
+
+                if (sc.IsDownloadComplete())
+                {
+                    sc.ApplyUpdates();
+                }
 
                 Application.DoEvents();
                 System.Threading.Thread.Sleep(2000);
-            }
+            }*/
         }
 
 

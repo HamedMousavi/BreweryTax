@@ -28,105 +28,133 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpControls = new System.Windows.Forms.TableLayoutPanel();
+            this.lblAppName = new System.Windows.Forms.Label();
+            this.lblLoading = new System.Windows.Forms.Label();
             this.lblVersionNumber = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.pbxAppIcon = new System.Windows.Forms.PictureBox();
+            this.tlpMain.SuspendLayout();
+            this.tlpControls.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxAppIcon)).BeginInit();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tlpMain
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(371, 372);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tlpMain.BackColor = System.Drawing.Color.White;
+            this.tlpMain.ColumnCount = 2;
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tlpMain.Controls.Add(this.tlpControls, 1, 0);
+            this.tlpMain.Controls.Add(this.pbxAppIcon, 0, 0);
+            this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpMain.Location = new System.Drawing.Point(1, 1);
+            this.tlpMain.Name = "tlpMain";
+            this.tlpMain.RowCount = 1;
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpMain.Size = new System.Drawing.Size(453, 287);
+            this.tlpMain.TabIndex = 0;
             // 
-            // tableLayoutPanel2
+            // tlpControls
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 5);
-            this.tableLayoutPanel2.Controls.Add(this.lblVersionNumber, 1, 5);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(188, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 6;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(180, 366);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this.tlpControls.ColumnCount = 2;
+            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpControls.Controls.Add(this.lblAppName, 0, 1);
+            this.tlpControls.Controls.Add(this.lblLoading, 0, 3);
+            this.tlpControls.Controls.Add(this.lblVersionNumber, 0, 2);
+            this.tlpControls.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpControls.Location = new System.Drawing.Point(138, 3);
+            this.tlpControls.Name = "tlpControls";
+            this.tlpControls.RowCount = 4;
+            this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpControls.Size = new System.Drawing.Size(312, 281);
+            this.tlpControls.TabIndex = 0;
             // 
-            // label1
+            // lblAppName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 326);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Loading...";
+            this.lblAppName.AutoSize = true;
+            this.lblAppName.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAppName.Location = new System.Drawing.Point(3, 216);
+            this.lblAppName.Name = "lblAppName";
+            this.lblAppName.Size = new System.Drawing.Size(194, 39);
+            this.lblAppName.TabIndex = 4;
+            this.lblAppName.Text = "Settlement";
             // 
-            // label2
+            // lblLoading
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 346);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Version";
+            this.lblLoading.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblLoading.AutoSize = true;
+            this.tlpControls.SetColumnSpan(this.lblLoading, 2);
+            this.lblLoading.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lblLoading.ForeColor = System.Drawing.Color.DimGray;
+            this.lblLoading.Location = new System.Drawing.Point(3, 268);
+            this.lblLoading.Name = "lblLoading";
+            this.lblLoading.Size = new System.Drawing.Size(306, 13);
+            this.lblLoading.TabIndex = 0;
+            this.lblLoading.Text = "Please wait while loading...";
+            this.lblLoading.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblVersionNumber
             // 
+            this.lblVersionNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lblVersionNumber.AutoSize = true;
+            this.tlpControls.SetColumnSpan(this.lblVersionNumber, 2);
             this.lblVersionNumber.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblVersionNumber.Location = new System.Drawing.Point(93, 346);
+            this.lblVersionNumber.Location = new System.Drawing.Point(3, 255);
             this.lblVersionNumber.Name = "lblVersionNumber";
-            this.lblVersionNumber.Size = new System.Drawing.Size(0, 13);
+            this.lblVersionNumber.Size = new System.Drawing.Size(306, 13);
             this.lblVersionNumber.TabIndex = 2;
+            // 
+            // pbxAppIcon
+            // 
+            this.pbxAppIcon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbxAppIcon.Location = new System.Drawing.Point(3, 3);
+            this.pbxAppIcon.Name = "pbxAppIcon";
+            this.pbxAppIcon.Size = new System.Drawing.Size(129, 281);
+            this.pbxAppIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbxAppIcon.TabIndex = 1;
+            this.pbxAppIcon.TabStop = false;
             // 
             // FrmSplashScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(371, 372);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.BackColor = System.Drawing.Color.DimGray;
+            this.ClientSize = new System.Drawing.Size(455, 289);
+            this.Controls.Add(this.tlpMain);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmSplashScreen";
+            this.Padding = new System.Windows.Forms.Padding(1);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmSplashScreen";
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
+            this.tlpMain.ResumeLayout(false);
+            this.tlpControls.ResumeLayout(false);
+            this.tlpControls.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxAppIcon)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TableLayoutPanel tlpMain;
+        private System.Windows.Forms.TableLayoutPanel tlpControls;
+        private System.Windows.Forms.Label lblLoading;
         private System.Windows.Forms.Label lblVersionNumber;
+        private System.Windows.Forms.PictureBox pbxAppIcon;
+        private System.Windows.Forms.Label lblAppName;
     }
 }

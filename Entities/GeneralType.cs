@@ -21,6 +21,13 @@ namespace Entities
             get { return this; }
         }
 
+
+        public GeneralType()
+        {
+            this.Id = -1;
+        }
+
+
         public override string ToString()
         {
             return this.Name;
