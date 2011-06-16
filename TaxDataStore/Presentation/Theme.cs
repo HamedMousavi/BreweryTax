@@ -20,11 +20,11 @@ namespace TaxDataStore.Presentation
             //(255, 210, 225, 245);
             // 255, 195, 205, 225
 
-            GroupPanelBackColor = Color.FromArgb(255, 235, 235, 235);
+            GroupPanelBackColor = Color.FromArgb(255, 195, 205, 225);
             GroupPanelTitleColor = Color.FromArgb(255, 0, 0, 0);
 
-            FlatButtonBackColor = Color.FromArgb(255, 235, 235, 235);
-            FlatButtonBorderColor = Color.FromArgb(255, 235, 235, 235);
+            FlatButtonBackColor = Color.FromArgb(255, 195, 205, 225);
+            FlatButtonBorderColor = Color.FromArgb(255, 195, 205, 225);
             FlatButtonForeColor = Color.Black;
 
             ToolbarLabelFont = new System.Drawing.Font("Tahoma", 8.25F, FontStyle.Bold);

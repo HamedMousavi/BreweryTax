@@ -1,14 +1,21 @@
 ﻿
+using StatusController.Abstract;
 namespace DomainModel
 {
 
     public class ApplicationStatus
     {
 
-        private StatusController.Controller.StatusController status;
+        public StatusController.Controller.StatusController StatusController { get; set; }
 
 
-        public void Update(StatusController.Abstract.StatusTypes type, string resourceName)
+        public ApplicationStatus(StatusController.Controller.StatusController statusController)
+        {
+            this.StatusController = statusController;
+        }
+
+
+        public void Update(StatusTypes type, string resourceName)
         {
             string text = Application.ResourceManager.GetText(resourceName);
             if (string.IsNullOrWhiteSpace(text))
@@ -16,12 +23,12 @@ namespace DomainModel
                 text = resourceName;
             }
 
-            status.UpdateStatus(
+            this.StatusController.UpdateStatus(
                 new StatusController.Entities.StatusInfo(0, 0, type, 0, null, text));
         }
 
 
-        public void Update(StatusController.Abstract.StatusTypes type, string resourceName, string customText)
+        public void Update(StatusTypes type, string resourceName, string customText)
         {
             string text = Application.ResourceManager.GetText(resourceName);
             if (string.IsNullOrWhiteSpace(text))
@@ -31,16 +38,8 @@ namespace DomainModel
 
             text += customText;
 
-            status.UpdateStatus(
+            this.StatusController.UpdateStatus(
                 new StatusController.Entities.StatusInfo(0, 0, type, 0, null, text));
         }
-
-
-        internal void Init(StatusController.Controller.StatusController statusController)
-        {
-            status = statusController;
-        }
-
-        public StatusController.Controller.StatusController Controller { get { return status; } }
     }
 }

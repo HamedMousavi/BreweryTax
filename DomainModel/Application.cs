@@ -16,7 +16,7 @@ namespace DomainModel
         public static User User { get { return user; } set { user = value; } }
         public static Settings Settings { get { return settings; } set { settings = value; } }
         public static ResourceManager ResourceManager { get { return resourceManager; } set { resourceManager = value; } }
-        public static ApplicationStatus Status;
+        public static ApplicationStatus Status { get; private set; }
         public static Entities.Culture Culture 
         { 
             get { return culture; } 
@@ -40,8 +40,8 @@ namespace DomainModel
             // Create a resource manager to access localized resources
             resourceManager = new ResourceManager(settings.DefaultLocale);
 
-            Status = new ApplicationStatus();
-            Status.Init(new StatusController.Controller.StatusController());
+            Status = new ApplicationStatus(new 
+                StatusController.Controller.StatusController());
 
             // Init repository
             InitRepository();
@@ -62,14 +62,16 @@ namespace DomainModel
             Types.Init(settings.SqlConnectionString);
             Employees.Init(settings.SqlConnectionString);
             Tours.Init(settings.SqlConnectionString);
-            TourPaymentRules.Init(settings.SqlConnectionString);
-            TourPaymentGroups.Init(settings.SqlConnectionString);
+            TourCostRules.Init(settings.SqlConnectionString);
+            TourCostGroups.Init(settings.SqlConnectionString);
             Categories.Init(settings.SqlConnectionString);
         }
 
 
         private static void Init(Entities.Culture culture)
         {
+            SignUpTypes.Init(settings.SqlConnectionString, culture);
+            PersonTitleTypes.Init(settings.SqlConnectionString, culture);
             ContactMediaTypes.Init(settings.SqlConnectionString, culture);
             TourTypes.Init(settings.SqlConnectionString, culture);
 

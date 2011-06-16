@@ -6,33 +6,33 @@ using System.Collections.Generic;
 namespace DomainModel
 {
 
-    public class TourPaymentRules
+    public class TourCostRules
     {
 
-        private static TourPaymentRuleCollection rules;
-        private static Repository.Sql.TourPaymentRules repo;
+        private static TourCostRuleCollection rules;
+        private static Repository.Sql.TourCostRules repo;
 
 
         public static void Init(string sqlConnectionString)
         {
-            repo = new Repository.Sql.TourPaymentRules(sqlConnectionString);
+            repo = new Repository.Sql.TourCostRules(sqlConnectionString);
             LoadRules();
         }
 
 
         private static void LoadRules()
         {
-            rules = new TourPaymentRuleCollection();
+            rules = new TourCostRuleCollection();
             repo.LoadAll(rules);
         }
 
 
-        public static TourPaymentRuleCollection GetAll()
+        public static TourCostRuleCollection GetAll()
         {
             return rules;
         }
 
-        public static bool Save(Entities.TourPaymentRule rule)
+        public static bool Save(Entities.TourCostRule rule)
         {
             bool res;
 
@@ -52,7 +52,7 @@ namespace DomainModel
             return res;
         }
 
-        public static bool Delete(Entities.TourPaymentRule rule)
+        public static bool Delete(Entities.TourCostRule rule)
         {
 
             if (repo.Delete(rule))
@@ -65,7 +65,7 @@ namespace DomainModel
             return false;
         }
 
-        internal static void LoadGroupRules(TourPaymentGroup group)
+        internal static void LoadGroupRules(TourCostGroup group)
         {
             List<Int32> grpRules = new List<int>();
 
@@ -73,7 +73,7 @@ namespace DomainModel
 
             foreach (Int32 id in grpRules)
             {
-                TourPaymentRule rule = rules.FindById(id);
+                TourCostRule rule = rules.FindById(id);
                 if (rule != null)
                 {
                     group.Rules.Add(rule);

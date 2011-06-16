@@ -2,25 +2,25 @@
 
 namespace Entities
 {
-    public class TourPaymentDetail
+    public class TourCostDetail
     {
-        public TourPaymentGroup PaymentGroup { get; set; }
+        public TourCostGroup CostGroup { get; set; }
         public Int32 SignUpCount { get; set; }
         public Int32 ParticipantsCount { get; set; }
         public Int32 Id { get; set; }
 
-        public TourPaymentDetail()
+        public TourCostDetail()
         {
             this.Id = -1;
         }
 
 
-        public void CopyTo(TourPaymentDetail detail)
+        public void CopyTo(TourCostDetail detail)
         {
             detail.SignUpCount = this.SignUpCount;
             detail.ParticipantsCount = this.ParticipantsCount;
             detail.Id = this.Id;
-            detail.PaymentGroup = this.PaymentGroup;
+            detail.CostGroup = this.CostGroup;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace TaxDataStore.Presentation.Controls
 {
-    partial class TourPaymentSettings
+    partial class TourCostSettings
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
-            this.tlpPaymentGroups = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
-            this.tlpPaymentGroupButtons = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpCostGroups = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
+            this.tlpCostGroupButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnAddGroup = new TaxDataStore.Presentation.Controls.FlatButton();
             this.btnEditGroup = new TaxDataStore.Presentation.Controls.FlatButton();
             this.btnRemoveGroup = new TaxDataStore.Presentation.Controls.FlatButton();
@@ -40,19 +40,19 @@
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnEditTourPrice = new TaxDataStore.Presentation.Controls.FlatButton();
             this.lblTourPrices = new TaxDataStore.Presentation.Controls.ToolbarLabel();
-            this.tlpPaymentRules = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
-            this.tlpPaymentRuleButtons = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpCostRules = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
+            this.tlpCostRuleButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnAddRule = new TaxDataStore.Presentation.Controls.FlatButton();
             this.btnEditRule = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.lblPaymentRules = new TaxDataStore.Presentation.Controls.ToolbarLabel();
+            this.lblCostRules = new TaxDataStore.Presentation.Controls.ToolbarLabel();
             this.btnRemoveRule = new TaxDataStore.Presentation.Controls.FlatButton();
             this.tlpMain.SuspendLayout();
-            this.tlpPaymentGroups.SuspendLayout();
-            this.tlpPaymentGroupButtons.SuspendLayout();
+            this.tlpCostGroups.SuspendLayout();
+            this.tlpCostGroupButtons.SuspendLayout();
             this.tlpTourPriceContainer.SuspendLayout();
             this.tlpButtons.SuspendLayout();
-            this.tlpPaymentRules.SuspendLayout();
-            this.tlpPaymentRuleButtons.SuspendLayout();
+            this.tlpCostRules.SuspendLayout();
+            this.tlpCostRuleButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpMain
@@ -61,9 +61,9 @@
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 17F));
-            this.tlpMain.Controls.Add(this.tlpPaymentGroups, 0, 1);
+            this.tlpMain.Controls.Add(this.tlpCostGroups, 0, 1);
             this.tlpMain.Controls.Add(this.tlpTourPriceContainer, 0, 0);
-            this.tlpMain.Controls.Add(this.tlpPaymentRules, 1, 0);
+            this.tlpMain.Controls.Add(this.tlpCostRules, 1, 0);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Margin = new System.Windows.Forms.Padding(0);
@@ -74,47 +74,47 @@
             this.tlpMain.Size = new System.Drawing.Size(466, 516);
             this.tlpMain.TabIndex = 0;
             // 
-            // tlpPaymentGroups
+            // tlpCostGroups
             // 
-            this.tlpPaymentGroups.BackColor = System.Drawing.Color.White;
-            this.tlpPaymentGroups.ColumnCount = 2;
-            this.tlpMain.SetColumnSpan(this.tlpPaymentGroups, 2);
-            this.tlpPaymentGroups.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tlpPaymentGroups.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
-            this.tlpPaymentGroups.Controls.Add(this.tlpPaymentGroupButtons, 0, 0);
-            this.tlpPaymentGroups.Controls.Add(this.lblGroupRules, 1, 0);
-            this.tlpPaymentGroups.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpPaymentGroups.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tlpPaymentGroups.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tlpPaymentGroups.Location = new System.Drawing.Point(3, 261);
-            this.tlpPaymentGroups.Name = "tlpPaymentGroups";
-            this.tlpPaymentGroups.RowCount = 2;
-            this.tlpPaymentGroups.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpPaymentGroups.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpPaymentGroups.Size = new System.Drawing.Size(460, 252);
-            this.tlpPaymentGroups.TabIndex = 5;
+            this.tlpCostGroups.BackColor = System.Drawing.Color.White;
+            this.tlpCostGroups.ColumnCount = 2;
+            this.tlpMain.SetColumnSpan(this.tlpCostGroups, 2);
+            this.tlpCostGroups.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tlpCostGroups.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
+            this.tlpCostGroups.Controls.Add(this.tlpCostGroupButtons, 0, 0);
+            this.tlpCostGroups.Controls.Add(this.lblGroupRules, 1, 0);
+            this.tlpCostGroups.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpCostGroups.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tlpCostGroups.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tlpCostGroups.Location = new System.Drawing.Point(3, 261);
+            this.tlpCostGroups.Name = "tlpCostGroups";
+            this.tlpCostGroups.RowCount = 2;
+            this.tlpCostGroups.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpCostGroups.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpCostGroups.Size = new System.Drawing.Size(460, 252);
+            this.tlpCostGroups.TabIndex = 5;
             // 
-            // tlpPaymentGroupButtons
+            // tlpCostGroupButtons
             // 
-            this.tlpPaymentGroupButtons.ColumnCount = 5;
-            this.tlpPaymentGroupButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpPaymentGroupButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpPaymentGroupButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpPaymentGroupButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpPaymentGroupButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpPaymentGroupButtons.Controls.Add(this.btnAddGroup, 1, 0);
-            this.tlpPaymentGroupButtons.Controls.Add(this.btnEditGroup, 2, 0);
-            this.tlpPaymentGroupButtons.Controls.Add(this.btnRemoveGroup, 3, 0);
-            this.tlpPaymentGroupButtons.Controls.Add(this.lblGroup, 0, 0);
-            this.tlpPaymentGroupButtons.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpPaymentGroupButtons.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tlpPaymentGroupButtons.Location = new System.Drawing.Point(0, 0);
-            this.tlpPaymentGroupButtons.Margin = new System.Windows.Forms.Padding(0);
-            this.tlpPaymentGroupButtons.Name = "tlpPaymentGroupButtons";
-            this.tlpPaymentGroupButtons.RowCount = 1;
-            this.tlpPaymentGroupButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpPaymentGroupButtons.Size = new System.Drawing.Size(161, 30);
-            this.tlpPaymentGroupButtons.TabIndex = 0;
+            this.tlpCostGroupButtons.ColumnCount = 5;
+            this.tlpCostGroupButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpCostGroupButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpCostGroupButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpCostGroupButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpCostGroupButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpCostGroupButtons.Controls.Add(this.btnAddGroup, 1, 0);
+            this.tlpCostGroupButtons.Controls.Add(this.btnEditGroup, 2, 0);
+            this.tlpCostGroupButtons.Controls.Add(this.btnRemoveGroup, 3, 0);
+            this.tlpCostGroupButtons.Controls.Add(this.lblGroup, 0, 0);
+            this.tlpCostGroupButtons.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpCostGroupButtons.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tlpCostGroupButtons.Location = new System.Drawing.Point(0, 0);
+            this.tlpCostGroupButtons.Margin = new System.Windows.Forms.Padding(0);
+            this.tlpCostGroupButtons.Name = "tlpCostGroupButtons";
+            this.tlpCostGroupButtons.RowCount = 1;
+            this.tlpCostGroupButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpCostGroupButtons.Size = new System.Drawing.Size(161, 30);
+            this.tlpCostGroupButtons.TabIndex = 0;
             // 
             // btnAddGroup
             // 
@@ -225,43 +225,43 @@
             this.lblTourPrices.Text = "Tour prices";
             this.lblTourPrices.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // tlpPaymentRules
+            // tlpCostRules
             // 
-            this.tlpPaymentRules.BackColor = System.Drawing.Color.White;
-            this.tlpPaymentRules.ColumnCount = 1;
-            this.tlpPaymentRules.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpPaymentRules.Controls.Add(this.tlpPaymentRuleButtons, 0, 0);
-            this.tlpPaymentRules.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpPaymentRules.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tlpPaymentRules.Location = new System.Drawing.Point(166, 3);
-            this.tlpPaymentRules.Name = "tlpPaymentRules";
-            this.tlpPaymentRules.RowCount = 2;
-            this.tlpPaymentRules.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpPaymentRules.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpPaymentRules.Size = new System.Drawing.Size(297, 252);
-            this.tlpPaymentRules.TabIndex = 4;
+            this.tlpCostRules.BackColor = System.Drawing.Color.White;
+            this.tlpCostRules.ColumnCount = 1;
+            this.tlpCostRules.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpCostRules.Controls.Add(this.tlpCostRuleButtons, 0, 0);
+            this.tlpCostRules.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpCostRules.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tlpCostRules.Location = new System.Drawing.Point(166, 3);
+            this.tlpCostRules.Name = "tlpCostRules";
+            this.tlpCostRules.RowCount = 2;
+            this.tlpCostRules.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpCostRules.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpCostRules.Size = new System.Drawing.Size(297, 252);
+            this.tlpCostRules.TabIndex = 4;
             // 
-            // tlpPaymentRuleButtons
+            // tlpCostRuleButtons
             // 
-            this.tlpPaymentRuleButtons.ColumnCount = 5;
-            this.tlpPaymentRuleButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpPaymentRuleButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpPaymentRuleButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpPaymentRuleButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpPaymentRuleButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpPaymentRuleButtons.Controls.Add(this.btnAddRule, 1, 0);
-            this.tlpPaymentRuleButtons.Controls.Add(this.btnEditRule, 2, 0);
-            this.tlpPaymentRuleButtons.Controls.Add(this.lblPaymentRules, 0, 0);
-            this.tlpPaymentRuleButtons.Controls.Add(this.btnRemoveRule, 3, 0);
-            this.tlpPaymentRuleButtons.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpPaymentRuleButtons.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tlpPaymentRuleButtons.Location = new System.Drawing.Point(0, 0);
-            this.tlpPaymentRuleButtons.Margin = new System.Windows.Forms.Padding(0);
-            this.tlpPaymentRuleButtons.Name = "tlpPaymentRuleButtons";
-            this.tlpPaymentRuleButtons.RowCount = 1;
-            this.tlpPaymentRuleButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpPaymentRuleButtons.Size = new System.Drawing.Size(297, 30);
-            this.tlpPaymentRuleButtons.TabIndex = 1;
+            this.tlpCostRuleButtons.ColumnCount = 5;
+            this.tlpCostRuleButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpCostRuleButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpCostRuleButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpCostRuleButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpCostRuleButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpCostRuleButtons.Controls.Add(this.btnAddRule, 1, 0);
+            this.tlpCostRuleButtons.Controls.Add(this.btnEditRule, 2, 0);
+            this.tlpCostRuleButtons.Controls.Add(this.lblCostRules, 0, 0);
+            this.tlpCostRuleButtons.Controls.Add(this.btnRemoveRule, 3, 0);
+            this.tlpCostRuleButtons.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpCostRuleButtons.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tlpCostRuleButtons.Location = new System.Drawing.Point(0, 0);
+            this.tlpCostRuleButtons.Margin = new System.Windows.Forms.Padding(0);
+            this.tlpCostRuleButtons.Name = "tlpCostRuleButtons";
+            this.tlpCostRuleButtons.RowCount = 1;
+            this.tlpCostRuleButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpCostRuleButtons.Size = new System.Drawing.Size(297, 30);
+            this.tlpCostRuleButtons.TabIndex = 1;
             // 
             // btnAddRule
             // 
@@ -281,19 +281,19 @@
             this.btnEditRule.UseVisualStyleBackColor = true;
             this.btnEditRule.Click += new System.EventHandler(this.btnEditRule_Click);
             // 
-            // lblPaymentRules
+            // lblCostRules
             // 
-            this.lblPaymentRules.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.lblCostRules.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblPaymentRules.AutoSize = true;
-            this.lblPaymentRules.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblPaymentRules.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblPaymentRules.Location = new System.Drawing.Point(3, 0);
-            this.lblPaymentRules.Name = "lblPaymentRules";
-            this.lblPaymentRules.Size = new System.Drawing.Size(92, 30);
-            this.lblPaymentRules.TabIndex = 1;
-            this.lblPaymentRules.Text = "Payment Rules";
-            this.lblPaymentRules.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCostRules.AutoSize = true;
+            this.lblCostRules.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lblCostRules.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lblCostRules.Location = new System.Drawing.Point(3, 0);
+            this.lblCostRules.Name = "lblCostRules";
+            this.lblCostRules.Size = new System.Drawing.Size(92, 30);
+            this.lblCostRules.TabIndex = 1;
+            this.lblCostRules.Text = "Cost Rules";
+            this.lblCostRules.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnRemoveRule
             // 
@@ -304,26 +304,26 @@
             this.btnRemoveRule.UseVisualStyleBackColor = true;
             this.btnRemoveRule.Click += new System.EventHandler(this.btnRemoveRule_Click);
             // 
-            // TourPaymentSettings
+            // TourCostSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tlpMain);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Name = "TourPaymentSettings";
+            this.Name = "TourCostSettings";
             this.Size = new System.Drawing.Size(466, 516);
             this.tlpMain.ResumeLayout(false);
-            this.tlpPaymentGroups.ResumeLayout(false);
-            this.tlpPaymentGroups.PerformLayout();
-            this.tlpPaymentGroupButtons.ResumeLayout(false);
-            this.tlpPaymentGroupButtons.PerformLayout();
+            this.tlpCostGroups.ResumeLayout(false);
+            this.tlpCostGroups.PerformLayout();
+            this.tlpCostGroupButtons.ResumeLayout(false);
+            this.tlpCostGroupButtons.PerformLayout();
             this.tlpTourPriceContainer.ResumeLayout(false);
             this.tlpButtons.ResumeLayout(false);
             this.tlpButtons.PerformLayout();
-            this.tlpPaymentRules.ResumeLayout(false);
-            this.tlpPaymentRuleButtons.ResumeLayout(false);
-            this.tlpPaymentRuleButtons.PerformLayout();
+            this.tlpCostRules.ResumeLayout(false);
+            this.tlpCostRuleButtons.ResumeLayout(false);
+            this.tlpCostRuleButtons.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -335,14 +335,14 @@
         private System.Windows.Forms.TableLayoutPanel tlpButtons;
         private FlatButton btnEditTourPrice;
         private ToolbarLabel lblTourPrices;
-        private Presentation.Controls.ContainerLayoutPanel tlpPaymentRules;
-        private System.Windows.Forms.TableLayoutPanel tlpPaymentRuleButtons;
+        private Presentation.Controls.ContainerLayoutPanel tlpCostRules;
+        private System.Windows.Forms.TableLayoutPanel tlpCostRuleButtons;
         private FlatButton btnAddRule;
         private FlatButton btnEditRule;
-        private ToolbarLabel lblPaymentRules;
+        private ToolbarLabel lblCostRules;
         private FlatButton btnRemoveRule;
-        private Presentation.Controls.ContainerLayoutPanel tlpPaymentGroups;
-        private System.Windows.Forms.TableLayoutPanel tlpPaymentGroupButtons;
+        private Presentation.Controls.ContainerLayoutPanel tlpCostGroups;
+        private System.Windows.Forms.TableLayoutPanel tlpCostGroupButtons;
         private FlatButton btnAddGroup;
         private FlatButton btnEditGroup;
         private FlatButton btnRemoveGroup;

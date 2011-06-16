@@ -7,24 +7,24 @@ using System.Collections.Generic;
 namespace DomainModel.Repository.Sql
 {
 
-    public class TourPaymentRules
+    public class TourCostRules
     {
 
         private string sqlConnectionString;
 
-        public TourPaymentRules(string sqlConnectionString)
+        public TourCostRules(string sqlConnectionString)
         {
             this.sqlConnectionString = sqlConnectionString;
         }
 
 
-        internal bool Insert(Entities.TourPaymentRule rule)
+        internal bool Insert(Entities.TourCostRule rule)
         {
             bool res = false;
 
             using (SqlConnection cnn = new SqlConnection(sqlConnectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("TourPaymentRuleAdd", cnn))
+                using (SqlCommand cmd = new SqlCommand("TourCostRuleAdd", cnn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     //cmd.Parameters.Add(new SqlParameter("@RuleId", rule.Id));
@@ -48,13 +48,13 @@ namespace DomainModel.Repository.Sql
         }
 
 
-        internal bool Update(Entities.TourPaymentRule rule)
+        internal bool Update(Entities.TourCostRule rule)
         {
             bool res = false;
             
             using (SqlConnection cnn = new SqlConnection(sqlConnectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("TourPaymentRuleUpdateById", cnn))
+                using (SqlCommand cmd = new SqlCommand("TourCostRuleUpdateById", cnn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add(new SqlParameter("@RuleId", rule.Id));
@@ -74,11 +74,11 @@ namespace DomainModel.Repository.Sql
         }
 
 
-        internal void LoadAll(Entities.TourPaymentRuleCollection rules)
+        internal void LoadAll(Entities.TourCostRuleCollection rules)
         {
             using (SqlConnection cnn = new SqlConnection(sqlConnectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("TourPaymentRulesGetAll", cnn))
+                using (SqlCommand cmd = new SqlCommand("TourCostRulesGetAll", cnn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
@@ -90,14 +90,14 @@ namespace DomainModel.Repository.Sql
                         {
                             while (reader.Read())
                             {
-                                Entities.TourPaymentRule rule = new Entities.TourPaymentRule();
+                                Entities.TourCostRule rule = new Entities.TourCostRule();
 
                                 rule.Id = Utils.GetSafeInt32(reader, "RuleId");
                                 rule.Name = Utils.GetSafeString(reader, "RuleName");
                                 rule.Formula.Currency = DomainModel.Currencies.GetById(Utils.GetSafeInt32(reader, "CurrencyId"));
-                                rule.Formula.PriceOperation = (Entities.TourPaymentFormula.PriceOperations)Utils.GetSafeInt32(reader, "PriceOperationId");
+                                rule.Formula.PriceOperation = (Entities.TourCostFormula.PriceOperations)Utils.GetSafeInt32(reader, "PriceOperationId");
                                 rule.Formula.Value = Utils.GetSafeDecimal(reader, "RuleValue");
-                                rule.Formula.ValueOperation = (Entities.TourPaymentFormula.ValueOperations)Utils.GetSafeInt32(reader, "ValueOperationId");
+                                rule.Formula.ValueOperation = (Entities.TourCostFormula.ValueOperations)Utils.GetSafeInt32(reader, "ValueOperationId");
 
                                 rules.Add(rule);
                             }
@@ -108,13 +108,13 @@ namespace DomainModel.Repository.Sql
         }
 
 
-        internal bool Delete(Entities.TourPaymentRule rule)
+        internal bool Delete(Entities.TourCostRule rule)
         {
             bool res = false;
 
             using (SqlConnection cnn = new SqlConnection(sqlConnectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("TourPaymentRuleDeleteById", cnn))
+                using (SqlCommand cmd = new SqlCommand("TourCostRuleDeleteById", cnn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add(new SqlParameter("@RuleId", rule.Id));
@@ -133,7 +133,7 @@ namespace DomainModel.Repository.Sql
         {
             using (SqlConnection cnn = new SqlConnection(sqlConnectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("TourPaymentRulesGetByGroupId", cnn))
+                using (SqlCommand cmd = new SqlCommand("TourCostRulesGetByGroupId", cnn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add(new SqlParameter("@GroupId", groupId));

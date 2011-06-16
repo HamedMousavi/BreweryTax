@@ -10,15 +10,15 @@ namespace TaxDataStore
     {
 
         protected EmployeesGridView dgvEmployees;
-        protected PaymentsGridView dgvPayments;
+        protected TourPaymentsGridView dgvCosts;
         protected MembersGridView dgvMembers;
         protected ContactsGridView dgvContacts;
-        protected TourPaymentDetailsGridView dgvPaymentDetails;
+        protected TourCostDetailsGridView dgvCostDetails;
 
         protected EmployeesSplitButton spbEmployees;
 
-        protected TypeComboBox cbxTourTypes;
-        protected TypeComboBox cbxSignUpTypes;
+        protected ComboBox cbxTourTypes;
+        protected ComboBox cbxSignUpTypes;
 
         protected Entities.Tour tour;
         protected Entities.Tour editTour;
@@ -28,7 +28,7 @@ namespace TaxDataStore
         {
             InitializeComponent();
 
-            this.tour = new Entities.Tour(DomainModel.TourPaymentGroups.GetAll());
+            this.tour = new Entities.Tour(DomainModel.TourCostGroups.GetAll());
 
             SetupControls();
             BindControls();
@@ -64,10 +64,10 @@ namespace TaxDataStore
             this.dgvEmployees = new EmployeesGridView(this.tour.Employees);
             this.tlpStaff.Controls.Add(this.dgvEmployees, 0, 1);
 
-            this.dgvPayments = new PaymentsGridView(this.tour.PaymentDetails);
-            this.tlpPayments.Controls.Add(this.dgvPayments, 0, 1);
-            this.tlpPayments.SetColumnSpan(this.dgvPayments, 3);
-            this.tlpPayments.SetRowSpan(this.dgvPayments, 2);
+            this.dgvCosts = new TourPaymentsGridView(this.tour.Payments);
+            this.tlpPayments.Controls.Add(this.dgvCosts, 0, 1);
+            this.tlpPayments.SetColumnSpan(this.dgvCosts, 4);
+            this.tlpPayments.SetRowSpan(this.dgvCosts, 2);
 
             this.dgvMembers = new MembersGridView(this.tour.Members);
             this.tlpTourMembers.Controls.Add(this.dgvMembers, 0, 1);
@@ -75,14 +75,14 @@ namespace TaxDataStore
             this.dgvContacts = new ContactsGridView(this.dgvMembers.BindingSource, "Contacts");
             this.tlpTourMembers.Controls.Add(this.dgvContacts, 3, 1);
 
-            this.dgvPaymentDetails = new TourPaymentDetailsGridView(this.tour.PaymentDetails);
-            this.gpxPaymentGroups.Controls.Add(this.dgvPaymentDetails);
+            this.dgvCostDetails = new TourCostDetailsGridView(this.tour.CostDetails);
+            this.gpxCostGroups.Controls.Add(this.dgvCostDetails);
 
             SetupControlImages();
             SetupControlTexts();
 
-            this.cbxTourTypes = new TypeComboBox("TourType");
-            this.cbxSignUpTypes = new TypeComboBox("SignupType");
+            this.cbxTourTypes = new ComboBox();
+            this.cbxSignUpTypes = new ComboBox();
             this.tlpTour.Controls.Add(this.cbxTourTypes, 1, 2);
             this.tlpTour.Controls.Add(this.cbxSignUpTypes, 1, 3);
 
@@ -111,11 +111,13 @@ namespace TaxDataStore
             this.tabMain.ImageList.Images.Add(DomainModel.Application.ResourceManager.GetImage("money_coin"));
             this.tabMain.ImageList.Images.Add(DomainModel.Application.ResourceManager.GetImage("address_book"));
             this.tabMain.ImageList.Images.Add(DomainModel.Application.ResourceManager.GetImage("users"));
+            this.tabMain.ImageList.Images.Add(DomainModel.Application.ResourceManager.GetImage("calculator_gray"));
 
             this.tbpTour.ImageIndex = 0;
             this.tbpPayments.ImageIndex = 1;
             this.tbpMembers.ImageIndex = 2;
             this.tbpStaff.ImageIndex = 3;
+            this.tbpReceipt.ImageIndex = 4;
         }
 
 
@@ -123,7 +125,7 @@ namespace TaxDataStore
         {
             this.Text = Resources.Texts.frm_title_tour_editor;
             this.tbpMembers.Text = Resources.Texts.tab_title_members;
-            this.tbpPayments.Text = Resources.Texts.tab_title_payments;
+            this.tbpPayments.Text = Resources.Texts.tab_title_Payments;
             this.tbpStaff.Text = Resources.Texts.tab_title_staff;
             this.tbpTour.Text = Resources.Texts.tab_title_tour;
 
@@ -185,6 +187,8 @@ namespace TaxDataStore
                     string.Empty,
                     null));
 
+            this.cbxSignUpTypes.DataSource = DomainModel.SignUpTypes.GetAll();
+            this.cbxSignUpTypes.DisplayMember = "Name";
             this.cbxSignUpTypes.DataBindings.Add(
                 new Binding(
                     "SelectedItem",
@@ -196,6 +200,8 @@ namespace TaxDataStore
                     string.Empty,
                     null));
 
+            this.cbxTourTypes.DataSource = DomainModel.TourTypes.GetAll();
+            this.cbxTourTypes.DisplayMember = "Name";
             this.cbxTourTypes.DataBindings.Add(
                 new Binding(
                     "SelectedItem",

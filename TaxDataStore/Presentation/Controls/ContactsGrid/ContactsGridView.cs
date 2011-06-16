@@ -45,7 +45,7 @@ namespace TaxDataStore.Presentation.Controls
         /*
         void EmployeesGridView_DataBindingComplete(object sender, System.Windows.Forms.DataGridViewBindingCompleteEventArgs e)
         {
-            //this.Columns["PaymentType"].HeaderText = Resources.Texts.grid_title_payment_type;
+            //this.Columns["CostType"].HeaderText = Resources.Texts.grid_title_Cost_type;
 
             string[] invisibles = new string[] { "Id" };
             foreach (DataGridViewColumn column in this.Columns)

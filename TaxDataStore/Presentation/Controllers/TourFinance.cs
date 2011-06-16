@@ -26,7 +26,7 @@ namespace TaxDataStore.Presentation.Controllers
         }
 
 
-        internal static void EditRule(TourPaymentRule rule)
+        internal static void EditRule(TourCostRule rule)
         {
             using (FrmRuleEditor frm = new FrmRuleEditor(rule))
             {
@@ -35,33 +35,33 @@ namespace TaxDataStore.Presentation.Controllers
         }
 
 
-        internal static void DeleteRule(TourPaymentRule rule)
+        internal static void DeleteRule(TourCostRule rule)
         {
-            DomainModel.TourPaymentRules.Delete(rule);
+            DomainModel.TourCostRules.Delete(rule);
         }
 
 
         internal static void AddGroup()
         {
-            using (FrmTourPaymentGroupEditor frm = new FrmTourPaymentGroupEditor())
+            using (FrmTourCostGroupEditor frm = new FrmTourCostGroupEditor())
             {
                 frm.ShowDialog();
             }
         }
 
 
-        internal static void EditGroup(TourPaymentGroup group)
+        internal static void EditGroup(TourCostGroup group)
         {
-            using (FrmTourPaymentGroupEditor frm = new FrmTourPaymentGroupEditor(group))
+            using (FrmTourCostGroupEditor frm = new FrmTourCostGroupEditor(group))
             {
                 frm.ShowDialog();
             }
         }
 
 
-        internal static void DeleteGroup(TourPaymentGroup group)
+        internal static void DeleteGroup(TourCostGroup group)
         {
-            DomainModel.TourPaymentGroups.Delete(group);
+            DomainModel.TourCostGroups.Delete(group);
         }
 
     }

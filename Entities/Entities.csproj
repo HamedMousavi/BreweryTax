@@ -13,6 +13,7 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -25,7 +26,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -85,13 +85,15 @@
     <Compile Include="TourMemberCollection.cs" />
     <Compile Include="TourBasePrice.cs" />
     <Compile Include="TourBasePriceCollection.cs" />
-    <Compile Include="TourPaymentDetail.cs" />
-    <Compile Include="TourPaymentDetailCollection.cs" />
-    <Compile Include="TourPaymentFormula.cs" />
-    <Compile Include="TourPaymentGroup.cs" />
-    <Compile Include="TourPaymentGroupCollection.cs" />
-    <Compile Include="TourPaymentRule.cs" />
-    <Compile Include="TourPaymentRuleCollection.cs" />
+    <Compile Include="TourCostDetail.cs" />
+    <Compile Include="TourCostDetailCollection.cs" />
+    <Compile Include="TourCostFormula.cs" />
+    <Compile Include="TourCostGroup.cs" />
+    <Compile Include="TourCostGroupCollection.cs" />
+    <Compile Include="TourCostRule.cs" />
+    <Compile Include="TourCostRuleCollection.cs" />
+    <Compile Include="TourPayment.cs" />
+    <Compile Include="TourPaymentCollection.cs" />
     <Compile Include="TourStatus.cs" />
     <Compile Include="UpdaterSettings.cs" />
     <Compile Include="User.cs" />

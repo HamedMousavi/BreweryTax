@@ -25,11 +25,11 @@ namespace Entities
         }
 
 
-        internal void CopyTo(TourBasePrice payment)
+        internal void CopyTo(TourBasePrice Cost)
         {
-            payment.Id = this.Id;
-            payment.TourType = this.TourType;
-            payment.PricePerPerson = this.PricePerPerson;
+            Cost.Id = this.Id;
+            Cost.TourType = this.TourType;
+            Cost.PricePerPerson = this.PricePerPerson;
         }
     }
 }

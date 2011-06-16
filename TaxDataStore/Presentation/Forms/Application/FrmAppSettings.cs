@@ -14,7 +14,7 @@ namespace TaxDataStore
 
         protected UsersManager ctrlUsers;
         protected RoleManager ctrlRoles;
-        protected TourPaymentSettings ctrlTourPaymentSettings;
+        protected TourCostSettings ctrlTourCostSettings;
 
 
         public FrmAppSettings()
@@ -43,7 +43,7 @@ namespace TaxDataStore
 
             this.tbpRoles.ImageIndex = 0;
             this.tbpUsers.ImageIndex = 1;
-            this.tbpTourPayment.ImageIndex = 2;
+            this.tbpTourCost.ImageIndex = 2;
             this.tbpUpdates.ImageIndex = 4;
             this.tbpDatabase.ImageIndex = 3;
             this.tbpCategories.ImageIndex = 5;
@@ -74,8 +74,8 @@ namespace TaxDataStore
                 this.tbpGeneral.Controls.Add(this.ctrlGeneral);
             */
             
-            this.ctrlTourPaymentSettings = new TourPaymentSettings();
-            this.tbpTourPayment.Controls.Add(this.ctrlTourPaymentSettings);
+            this.ctrlTourCostSettings = new TourCostSettings();
+            this.tbpTourCost.Controls.Add(this.ctrlTourCostSettings);
 
             this.ctrlDatabase = new Presentation.Controls.Settings.Database();
             this.tbpDatabase.Controls.Add(this.ctrlDatabase);

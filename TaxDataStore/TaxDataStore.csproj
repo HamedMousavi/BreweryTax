@@ -111,26 +111,26 @@
       <DependentUpon>FrmSplashScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Controllers\SplashScreen.cs" />
-    <Compile Include="Presentation\Controls\Tour\TourPaymentDetailsGridView.cs">
+    <Compile Include="Presentation\Controls\Tour\TourCostDetailsGridView.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Presentation\Controls\Tour\RulesCheckedListBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\Tour\TourPaymentGroupsGridView.cs">
+    <Compile Include="Presentation\Controls\Tour\TourCostGroupsGridView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Forms\Tours\FrmTourPaymentGroupEditor.cs">
+    <Compile Include="Presentation\Forms\Tours\FrmTourCostGroupEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\Forms\Tours\FrmTourPaymentGroupEditor.Designer.cs">
-      <DependentUpon>FrmTourPaymentGroupEditor.cs</DependentUpon>
+    <Compile Include="Presentation\Forms\Tours\FrmTourCostGroupEditor.Designer.cs">
+      <DependentUpon>FrmTourCostGroupEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Controls\Tour\TourFormulaOperationComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\Tour\TourPaymentRuleFormulaColumn.cs" />
-    <Compile Include="Presentation\Controls\Tour\TourPaymentRulesGridView.cs">
+    <Compile Include="Presentation\Controls\Tour\TourCostRuleFormulaColumn.cs" />
+    <Compile Include="Presentation\Controls\Tour\TourCostRulesGridView.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Presentation\Forms\Tours\FrmRuleEditor.cs">
@@ -150,11 +150,11 @@
     <Compile Include="Presentation\Controls\Tour\TourBasePriceGridView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\Tour\TourPaymentSettings.cs">
+    <Compile Include="Presentation\Controls\Tour\TourCostSettings.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\Tour\TourPaymentSettings.Designer.cs">
-      <DependentUpon>TourPaymentSettings.cs</DependentUpon>
+    <Compile Include="Presentation\Controls\Tour\TourCostSettings.Designer.cs">
+      <DependentUpon>TourCostSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Forms\Employees\FrmStaffTimeRecorder.cs">
       <SubType>Form</SubType>
@@ -337,14 +337,14 @@
     <EmbeddedResource Include="Presentation\Forms\Tours\FrmRuleEditor.resx">
       <DependentUpon>FrmRuleEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\Forms\Tours\FrmTourPaymentGroupEditor.resx">
-      <DependentUpon>FrmTourPaymentGroupEditor.cs</DependentUpon>
+    <EmbeddedResource Include="Presentation\Forms\Tours\FrmTourCostGroupEditor.resx">
+      <DependentUpon>FrmTourCostGroupEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Forms\Tours\FrmTourPriceEditor.resx">
       <DependentUpon>FrmTourPriceEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\Controls\Tour\TourPaymentSettings.resx">
-      <DependentUpon>TourPaymentSettings.cs</DependentUpon>
+    <EmbeddedResource Include="Presentation\Controls\Tour\TourCostSettings.resx">
+      <DependentUpon>TourCostSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Forms\Tours\FrmTourMemberEditor.resx">
       <DependentUpon>FrmTourMemberEditor.cs</DependentUpon>
@@ -486,7 +486,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" BuildVersion_BuildVersioningStyle="Increment.YearStamp.MonthAndDayStamp.TimeStamp" BuildVersion_ConfigurationName="Release" />
+      <UserProperties BuildVersion_ConfigurationName="Release" BuildVersion_BuildVersioningStyle="Increment.YearStamp.MonthAndDayStamp.TimeStamp" BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

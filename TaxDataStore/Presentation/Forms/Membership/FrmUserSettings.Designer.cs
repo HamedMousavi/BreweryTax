@@ -37,7 +37,7 @@
             this.cbxLanguages = new System.Windows.Forms.ComboBox();
             this.btnChangePassword = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.lblPaymentType = new System.Windows.Forms.Label();
+            this.lblCostType = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.mpkPricePerPerson = new TaxDataStore.Presentation.Controls.MoneyPicker();
             this.lblPricePerPerson = new System.Windows.Forms.Label();
@@ -160,7 +160,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.lblPaymentType);
+            this.tabPage2.Controls.Add(this.lblCostType);
             this.tabPage2.Controls.Add(this.comboBox3);
             this.tabPage2.Controls.Add(this.mpkPricePerPerson);
             this.tabPage2.Controls.Add(this.lblPricePerPerson);
@@ -172,14 +172,14 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // lblPaymentType
+            // lblCostType
             // 
-            this.lblPaymentType.AutoSize = true;
-            this.lblPaymentType.Location = new System.Drawing.Point(10, 113);
-            this.lblPaymentType.Name = "lblPaymentType";
-            this.lblPaymentType.Size = new System.Drawing.Size(86, 13);
-            this.lblPaymentType.TabIndex = 30;
-            this.lblPaymentType.Text = "PaymentType";
+            this.lblCostType.AutoSize = true;
+            this.lblCostType.Location = new System.Drawing.Point(10, 113);
+            this.lblCostType.Name = "lblCostType";
+            this.lblCostType.Size = new System.Drawing.Size(86, 13);
+            this.lblCostType.TabIndex = 30;
+            this.lblCostType.Text = "CostType";
             // 
             // comboBox3
             // 
@@ -277,7 +277,7 @@
         private System.Windows.Forms.TabControl tabSettings;
         private System.Windows.Forms.TabPage tbpGeneral;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label lblPaymentType;
+        private System.Windows.Forms.Label lblCostType;
         private System.Windows.Forms.ComboBox comboBox3;
         private Presentation.Controls.MoneyPicker mpkPricePerPerson;
         private System.Windows.Forms.Label lblPricePerPerson;

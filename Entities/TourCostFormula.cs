@@ -4,7 +4,7 @@
 namespace Entities
 {
 
-    public class TourPaymentFormula
+    public class TourCostFormula
     {
 
         protected readonly string[] priceOpSymbols = new string[] { "+", "-" };
@@ -32,7 +32,7 @@ namespace Entities
         public MoneyCurrency Currency { get; set; }
 
         
-        internal void CopyTo(TourPaymentFormula formula)
+        internal void CopyTo(TourCostFormula formula)
         {
             //formula.Id = this.Id;
             formula.PriceOperation = this.PriceOperation;

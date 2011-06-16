@@ -32,7 +32,7 @@
             this.tbpRoles = new System.Windows.Forms.TabPage();
             this.tbpUsers = new System.Windows.Forms.TabPage();
             this.tbpCategories = new System.Windows.Forms.TabPage();
-            this.tbpTourPayment = new System.Windows.Forms.TabPage();
+            this.tbpTourCost = new System.Windows.Forms.TabPage();
             this.tbpDatabase = new System.Windows.Forms.TabPage();
             this.tbpUpdates = new System.Windows.Forms.TabPage();
             this.tabUsers.SuspendLayout();
@@ -43,7 +43,7 @@
             this.tabUsers.Controls.Add(this.tbpRoles);
             this.tabUsers.Controls.Add(this.tbpUsers);
             this.tabUsers.Controls.Add(this.tbpCategories);
-            this.tabUsers.Controls.Add(this.tbpTourPayment);
+            this.tabUsers.Controls.Add(this.tbpTourCost);
             this.tabUsers.Controls.Add(this.tbpDatabase);
             this.tabUsers.Controls.Add(this.tbpUpdates);
             this.tabUsers.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -81,14 +81,14 @@
             this.tbpCategories.Text = "Categories";
             this.tbpCategories.UseVisualStyleBackColor = true;
             // 
-            // tbpTourPayment
+            // tbpTourCost
             // 
-            this.tbpTourPayment.Location = new System.Drawing.Point(4, 22);
-            this.tbpTourPayment.Name = "tbpTourPayment";
-            this.tbpTourPayment.Size = new System.Drawing.Size(509, 339);
-            this.tbpTourPayment.TabIndex = 3;
-            this.tbpTourPayment.Text = "Tour Payment";
-            this.tbpTourPayment.UseVisualStyleBackColor = true;
+            this.tbpTourCost.Location = new System.Drawing.Point(4, 22);
+            this.tbpTourCost.Name = "tbpTourCost";
+            this.tbpTourCost.Size = new System.Drawing.Size(509, 339);
+            this.tbpTourCost.TabIndex = 3;
+            this.tbpTourCost.Text = "Tour Cost";
+            this.tbpTourCost.UseVisualStyleBackColor = true;
             // 
             // tbpDatabase
             // 
@@ -126,7 +126,7 @@
         private System.Windows.Forms.TabControl tabUsers;
         private System.Windows.Forms.TabPage tbpRoles;
         private System.Windows.Forms.TabPage tbpUsers;
-        private System.Windows.Forms.TabPage tbpTourPayment;
+        private System.Windows.Forms.TabPage tbpTourCost;
         private System.Windows.Forms.TabPage tbpDatabase;
         private System.Windows.Forms.TabPage tbpUpdates;
         private System.Windows.Forms.TabPage tbpCategories;

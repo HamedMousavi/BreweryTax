@@ -4,22 +4,22 @@
 namespace Entities
 {
 
-    public class TourPaymentGroup
+    public class TourCostGroup
     {
 
         public Int32 Id { get; set; }
         public string Name { get; set; }
-        public TourPaymentRuleCollection Rules { get; set; }
+        public TourCostRuleCollection Rules { get; set; }
 
 
-        public TourPaymentGroup()
+        public TourCostGroup()
         {
             this.Id = -1;
-            this.Rules = new TourPaymentRuleCollection();
+            this.Rules = new TourCostRuleCollection();
         }
 
 
-        public void CopyTo(TourPaymentGroup group)
+        public void CopyTo(TourCostGroup group)
         {
             group.Name = this.Name;
             group.Id = this.Id;

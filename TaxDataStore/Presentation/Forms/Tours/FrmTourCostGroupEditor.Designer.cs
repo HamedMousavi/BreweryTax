@@ -1,6 +1,6 @@
 ﻿namespace TaxDataStore
 {
-    partial class FrmTourPaymentGroupEditor
+    partial class FrmTourCostGroupEditor
     {
         /// <summary>
         /// Required designer variable.
@@ -121,7 +121,7 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // FrmTourPaymentGroupEditor
+            // FrmTourCostGroupEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -131,10 +131,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmTourPaymentGroupEditor";
+            this.Name = "FrmTourCostGroupEditor";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FrmTourPaymentGroupEditor";
+            this.Text = "FrmTourCostGroupEditor";
             this.tlpMain.ResumeLayout(false);
             this.tlpMain.PerformLayout();
             this.tlpButtons.ResumeLayout(false);

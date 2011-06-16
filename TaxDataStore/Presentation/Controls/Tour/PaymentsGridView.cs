@@ -4,14 +4,14 @@
 namespace TaxDataStore.Presentation.Controls
 {
 
-    public class PaymentsGridView : FlatGridView
+    public class TourPaymentsGridView : FlatGridView
     {
 
-        public PaymentsGridView(TourPaymentDetailCollection payments)
+        public TourPaymentsGridView(TourPaymentCollection payments)
             : base()
         {
             this.ColumnHeadersVisible = false;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            //this.BorderStyle = System.Windows.Forms.BorderStyle.None;
 
             //this.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(EmployeesGridView_DataBindingComplete);
             this.SetDataSource(payments);

@@ -5,20 +5,20 @@ using System.Drawing;
 namespace TaxDataStore.Presentation.Controls
 {
 
-    public class TourPaymentDetailsGridView : FlatGridView
+    public class TourCostDetailsGridView : FlatGridView
     {
 
-        public TourPaymentDetailsGridView(TourPaymentDetailCollection paymentDetails)
+        public TourCostDetailsGridView(TourCostDetailCollection CostDetails)
             : base(false, true)
         {
             this.hiddenColumnNames.Add("Id");
-            this.readonlyColumnNames.Add("PaymentGroup");
+            this.readonlyColumnNames.Add("CostGroup");
 
             //this.ColumnHeadersVisible = false;
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, FontStyle.Bold);
             this.ForeColor = Color.Black;
 
-            this.SetDataSource(paymentDetails);
+            this.SetDataSource(CostDetails);
         }
     }
 }

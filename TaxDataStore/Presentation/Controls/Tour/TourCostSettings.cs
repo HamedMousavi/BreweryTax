@@ -4,16 +4,16 @@
 namespace TaxDataStore.Presentation.Controls
 {
 
-    public partial class TourPaymentSettings : UserControl
+    public partial class TourCostSettings : UserControl
     {
 
         protected TourBasePriceGridView dgvTourPrices;
-        protected TourPaymentRulesGridView dgvRules;
-        protected TourPaymentGroupsGridView dgvGroups;
+        protected TourCostRulesGridView dgvRules;
+        protected TourCostGroupsGridView dgvGroups;
         protected RulesCheckedListBox clbRules;
 
 
-        public TourPaymentSettings()
+        public TourCostSettings()
         {
             InitializeComponent();
 
@@ -32,17 +32,17 @@ namespace TaxDataStore.Presentation.Controls
             this.dgvTourPrices = new TourBasePriceGridView();
             this.tlpTourPriceContainer.Controls.Add(this.dgvTourPrices, 0, 1);
 
-            this.dgvRules = new TourPaymentRulesGridView();
-            this.dgvRules.SetDataSource(DomainModel.TourPaymentRules.GetAll());
-            this.tlpPaymentRules.Controls.Add(this.dgvRules, 0, 1);
+            this.dgvRules = new TourCostRulesGridView();
+            this.dgvRules.SetDataSource(DomainModel.TourCostRules.GetAll());
+            this.tlpCostRules.Controls.Add(this.dgvRules, 0, 1);
 
-            this.dgvGroups = new TourPaymentGroupsGridView();
-            this.dgvGroups.SetDataSource(DomainModel.TourPaymentGroups.GetAll());
+            this.dgvGroups = new TourCostGroupsGridView();
+            this.dgvGroups.SetDataSource(DomainModel.TourCostGroups.GetAll());
             this.dgvGroups.SelectionChanged += new System.EventHandler(dgvGroups_SelectionChanged);
-            this.tlpPaymentGroups.Controls.Add(this.dgvGroups, 0, 1);
+            this.tlpCostGroups.Controls.Add(this.dgvGroups, 0, 1);
 
             this.clbRules = new RulesCheckedListBox();
-            this.tlpPaymentGroups.Controls.Add(this.clbRules, 1, 1);
+            this.tlpCostGroups.Controls.Add(this.clbRules, 1, 1);
         }
 
 
@@ -50,8 +50,8 @@ namespace TaxDataStore.Presentation.Controls
         {
             if (this.dgvGroups.SelectedItem != null)
             {
-                Entities.TourPaymentGroup group = 
-                    (Entities.TourPaymentGroup)dgvGroups.SelectedItem;
+                Entities.TourCostGroup group = 
+                    (Entities.TourCostGroup)dgvGroups.SelectedItem;
                 if (group == null)
                 {
                 }
@@ -88,8 +88,8 @@ namespace TaxDataStore.Presentation.Controls
 
         private void btnEditRule_Click(object sender, System.EventArgs e)
         {
-            Entities.TourPaymentRule rule =
-                (Entities.TourPaymentRule)dgvRules.SelectedItem;
+            Entities.TourCostRule rule =
+                (Entities.TourCostRule)dgvRules.SelectedItem;
             if (rule != null)
             {
                 Presentation.Controllers.TourFinance.EditRule(rule);
@@ -99,8 +99,8 @@ namespace TaxDataStore.Presentation.Controls
 
         private void btnRemoveRule_Click(object sender, System.EventArgs e)
         {
-            Entities.TourPaymentRule rule =
-                (Entities.TourPaymentRule)dgvRules.SelectedItem;
+            Entities.TourCostRule rule =
+                (Entities.TourCostRule)dgvRules.SelectedItem;
             if (rule != null)
             {
                 Presentation.Controllers.TourFinance.DeleteRule(rule);
@@ -116,8 +116,8 @@ namespace TaxDataStore.Presentation.Controls
 
         private void btnEditGroup_Click(object sender, System.EventArgs e)
         {
-            Entities.TourPaymentGroup group =
-                (Entities.TourPaymentGroup)dgvGroups.SelectedItem;
+            Entities.TourCostGroup group =
+                (Entities.TourCostGroup)dgvGroups.SelectedItem;
             if (group != null)
             {
                 Presentation.Controllers.TourFinance.EditGroup(group);
@@ -127,8 +127,8 @@ namespace TaxDataStore.Presentation.Controls
 
         private void btnRemoveGroup_Click(object sender, System.EventArgs e)
         {
-            Entities.TourPaymentGroup group =
-                (Entities.TourPaymentGroup)dgvGroups.SelectedItem;
+            Entities.TourCostGroup group =
+                (Entities.TourCostGroup)dgvGroups.SelectedItem;
             if (group != null)
             {
                 Presentation.Controllers.TourFinance.DeleteGroup(group);

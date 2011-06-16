@@ -273,8 +273,8 @@
   <data name="grid_title_participants" xml:space="preserve">
     <value>Participants</value>
   </data>
-  <data name="grid_title_payment_type" xml:space="preserve">
-    <value>Payment type</value>
+  <data name="grid_title_Cost_type" xml:space="preserve">
+    <value>Cost type</value>
   </data>
   <data name="grid_title_price_per_person" xml:space="preserve">
     <value>Price per person</value>
@@ -324,7 +324,7 @@
   <data name="tab_title_members" xml:space="preserve">
     <value>Guest</value>
   </data>
-  <data name="tab_title_payments" xml:space="preserve">
+  <data name="tab_title_Payments" xml:space="preserve">
     <value>Payments</value>
   </data>
   <data name="tab_title_staff" xml:space="preserve">
@@ -369,7 +369,7 @@
   <data name="lbl_rule_name" xml:space="preserve">
     <value>Rule name</value>
   </data>
-  <data name="frm_title_tour_payment_group_editor" xml:space="preserve">
+  <data name="frm_title_tour_Cost_group_editor" xml:space="preserve">
     <value>Group details</value>
   </data>
   <data name="lbl_tour_group_name" xml:space="preserve">

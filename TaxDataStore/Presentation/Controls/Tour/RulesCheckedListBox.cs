@@ -9,7 +9,7 @@ namespace TaxDataStore.Presentation.Controls
     public class RulesCheckedListBox : CheckedListBox
     {
 
-        public Entities.TourPaymentGroup Group { get; set; }
+        public Entities.TourCostGroup Group { get; set; }
         protected bool checking;
 
 
@@ -34,7 +34,7 @@ namespace TaxDataStore.Presentation.Controls
 
         private void BindData()
         {
-            this.DataSource = DomainModel.TourPaymentRules.GetAll();
+            this.DataSource = DomainModel.TourCostRules.GetAll();
             this.DisplayMember = "Name";
             this.ValueMember = "Id";
         }
@@ -65,8 +65,8 @@ namespace TaxDataStore.Presentation.Controls
             this.ItemCheck -= new ItemCheckEventHandler(OnItemCheck);
 
             int index = 0;
-            TourPaymentRuleCollection rules = DomainModel.TourPaymentRules.GetAll();
-            foreach (TourPaymentRule rule in rules)
+            TourCostRuleCollection rules = DomainModel.TourCostRules.GetAll();
+            foreach (TourCostRule rule in rules)
             {
                 if (this.Group.Rules.Contains(rule))
                 {
@@ -86,20 +86,20 @@ namespace TaxDataStore.Presentation.Controls
 
         protected void OnItemCheck(object sender, ItemCheckEventArgs e)
         {
-            TourPaymentRule item = (TourPaymentRule)this.Items[e.Index];
+            TourCostRule item = (TourCostRule)this.Items[e.Index];
 
             if (item != null)
             {
                 if (e.NewValue == CheckState.Checked)
                 {
-                    if (DomainModel.TourPaymentGroups.AddRuleToGroup(this.Group, item))
+                    if (DomainModel.TourCostGroups.AddRuleToGroup(this.Group, item))
                     {
                         this.Group.Rules.Add(item);
                     }
                 }
                 else if (e.NewValue == CheckState.Unchecked)
                 {
-                    if (DomainModel.TourPaymentGroups.RemoveRuleFromGroup(this.Group, item))
+                    if (DomainModel.TourCostGroups.RemoveRuleFromGroup(this.Group, item))
                     {
                         this.Group.Rules.Remove(item);
                     }

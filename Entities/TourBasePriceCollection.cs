@@ -6,17 +6,17 @@ namespace Entities
 
     public class TourBasePriceCollection : BindingList<TourBasePrice>
     {
-        internal void CopyTo(TourBasePriceCollection payments)
+        internal void CopyTo(TourBasePriceCollection Costs)
         {
-            payments.Clear();
+            Costs.Clear();
 
-            foreach (TourBasePrice payment in this)
+            foreach (TourBasePrice Cost in this)
             {
                 // UNDONE: SHALL WE DUPLICATE DETAILS OR JUST A REFRENCE IS ENOUGH?!
-                TourBasePrice newpayment = new TourBasePrice();
-                payment.CopyTo(newpayment);
+                TourBasePrice newCost = new TourBasePrice();
+                Cost.CopyTo(newCost);
 
-                payments.Add(newpayment);
+                Costs.Add(newCost);
             }
         }
     }

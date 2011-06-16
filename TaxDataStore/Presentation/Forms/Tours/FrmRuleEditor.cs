@@ -14,15 +14,15 @@ namespace TaxDataStore
 
         protected TourFormulaOperationComboBox cbxPriceOperation;
         
-        protected Entities.TourPaymentRule rule;
-        protected Entities.TourPaymentRule editRule;
+        protected Entities.TourCostRule rule;
+        protected Entities.TourCostRule editRule;
 
 
         public FrmRuleEditor()
         {
             InitializeComponent();
 
-            this.rule = new Entities.TourPaymentRule();
+            this.rule = new Entities.TourCostRule();
 
             SetupControls();
             BindControlsData();
@@ -33,7 +33,7 @@ namespace TaxDataStore
         }
 
 
-        public FrmRuleEditor(Entities.TourPaymentRule editRule) :
+        public FrmRuleEditor(Entities.TourCostRule editRule) :
             this()
         {
             this.editRule = editRule;
@@ -73,8 +73,8 @@ namespace TaxDataStore
         private void BindControlsData()
         {
 
-            Array priceOperations = Enum.GetValues(typeof(Entities.TourPaymentFormula.PriceOperations));
-            foreach (Entities.TourPaymentFormula.PriceOperations operation in priceOperations)
+            Array priceOperations = Enum.GetValues(typeof(Entities.TourCostFormula.PriceOperations));
+            foreach (Entities.TourCostFormula.PriceOperations operation in priceOperations)
             {
                 Presentation.Models.PriceOperationItem item = new Presentation.Models.PriceOperationItem();
                 item.Id = Convert.ToInt32(operation);
@@ -86,10 +86,10 @@ namespace TaxDataStore
             //this.cbxPriceOperation.DisplayMember = "Name";
 
 
-            Array valueOperations = Enum.GetValues(typeof(Entities.TourPaymentFormula.ValueOperations));
-            foreach (Entities.TourPaymentFormula.ValueOperations operation in valueOperations)
+            Array valueOperations = Enum.GetValues(typeof(Entities.TourCostFormula.ValueOperations));
+            foreach (Entities.TourCostFormula.ValueOperations operation in valueOperations)
             {
-                if (operation != Entities.TourPaymentFormula.ValueOperations.Currency)
+                if (operation != Entities.TourCostFormula.ValueOperations.Currency)
                 {
                     Presentation.Models.ValueOperationItem item = new Presentation.Models.ValueOperationItem();
                     item.Id = Convert.ToInt32(operation);
@@ -127,7 +127,7 @@ namespace TaxDataStore
         }
 
 
-        private void SelectPriceOperation(Entities.TourPaymentFormula.PriceOperations price)
+        private void SelectPriceOperation(Entities.TourCostFormula.PriceOperations price)
         {
             Int32 priceId = (Int32)price;
             foreach(Presentation.Models.PriceOperationItem item in this.cbxPriceOperation.Items)
@@ -141,9 +141,9 @@ namespace TaxDataStore
         }
 
 
-        private void SelectValueOperation(Entities.TourPaymentFormula.ValueOperations value, Entities.MoneyCurrency currency)
+        private void SelectValueOperation(Entities.TourCostFormula.ValueOperations value, Entities.MoneyCurrency currency)
         {
-            if (value == Entities.TourPaymentFormula.ValueOperations.Percent)
+            if (value == Entities.TourCostFormula.ValueOperations.Percent)
             {
                 Int32 valueId = (Int32)value;
 
@@ -186,7 +186,7 @@ namespace TaxDataStore
                 this.rule.CopyTo(this.editRule);
             }
 
-            if (DomainModel.TourPaymentRules.Save(this.rule))
+            if (DomainModel.TourCostRules.Save(this.rule))
             {
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 Close();
@@ -209,7 +209,7 @@ namespace TaxDataStore
             if (op != null && val != null)
             {
                 this.rule.Formula.PriceOperation =
-                    (Entities.TourPaymentFormula.PriceOperations)op.Id;
+                    (Entities.TourCostFormula.PriceOperations)op.Id;
 
                 if (val.CustomObject is Entities.MoneyCurrency)
                 {
@@ -217,12 +217,12 @@ namespace TaxDataStore
                         val.CustomObject as Entities.MoneyCurrency;
 
                     this.rule.Formula.ValueOperation =
-                        Entities.TourPaymentFormula.ValueOperations.Currency;
+                        Entities.TourCostFormula.ValueOperations.Currency;
                 }
                 else
                 {
                     this.rule.Formula.ValueOperation =
-                        Entities.TourPaymentFormula.ValueOperations.Percent;
+                        Entities.TourCostFormula.ValueOperations.Percent;
                 }
             }
         }

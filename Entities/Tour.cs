@@ -14,7 +14,9 @@ namespace Entities
         public TourStatus Status { get; set; }
         public EmployeeCollection Employees { get; set; }
         public TourMemberCollection Members { get; set; }
-        public TourPaymentDetailCollection PaymentDetails { get; set; }
+        public TourCostDetailCollection CostDetails { get; set; }
+        public TourPaymentCollection Payments { get; set; }
+
 
         public string Comments { get; set; }
 
@@ -29,7 +31,8 @@ namespace Entities
 
             this.Employees = new Entities.EmployeeCollection();
             this.Members = new TourMemberCollection();
-            this.PaymentDetails = new TourPaymentDetailCollection();
+            this.CostDetails = new TourCostDetailCollection();
+            this.Payments = new TourPaymentCollection();
 
             this.TourType = new GeneralType();
             this.SignUpType = new GeneralType();
@@ -37,15 +40,15 @@ namespace Entities
         }
 
 
-        public Tour(TourPaymentGroupCollection paymentGroups)
+        public Tour(TourCostGroupCollection CostGroups)
             : this()
         {
-            foreach (TourPaymentGroup group in paymentGroups)
+            foreach (TourCostGroup group in CostGroups)
             {
-                TourPaymentDetail detail = new TourPaymentDetail();
-                detail.PaymentGroup = group;
+                TourCostDetail detail = new TourCostDetail();
+                detail.CostGroup = group;
 
-                this.PaymentDetails.Add(detail);
+                this.CostDetails.Add(detail);
             }
         }
 
@@ -55,7 +58,8 @@ namespace Entities
             this.Time.CopyTo(tour.Time);
             this.Employees.CopyTo(tour.Employees);
             this.Members.CopyTo(tour.Members);
-            this.PaymentDetails.CopyTo(tour.PaymentDetails);
+            this.CostDetails.CopyTo(tour.CostDetails);
+            this.Payments.CopyTo(tour.Payments);
             this.Status.CopyTo(tour.Status);
 
             tour.SignUpType = this.SignUpType;

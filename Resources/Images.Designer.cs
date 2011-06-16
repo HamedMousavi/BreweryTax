@@ -123,6 +123,20 @@ namespace Resources {
             }
         }
         
+        public static System.Drawing.Bitmap calculator {
+            get {
+                object obj = ResourceManager.GetObject("calculator", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap calculator_gray {
+            get {
+                object obj = ResourceManager.GetObject("calculator_gray", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         public static System.Drawing.Bitmap calendar_day {
             get {
                 object obj = ResourceManager.GetObject("calendar_day", resourceCulture);

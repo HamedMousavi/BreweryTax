@@ -3,10 +3,10 @@
 namespace TaxDataStore.Presentation.Controls
 {
 
-    public class TourPaymentRulesGridView : FlatGridView
+    public class TourCostGroupsGridView : FlatGridView
     {
-
-        public TourPaymentRulesGridView()
+        public TourCostGroupsGridView()
+            : base()
         {
             this.hiddenColumnNames.Add("Id");
 

@@ -5,11 +5,11 @@ using Entities;
 namespace DomainModel
 {
 
-    public class TourPaymentGroups
+    public class TourCostGroups
     {
 
-        private static TourPaymentGroupCollection groups;
-        private static Repository.Sql.TourPaymentGroups repo;
+        private static TourCostGroupCollection groups;
+        private static Repository.Sql.TourCostGroups repo;
 
 
         public static Int32 Count
@@ -23,7 +23,7 @@ namespace DomainModel
 
         public static void Init(string sqlConnectionString)
         {
-            repo = new Repository.Sql.TourPaymentGroups(sqlConnectionString);
+            repo = new Repository.Sql.TourCostGroups(sqlConnectionString);
 
             LoadAll();
         }
@@ -31,28 +31,28 @@ namespace DomainModel
 
         private static void LoadAll()
         {
-            groups = new TourPaymentGroupCollection();
+            groups = new TourCostGroupCollection();
             repo.LoadAll(groups);
             LoadGroupsRules(groups);
         }
 
 
-        private static void LoadGroupsRules(TourPaymentGroupCollection groups)
+        private static void LoadGroupsRules(TourCostGroupCollection groups)
         {
-            foreach (TourPaymentGroup group in groups)
+            foreach (TourCostGroup group in groups)
             {
-                DomainModel.TourPaymentRules.LoadGroupRules(group);
+                DomainModel.TourCostRules.LoadGroupRules(group);
             }
         }
 
 
-        public static TourPaymentGroupCollection GetAll()
+        public static TourCostGroupCollection GetAll()
         {
             return groups;
         }
 
 
-        public static bool Save(Entities.TourPaymentGroup group)
+        public static bool Save(Entities.TourCostGroup group)
         {
             bool res;
 
@@ -73,7 +73,7 @@ namespace DomainModel
         }
 
 
-        public static bool Delete(Entities.TourPaymentGroup group)
+        public static bool Delete(Entities.TourCostGroup group)
         {
 
             if (repo.Delete(group))
@@ -87,13 +87,13 @@ namespace DomainModel
         }
 
 
-        public static bool AddRuleToGroup(TourPaymentGroup group, TourPaymentRule rule)
+        public static bool AddRuleToGroup(TourCostGroup group, TourCostRule rule)
         {
             return repo.AddRuleToGroup(group.Id, rule.Id);
         }
 
 
-        public static bool RemoveRuleFromGroup(TourPaymentGroup group, TourPaymentRule rule)
+        public static bool RemoveRuleFromGroup(TourCostGroup group, TourCostRule rule)
         {
             return repo.RemoveRuleFromGroup(group.Id, rule.Id);
         }

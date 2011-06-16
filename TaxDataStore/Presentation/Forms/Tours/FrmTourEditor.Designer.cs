@@ -1,4 +1,5 @@
-﻿namespace TaxDataStore
+﻿using TaxDataStore.Presentation.Controls;
+namespace TaxDataStore
 {
     partial class FrmTourEditor
     {
@@ -29,7 +30,7 @@
         private void InitializeComponent()
         {
             this.tlpTour = new System.Windows.Forms.TableLayoutPanel();
-            this.gpxPaymentGroups = new System.Windows.Forms.GroupBox();
+            this.gpxCostGroups = new System.Windows.Forms.GroupBox();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
@@ -57,11 +58,18 @@
             this.lblEmployees = new System.Windows.Forms.Label();
             this.lblComments = new System.Windows.Forms.Label();
             this.rtbComments = new System.Windows.Forms.RichTextBox();
+            this.tbpReceipt = new System.Windows.Forms.TabPage();
+            this.tlpReceipt = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.tbpPayments = new System.Windows.Forms.TabPage();
-            this.tlpPayments = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAddPayment = new System.Windows.Forms.Button();
-            this.btnEditPayment = new System.Windows.Forms.Button();
-            this.btnRemovePayment = new System.Windows.Forms.Button();
+            this.tlpPayments = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
+            this.btnAddPayment = new TaxDataStore.Presentation.Controls.FlatButton();
+            this.btnEditPayment = new TaxDataStore.Presentation.Controls.FlatButton();
+            this.btnRemovePayment = new TaxDataStore.Presentation.Controls.FlatButton();
+            this.lblPayments = new TaxDataStore.Presentation.Controls.ToolbarLabel();
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -76,6 +84,8 @@
             this.tbpStaff.SuspendLayout();
             this.tlpStaff.SuspendLayout();
             this.tlpEmployeeToolbar.SuspendLayout();
+            this.tbpReceipt.SuspendLayout();
+            this.tlpReceipt.SuspendLayout();
             this.tbpPayments.SuspendLayout();
             this.tlpPayments.SuspendLayout();
             this.tlpMain.SuspendLayout();
@@ -87,7 +97,7 @@
             this.tlpTour.ColumnCount = 2;
             this.tlpTour.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpTour.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpTour.Controls.Add(this.gpxPaymentGroups, 0, 5);
+            this.tlpTour.Controls.Add(this.gpxCostGroups, 0, 5);
             this.tlpTour.Controls.Add(this.dtpDate, 1, 0);
             this.tlpTour.Controls.Add(this.lblDate, 0, 0);
             this.tlpTour.Controls.Add(this.lblTime, 0, 1);
@@ -113,17 +123,17 @@
             this.tlpTour.Size = new System.Drawing.Size(567, 332);
             this.tlpTour.TabIndex = 0;
             // 
-            // gpxPaymentGroups
+            // gpxCostGroups
             // 
-            this.tlpTour.SetColumnSpan(this.gpxPaymentGroups, 2);
-            this.gpxPaymentGroups.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gpxPaymentGroups.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.gpxPaymentGroups.ForeColor = System.Drawing.Color.Gray;
-            this.gpxPaymentGroups.Location = new System.Drawing.Point(3, 120);
-            this.gpxPaymentGroups.Name = "gpxPaymentGroups";
-            this.gpxPaymentGroups.Size = new System.Drawing.Size(561, 209);
-            this.gpxPaymentGroups.TabIndex = 16;
-            this.gpxPaymentGroups.TabStop = false;
+            this.tlpTour.SetColumnSpan(this.gpxCostGroups, 2);
+            this.gpxCostGroups.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gpxCostGroups.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.gpxCostGroups.ForeColor = System.Drawing.Color.Gray;
+            this.gpxCostGroups.Location = new System.Drawing.Point(3, 120);
+            this.gpxCostGroups.Name = "gpxCostGroups";
+            this.gpxCostGroups.Size = new System.Drawing.Size(561, 209);
+            this.gpxCostGroups.TabIndex = 16;
+            this.gpxCostGroups.TabStop = false;
             // 
             // dtpDate
             // 
@@ -265,6 +275,7 @@
             this.tabMain.Controls.Add(this.tbpTour);
             this.tabMain.Controls.Add(this.tbpMembers);
             this.tabMain.Controls.Add(this.tbpStaff);
+            this.tabMain.Controls.Add(this.tbpReceipt);
             this.tabMain.Controls.Add(this.tbpPayments);
             this.tabMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabMain.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -479,6 +490,74 @@
             this.rtbComments.TabIndex = 19;
             this.rtbComments.Text = "";
             // 
+            // tbpReceipt
+            // 
+            this.tbpReceipt.Controls.Add(this.tlpReceipt);
+            this.tbpReceipt.Location = new System.Drawing.Point(4, 23);
+            this.tbpReceipt.Name = "tbpReceipt";
+            this.tbpReceipt.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpReceipt.Size = new System.Drawing.Size(567, 332);
+            this.tbpReceipt.TabIndex = 4;
+            this.tbpReceipt.Text = "Receipt";
+            this.tbpReceipt.UseVisualStyleBackColor = true;
+            // 
+            // tlpReceipt
+            // 
+            this.tlpReceipt.ColumnCount = 5;
+            this.tlpReceipt.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpReceipt.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpReceipt.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpReceipt.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpReceipt.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpReceipt.Controls.Add(this.label1, 0, 0);
+            this.tlpReceipt.Controls.Add(this.label2, 1, 0);
+            this.tlpReceipt.Controls.Add(this.label3, 2, 0);
+            this.tlpReceipt.Controls.Add(this.label4, 3, 0);
+            this.tlpReceipt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpReceipt.Location = new System.Drawing.Point(3, 3);
+            this.tlpReceipt.Name = "tlpReceipt";
+            this.tlpReceipt.RowCount = 2;
+            this.tlpReceipt.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpReceipt.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpReceipt.Size = new System.Drawing.Size(561, 326);
+            this.tlpReceipt.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 14);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Detail";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(51, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 14);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "PPS";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(88, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 14);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Quantity";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(155, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 14);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Total";
+            // 
             // tbpPayments
             // 
             this.tbpPayments.Controls.Add(this.tlpPayments);
@@ -491,16 +570,20 @@
             // 
             // tlpPayments
             // 
-            this.tlpPayments.ColumnCount = 3;
+            this.tlpPayments.BackColor = System.Drawing.Color.White;
+            this.tlpPayments.ColumnCount = 4;
+            this.tlpPayments.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpPayments.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpPayments.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpPayments.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpPayments.Controls.Add(this.btnAddPayment, 0, 0);
-            this.tlpPayments.Controls.Add(this.btnEditPayment, 1, 0);
-            this.tlpPayments.Controls.Add(this.btnRemovePayment, 2, 0);
+            this.tlpPayments.Controls.Add(this.btnAddPayment, 1, 0);
+            this.tlpPayments.Controls.Add(this.btnEditPayment, 2, 0);
+            this.tlpPayments.Controls.Add(this.btnRemovePayment, 3, 0);
+            this.tlpPayments.Controls.Add(this.lblPayments, 0, 0);
             this.tlpPayments.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpPayments.Location = new System.Drawing.Point(0, 0);
             this.tlpPayments.Name = "tlpPayments";
+            this.tlpPayments.Padding = new System.Windows.Forms.Padding(3);
             this.tlpPayments.RowCount = 3;
             this.tlpPayments.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpPayments.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -510,7 +593,7 @@
             // 
             // btnAddPayment
             // 
-            this.btnAddPayment.Location = new System.Drawing.Point(3, 3);
+            this.btnAddPayment.Location = new System.Drawing.Point(73, 6);
             this.btnAddPayment.Name = "btnAddPayment";
             this.btnAddPayment.Size = new System.Drawing.Size(24, 24);
             this.btnAddPayment.TabIndex = 1;
@@ -519,7 +602,7 @@
             // 
             // btnEditPayment
             // 
-            this.btnEditPayment.Location = new System.Drawing.Point(33, 3);
+            this.btnEditPayment.Location = new System.Drawing.Point(103, 6);
             this.btnEditPayment.Name = "btnEditPayment";
             this.btnEditPayment.Size = new System.Drawing.Size(24, 24);
             this.btnEditPayment.TabIndex = 1;
@@ -528,12 +611,21 @@
             // 
             // btnRemovePayment
             // 
-            this.btnRemovePayment.Location = new System.Drawing.Point(63, 3);
+            this.btnRemovePayment.Location = new System.Drawing.Point(133, 6);
             this.btnRemovePayment.Name = "btnRemovePayment";
             this.btnRemovePayment.Size = new System.Drawing.Size(24, 24);
             this.btnRemovePayment.TabIndex = 1;
             this.btnRemovePayment.UseVisualStyleBackColor = true;
             this.btnRemovePayment.Click += new System.EventHandler(this.btnRemovePayment_Click);
+            // 
+            // lblPayments
+            // 
+            this.lblPayments.AutoSize = true;
+            this.lblPayments.Location = new System.Drawing.Point(6, 3);
+            this.lblPayments.Name = "lblPayments";
+            this.lblPayments.Size = new System.Drawing.Size(61, 14);
+            this.lblPayments.TabIndex = 2;
+            this.lblPayments.Text = "Payment";
             // 
             // tlpMain
             // 
@@ -617,8 +709,12 @@
             this.tlpStaff.PerformLayout();
             this.tlpEmployeeToolbar.ResumeLayout(false);
             this.tlpEmployeeToolbar.PerformLayout();
+            this.tbpReceipt.ResumeLayout(false);
+            this.tlpReceipt.ResumeLayout(false);
+            this.tlpReceipt.PerformLayout();
             this.tbpPayments.ResumeLayout(false);
             this.tlpPayments.ResumeLayout(false);
+            this.tlpPayments.PerformLayout();
             this.tlpMain.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -639,9 +735,11 @@
         private System.Windows.Forms.TabPage tbpPayments;
         private System.Windows.Forms.TabPage tbpMembers;
         private System.Windows.Forms.TabPage tbpStaff;
-        private System.Windows.Forms.TableLayoutPanel tlpPayments;
-        private System.Windows.Forms.Button btnAddPayment;
-        private System.Windows.Forms.Button btnRemovePayment;
+        private ContainerLayoutPanel tlpPayments;
+        private FlatButton btnAddPayment;
+        private FlatButton btnEditPayment;
+        private FlatButton btnRemovePayment;
+        private System.Windows.Forms.Button btnEditTourMember;
         private System.Windows.Forms.TableLayoutPanel tlpTourMembers;
         private System.Windows.Forms.Button btnAddTourMember;
         private System.Windows.Forms.Button btnRemoveTourMember;
@@ -659,11 +757,16 @@
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Label lblTourStatus;
         private System.Windows.Forms.Label lblTourStatusLabel;
-        private System.Windows.Forms.Button btnEditTourMember;
-        private System.Windows.Forms.Button btnEditPayment;
         private System.Windows.Forms.TableLayoutPanel tlpMemberToolbar;
         private System.Windows.Forms.Label lblGuest;
         private System.Windows.Forms.Label lblGuestContacts;
-        private System.Windows.Forms.GroupBox gpxPaymentGroups;
+        private System.Windows.Forms.GroupBox gpxCostGroups;
+        private System.Windows.Forms.TabPage tbpReceipt;
+        private System.Windows.Forms.TableLayoutPanel tlpReceipt;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private ToolbarLabel lblPayments;
     }
 }

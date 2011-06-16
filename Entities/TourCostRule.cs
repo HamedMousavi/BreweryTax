@@ -4,22 +4,22 @@
 namespace Entities
 {
 
-    public class TourPaymentRule
+    public class TourCostRule
     {
         public string Name { get; set; }
-        public TourPaymentFormula Formula { get; set; }
+        public TourCostFormula Formula { get; set; }
 
         public Int32 Id { get; set; }
 
 
-        public TourPaymentRule()
+        public TourCostRule()
         {
             this.Id = -1;
-            this.Formula = new TourPaymentFormula();
+            this.Formula = new TourCostFormula();
         }
 
 
-        public void CopyTo(TourPaymentRule rule)
+        public void CopyTo(TourCostRule rule)
         {
             rule.Id = this.Id;
             rule.Name = this.Name;

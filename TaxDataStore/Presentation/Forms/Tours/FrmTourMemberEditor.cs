@@ -11,7 +11,7 @@ namespace TaxDataStore
     {
 
         protected ContactsGridView dgvContacts;
-        protected TypeComboBox cbxTitle;
+        protected ComboBox cbxTitle;
         protected TourMemberCollection members;
         protected TourMember member;
         protected TourMember editMember;
@@ -31,7 +31,10 @@ namespace TaxDataStore
             this.gpxContacts.Text = Resources.Texts.gpx_contacts;
             
             this.member = new TourMember();
-            this.cbxTitle = new TypeComboBox("PersonTitleTypes");
+            
+            this.cbxTitle = new ComboBox();
+            this.cbxTitle.DataSource = DomainModel.PersonTitleTypes.GetAll();
+            this.cbxTitle.DisplayMember = "Name";
 
             this.tbxFirstName.DataBindings.Add(
                 new Binding(

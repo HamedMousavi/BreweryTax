@@ -2,11 +2,11 @@
 
 namespace Entities
 {
-    public class TourPaymentRuleCollection : BindingList<TourPaymentRule>
+    public class TourCostRuleCollection : BindingList<TourCostRule>
     {
-        public TourPaymentRule FindById(int id)
+        public TourCostRule FindById(int id)
         {
-            foreach (TourPaymentRule rule in this)
+            foreach (TourCostRule rule in this)
             {
                 if (rule.Id == id) return rule;
             }

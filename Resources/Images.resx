@@ -1945,4 +1945,31 @@
         ozQyW+erlXt1biT8zwWpwgONFR9tt9TgEoGEq4JO/sR/KfgA0G/8BVujUIIAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="calculator" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAABrElEQVQ4T42OvUtCcRSGrx+L
+        OjY0uYlbOTgIDg6CY5OKm2PSINFFbGgqAummXASJlCCoIXAOgiiRzC/8QpGQpNHFf+LtnB+cqSt24eFc
+        fZ/3VS2RSGhMMpk8IA7/wYF0AGhaPB4XMuv1GqvVaiOck5+Rjhqw2WxCPZVKYRvk16WjBux2u/BQ/izD
+        /DBRapZw3bjG1dsVCq8FXL5cIl1O4/z5HOQ/SEcNOBwO4bb+U8fT9xMevx5xP7tHbVTDTf8GPHx0dwTj
+        3QD5t9JRA06nUzB1Xcc2yDelowZisZiQXS6XmM1mG+Gc/Kx01EA0GhWOF4sFqtUqJpOJ5eWc/GPpqIFI
+        JCKczOdzMIPBwPJyRv6JdNRAOBwW9Ol0ikqlgl6vZ3k5J1+XjhoIhUJCjv/6eDxGp9OxvJyTn5OOGggG
+        g0J+OBzCNE20Wi3Lyzn5eemoAZ/PpwUCAea03++DaTabf26xWFTfscc+99QAP16vV/P7/WfdbheGYaDR
+        aFheztljnx8ZcNP7Lj0X/Auj0Qjtdtvycs4e+4RbBnbow57L5dI9Hk9hG+yRv0/s8MAvOAwAAj5RHpcA
+        AAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="calculator_gray" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAABd0lEQVQ4T43SS2vCQBQF4Pj4
+        jyKigogP3Ci+RZBoJGpMjOIDQkUlEFFECIiFWksphdJFN110UehvOZ0r7aJ0BgxczuLc+WYWkQBINH6/
+        P8VGu2JSv2coL4d/gL7jOFitVsKhnl3QFwFGIBBAKBRCNBpFPB5HMplEIpFALBZDOBxGMBgkwBAB5vB5
+        iMHTAPqjDu1BQ/e+C/VOhXKrIDKMQD7IBJgiYLT92mL9uYb9YWPxvoD1ZmH6OgXB6Zs0euceASMu4PP5
+        Jvl8HoVCAaVSCZVKBdVq9ZLlchnFYhHU054ImLEPhmEIh3oGzESANR6PcTqdoGkaN6lngCUC5qZpXp6v
+        qio3qWfAXAQsdV3H8XiEoijcpJ4BSxFg09NzuRyazSY3qWeAzQW8Xq/T6XTgui4ajQY3qac9EbBpt9vI
+        ZDKo1+v/cr/fg3oGbESA22q1sNvtUKvVuEk9A1wu4PF4znRDNpuFLMvcpJ72uIAkSRM2L1fMnz/xG9lu
+        W2T7fonKAAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>

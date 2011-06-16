@@ -5,25 +5,25 @@ using System.Windows.Forms;
 namespace TaxDataStore
 {
 
-    public partial class FrmTourPaymentGroupEditor : Form
+    public partial class FrmTourCostGroupEditor : Form
     {
 
-        protected Entities.TourPaymentGroup group;
-        protected Entities.TourPaymentGroup editGroup;
+        protected Entities.TourCostGroup group;
+        protected Entities.TourCostGroup editGroup;
 
 
-        public FrmTourPaymentGroupEditor()
+        public FrmTourCostGroupEditor()
         {
             InitializeComponent();
 
-            this.group = new Entities.TourPaymentGroup();
+            this.group = new Entities.TourCostGroup();
 
             SetupControls();
             BindControls();
         }
 
 
-        public FrmTourPaymentGroupEditor(Entities.TourPaymentGroup group = null)
+        public FrmTourCostGroupEditor(Entities.TourCostGroup group = null)
             : this()
         {
             group.CopyTo(this.group);
@@ -33,7 +33,7 @@ namespace TaxDataStore
 
         private void SetupControls()
         {
-            this.Text = Resources.Texts.frm_title_tour_payment_group_editor;
+            this.Text = Resources.Texts.frm_title_tour_Cost_group_editor;
 
             this.lblGroupName.Text = Resources.Texts.lbl_tour_group_name;
             this.btnSave.Text = Resources.Texts.save;
@@ -62,7 +62,7 @@ namespace TaxDataStore
                 this.group.CopyTo(this.editGroup);
             }
 
-            if (DomainModel.TourPaymentGroups.Save(this.group))
+            if (DomainModel.TourCostGroups.Save(this.group))
             {
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 Close();

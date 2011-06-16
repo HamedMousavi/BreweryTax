@@ -6,23 +6,23 @@ using System.Data.SqlClient;
 namespace DomainModel.Repository.Sql
 {
 
-    public class TourPaymentGroups
+    public class TourCostGroups
     {
 
         private string sqlConnectionString;
 
 
-        public TourPaymentGroups(string sqlConnectionString)
+        public TourCostGroups(string sqlConnectionString)
         {
             this.sqlConnectionString = sqlConnectionString;
         }
 
 
-        internal void LoadAll(Entities.TourPaymentGroupCollection groups)
+        internal void LoadAll(Entities.TourCostGroupCollection groups)
         {
             using (SqlConnection cnn = new SqlConnection(sqlConnectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("TourPaymentGroupsGetAll", cnn))
+                using (SqlCommand cmd = new SqlCommand("TourCostGroupsGetAll", cnn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
@@ -34,7 +34,7 @@ namespace DomainModel.Repository.Sql
                         {
                             while (reader.Read())
                             {
-                                Entities.TourPaymentGroup group = new Entities.TourPaymentGroup();
+                                Entities.TourCostGroup group = new Entities.TourCostGroup();
 
                                 group.Id = Utils.GetSafeInt32(reader, "GroupId");
                                 group.Name = Utils.GetSafeString(reader, "GroupName");
@@ -48,13 +48,13 @@ namespace DomainModel.Repository.Sql
         }
 
 
-        internal bool Update(Entities.TourPaymentGroup group)
+        internal bool Update(Entities.TourCostGroup group)
         {
             bool res = false;
 
             using (SqlConnection cnn = new SqlConnection(sqlConnectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("TourPaymentGroupUpdateById", cnn))
+                using (SqlCommand cmd = new SqlCommand("TourCostGroupUpdateById", cnn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add(new SqlParameter("@GroupId", group.Id));
@@ -71,13 +71,13 @@ namespace DomainModel.Repository.Sql
         }
 
 
-        internal bool Insert(Entities.TourPaymentGroup group)
+        internal bool Insert(Entities.TourCostGroup group)
         {
             bool res = false;
 
             using (SqlConnection cnn = new SqlConnection(sqlConnectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("TourPaymentGroupAdd", cnn))
+                using (SqlCommand cmd = new SqlCommand("TourCostGroupAdd", cnn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add(new SqlParameter("@GroupName", group.Name));
@@ -96,13 +96,13 @@ namespace DomainModel.Repository.Sql
         }
 
 
-        internal bool Delete(Entities.TourPaymentGroup group)
+        internal bool Delete(Entities.TourCostGroup group)
         {
             bool res = false;
 
             using (SqlConnection cnn = new SqlConnection(sqlConnectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("TourPaymentGroupDeleteById", cnn))
+                using (SqlCommand cmd = new SqlCommand("TourCostGroupDeleteById", cnn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add(new SqlParameter("@GroupId", group.Id));
@@ -123,7 +123,7 @@ namespace DomainModel.Repository.Sql
 
             using (SqlConnection cnn = new SqlConnection(sqlConnectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("TourPaymentGroupRuleAdd", cnn))
+                using (SqlCommand cmd = new SqlCommand("TourCostGroupRuleAdd", cnn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add(new SqlParameter("@GroupId", groupId));
@@ -145,7 +145,7 @@ namespace DomainModel.Repository.Sql
 
             using (SqlConnection cnn = new SqlConnection(sqlConnectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("TourPaymentGroupRuleRemove", cnn))
+                using (SqlCommand cmd = new SqlCommand("TourCostGroupRuleRemove", cnn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add(new SqlParameter("@GroupId", groupId));
