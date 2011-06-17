@@ -1,4 +1,5 @@
-﻿namespace TaxDataStore
+﻿using TaxDataStore.Presentation.Controls;
+namespace TaxDataStore
 {
     partial class FrmRuleEditor
     {
@@ -29,22 +30,22 @@
         private void InitializeComponent()
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
-            this.lblRuleName = new System.Windows.Forms.Label();
+            this.lblRuleName = new FormLabel("lbl_rule_name");
             this.tbxRuleName = new System.Windows.Forms.TextBox();
-            this.lblFormula = new System.Windows.Forms.Label();
+            this.lblFormula = new FormLabel("lbl_formula");
+            this.lblCriteria = new FormLabel("");
+            this.label4 = new FormLabel("");
+            this.label3 = new FormLabel("");
+            this.label2 = new FormLabel("");
+            this.label1 = new FormLabel("");
             this.tlpFormula = new System.Windows.Forms.TableLayoutPanel();
             this.tbxValue = new System.Windows.Forms.TextBox();
             this.cbxValueOperation = new System.Windows.Forms.ComboBox();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.lblCriteria = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.dtpTime = new System.Windows.Forms.DateTimePicker();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -358,24 +359,24 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
-        private System.Windows.Forms.Label lblRuleName;
+        private FormLabel lblRuleName;
         private System.Windows.Forms.TextBox tbxRuleName;
-        private System.Windows.Forms.Label lblFormula;
+        private FormLabel lblFormula;
         private System.Windows.Forms.TableLayoutPanel tlpFormula;
         private System.Windows.Forms.TextBox tbxValue;
         private System.Windows.Forms.ComboBox cbxValueOperation;
         private System.Windows.Forms.TableLayoutPanel tlpButtons;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Label lblCriteria;
+        private FormLabel lblCriteria;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private FormLabel label1;
+        private FormLabel label2;
+        private FormLabel label3;
+        private FormLabel label4;
         private System.Windows.Forms.DateTimePicker dtpTime;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }

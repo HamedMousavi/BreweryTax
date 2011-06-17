@@ -1,4 +1,5 @@
-﻿namespace TaxDataStore
+﻿using TaxDataStore.Presentation.Controls;
+namespace TaxDataStore
 {
     partial class FrmUserEditor
     {
@@ -29,14 +30,14 @@
         private void InitializeComponent()
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
-            this.lblName = new System.Windows.Forms.Label();
+            this.lblName = new FormLabel("username");
+            this.lblLanguage = new FormLabel("language");
+            this.lblPassword = new FormLabel("password");
+            this.lblRole = new FormLabel("role_name");
             this.chbxIsEnabled = new System.Windows.Forms.CheckBox();
             this.tbxName = new System.Windows.Forms.TextBox();
-            this.lblLanguage = new System.Windows.Forms.Label();
             this.cbxLanguage = new System.Windows.Forms.ComboBox();
-            this.lblPassword = new System.Windows.Forms.Label();
             this.tbxPassword = new System.Windows.Forms.TextBox();
-            this.lblRole = new System.Windows.Forms.Label();
             this.cbxRole = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSave = new System.Windows.Forms.Button();
@@ -219,13 +220,13 @@
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
         private System.Windows.Forms.CheckBox chbxIsEnabled;
-        private System.Windows.Forms.Label lblName;
+        private FormLabel lblName;
         private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.ComboBox cbxLanguage;
-        private System.Windows.Forms.Label lblLanguage;
-        private System.Windows.Forms.Label lblPassword;
+        private FormLabel lblLanguage;
+        private FormLabel lblPassword;
         private System.Windows.Forms.TextBox tbxPassword;
-        private System.Windows.Forms.Label lblRole;
+        private FormLabel lblRole;
         private System.Windows.Forms.ComboBox cbxRole;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnSave;

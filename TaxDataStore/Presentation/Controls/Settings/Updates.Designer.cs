@@ -30,10 +30,10 @@
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.chbxUpdateAutoDownload = new System.Windows.Forms.CheckBox();
-            this.lblUpdateSeconds = new System.Windows.Forms.Label();
+            this.lblUpdateSeconds = new FormLabel("lbl_upd_sseconds");
+            this.lblUpdateEvery = new FormLabel("lbl_upd_interval");
+            this.lblUpdateUrl = new FormLabel("lbl_upd_url");
             this.tbxUpdateCheckInterval = new System.Windows.Forms.TextBox();
-            this.lblUpdateEvery = new System.Windows.Forms.Label();
-            this.lblUpdateUrl = new System.Windows.Forms.Label();
             this.tbxUpdateUrl = new System.Windows.Forms.TextBox();
             this.chbxToggleAutoUpdate = new System.Windows.Forms.CheckBox();
             this.btnSave = new System.Windows.Forms.Button();
@@ -190,10 +190,10 @@
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
         private System.Windows.Forms.CheckBox chbxUpdateAutoDownload;
-        private System.Windows.Forms.Label lblUpdateSeconds;
+        private FormLabel lblUpdateSeconds;
         private System.Windows.Forms.TextBox tbxUpdateCheckInterval;
-        private System.Windows.Forms.Label lblUpdateEvery;
-        private System.Windows.Forms.Label lblUpdateUrl;
+        private FormLabel lblUpdateEvery;
+        private FormLabel lblUpdateUrl;
         private System.Windows.Forms.TextBox tbxUpdateUrl;
         private System.Windows.Forms.CheckBox chbxToggleAutoUpdate;
         private System.Windows.Forms.Button btnSave;

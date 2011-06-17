@@ -30,8 +30,8 @@
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.panelCategory = new System.Windows.Forms.Panel();
-            this.lblCategory = new System.Windows.Forms.Label();
-            this.lblTypes = new System.Windows.Forms.Label();
+            this.lblCategory = new ToolbarLabel();
+            this.lblTypes = new ToolbarLabel();
             this.tlpContainer = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
             this.tlpToolbar = new System.Windows.Forms.TableLayoutPanel();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
@@ -197,8 +197,8 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
-        private System.Windows.Forms.Label lblCategory;
-        private System.Windows.Forms.Label lblTypes;
+        private ToolbarLabel lblCategory;
+        private ToolbarLabel lblTypes;
         private ContainerLayoutPanel tlpContainer;
         private System.Windows.Forms.TableLayoutPanel tlpToolbar;
         private FlatButton btnAddType;

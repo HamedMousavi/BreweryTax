@@ -59,6 +59,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presentation\Controls\FormLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\Tours\FrmTourPaymentEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\Tours\FrmTourPaymentEditor.Designer.cs">
+      <DependentUpon>FrmTourPaymentEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\Controllers\MessageBox.cs" />
     <Compile Include="Presentation\Controls\ContainerLayoutPanel.cs">
       <SubType>Component</SubType>
@@ -340,6 +349,9 @@
     <EmbeddedResource Include="Presentation\Forms\Tours\FrmTourCostGroupEditor.resx">
       <DependentUpon>FrmTourCostGroupEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Forms\Tours\FrmTourPaymentEditor.resx">
+      <DependentUpon>FrmTourPaymentEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Forms\Tours\FrmTourPriceEditor.resx">
       <DependentUpon>FrmTourPriceEditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -486,7 +498,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_ConfigurationName="Release" BuildVersion_BuildVersioningStyle="Increment.YearStamp.MonthAndDayStamp.TimeStamp" BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" />
+      <UserProperties BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" BuildVersion_BuildVersioningStyle="Increment.YearStamp.MonthAndDayStamp.TimeStamp" BuildVersion_ConfigurationName="Release" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

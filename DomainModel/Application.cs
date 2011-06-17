@@ -74,6 +74,7 @@ namespace DomainModel
             PersonTitleTypes.Init(settings.SqlConnectionString, culture);
             ContactMediaTypes.Init(settings.SqlConnectionString, culture);
             TourTypes.Init(settings.SqlConnectionString, culture);
+            PaymentTypes.Init(settings.SqlConnectionString, culture);
 
             TourBasePrices.Init(settings.SqlConnectionString);
         }

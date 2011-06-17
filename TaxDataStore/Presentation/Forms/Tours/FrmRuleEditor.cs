@@ -64,8 +64,6 @@ namespace TaxDataStore
 
         private void SetupTexts()
         {
-            this.lblFormula.Text = Resources.Texts.lbl_formula;
-            this.lblRuleName.Text = Resources.Texts.lbl_rule_name;
             this.Text = Resources.Texts.frm_title_rule_editor;
         }
 

@@ -2,8 +2,9 @@
 
 namespace Entities
 {
-    public class Employee
+    public class Employee : EntityBase
     {
+
         public string Name { get { return this.user.Name; } }
 
 

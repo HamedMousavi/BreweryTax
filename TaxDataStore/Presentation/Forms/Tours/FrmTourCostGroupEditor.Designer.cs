@@ -1,4 +1,5 @@
-﻿namespace TaxDataStore
+﻿using TaxDataStore.Presentation.Controls;
+namespace TaxDataStore
 {
     partial class FrmTourCostGroupEditor
     {
@@ -29,7 +30,7 @@
         private void InitializeComponent()
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
-            this.lblGroupName = new System.Windows.Forms.Label();
+            this.lblGroupName = new FormLabel("lbl_tour_group_name");
             this.tbxGroupName = new System.Windows.Forms.TextBox();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -145,7 +146,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
-        private System.Windows.Forms.Label lblGroupName;
+        private FormLabel lblGroupName;
         private System.Windows.Forms.TextBox tbxGroupName;
         private System.Windows.Forms.TableLayoutPanel tlpButtons;
         private System.Windows.Forms.Button btnCancel;

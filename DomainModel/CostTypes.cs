@@ -4,7 +4,7 @@
 namespace DomainModel
 {
 
-    public class CostTypes
+    public class PaymentTypes
     {
 
         private static Repository.Sql.Types repo;
@@ -21,7 +21,7 @@ namespace DomainModel
 
         private static void LoadAll(Culture culture)
         {
-            cache = repo.GetByName("CostType", culture.Id);
+            cache = repo.GetByName("PaymentType", culture.Id);
         }
 
 

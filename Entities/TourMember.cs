@@ -5,25 +5,135 @@ using System.ComponentModel;
 namespace Entities
 {
 
-    public class TourMember
+    public class TourMember : EntityBase
     {
-        public GeneralType Title { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public ContactCollection Contacts { get; set; }
 
-        public GeneralType MemberShip { get; set; }
+        #region Fields
+
+        protected GeneralType title;
+        protected string firstName;
+        protected string lastName;
+        protected ContactCollection contacts;
+        protected GeneralType memberShip;
+        protected Int32 id;
+
+        #endregion Fields
+
+
+        #region Properties
+
+        public GeneralType Title
+        {
+            get
+            {
+                return this.title;
+            }
+
+            set
+            {
+                if (this.title != value)
+                {
+                    this.title = value;
+                    RaisePropertyChanged("Title");
+                }
+            }
+        }
+
+        public string FirstName
+        {
+            get
+            {
+                return this.firstName;
+            }
+
+            set
+            {
+                if (this.firstName != value)
+                {
+                    this.firstName = value;
+                    RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+
+        public string LastName
+        {
+            get
+            {
+                return this.lastName;
+            }
+
+            set
+            {
+                if (this.lastName != value)
+                {
+                    this.lastName = value;
+                    RaisePropertyChanged("LastName");
+                }
+            }
+        }
+
+        public ContactCollection Contacts
+        {
+            get
+            {
+                return this.contacts;
+            }
+
+            set
+            {
+                if (this.contacts != value)
+                {
+                    this.contacts = value;
+                    RaisePropertyChanged("Contacts");
+                }
+            }
+        }
+
+        public GeneralType MemberShip
+        {
+            get
+            {
+                return this.memberShip;
+            }
+
+            set
+            {
+                if (this.memberShip != value)
+                {
+                    this.memberShip = value;
+                    RaisePropertyChanged("MemberShip");
+                }
+            }
+        }
 
         [BrowsableAttribute(false)]
-        public Int32 Id { get; set; }
+        public Int32 Id
+        {
+            get
+            {
+                return this.id;
+            }
+
+            set
+            {
+                if (this.id != value)
+                {
+                    this.id = value;
+                    RaisePropertyChanged("Id");
+                }
+            }
+        }
+
+        #endregion Properties
 
 
         public TourMember()
         {
-            this.Title = new GeneralType();
-            this.MemberShip = new GeneralType();
-            this.Contacts = new ContactCollection();
-            this.Id = -1;
+            this.title = new GeneralType();
+            this.memberShip = new GeneralType();
+            this.contacts = new ContactCollection();
+            this.id = -1;
         }
 
 

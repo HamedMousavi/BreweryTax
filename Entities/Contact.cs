@@ -5,19 +5,79 @@ using System.ComponentModel;
 namespace Entities
 {
 
-    public class Contact
+    public class Contact : EntityBase
     {
-        public GeneralType Media { get; set; }
-        public string Value { get; set; }
+
+        #region Fields
+
+        protected GeneralType media;
+        protected string value;
+        protected Int32 id;
+
+        #endregion Fields
+
+
+        #region Properties
+
+        public GeneralType Media
+        {
+            get
+            {
+                return this.media;
+            }
+
+            set
+            {
+                if (this.media != value)
+                {
+                    this.media = value;
+                    RaisePropertyChanged("Media");
+                }
+            }
+        }
+
+        public string Value
+        {
+            get
+            {
+                return this.value;
+            }
+
+            set
+            {
+                if (this.value != value)
+                {
+                    this.value = value;
+                    RaisePropertyChanged("Value");
+                }
+            }
+        }
 
         [BrowsableAttribute(false)]
-        public Int32 Id { get; set; }
+        public Int32 Id
+        {
+            get
+            {
+                return this.id;
+            }
+
+            set
+            {
+                if (this.id != value)
+                {
+                    this.id = value;
+                    RaisePropertyChanged("Id");
+                }
+            }
+        }
+
+        #endregion Properties
 
 
         public Contact()
         {
             //this.Media = new GeneralType();
-            this.Id = -1;
+            this.id = -1;
         }
 
 

@@ -67,5 +67,29 @@ namespace TaxDataStore.Presentation.Controllers
             // UNDONE
             return true;
         }
+
+
+        internal static void EditPayment(Entities.TourPayment payment)
+        {
+            using (FrmTourPaymentEditor frm = new FrmTourPaymentEditor(payment))
+            {
+                frm.ShowDialog();
+            }
+        }
+
+
+        internal static void AddPayment(Entities.TourPaymentCollection payments)
+        {
+            using (FrmTourPaymentEditor frm = new FrmTourPaymentEditor(payments))
+            {
+                frm.ShowDialog();
+            }
+        }
+
+
+        internal static bool DeletePayment(Entities.TourPayment payment)
+        {
+            return true;
+        }
     }
 }

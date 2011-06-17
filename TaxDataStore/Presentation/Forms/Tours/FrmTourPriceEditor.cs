@@ -18,8 +18,6 @@ namespace TaxDataStore
         {
             InitializeComponent();
 
-            this.lblBasePrice.Text = Resources.Texts.lbl_price;
-            this.lblTourType.Text = Resources.Texts.lbl_tour_type;
             this.Text = Resources.Texts.frm_title_base_price_editor;
             this.btnSave.Text = Resources.Texts.save;
             this.btnCancel.Text = Resources.Texts.cancel;

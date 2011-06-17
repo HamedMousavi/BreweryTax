@@ -475,6 +475,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Amount.
+        /// </summary>
+        public static string lbl_payment_amount {
+            get {
+                return ResourceManager.GetString("lbl_payment_amount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PaymentType.
+        /// </summary>
+        public static string lbl_payment_type {
+            get {
+                return ResourceManager.GetString("lbl_payment_type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &amp;Price.
         /// </summary>
         public static string lbl_price {
@@ -673,6 +691,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &amp;Daily tours.
+        /// </summary>
+        public static string mnu_caption_daily_tours {
+            get {
+                return ResourceManager.GetString("mnu_caption_daily_tours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to E&amp;xit.
         /// </summary>
         public static string mnu_caption_exit {
@@ -718,15 +745,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &amp;Settlement.
-        /// </summary>
-        public static string mnu_caption_settlement {
-            get {
-                return ResourceManager.GetString("mnu_caption_settlement", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to &amp;Employees.
         /// </summary>
         public static string mnu_caption_staff {
@@ -745,11 +763,11 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &amp;Tours.
+        ///   Looks up a localized string similar to &amp;Tour.
         /// </summary>
-        public static string mnu_caption_tours {
+        public static string mnu_caption_tour {
             get {
-                return ResourceManager.GetString("mnu_caption_tours", resourceCulture);
+                return ResourceManager.GetString("mnu_caption_tour", resourceCulture);
             }
         }
         
@@ -768,6 +786,15 @@ namespace Resources {
         public static string mnu_tip_app_settings {
             get {
                 return ResourceManager.GetString("mnu_tip_app_settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View and edit today tours.
+        /// </summary>
+        public static string mnu_tip_daily_tours {
+            get {
+                return ResourceManager.GetString("mnu_tip_daily_tours", resourceCulture);
             }
         }
         
@@ -819,15 +846,6 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        public static string mnu_tip_settlement {
-            get {
-                return ResourceManager.GetString("mnu_tip_settlement", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
         public static string mnu_tip_staff {
             get {
                 return ResourceManager.GetString("mnu_tip_staff", resourceCulture);
@@ -844,11 +862,11 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to View and edit today tours.
+        ///   Looks up a localized string similar to .
         /// </summary>
-        public static string mnu_tip_tours {
+        public static string mnu_tip_tour {
             get {
-                return ResourceManager.GetString("mnu_tip_tours", resourceCulture);
+                return ResourceManager.GetString("mnu_tip_tour", resourceCulture);
             }
         }
         

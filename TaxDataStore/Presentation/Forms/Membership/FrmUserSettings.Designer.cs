@@ -1,4 +1,5 @@
-﻿namespace TaxDataStore
+﻿using TaxDataStore.Presentation.Controls;
+namespace TaxDataStore
 {
     partial class FrmUserSettings
     {
@@ -28,19 +29,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.lblLanguage = new FormLabel("language");
+            this.lblPassword = new FormLabel("password");
+            this.lblPricePerPerson = new FormLabel("");
+            this.lblCostType = new FormLabel("");
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.tabSettings = new System.Windows.Forms.TabControl();
             this.tbpGeneral = new System.Windows.Forms.TabPage();
             this.tlpGeneral = new System.Windows.Forms.TableLayoutPanel();
-            this.lblLanguage = new System.Windows.Forms.Label();
-            this.lblPassword = new System.Windows.Forms.Label();
             this.cbxLanguages = new System.Windows.Forms.ComboBox();
             this.btnChangePassword = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.lblCostType = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.mpkPricePerPerson = new TaxDataStore.Presentation.Controls.MoneyPicker();
-            this.lblPricePerPerson = new System.Windows.Forms.Label();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -277,14 +278,14 @@
         private System.Windows.Forms.TabControl tabSettings;
         private System.Windows.Forms.TabPage tbpGeneral;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label lblCostType;
+        private FormLabel lblCostType;
         private System.Windows.Forms.ComboBox comboBox3;
         private Presentation.Controls.MoneyPicker mpkPricePerPerson;
-        private System.Windows.Forms.Label lblPricePerPerson;
+        private FormLabel lblPricePerPerson;
         private System.Windows.Forms.TableLayoutPanel tlpButtons;
         private System.Windows.Forms.TableLayoutPanel tlpGeneral;
-        private System.Windows.Forms.Label lblLanguage;
-        private System.Windows.Forms.Label lblPassword;
+        private FormLabel lblLanguage;
+        private FormLabel lblPassword;
         private System.Windows.Forms.ComboBox cbxLanguages;
         private System.Windows.Forms.Button btnChangePassword;
         private System.Windows.Forms.Button btnCancel;

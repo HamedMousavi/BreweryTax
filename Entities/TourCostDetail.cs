@@ -1,17 +1,98 @@
 ﻿using System;
 
+
 namespace Entities
 {
-    public class TourCostDetail
+
+    public class TourCostDetail : EntityBase
     {
-        public TourCostGroup CostGroup { get; set; }
-        public Int32 SignUpCount { get; set; }
-        public Int32 ParticipantsCount { get; set; }
-        public Int32 Id { get; set; }
+
+        #region Fields
+
+        protected TourCostGroup costGroup;
+        protected Int32 signUpCount;
+        protected Int32 participantsCount;
+        protected Int32 id;
+        
+        #endregion Fields
+
+
+        #region Properties
+       
+        public TourCostGroup CostGroup
+        {
+            get
+            {
+                return this.costGroup;
+            }
+
+            set
+            {
+                if (this.costGroup != value)
+                {
+                    this.costGroup = value;
+                    RaisePropertyChanged("CostGroup");
+                }
+            }
+        }
+
+        public Int32 SignUpCount
+        {
+            get
+            {
+                return this.signUpCount;
+            }
+
+            set
+            {
+                if (this.signUpCount != value)
+                {
+                    this.signUpCount = value;
+                    RaisePropertyChanged("SignUpCount");
+                }
+            }
+        }
+
+        public Int32 ParticipantsCount
+        {
+            get
+            {
+                return this.participantsCount;
+            }
+
+            set
+            {
+                if (this.participantsCount != value)
+                {
+                    this.participantsCount = value;
+                    RaisePropertyChanged("ParticipantsCount");
+                }
+            }
+        }
+
+        public Int32 Id
+        {
+            get
+            {
+                return this.id;
+            }
+
+            set
+            {
+                if (this.id != value)
+                {
+                    this.id = value;
+                    RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        #endregion Properties
+
 
         public TourCostDetail()
         {
-            this.Id = -1;
+            this.id = -1;
         }
 
 

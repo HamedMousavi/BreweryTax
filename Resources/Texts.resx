@@ -180,8 +180,8 @@
   <data name="mnu_caption_presence" xml:space="preserve">
     <value>&amp;Presence</value>
   </data>
-  <data name="mnu_caption_settlement" xml:space="preserve">
-    <value>&amp;Settlement</value>
+  <data name="mnu_caption_tour" xml:space="preserve">
+    <value>&amp;Tour</value>
   </data>
   <data name="mnu_caption_staff" xml:space="preserve">
     <value>&amp;Employees</value>
@@ -189,8 +189,8 @@
   <data name="mnu_caption_tools" xml:space="preserve">
     <value>&amp;Tools</value>
   </data>
-  <data name="mnu_caption_tours" xml:space="preserve">
-    <value>&amp;Tours</value>
+  <data name="mnu_caption_daily_tours" xml:space="preserve">
+    <value>&amp;Daily tours</value>
   </data>
   <data name="mnu_caption_user_settings" xml:space="preserve">
     <value>&amp;User settings</value>
@@ -213,7 +213,7 @@
   <data name="mnu_tip_presence" xml:space="preserve">
     <value>Employees worktime report</value>
   </data>
-  <data name="mnu_tip_settlement" xml:space="preserve">
+  <data name="mnu_tip_tour" xml:space="preserve">
     <value />
   </data>
   <data name="mnu_tip_staff" xml:space="preserve">
@@ -222,7 +222,7 @@
   <data name="mnu_tip_tools" xml:space="preserve">
     <value />
   </data>
-  <data name="mnu_tip_tours" xml:space="preserve">
+  <data name="mnu_tip_daily_tours" xml:space="preserve">
     <value>View and edit today tours</value>
   </data>
   <data name="mnu_tip_user_settings" xml:space="preserve">
@@ -461,5 +461,11 @@
   </data>
   <data name="lbl_upd_url" xml:space="preserve">
     <value>Update URL</value>
+  </data>
+  <data name="lbl_payment_amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="lbl_payment_type" xml:space="preserve">
+    <value>PaymentType</value>
   </data>
 </root>

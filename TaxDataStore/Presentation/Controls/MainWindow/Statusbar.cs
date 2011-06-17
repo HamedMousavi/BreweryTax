@@ -26,10 +26,21 @@ namespace TaxDataStore.Presentation.Controls
             this.RenderMode = ToolStripRenderMode.ManagerRenderMode;
             this.AutoSize = false;
             this.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BackColor = Color.FromArgb(255, 35, 50, 65);
             
             this.asyncHelper = new AsyncCalls();
             this.currentState = StatusTypes.Info;
+
+            if (Presentation.View.Theme != null)
+            {
+                this.BackColor = Presentation.View.Theme.ToolBarBackColor;
+                this.ForeColor = Presentation.View.Theme.ToolBarForeColor;
+                this.Font = Presentation.View.Theme.ToolBarFont;
+            }
+            else
+            {
+                this.ForeColor = Color.Black;
+                this.Font = new Font("Tahoma", 9, FontStyle.Bold);
+            }
 
             SetupLabel();
 
@@ -60,15 +71,14 @@ namespace TaxDataStore.Presentation.Controls
                 }
             }
             
-            /*
-            if (this.label.ForeColor != Color.Black)
+            if (this.label.ForeColor != this.ForeColor)
             {
                 lock (this)
                 {
-                    this.label.ForeColor = Color.Black;
+                    this.label.ForeColor = this.ForeColor;
                 }
             }
-            */
+            
         }
 
 
@@ -77,23 +87,24 @@ namespace TaxDataStore.Presentation.Controls
             this.label = new ToolStripStatusLabel();
             this.label.Name = "status_caption";
             this.label.RightToLeft = View.LayoutDirection;
-            this.label.Font = new Font("Tahoma", 9, FontStyle.Bold);
             this.label.Spring = true;
             this.label.TextAlign = ContentAlignment.MiddleLeft;
             this.label.Anchor = AnchorStyles.Left;
             this.label.BorderSides = ToolStripStatusLabelBorderSides.None;
             this.label.ImageAlign = ContentAlignment.MiddleLeft;
-            this.label.ForeColor = Color.White;
             this.Items.Add(this.label);
 
             this.lblUser = new ToolStripStatusLabel();
             this.lblUser.Name = "status_user";
             this.lblUser.RightToLeft = View.LayoutDirection;
-            this.lblUser.Font = new Font("Tahoma", 9, FontStyle.Bold);
-            this.lblUser.ForeColor = Color.White;
             this.lblUser.Text = DomainModel.Application.User.Name;
             this.lblUser.Image = DomainModel.Application.ResourceManager.GetImage("user_black_female");
             this.Items.Add(this.lblUser);
+
+            this.label.ForeColor = this.ForeColor;
+            this.lblUser.ForeColor = this.ForeColor;
+            this.label.Font = this.Font;
+            this.lblUser.Font = this.Font;
         }
 
 
@@ -156,15 +167,14 @@ namespace TaxDataStore.Presentation.Controls
                 this.BackColor = this.colors[(int)status.Type];
                 //this.label.ForeColor = Color.White;
 
-                /*
                 if (status.Type == StatusTypes.Info)
                 {
-                    this.label.ForeColor = Color.Black;
+                    this.label.ForeColor = this.ForeColor;
                 }
                 else
                 {
                     this.label.ForeColor = Color.White;
-                }*/
+                }
             }
 
             this.backColorTimer.Start();

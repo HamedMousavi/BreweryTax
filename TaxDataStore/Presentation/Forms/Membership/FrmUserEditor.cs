@@ -34,12 +34,8 @@ namespace TaxDataStore
             this.Text = Resources.Texts.edit_user;
             this.chbxIsEnabled.Text = Resources.Texts.enable;
 
-            this.lblLanguage.Text = Resources.Texts.language;
-            this.lblPassword.Text = Resources.Texts.password;
-            this.lblName.Text = Resources.Texts.username;
             this.btnSave.Text = Resources.Texts.save;
             this.btnCancel.Text = Resources.Texts.cancel;
-            this.lblRole.Text = Resources.Texts.role_name;
 
             BindControlsData();
         }

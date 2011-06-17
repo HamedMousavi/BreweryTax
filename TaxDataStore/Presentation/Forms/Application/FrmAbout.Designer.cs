@@ -1,4 +1,5 @@
-﻿namespace TaxDataStore
+﻿using TaxDataStore.Presentation.Controls;
+namespace TaxDataStore
 {
     partial class FrmAbout
     {
@@ -30,13 +31,16 @@
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.tlpControls = new System.Windows.Forms.TableLayoutPanel();
-            this.lblAppName = new System.Windows.Forms.Label();
+            this.lblAppName = new FormLabel("");
+            this.lblRegistrationCaption = new FormLabel("");
+            this.lblCopyright = new FormLabel("");
+            this.lblSupportCaption = new FormLabel("");
+            this.lblUpdateStateCaption = new FormLabel("");
+            this.lblVersionCaption = new FormLabel("");
+            this.lblLastUpdateCheckCaption = new FormLabel("");
             this.gpxUpdates = new System.Windows.Forms.GroupBox();
             this.tlpUpdates = new System.Windows.Forms.TableLayoutPanel();
-            this.lblVersionCaption = new System.Windows.Forms.Label();
-            this.lblLastUpdateCheckCaption = new System.Windows.Forms.Label();
             this.btnCheckNow = new System.Windows.Forms.Button();
-            this.lblUpdateStateCaption = new System.Windows.Forms.Label();
             this.btnUnInstallService = new System.Windows.Forms.Button();
             this.btnInstallUpdate = new System.Windows.Forms.Button();
             this.btnDownloadUpdate = new System.Windows.Forms.Button();
@@ -47,11 +51,8 @@
             this.btnInstallService = new System.Windows.Forms.Button();
             this.pbxAppIcon = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblRegistrationCaption = new System.Windows.Forms.Label();
             this.tbxOwner = new System.Windows.Forms.TextBox();
-            this.lblSupportCaption = new System.Windows.Forms.Label();
             this.lbtnProducer = new System.Windows.Forms.LinkLabel();
-            this.lblCopyright = new System.Windows.Forms.Label();
             this.tlpMain.SuspendLayout();
             this.tlpControls.SuspendLayout();
             this.gpxUpdates.SuspendLayout();
@@ -459,16 +460,16 @@
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
         private System.Windows.Forms.TableLayoutPanel tlpControls;
-        private System.Windows.Forms.Label lblAppName;
-        private System.Windows.Forms.Label lblCopyright;
-        private System.Windows.Forms.Label lblRegistrationCaption;
-        private System.Windows.Forms.Label lblSupportCaption;
+        private FormLabel lblAppName;
+        private FormLabel lblCopyright;
+        private FormLabel lblRegistrationCaption;
+        private FormLabel lblSupportCaption;
         private System.Windows.Forms.GroupBox gpxUpdates;
         private System.Windows.Forms.TableLayoutPanel tlpUpdates;
-        private System.Windows.Forms.Label lblVersionCaption;
-        private System.Windows.Forms.Label lblLastUpdateCheckCaption;
+        private FormLabel lblVersionCaption;
+        private FormLabel lblLastUpdateCheckCaption;
         private System.Windows.Forms.Button btnCheckNow;
-        private System.Windows.Forms.Label lblUpdateStateCaption;
+        private FormLabel lblUpdateStateCaption;
         private System.Windows.Forms.Button btnDownloadUpdate;
         private System.Windows.Forms.Button btnInstallUpdate;
         private System.Windows.Forms.Button btnUnInstallService;

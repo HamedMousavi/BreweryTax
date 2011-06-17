@@ -32,7 +32,6 @@ namespace TaxDataStore
         {
             this.Text = Resources.Texts.edit_role;
 
-            this.lblRoleName.Text = Resources.Texts.role_name;
             this.btnSave.Text = Resources.Texts.save;
             this.btnCancel.Text = Resources.Texts.cancel;
         }

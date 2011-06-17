@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
-            this.lblDatabaseServerName = new System.Windows.Forms.Label();
-            this.lblDatabaseTcpPort = new System.Windows.Forms.Label();
-            this.lblDatabaseUserId = new System.Windows.Forms.Label();
-            this.lblDatabasePassword = new System.Windows.Forms.Label();
-            this.lblDatabaseCatalog = new System.Windows.Forms.Label();
+            this.lblDatabaseServerName = new FormLabel("lbl_db_server");
+            this.lblDatabaseTcpPort = new FormLabel("lbl_db_port");
+            this.lblDatabaseUserId = new FormLabel("lbl_db_srv_user");
+            this.lblDatabasePassword = new FormLabel("lbl_db_password");
+            this.lblDatabaseCatalog = new FormLabel("lbl_db_name");
             this.tbxDatabaseServerName = new System.Windows.Forms.TextBox();
             this.tbxDatabaseTcpPort = new System.Windows.Forms.TextBox();
             this.tbxDatabaseUserId = new System.Windows.Forms.TextBox();
@@ -218,11 +218,11 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
-        private System.Windows.Forms.Label lblDatabaseServerName;
-        private System.Windows.Forms.Label lblDatabaseTcpPort;
-        private System.Windows.Forms.Label lblDatabaseUserId;
-        private System.Windows.Forms.Label lblDatabasePassword;
-        private System.Windows.Forms.Label lblDatabaseCatalog;
+        private FormLabel lblDatabaseServerName;
+        private FormLabel lblDatabaseTcpPort;
+        private FormLabel lblDatabaseUserId;
+        private FormLabel lblDatabasePassword;
+        private FormLabel lblDatabaseCatalog;
         private System.Windows.Forms.TextBox tbxDatabaseServerName;
         private System.Windows.Forms.TextBox tbxDatabaseTcpPort;
         private System.Windows.Forms.TextBox tbxDatabaseUserId;

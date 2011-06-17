@@ -10,7 +10,7 @@ namespace TaxDataStore
     {
 
         protected EmployeesGridView dgvEmployees;
-        protected TourPaymentsGridView dgvCosts;
+        protected TourPaymentsGridView dgvPayments;
         protected MembersGridView dgvMembers;
         protected ContactsGridView dgvContacts;
         protected TourCostDetailsGridView dgvCostDetails;
@@ -64,10 +64,10 @@ namespace TaxDataStore
             this.dgvEmployees = new EmployeesGridView(this.tour.Employees);
             this.tlpStaff.Controls.Add(this.dgvEmployees, 0, 1);
 
-            this.dgvCosts = new TourPaymentsGridView(this.tour.Payments);
-            this.tlpPayments.Controls.Add(this.dgvCosts, 0, 1);
-            this.tlpPayments.SetColumnSpan(this.dgvCosts, 4);
-            this.tlpPayments.SetRowSpan(this.dgvCosts, 2);
+            this.dgvPayments = new TourPaymentsGridView(this.tour.Payments);
+            this.tlpPayments.Controls.Add(this.dgvPayments, 0, 1);
+            this.tlpPayments.SetColumnSpan(this.dgvPayments, 4);
+            this.tlpPayments.SetRowSpan(this.dgvPayments, 2);
 
             this.dgvMembers = new MembersGridView(this.tour.Members);
             this.tlpTourMembers.Controls.Add(this.dgvMembers, 0, 1);
@@ -128,16 +128,6 @@ namespace TaxDataStore
             this.tbpPayments.Text = Resources.Texts.tab_title_Payments;
             this.tbpStaff.Text = Resources.Texts.tab_title_staff;
             this.tbpTour.Text = Resources.Texts.tab_title_tour;
-
-            this.lblComments.Text = Resources.Texts.lbl_comments;
-            this.lblDate.Text = Resources.Texts.lbl_date;
-            this.lblEmployees.Text = Resources.Texts.lbl_employees;
-            this.lblSignupType.Text = Resources.Texts.lbl_signup_type;
-            this.lblTime.Text = Resources.Texts.lbl_time;
-            this.lblTourStatusLabel.Text = Resources.Texts.lbl_tour_status;
-            this.lblTourType.Text = Resources.Texts.lbl_tour_type;
-            this.lblGuest.Text = Resources.Texts.lbl_guests;
-            this.lblGuestContacts.Text = Resources.Texts.lbl_guest_contacts;
 
             this.btnSave.Text = Resources.Texts.save;
             this.btnCancel.Text = Resources.Texts.cancel;
@@ -319,22 +309,42 @@ namespace TaxDataStore
 
         private void btnAddPayment_Click(object sender, EventArgs e)
         {
-
+            Presentation.Controllers.Tours.AddPayment(this.tour.Payments);
         }
 
 
         private void btnRemovePayment_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnConfirm_Click(object sender, EventArgs e)
-        {
-
+            Entities.TourPayment payment = (Entities.TourPayment)this.dgvPayments.SelectedItem;
+            if (payment != null)
+            {
+                if (payment.Id >= 0)
+                {
+                    if (Presentation.Controllers.Tours.DeletePayment(payment)) //CONFIRM
+                    {
+                        // UNDONE: IF CAN REMOVE FROM DOMAIN MODEL TOO
+                        this.tour.Payments.Remove(payment);
+                    }
+                }
+                else
+                {
+                    this.tour.Payments.Remove(payment);
+                }
+            }
         }
 
 
         private void btnEditPayment_Click(object sender, EventArgs e)
+        {
+            Entities.TourPayment pay = (Entities.TourPayment)this.dgvPayments.SelectedItem;
+            if (pay != null)
+            {
+                Presentation.Controllers.Tours.EditPayment(pay);
+            }
+        }
+
+
+        private void btnConfirm_Click(object sender, EventArgs e)
         {
 
         }

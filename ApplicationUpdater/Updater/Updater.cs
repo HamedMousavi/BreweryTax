@@ -89,6 +89,8 @@ namespace ApplicationUpdater
         {
             try
             {
+                ServiceIo.LoadSettings();
+
                 SetupDownloader();
                 if (this.updaterThread == null)
                 {

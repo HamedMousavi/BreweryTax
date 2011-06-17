@@ -24,11 +24,8 @@ namespace TaxDataStore
         private void SetupControls()
         {
             this.Text = Resources.Texts.logon;
-            this.lblUserName.Text = Resources.Texts.username;
-            this.lblPassword.Text = Resources.Texts.password;
             this.btnExit.Text = Resources.Texts.exit;
             this.btnLogin.Text = Resources.Texts.login;
-            this.lblLogonProcess.Text = Resources.Texts.logon_process;
         }
 
 

@@ -32,9 +32,6 @@ namespace TaxDataStore.Presentation.Controls.Settings
 
         private void SetupTexts()
         {
-            this.lblUpdateUrl.Text = Resources.Texts.lbl_upd_url;
-            this.lblUpdateEvery.Text = Resources.Texts.lbl_upd_interval;
-            this.lblUpdateSeconds.Text = Resources.Texts.lbl_upd_sseconds;
 
             this.chbxUpdateAutoDownload.Text = Resources.Texts.lbl_upd_auto_download;
             this.chbxToggleAutoUpdate.Text = Resources.Texts.lbl_upd_auto_check;

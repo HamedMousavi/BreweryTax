@@ -1,4 +1,5 @@
-﻿namespace TaxDataStore
+﻿using TaxDataStore.Presentation.Controls;
+namespace TaxDataStore
 {
     partial class FrmTourPriceEditor
     {
@@ -32,8 +33,8 @@
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.lblTourType = new System.Windows.Forms.Label();
-            this.lblBasePrice = new System.Windows.Forms.Label();
+            this.lblTourType = new FormLabel("lbl_tour_type");
+            this.lblBasePrice = new FormLabel("lbl_price");
             this.tbxTourType = new System.Windows.Forms.TextBox();
             this.tlpMain.SuspendLayout();
             this.tlpButtons.SuspendLayout();
@@ -154,8 +155,8 @@
         private System.Windows.Forms.TableLayoutPanel tlpButtons;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Label lblTourType;
-        private System.Windows.Forms.Label lblBasePrice;
+        private FormLabel lblTourType;
+        private FormLabel lblBasePrice;
         private System.Windows.Forms.TextBox tbxTourType;
     }
 }

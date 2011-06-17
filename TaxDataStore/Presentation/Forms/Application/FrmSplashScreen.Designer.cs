@@ -1,4 +1,5 @@
-﻿namespace TaxDataStore
+﻿using TaxDataStore.Presentation.Controls;
+namespace TaxDataStore
 {
     partial class FrmSplashScreen
     {
@@ -30,9 +31,9 @@
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.tlpControls = new System.Windows.Forms.TableLayoutPanel();
-            this.lblAppName = new System.Windows.Forms.Label();
-            this.lblLoading = new System.Windows.Forms.Label();
-            this.lblVersionNumber = new System.Windows.Forms.Label();
+            this.lblAppName = new FormLabel("app_name");
+            this.lblLoading = new FormLabel("lbl_app_loading");
+            this.lblVersionNumber = new FormLabel("");
             this.pbxAppIcon = new System.Windows.Forms.PictureBox();
             this.tlpMain.SuspendLayout();
             this.tlpControls.SuspendLayout();
@@ -152,9 +153,9 @@
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
         private System.Windows.Forms.TableLayoutPanel tlpControls;
-        private System.Windows.Forms.Label lblLoading;
-        private System.Windows.Forms.Label lblVersionNumber;
+        private FormLabel lblLoading;
+        private FormLabel lblVersionNumber;
         private System.Windows.Forms.PictureBox pbxAppIcon;
-        private System.Windows.Forms.Label lblAppName;
+        private FormLabel lblAppName;
     }
 }

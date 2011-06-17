@@ -1,4 +1,5 @@
-﻿namespace TaxDataStore
+﻿using TaxDataStore.Presentation.Controls;
+namespace TaxDataStore
 {
     partial class FrmTourMemberEditor
     {
@@ -29,9 +30,9 @@
         private void InitializeComponent()
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.lblFirstName = new System.Windows.Forms.Label();
-            this.lblLastName = new System.Windows.Forms.Label();
+            this.lblTitle = new FormLabel("lbl_title");
+            this.lblFirstName = new FormLabel("lbl_first_name");
+            this.lblLastName = new FormLabel("lbl_last_name");
             this.gpxContacts = new System.Windows.Forms.GroupBox();
             this.tlpContacts = new System.Windows.Forms.TableLayoutPanel();
             this.btnAddContact = new System.Windows.Forms.Button();
@@ -239,9 +240,9 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label lblFirstName;
-        private System.Windows.Forms.Label lblLastName;
+        private FormLabel lblTitle;
+        private FormLabel lblFirstName;
+        private FormLabel lblLastName;
         private System.Windows.Forms.GroupBox gpxContacts;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btnCancel;

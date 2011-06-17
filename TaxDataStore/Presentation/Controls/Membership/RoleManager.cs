@@ -24,8 +24,6 @@ namespace TaxDataStore
         private void SetupControls()
         {
             this.Dock = DockStyle.Fill;
-            
-            this.lblComment.Text = Resources.Texts.select_role;
 
             this.chlbxTasks = new TasksCheckedListBox();
             this.chlbxTasks.Dock = DockStyle.Fill;

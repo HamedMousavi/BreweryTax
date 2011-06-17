@@ -69,6 +69,7 @@
     <Compile Include="Datetime.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeCollection.cs" />
+    <Compile Include="EntityBase.cs" />
     <Compile Include="GeneralType.cs" />
     <Compile Include="GeneralTypeCollection.cs" />
     <Compile Include="Money.cs" />

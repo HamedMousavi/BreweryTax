@@ -5,14 +5,51 @@ using System.ComponentModel;
 namespace Entities
 {
 
-    public class Datetime
+    public class Datetime : EntityBase
     {
-        [BrowsableAttribute(false)]
-        [DisplayName("Time")]
-        public DateTime Value { get; set; }
+
+        protected DateTime value;
+        protected string format;
+
 
         [BrowsableAttribute(false)]
-        public string Format { get; set; }
+        [DisplayName("Time")]
+        public DateTime Value
+        {
+            get
+            {
+                return this.value;
+            }
+
+            set
+            {
+                if (this.value != value)
+                {
+                    this.value = value;
+                    RaisePropertyChanged("Value");
+                }
+            }
+        }
+
+
+        [BrowsableAttribute(false)]
+        public string Format
+        {
+            get
+            {
+                return this.format;
+            }
+
+            set
+            {
+                if (this.format != value)
+                {
+                    this.format = value;
+                    RaisePropertyChanged("Format");
+                }
+            }
+        }
+
 
 
         public DateTime Time
@@ -26,13 +63,6 @@ namespace Entities
             {
                 this.Value = this.Value.Date.Add(value.TimeOfDay);
             }
-        }
-
-
-        public Datetime(string format)
-        {
-            this.Value = DateTime.UtcNow;
-            this.Format = format;
         }
 
 
@@ -50,9 +80,15 @@ namespace Entities
         }
 
 
+        public Datetime(string format)
+        {
+            this.value = DateTime.UtcNow;
+            this.format = format;
+        }
+
+
         public override string ToString()
         {
-            //return base.ToString();
             return this.Value.ToString(Format);
         }
 

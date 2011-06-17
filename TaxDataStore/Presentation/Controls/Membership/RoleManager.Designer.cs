@@ -41,7 +41,7 @@ namespace TaxDataStore
             this.lblRoles = new TaxDataStore.Presentation.Controls.ToolbarLabel();
             this.lblTasks = new TaxDataStore.Presentation.Controls.ToolbarLabel();
             this.panelTasks = new System.Windows.Forms.Panel();
-            this.lblComment = new System.Windows.Forms.Label();
+            this.lblComment = new FormLabel("select_role");
             this.mnuRoles.SuspendLayout();
             this.tlpMain.SuspendLayout();
             this.tlpButtons.SuspendLayout();
@@ -219,6 +219,6 @@ namespace TaxDataStore
         private ToolbarLabel lblRoles;
         private ToolbarLabel lblTasks;
         private System.Windows.Forms.Panel panelTasks;
-        private System.Windows.Forms.Label lblComment;
+        private FormLabel lblComment;
     }
 }

@@ -24,14 +24,7 @@ namespace TaxDataStore
 
         private void SetupControls()
         {
-            this.lblDetails.Text = Resources.Texts.details;
-            this.lblUsers.Text = Resources.Texts.users;
-
             this.lblIsEnabled.ForeColor = Color.Red;
-            this.lblIsEnabled.Text = Resources.Texts.select_user;
-            this.lblLanguage.Text = Resources.Texts.language;
-            this.lblName.Text = Resources.Texts.name;
-            this.lblRoleName.Text = Resources.Texts.role_name;
 
             this.btnAddUser.Text = Resources.Texts.add;
             this.btnDeleteUser.Text = Resources.Texts.delete;

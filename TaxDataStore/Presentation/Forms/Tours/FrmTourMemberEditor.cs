@@ -25,9 +25,6 @@ namespace TaxDataStore
             this.btnRemoveContact.Image = DomainModel.Application.ResourceManager.GetImage("delete");
 
             this.Text = Resources.Texts.frm_title_member_editor;
-            this.lblFirstName.Text = Resources.Texts.lbl_first_name;
-            this.lblLastName.Text = Resources.Texts.lbl_last_name;
-            this.lblTitle.Text = Resources.Texts.lbl_title;
             this.gpxContacts.Text = Resources.Texts.gpx_contacts;
             
             this.member = new TourMember();

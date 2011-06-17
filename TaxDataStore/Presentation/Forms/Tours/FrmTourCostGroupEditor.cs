@@ -35,7 +35,6 @@ namespace TaxDataStore
         {
             this.Text = Resources.Texts.frm_title_tour_Cost_group_editor;
 
-            this.lblGroupName.Text = Resources.Texts.lbl_tour_group_name;
             this.btnSave.Text = Resources.Texts.save;
             this.btnCancel.Text = Resources.Texts.cancel;
         }

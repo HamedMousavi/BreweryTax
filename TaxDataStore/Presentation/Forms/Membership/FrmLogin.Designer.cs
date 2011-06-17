@@ -1,4 +1,5 @@
-﻿namespace TaxDataStore
+﻿using TaxDataStore.Presentation.Controls;
+namespace TaxDataStore
 {
     partial class FrmLogin
     {
@@ -32,11 +33,11 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new TaxDataStore.Presentation.Controls.HLayoutPanel();
             this.tableLayoutPanel2 = new TaxDataStore.Presentation.Controls.HLayoutPanel();
-            this.lblUserName = new System.Windows.Forms.Label();
-            this.lblPassword = new System.Windows.Forms.Label();
+            this.lblUserName = new FormLabel("username");
+            this.lblPassword = new FormLabel("password");
+            this.lblLogonProcess = new FormLabel("logon_process");
             this.cbxUserName = new System.Windows.Forms.ComboBox();
             this.tbxPassword = new System.Windows.Forms.TextBox();
-            this.lblLogonProcess = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -201,11 +202,11 @@
         private TaxDataStore.Presentation.Controls.HLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Label lblUserName;
-        private System.Windows.Forms.Label lblPassword;
+        private FormLabel lblUserName;
+        private FormLabel lblPassword;
         private System.Windows.Forms.ComboBox cbxUserName;
         private System.Windows.Forms.TextBox tbxPassword;
-        private System.Windows.Forms.Label lblLogonProcess;
+        private FormLabel lblLogonProcess;
 
     }
 }

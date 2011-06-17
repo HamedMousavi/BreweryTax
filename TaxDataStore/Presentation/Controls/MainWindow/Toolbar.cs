@@ -30,9 +30,13 @@ namespace TaxDataStore.Presentation.Controls
             this.Location = new System.Drawing.Point(0, 24);
             this.Size = new System.Drawing.Size(800, 25);
             this.RightToLeft = View.LayoutDirection;
-            
-            this.BackColor = Color.FromArgb(255, 35, 50, 65);
-            this.ForeColor = Color.WhiteSmoke;
+
+            if (Presentation.View.Theme != null)
+            {
+                this.BackColor = Presentation.View.Theme.ToolBarBackColor;
+                this.ForeColor = Presentation.View.Theme.ToolBarForeColor;
+                this.Font = Presentation.View.Theme.ToolBarFont;
+            }
 
             // Initialize buttons
             SetupButtons();

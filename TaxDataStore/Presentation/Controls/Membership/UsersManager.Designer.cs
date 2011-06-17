@@ -40,15 +40,15 @@ namespace TaxDataStore
             this.btnEditUser = new TaxDataStore.Presentation.Controls.FlatButton();
             this.btnDeleteUser = new TaxDataStore.Presentation.Controls.FlatButton();
             this.btnEnableUser = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.lblUsers = new TaxDataStore.Presentation.Controls.ToolbarLabel();
-            this.lblDetails = new TaxDataStore.Presentation.Controls.ToolbarLabel();
+            this.lblUsers = new TaxDataStore.Presentation.Controls.ToolbarLabel("users");
+            this.lblDetails = new TaxDataStore.Presentation.Controls.ToolbarLabel("details");
             this.tlpDetails = new System.Windows.Forms.TableLayoutPanel();
-            this.lblRoleName = new System.Windows.Forms.Label();
-            this.lblRoleNameValue = new System.Windows.Forms.Label();
-            this.lblLanguage = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblIsEnabled = new System.Windows.Forms.Label();
+            this.lblRoleName = new FormLabel("role_name");
+            this.lblLanguage = new FormLabel("language");
+            this.lblName = new FormLabel("name");
+            this.lblIsEnabled = new FormLabel("select_user");
             this.lblLanguageValue = new System.Windows.Forms.Label();
+            this.lblRoleNameValue = new System.Windows.Forms.Label();
             this.lblNameValue = new System.Windows.Forms.Label();
             this.mnuUsers.SuspendLayout();
             this.tlpMain.SuspendLayout();
@@ -343,11 +343,11 @@ namespace TaxDataStore
         private ToolbarLabel lblUsers;
         private ToolbarLabel lblDetails;
         private System.Windows.Forms.TableLayoutPanel tlpDetails;
-        private System.Windows.Forms.Label lblRoleName;
+        private FormLabel lblRoleName;
         private System.Windows.Forms.Label lblRoleNameValue;
-        private System.Windows.Forms.Label lblLanguage;
-        private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Label lblIsEnabled;
+        private FormLabel lblLanguage;
+        private FormLabel lblName;
+        private FormLabel lblIsEnabled;
         private System.Windows.Forms.Label lblLanguageValue;
         private System.Windows.Forms.Label lblNameValue;
 

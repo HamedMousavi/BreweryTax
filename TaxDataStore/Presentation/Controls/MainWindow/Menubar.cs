@@ -7,8 +7,8 @@ namespace TaxDataStore.Presentation.Controls
     {
         #region Fields
 
-        protected MenuItem miSettlement;
-        protected MenuItem miTours;
+        protected MenuItem miTour;
+        protected MenuItem miDailyTours;
         protected MenuItem miPresence;
         protected MenuItem miSettlementExit;
 
@@ -49,9 +49,17 @@ namespace TaxDataStore.Presentation.Controls
             this.TabIndex = 0;
             this.Name = "menuBar";
             this.Text = "mainMenu";
-            this.Font = new Font("Tahoma", 9, FontStyle.Bold);
-            this.BackColor = Color.FromArgb(255, 35, 50, 65);
-            this.ForeColor = Color.Silver;
+
+            if (Presentation.View.Theme != null)
+            {
+                this.BackColor = Presentation.View.Theme.ToolBarBackColor;
+                this.ForeColor = Presentation.View.Theme.ToolBarForeColor;
+                this.Font = Presentation.View.Theme.ToolBarFont;
+            }
+            else
+            {
+                this.Font = new Font("Tahoma", 9, FontStyle.Bold);
+            }
 
             SetupMenuItems();
         }
@@ -65,8 +73,8 @@ namespace TaxDataStore.Presentation.Controls
                 this.separators[i] = new ToolStripSeparator();
             }
 
-            this.miTours = new MenuItem(
-                "tours",
+            this.miDailyTours = new MenuItem(
+                "daily_tours",
                 "calendar_select_days",
                 string.Empty,
                 Presentation.Controllers.Tours.Today);
@@ -77,16 +85,16 @@ namespace TaxDataStore.Presentation.Controls
                 string.Empty,
                 Presentation.Controllers.Application.Exit); // Action is set in main form
 
-            this.miSettlement = new MenuItem(
-                "settlement",
+            this.miTour = new MenuItem(
+                "tour",
                 string.Empty,
                 string.Empty,
                 null);
 
-            this.miSettlement.DropDownItems.AddRange(
+            this.miTour.DropDownItems.AddRange(
                 new ToolStripItem[] 
                 {
-                    this.miTours,
+                    this.miDailyTours,
                     this.separators[0],
                     this.miSettlementExit
                 });
@@ -164,7 +172,7 @@ namespace TaxDataStore.Presentation.Controls
             this.Items.AddRange(
                 new ToolStripItem[] 
                 {
-                    this.miSettlement,
+                    this.miTour,
                     this.miStaff,
                     this.miTools,
                     this.miHelp
