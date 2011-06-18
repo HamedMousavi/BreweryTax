@@ -25,7 +25,7 @@ namespace TaxDataStore
             this.btnRemoveContact.Image = DomainModel.Application.ResourceManager.GetImage("delete");
 
             this.Text = Resources.Texts.frm_title_member_editor;
-            this.gpxContacts.Text = Resources.Texts.gpx_contacts;
+            this.lblContacts.Text = Resources.Texts.gpx_contacts;
             
             this.member = new TourMember();
             
@@ -72,7 +72,7 @@ namespace TaxDataStore
 
             this.dgvContacts = new ContactsGridView(this.member.Contacts);
             this.tlpContacts.Controls.Add(this.dgvContacts, 0, 1);
-            this.tlpContacts.SetColumnSpan(this.dgvContacts, 2);
+            this.tlpContacts.SetColumnSpan(this.dgvContacts, 3);
         }
 
 

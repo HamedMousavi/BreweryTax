@@ -47,6 +47,7 @@ namespace TaxDataStore.Presentation.Controls
 
             try
             {
+                Entities.MoneyCurrencyCollection currencies = DomainModel.Currencies.GetAll();
                 
                 System.Globalization.CultureInfo inf = new 
                     System.Globalization.CultureInfo(
@@ -54,7 +55,7 @@ namespace TaxDataStore.Presentation.Controls
                 //this.lblDecimalPoint.Text = inf.NumberFormat.NumberDecimalSeparator;
                 this.decimalSeprator = inf.NumberFormat.NumberDecimalSeparator;
 
-                this.Value = new Entities.Money(0.0m, null);
+                this.Value = new Entities.Money(0.0m, currencies[0]);
 
 
                 this.tbxValue.DataBindings.Add(
@@ -68,9 +69,9 @@ namespace TaxDataStore.Presentation.Controls
                         string.Empty,
                         null));
 
-                this.cbxUnit.DataSource = DomainModel.Currencies.GetAll(); //DomainModel.Currencies.GetAll();
-                this.cbxUnit.DisplayMember = "Symbol";
 
+                this.cbxUnit.DataSource = currencies;
+                this.cbxUnit.DisplayMember = "Symbol";
                 this.cbxUnit.DataBindings.Add(
                     new Binding(
                         "SelectedItem",

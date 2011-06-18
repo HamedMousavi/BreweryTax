@@ -97,5 +97,11 @@ namespace DomainModel
         {
             return repo.RemoveRuleFromGroup(group.Id, rule.Id);
         }
+
+
+        internal static TourCostGroup GetById(int id)
+        {
+            return groups.GetById(id);
+        }
     }
 }

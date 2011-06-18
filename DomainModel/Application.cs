@@ -65,6 +65,12 @@ namespace DomainModel
             TourCostRules.Init(settings.SqlConnectionString);
             TourCostGroups.Init(settings.SqlConnectionString);
             Categories.Init(settings.SqlConnectionString);
+
+            Tours.Init(settings.SqlConnectionString);
+            TourEmployees.Init(settings.SqlConnectionString);
+            TourCosts.Init(settings.SqlConnectionString);
+            TourPayments.Init(settings.SqlConnectionString);
+            TourMembers.Init(settings.SqlConnectionString);
         }
 
 

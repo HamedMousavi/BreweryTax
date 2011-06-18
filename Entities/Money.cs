@@ -7,7 +7,11 @@ namespace Entities
 
     public class Money : INotifyPropertyChanged
     {
+
+        protected MoneyCurrency currency;
         protected decimal value;
+
+
         public decimal Value 
         {
             get { return this.value; }
@@ -20,28 +24,6 @@ namespace Entities
                 }
             }
         }
-
-
-        /*
-        public Int64 Integer 
-        {
-            get {  }
-            set
-            {
-            }
-        }
-
-        public Int64 Fraction 
-        {
-            get {}
-            set
-            {
-            }
-        }
-        */
-
-
-        protected MoneyCurrency currency;
         public MoneyCurrency Currency
         {
             get { return this.currency; }
@@ -59,7 +41,6 @@ namespace Entities
         public Money(decimal value, MoneyCurrency currency)
         {
             this.value = value;
-
             this.currency = currency;
         }
 

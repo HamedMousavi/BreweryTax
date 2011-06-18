@@ -28,7 +28,10 @@ namespace TaxDataStore
             this.editPayment.CopyTo(this.payment);
 
             BindControls();
-        }
+ 
+            this.mpkPaymentAmount.Value.Currency = this.payment.Amount.Currency;
+            this.mpkPaymentAmount.ValueEditor = Convert.ToString(this.payment.Amount.Value);
+       }
 
 
         public FrmTourPaymentEditor(TourPaymentCollection payments)
@@ -55,9 +58,6 @@ namespace TaxDataStore
                     null,
                     string.Empty,
                     null));
-
-            this.mpkPaymentAmount.Value.Currency = this.payment.Amount.Currency;
-            this.mpkPaymentAmount.ValueEditor = Convert.ToString(this.payment.Amount.Value);
         }
 
 

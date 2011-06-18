@@ -5,23 +5,90 @@ using System.ComponentModel;
 namespace Entities
 {
 
-    public class TourBasePrice
+    public class TourBasePrice : EntityBase
     {
 
-        public Money PricePerPerson { get; set; }
-        public GeneralType TourType { get; set; }
+        #region Fields
+
+        protected Money pricePerPerson;
+        protected GeneralType tourType;
+        protected Int32 id;
+
+        #endregion Fields
+
+       
+        #region Properties
+
+        public Money PricePerPerson
+        {
+            get
+            {
+                return this.pricePerPerson;
+            }
+
+            set
+            {
+                if (this.pricePerPerson != value)
+                {
+                    this.pricePerPerson = value;
+                    RaisePropertyChanged("PricePerPerson");
+                }
+            }
+        }
+
+        public GeneralType TourType
+        {
+            get
+            {
+                return this.tourType;
+            }
+
+            set
+            {
+                if (this.tourType != value)
+                {
+                    this.tourType = value;
+                    RaisePropertyChanged("TourType");
+                }
+            }
+        }
 
         [BrowsableAttribute(false)]
-        public Int32 Id { get; set; }
+        public Int32 Id
+        {
+            get
+            {
+                return this.id;
+            }
+
+            set
+            {
+                if (this.id != value)
+                {
+                    this.id = value;
+                    RaisePropertyChanged("Id");
+                }
+            }
+        }
+
+        #endregion Properties
 
 
         public TourBasePrice()
         {
-            this.TourType = new GeneralType();
+            this.tourType = new GeneralType();
 
-            this.PricePerPerson = new Money(0.0M, null);
+            this.pricePerPerson = new Money(0.0M, null);
+            this.pricePerPerson.PropertyChanged += new 
+                PropertyChangedEventHandler(pricePerPerson_PropertyChanged);
 
-            this.Id = -1;
+            this.id = -1;
+        }
+
+
+        void pricePerPerson_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            RaisePropertyChanged("PricePerPerson");
         }
 
 

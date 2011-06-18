@@ -25,6 +25,20 @@ namespace Entities
         }
 
 
+        public User GetById(int id)
+        {
+            foreach (User user in this)
+            {
+                if (user.Id == id)
+                {
+                    return user;
+                }
+            }
+
+            return null;
+        }
+
+
         public bool IsAccessLevelInUse(Role acl)
         {
             foreach (User user in this)

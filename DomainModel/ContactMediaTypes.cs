@@ -26,5 +26,11 @@ namespace DomainModel
         {
             return cache;
         }
+
+
+        internal static GeneralType GetById(int id)
+        {
+            return cache.GetById(id);
+        }
     }
 }

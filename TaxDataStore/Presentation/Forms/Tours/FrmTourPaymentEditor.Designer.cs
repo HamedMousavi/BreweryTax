@@ -139,7 +139,6 @@ namespace TaxDataStore
             this.mpkPaymentAmount.Name = "mpkPaymentAmount";
             this.mpkPaymentAmount.Size = new System.Drawing.Size(174, 28);
             this.mpkPaymentAmount.TabIndex = 4;
-            this.mpkPaymentAmount.ValueEditor = null;
             // 
             // FrmTourPaymentEditor
             // 

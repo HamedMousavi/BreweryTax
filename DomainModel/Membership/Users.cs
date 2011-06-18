@@ -122,5 +122,11 @@ namespace DomainModel.Membership
                 users.Remove(user);
             }
         }
+
+
+        internal static User GetById(int id)
+        {
+            return users.GetById(id);
+        }
     }
 }

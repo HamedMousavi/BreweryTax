@@ -83,8 +83,8 @@ namespace TaxDataStore
 
             this.cbxTourTypes = new ComboBox();
             this.cbxSignUpTypes = new ComboBox();
-            this.tlpTour.Controls.Add(this.cbxTourTypes, 1, 2);
-            this.tlpTour.Controls.Add(this.cbxSignUpTypes, 1, 3);
+            this.tlpTour.Controls.Add(this.cbxTourTypes, 1, 3);
+            this.tlpTour.Controls.Add(this.cbxSignUpTypes, 1, 4);
 
             this.cbxTourTypes.Anchor = (AnchorStyles.Top | AnchorStyles.Left) | AnchorStyles.Right;
             this.cbxSignUpTypes.Anchor = (AnchorStyles.Top | AnchorStyles.Left) | AnchorStyles.Right;

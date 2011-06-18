@@ -198,7 +198,6 @@ namespace TaxDataStore
             this.mpkPricePerPerson.Name = "mpkPricePerPerson";
             this.mpkPricePerPerson.Size = new System.Drawing.Size(180, 24);
             this.mpkPricePerPerson.TabIndex = 29;
-            this.mpkPricePerPerson.ValueEditor = null;
             // 
             // lblPricePerPerson
             // 
