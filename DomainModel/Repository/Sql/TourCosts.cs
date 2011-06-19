@@ -18,7 +18,7 @@ namespace DomainModel.Repository.Sql
         }
 
 
-        internal bool Insert(Entities.TourCostDetail cost)
+        internal bool Insert(Entities.Tour tour, Entities.TourCostDetail cost)
         {
             bool res = false;
 
@@ -37,6 +37,7 @@ namespace DomainModel.Repository.Sql
                 this.query.Parameters.Add(new SqlParameter("@SignUpCount", cost.SignUpCount));
                 this.query.Parameters.Add(new SqlParameter("@ParticipantCount", cost.ParticipantsCount));
                 this.query.Parameters.Add(new SqlParameter("@CostGroupId", cost.CostGroup.Id));
+                this.query.Parameters.Add(new SqlParameter("@TourId", tour.Id));
 
                 int id;
                 res = this.query.ExecuteInsertProc("TourCostAdd", out id);
@@ -58,7 +59,7 @@ namespace DomainModel.Repository.Sql
         }
 
 
-        internal bool Update(Entities.TourCostDetail cost)
+        internal bool Update(Entities.Tour tour, Entities.TourCostDetail cost)
         {
             bool res = false;
 
@@ -78,6 +79,7 @@ namespace DomainModel.Repository.Sql
                 this.query.Parameters.Add(new SqlParameter("@ParticipantCount", cost.ParticipantsCount));
                 this.query.Parameters.Add(new SqlParameter("@CostGroupId", cost.CostGroup.Id));
                 this.query.Parameters.Add(new SqlParameter("@CostId", cost.Id));
+                this.query.Parameters.Add(new SqlParameter("@TourId", tour.Id));
 
                 res = this.query.ExecuteUpdateProc("TourCostUpdateById");
             }

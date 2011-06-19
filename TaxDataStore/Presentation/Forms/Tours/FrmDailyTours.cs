@@ -77,9 +77,17 @@ namespace TaxDataStore
 
             this.fgvEmployees.ColumnHeadersVisible = false;
             this.fgvEmployees.Font = Presentation.View.Theme.FormLabelFont;
+            this.fgvEmployees.DefaultCellStyle.SelectionBackColor =
+                this.fgvEmployees.DefaultCellStyle.BackColor;
+            this.fgvEmployees.DefaultCellStyle.SelectionForeColor =
+                this.fgvEmployees.DefaultCellStyle.ForeColor;
 
             this.dgvCostDetails = new TourCostDetailsGridView(null);
             this.dgvCostDetails.ColumnHeadersVisible = false;
+            this.dgvCostDetails.DefaultCellStyle.SelectionBackColor =
+                this.dgvCostDetails.DefaultCellStyle.BackColor;
+            this.dgvCostDetails.DefaultCellStyle.SelectionForeColor =
+                this.dgvCostDetails.DefaultCellStyle.ForeColor;
 
             this.tlpTourCosts.Controls.Add(this.dgvCostDetails, 0, 1);
 
@@ -141,8 +149,12 @@ namespace TaxDataStore
             Entities.Tour tour = (Entities.Tour)this.fgvTours.SelectedItem;
             if (tour != null)
             {
-                Presentation.Controllers.Tours.Delete(tour);
+                if (Presentation.Controllers.MessageBox.ConfirmDelete())
+                {
+                    DomainModel.Tours.Delete(tour);
+                }
             }
+
             UpdateTourList();
         }
 

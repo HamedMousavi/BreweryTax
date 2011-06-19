@@ -93,7 +93,25 @@ namespace DomainModel
 
         public static void Delete(Tour tour)
         {
-            cache.Remove(tour);
+            try
+            {
+                if (toursRepo.Delete(tour))
+                {
+                    cache.Remove(tour);
+                }
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "",
+                        ex.Message);
+                }
+                catch { }
+            }
+
         }
 
 

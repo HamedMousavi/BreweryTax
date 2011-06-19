@@ -238,11 +238,13 @@ namespace TaxDataStore
 
         private void btnRemoveEmployee_Click(object sender, EventArgs e)
         {
-            Entities.Employee selected = (Entities.Employee)this.dgvEmployees.SelectedItem;
-            if (selected != null)
+            Entities.Employee emp = (Entities.Employee)this.dgvEmployees.SelectedItem;
+            if (emp != null)
             {
-                this.tour.Employees.Remove(selected);
+                this.tour.DeletedEmployees.Add(emp);
+                this.tour.Employees.Remove(emp);
             }
+
             // UNDONE: Highlight next item
             // UNDONE: Turn buttons on/off based on data source
         }
@@ -271,15 +273,10 @@ namespace TaxDataStore
             {
                 if (member.Id >= 0)
                 {
-                    if (Presentation.Controllers.Tours.DeleteMember(member))
-                    {
-                        this.tour.Members.Remove(member);
-                    }
+                    this.tour.DeletedMembers.Add(member);
                 }
-                else
-                {
-                    this.tour.Members.Remove(member);
-                }
+
+                this.tour.Members.Remove(member);
             }
         }
 
@@ -327,16 +324,10 @@ namespace TaxDataStore
             {
                 if (payment.Id >= 0)
                 {
-                    if (Presentation.Controllers.Tours.DeletePayment(payment)) //CONFIRM
-                    {
-                        // UNDONE: IF CAN REMOVE FROM DOMAIN MODEL TOO
-                        this.tour.Payments.Remove(payment);
-                    }
+                    this.tour.DeletedPayments.Add(payment);
                 }
-                else
-                {
-                    this.tour.Payments.Remove(payment);
-                }
+
+                this.tour.Payments.Remove(payment);
             }
         }
 

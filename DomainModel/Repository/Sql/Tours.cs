@@ -148,6 +148,33 @@ namespace DomainModel.Repository.Sql
 
             tours.Add(tour);
         }
+
+
+        internal bool Delete(Entities.Tour tour)
+        {
+            bool res = false;
+
+            try
+            {
+                this.query.Parameters.Clear();
+                this.query.Parameters.Add(new SqlParameter("@TourId", tour.Id));
+
+                res = this.query.ExecuteUpdateProc("ToursDeleteById");
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "",
+                        ex.Message);
+                }
+                catch { }
+            }
+
+            return res;
+        }
     }
 }
 

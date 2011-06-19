@@ -120,6 +120,11 @@ namespace TaxDataStore
             Contact contact = (Contact)this.dgvContacts.SelectedItem;
             if (contact != null)
             {
+                if (contact.Id >= 0)
+                {
+                    this.member.DeletedContacts.Add(contact);
+                }
+
                 this.member.Contacts.Remove(contact);
             }
         }

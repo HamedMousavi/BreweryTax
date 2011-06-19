@@ -142,5 +142,32 @@ namespace DomainModel.Repository.Sql
             Entities.Tour tour = (Entities.Tour)userData;
             tour.Members.Add(member);
         }
+
+
+        internal bool Delete(Entities.TourMember member)
+        {
+            bool res = false;
+
+            try
+            {
+                this.query.Parameters.Clear();
+                this.query.Parameters.Add(new SqlParameter("@MemberId", member.Id));
+
+                res = this.query.ExecuteUpdateProc("TourMemberDeleteById");
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "",
+                        ex.Message);
+                }
+                catch { }
+            }
+
+            return res;
+        }
     }
 }

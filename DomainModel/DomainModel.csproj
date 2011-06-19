@@ -61,6 +61,7 @@
     <Compile Include="ContactMediaTypes.cs" />
     <Compile Include="Cultures.cs" />
     <Compile Include="Currencies.cs" />
+    <Compile Include="Repository\Sql\TourMembersRelation.cs" />
     <Compile Include="TourMembershipTypes.cs" />
     <Compile Include="Tour\TourStates.cs" />
     <Compile Include="Tour\Employees.cs" />
@@ -79,7 +80,6 @@
     <Compile Include="Repository\Sql\Categories.cs" />
     <Compile Include="Repository\Sql\Languages.cs" />
     <Compile Include="Repository\Sql\PersonContacts.cs" />
-    <Compile Include="Repository\Sql\PersonContactsRelation.cs" />
     <Compile Include="Repository\Sql\QueryHelper.cs" />
     <Compile Include="Repository\Sql\Roles.cs" />
     <Compile Include="Repository\Sql\Tasks.cs" />
@@ -87,12 +87,9 @@
     <Compile Include="Repository\Sql\TourCostGroups.cs" />
     <Compile Include="Repository\Sql\TourCostRules.cs" />
     <Compile Include="Repository\Sql\TourCosts.cs" />
-    <Compile Include="Repository\Sql\TourCostsRelation.cs" />
     <Compile Include="Repository\Sql\TourEmployees.cs" />
     <Compile Include="Repository\Sql\TourMembers.cs" />
-    <Compile Include="Repository\Sql\TourMembersRelation.cs" />
     <Compile Include="Repository\Sql\TourPayments.cs" />
-    <Compile Include="Repository\Sql\TourPaymentsRelation.cs" />
     <Compile Include="Repository\Sql\Tours.cs" />
     <Compile Include="Repository\Sql\Types.cs" />
     <Compile Include="Repository\Sql\Users.cs" />

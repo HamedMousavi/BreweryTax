@@ -5,13 +5,11 @@ namespace DomainModel
     public class TourCosts
     {
         private static Repository.Sql.TourCosts repo;
-        private static Repository.Sql.TourCostsRelation repoRelate;
 
 
         public static void Init(string sqlConnectionString)
         {
             repo = new Repository.Sql.TourCosts(sqlConnectionString);
-            repoRelate = new Repository.Sql.TourCostsRelation(sqlConnectionString);
         }
 
 
@@ -25,12 +23,11 @@ namespace DomainModel
                 {
                     if (cost.Id < 0)
                     {
-                        if (!(res = repo.Insert(cost))) break;
-                        if (!(res = repoRelate.Insert(tour, cost))) break;
+                        if (!(res = repo.Insert(tour, cost))) break;
                     }
                     else
                     {
-                        if (!(res = repo.Update(cost))) break;
+                        if (!(res = repo.Update(tour, cost))) break;
                     }
                 }
             }

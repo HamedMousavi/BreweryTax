@@ -28,6 +28,15 @@ namespace DomainModel
                 }
             }
 
+            foreach(Entities.Employee emp in tour.DeletedEmployees)
+            {
+                if (!empRepo.Delete(tour, emp))
+                {
+                    res = false;
+                    break;
+                }
+            }
+
             return res;
         }
 

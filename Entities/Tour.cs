@@ -197,6 +197,11 @@ namespace Entities
             }
         }
 
+
+        public EmployeeCollection DeletedEmployees { get; set; }
+        public TourMemberCollection DeletedMembers { get; set; }
+        public TourPaymentCollection DeletedPayments { get; set; }
+
         #endregion Properties
 
 
@@ -209,6 +214,10 @@ namespace Entities
             this.costDetails = new TourCostDetailCollection();
             this.payments = new TourPaymentCollection();
 
+            this.DeletedEmployees = new Entities.EmployeeCollection();
+            this.DeletedMembers = new TourMemberCollection();
+            this.DeletedPayments = new TourPaymentCollection();
+            
             this.status = new GeneralType();
             this.tourType = new GeneralType();
             this.signUpType = new GeneralType();
@@ -236,6 +245,10 @@ namespace Entities
             this.Members.CopyTo(tour.Members);
             this.CostDetails.CopyTo(tour.CostDetails);
             this.Payments.CopyTo(tour.Payments);
+
+            this.DeletedEmployees.CopyTo(tour.DeletedEmployees);
+            this.DeletedMembers.CopyTo(tour.DeletedMembers);
+            this.DeletedPayments.CopyTo(tour.DeletedPayments);
 
             tour.Status = this.Status;
             tour.SignUpType = this.SignUpType;

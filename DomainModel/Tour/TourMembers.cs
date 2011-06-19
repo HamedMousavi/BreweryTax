@@ -11,7 +11,6 @@ namespace DomainModel
         private static Repository.Sql.TourMembers members;
         private static Repository.Sql.TourMembersRelation tourMembers;
         private static Repository.Sql.PersonContacts contacts;
-        private static Repository.Sql.PersonContactsRelation personContacts;
 
 
         public static void Init(string sqlConnectionString)
@@ -20,7 +19,6 @@ namespace DomainModel
             tourMembers = new Repository.Sql.TourMembersRelation(sqlConnectionString);
 
             contacts = new Repository.Sql.PersonContacts(sqlConnectionString);
-            personContacts = new Repository.Sql.PersonContactsRelation(sqlConnectionString);
         }
 
 
@@ -28,6 +26,7 @@ namespace DomainModel
         {
             bool res = true;
 
+            // (Added /edited) members / contacts
             foreach (Entities.TourMember member in tour.Members)
             {
                 if (member.IsDirty)
@@ -50,15 +49,37 @@ namespace DomainModel
                     {
                         if (contact.Id < 0)
                         {
-                            if (!(res = contacts.Insert(contact))) break;
-                            if (!(res = personContacts.Insert(member, contact))) break;
+                            if (!(res = contacts.Insert(member, contact))) break;
                         }
                         else
                         {
-                            if (!(res = contacts.Update(contact))) break;
+                            if (!(res = contacts.Update(member, contact))) break;
                         }
                     }
                 }
+
+                foreach (Entities.Contact contact in member.DeletedContacts)
+                {
+                    if (!(res = contacts.Delete(contact))) break;
+                }
+            }
+
+            // (Removed) members / contacts
+            foreach (Entities.TourMember member in tour.DeletedMembers)
+            {
+                foreach (Entities.Contact contact in member.Contacts)
+                {
+                    if (!(res = contacts.Delete(contact))) break;
+                }
+
+                foreach (Entities.Contact contact in member.DeletedContacts)
+                {
+                    if (!(res = contacts.Delete(contact))) break;
+                }
+
+                if (!(res = tourMembers.Delete(tour, member))) break;
+                if (!(res = members.Delete(member))) break;
+
             }
 
             return res;

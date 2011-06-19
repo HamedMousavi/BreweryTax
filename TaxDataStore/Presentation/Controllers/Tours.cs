@@ -30,12 +30,6 @@ namespace TaxDataStore.Presentation.Controllers
         }
 
 
-        internal static void Delete(Entities.Tour tour)
-        {
-            DomainModel.Tours.Delete(tour);
-        }
-
-
         internal static void Edit(Entities.Tour tour)
         {
             using (FrmTourEditor frmTourEditor = new FrmTourEditor(tour))
@@ -62,12 +56,6 @@ namespace TaxDataStore.Presentation.Controllers
             }
         }
 
-        internal static bool DeleteMember(Entities.TourMember member)
-        {
-            // UNDONE
-            return true;
-        }
-
 
         internal static void EditPayment(Entities.TourPayment payment)
         {
@@ -84,12 +72,6 @@ namespace TaxDataStore.Presentation.Controllers
             {
                 frm.ShowDialog();
             }
-        }
-
-
-        internal static bool DeletePayment(Entities.TourPayment payment)
-        {
-            return true;
         }
     }
 }

@@ -18,7 +18,7 @@ namespace DomainModel.Repository.Sql
         }
 
 
-        internal bool Insert(Entities.TourPayment pay)
+        internal bool Insert(Entities.Tour tour, Entities.TourPayment pay)
         {
             bool res = false;
 
@@ -37,6 +37,7 @@ namespace DomainModel.Repository.Sql
                 this.query.Parameters.Add(new SqlParameter("@PaymentTypeId", pay.Type.Id));
                 this.query.Parameters.Add(new SqlParameter("@AmountValue", pay.Amount.Value));
                 this.query.Parameters.Add(new SqlParameter("@AmountUnitId", pay.Amount.Currency.Id));
+                this.query.Parameters.Add(new SqlParameter("@TourId", tour.Id));
 
                 int id;
                 res = this.query.ExecuteInsertProc("TourPaymentAdd", out id);
@@ -58,7 +59,7 @@ namespace DomainModel.Repository.Sql
         }
 
 
-        internal bool Update(Entities.TourPayment pay)
+        internal bool Update(Entities.Tour tour, Entities.TourPayment pay)
         {
             bool res = false;
 
@@ -78,6 +79,7 @@ namespace DomainModel.Repository.Sql
                 this.query.Parameters.Add(new SqlParameter("@AmountValue", pay.Amount.Value));
                 this.query.Parameters.Add(new SqlParameter("@AmountUnitId", pay.Amount.Currency.Id));
                 this.query.Parameters.Add(new SqlParameter("@PaymentId", pay.Id));
+                this.query.Parameters.Add(new SqlParameter("@TourId", tour.Id));
 
                 res = this.query.ExecuteUpdateProc("TourPaymentUpdateById");
             }
@@ -138,6 +140,33 @@ namespace DomainModel.Repository.Sql
 
             Entities.Tour tour = (Entities.Tour)userData;
             tour.Payments.Add(payment);
+        }
+
+
+        internal bool Delete(Entities.Tour tour, Entities.TourPayment pay)
+        {
+            bool res = false;
+
+            try
+            {
+                this.query.Parameters.Clear();
+                this.query.Parameters.Add(new SqlParameter("@PaymentId", pay.Id));
+
+                res = this.query.ExecuteUpdateProc("TourPaymentDeleteById");
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "",
+                        ex.Message);
+                }
+                catch { }
+            }
+
+            return res;
         }
     }
 }

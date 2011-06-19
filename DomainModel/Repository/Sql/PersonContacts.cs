@@ -18,7 +18,7 @@ namespace DomainModel.Repository.Sql
         }
 
 
-        internal bool Insert(Entities.Contact contact)
+        internal bool Insert(Entities.TourMember member, Entities.Contact contact)
         {
             bool res = false;
 
@@ -36,6 +36,8 @@ namespace DomainModel.Repository.Sql
 
                 this.query.Parameters.Add(new SqlParameter("@ContactMediaId", contact.Media.Id));
                 this.query.Parameters.Add(new SqlParameter("@ContactValue", contact.Value));
+                this.query.Parameters.Add(new SqlParameter("@PersonId", member.Id));
+
                 int id;
                 res = this.query.ExecuteInsertProc("PersonContactAdd", out id);
                 contact.Id = id;
@@ -56,7 +58,7 @@ namespace DomainModel.Repository.Sql
         }
 
 
-        internal bool Update(Entities.Contact contact)
+        internal bool Update(Entities.TourMember member, Entities.Contact contact)
         {
             bool res = false;
 
@@ -75,6 +77,7 @@ namespace DomainModel.Repository.Sql
                 this.query.Parameters.Add(new SqlParameter("@ContactMediaId", contact.Media.Id));
                 this.query.Parameters.Add(new SqlParameter("@ContactValue", contact.Value));
                 this.query.Parameters.Add(new SqlParameter("@ContactId", contact.Id));
+                this.query.Parameters.Add(new SqlParameter("@MemberId", member.Id));
 
                 res = this.query.ExecuteUpdateProc("PersonContactUpdateById");
             }
@@ -133,6 +136,33 @@ namespace DomainModel.Repository.Sql
 
             Entities.TourMember member = (Entities.TourMember)userData;
             member.Contacts.Add(contact);
+        }
+
+
+        internal bool Delete(Entities.Contact contact)
+        {
+            bool res = false;
+
+            try
+            {
+                this.query.Parameters.Clear();
+                this.query.Parameters.Add(new SqlParameter("@ContactId", contact.Id));
+
+                res = this.query.ExecuteUpdateProc("PersonContactDeleteById");
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "",
+                        ex.Message);
+                }
+                catch { }
+            }
+
+            return res;
         }
     }
 }

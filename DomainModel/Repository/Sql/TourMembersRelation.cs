@@ -45,5 +45,33 @@ namespace DomainModel.Repository.Sql
 
             return res;
         }
+
+
+        internal bool Delete(Entities.Tour tour, Entities.TourMember member)
+        {
+            bool res = false;
+
+            try
+            {
+                this.query.Parameters.Clear();
+                this.query.Parameters.Add(new SqlParameter("@PersonId", member.Id));
+                this.query.Parameters.Add(new SqlParameter("@TourId", tour.Id));
+
+                res = this.query.ExecuteUpdateProc("TourMembersDeleteById");
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "",
+                        ex.Message);
+                }
+                catch { }
+            }
+
+            return res;
+        }
     }
 }

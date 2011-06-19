@@ -125,6 +125,8 @@ namespace Entities
             }
         }
 
+        public ContactCollection DeletedContacts { get; set; }
+
         #endregion Properties
 
 
@@ -134,6 +136,8 @@ namespace Entities
             this.memberShip = new GeneralType();
             this.contacts = new ContactCollection();
             this.id = -1;
+
+            this.DeletedContacts = new ContactCollection();
         }
 
 
@@ -147,6 +151,7 @@ namespace Entities
             member.IsDirty = this.IsDirty;
 
             this.Contacts.CopyTo(member.Contacts);
+            this.DeletedContacts.CopyTo(member.DeletedContacts);
         }
     }
 }

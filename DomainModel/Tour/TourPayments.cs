@@ -8,13 +8,11 @@ namespace DomainModel
     {
 
         private static Repository.Sql.TourPayments repo;
-        private static Repository.Sql.TourPaymentsRelation repoRelate;
 
 
         public static void Init(string sqlConnectionString)
         {
             repo = new Repository.Sql.TourPayments(sqlConnectionString);
-            repoRelate = new Repository.Sql.TourPaymentsRelation(sqlConnectionString);
         }
         
         
@@ -28,14 +26,18 @@ namespace DomainModel
                 {
                     if (pay.Id < 0)
                     {
-                        if (!(res = repo.Insert(pay))) break;
-                        if (!(res = repoRelate.Insert(tour, pay))) break;
+                        if (!(res = repo.Insert(tour, pay))) break;
                     }
                     else
                     {
-                        if (!(res = repo.Update(pay))) break;
+                        if (!(res = repo.Update(tour, pay))) break;
                     }
                 }
+            }
+
+            foreach (Entities.TourPayment pay in tour.DeletedPayments)
+            {
+                if (!(res = repo.Delete(tour, pay))) break;
             }
 
             return res;
