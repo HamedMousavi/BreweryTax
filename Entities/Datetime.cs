@@ -97,6 +97,7 @@ namespace Entities
         {
             datetime.Value = this.Value;
             datetime.Format = this.Format;
+            datetime.IsDirty = this.IsDirty;
         }
     }
 }

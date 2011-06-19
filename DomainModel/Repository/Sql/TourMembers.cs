@@ -136,7 +136,8 @@ namespace DomainModel.Repository.Sql
             member.FirstName = Utils.GetSafeString(reader, "FirstName");
             member.LastName = Utils.GetSafeString(reader, "LastName");
             member.MemberShip = DomainModel.TourMembershipTypes.GetById(
-                Utils.GetSafeInt32(reader, "MembershipType")); 
+                Utils.GetSafeInt32(reader, "MembershipType"));
+            member.IsDirty = false;
 
             Entities.Tour tour = (Entities.Tour)userData;
             tour.Members.Add(member);

@@ -102,6 +102,7 @@ namespace Entities
             detail.ParticipantsCount = this.ParticipantsCount;
             detail.Id = this.Id;
             detail.CostGroup = this.CostGroup;
+            detail.IsDirty = this.IsDirty;
         }
     }
 }

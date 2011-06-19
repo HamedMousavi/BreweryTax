@@ -46,6 +46,7 @@ namespace DomainModel.Repository.Sql
                                 type.Id = Utils.GetSafeInt32(reader, "TypeId");
                                 type.Name = Utils.GetSafeString(reader, "TypeName");
                                 type.DetailsTable = Utils.GetSafeString(reader, "DetailsTable");
+                                type.IsDirty = false;
 
                                 types.Add(type);
                             }

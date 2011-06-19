@@ -133,6 +133,7 @@ namespace DomainModel.Repository.Sql
             cost.ParticipantsCount = Utils.GetSafeInt32(reader, "ParticipantCount");
             cost.CostGroup = DomainModel.TourCostGroups.GetById(
                 Utils.GetSafeInt32(reader, "CostGroupId"));
+            cost.IsDirty = false;
 
             Entities.Tour tour = (Entities.Tour)userData;
             tour.CostDetails.Add(cost);

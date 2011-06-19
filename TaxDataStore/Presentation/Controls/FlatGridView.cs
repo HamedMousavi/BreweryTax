@@ -23,7 +23,7 @@ namespace TaxDataStore.Presentation.Controls
                 this.DataSource = this.bs;
             }
         }
-
+        public List<string> HiddenColumnNames { get { return this.hiddenColumnNames; } }
 
         protected BindingSource bs;
         protected DataGridViewCellStyle headerCellStyle;

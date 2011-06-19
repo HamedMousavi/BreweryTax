@@ -10,8 +10,9 @@ namespace TaxDataStore
     {
         protected ToursGridView fgvTours;
         protected FlatGridView fgvEmployees;
-        protected FlatGridView fgvTourContacts;
-        protected FlatGridView fgvMemberContacts;
+        protected FlatGridView fgvTourMembers;
+        protected ContactsListView fgvMemberContacts;
+        protected TourCostDetailsGridView dgvCostDetails;
 
         protected Entities.TourCollection tours;
 
@@ -19,6 +20,7 @@ namespace TaxDataStore
         protected BindingSource bstEmployees;
         protected BindingSource bstTourContacts;
         protected BindingSource bstMemberContacts;
+        protected BindingSource bstTourCosts;
 
 
         public FrmDailyTours()
@@ -43,6 +45,10 @@ namespace TaxDataStore
             bstMemberContacts.DataSource = bstTourContacts;
             bstMemberContacts.DataMember = "Contacts";
 
+            bstTourCosts = new BindingSource();
+            bstTourCosts.DataSource = bstMaster;
+            bstTourCosts.DataMember = "CostDetails";
+
             this.rtbComments.DataBindings.Add(
                 new Binding(
                     "Text",
@@ -62,12 +68,24 @@ namespace TaxDataStore
         {
             this.fgvTours = new ToursGridView(this.bstMaster);
             this.fgvEmployees = new FlatGridView();
-            this.fgvTourContacts = new FlatGridView();
-            this.fgvMemberContacts = new FlatGridView();
+            this.fgvTourMembers = new FlatGridView();
+            this.fgvMemberContacts = new ContactsListView();
+
+            this.fgvTourMembers.HiddenColumnNames.Add("MemberShip");
+            this.fgvTourMembers.ColumnHeadersVisible = false;
+            this.fgvTourMembers.Font = Presentation.View.Theme.FormLabelFont;
+
+            this.fgvEmployees.ColumnHeadersVisible = false;
+            this.fgvEmployees.Font = Presentation.View.Theme.FormLabelFont;
+
+            this.dgvCostDetails = new TourCostDetailsGridView(null);
+            this.dgvCostDetails.ColumnHeadersVisible = false;
+
+            this.tlpTourCosts.Controls.Add(this.dgvCostDetails, 0, 1);
 
             this.tlpTours.Controls.Add(this.fgvTours);
             this.tlpEmployees.Controls.Add(this.fgvEmployees, 0, 1);
-            this.tlpTourMembers.Controls.Add(this.fgvTourContacts, 0, 1);
+            this.tlpTourMembers.Controls.Add(this.fgvTourMembers, 0, 1);
             this.tlpMemberContacts.Controls.Add(this.fgvMemberContacts, 0, 1);
 
             this.btnAddTour.Image = DomainModel.Application.ResourceManager.GetImage("add");
@@ -75,8 +93,28 @@ namespace TaxDataStore
             this.btnEditTour.Image = DomainModel.Application.ResourceManager.GetImage("pencil");
             
             this.fgvEmployees.DataSource = this.bstEmployees;
-            this.fgvTourContacts.DataSource = this.bstTourContacts;
-            this.fgvMemberContacts.DataSource = this.bstMemberContacts;
+            this.fgvTourMembers.DataSource = this.bstTourContacts;
+            this.dgvCostDetails.SetDataSource(this.bstTourCosts);
+
+            this.fgvTourMembers.SelectionChanged += new
+                EventHandler(fgvTourMembers_SelectionChanged);
+        }
+
+
+        void fgvTourMembers_SelectionChanged(object sender, EventArgs e)
+        {
+            Entities.TourMember member = 
+                (Entities.TourMember)this.fgvTourMembers.SelectedItem;
+
+            if (member != null)
+            {
+                this.fgvMemberContacts.SetDataSource(
+                    member.Contacts);
+            }
+            else
+            {
+                this.fgvMemberContacts.SetDataSource(null);
+            }
         }
 
 

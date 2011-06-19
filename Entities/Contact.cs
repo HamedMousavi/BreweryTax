@@ -86,6 +86,7 @@ namespace Entities
             contact.Id = this.Id;
             contact.Media = this.Media;
             contact.Value = this.Value;
+            contact.IsDirty = this.IsDirty;
         }
     }
 }

@@ -144,6 +144,7 @@ namespace Entities
             member.Title = this.Title;
             member.MemberShip = this.MemberShip;
             member.Id = this.Id;
+            member.IsDirty = this.IsDirty;
 
             this.Contacts.CopyTo(member.Contacts);
         }

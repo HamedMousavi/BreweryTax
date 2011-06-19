@@ -18,7 +18,7 @@ namespace TaxDataStore.Presentation.Controls
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, FontStyle.Bold);
             this.ForeColor = Color.Black;
 
-            this.SetDataSource(CostDetails);
+            if (CostDetails != null) this.SetDataSource(CostDetails);
         }
     }
 }

@@ -57,6 +57,11 @@ namespace DomainModel
             Membership.Roles.Init(settings.SqlConnectionString);
             Membership.UserSettings.Init(settings.SqlConnectionString);
             Membership.Users.Init(settings.SqlConnectionString, Cultures.GetAll());
+        }
+
+
+        private static void Init(Entities.Culture culture)
+        {
 
             Currencies.Init(settings.SqlConnectionString);
             Types.Init(settings.SqlConnectionString);
@@ -71,16 +76,13 @@ namespace DomainModel
             TourCosts.Init(settings.SqlConnectionString);
             TourPayments.Init(settings.SqlConnectionString);
             TourMembers.Init(settings.SqlConnectionString);
-        }
-
-
-        private static void Init(Entities.Culture culture)
-        {
+           
             SignUpTypes.Init(settings.SqlConnectionString, culture);
             PersonTitleTypes.Init(settings.SqlConnectionString, culture);
             ContactMediaTypes.Init(settings.SqlConnectionString, culture);
             TourTypes.Init(settings.SqlConnectionString, culture);
             PaymentTypes.Init(settings.SqlConnectionString, culture);
+            TourStates.Init(settings.SqlConnectionString, culture);
 
             TourBasePrices.Init(settings.SqlConnectionString);
         }

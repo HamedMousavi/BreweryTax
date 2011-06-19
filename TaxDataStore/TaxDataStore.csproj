@@ -62,6 +62,9 @@
     <Compile Include="Presentation\Controls\FormLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Presentation\Controls\ContactsListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Presentation\Forms\Tours\FrmTourPaymentEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,7 +85,6 @@
     <Compile Include="Presentation\Controls\GeneralTypeTextEditor.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\ObjectListView.cs" />
     <Compile Include="Presentation\Controls\Settings\Database.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -498,7 +500,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" BuildVersion_BuildVersioningStyle="Increment.YearStamp.MonthAndDayStamp.TimeStamp" BuildVersion_ConfigurationName="Release" />
+      <UserProperties BuildVersion_ConfigurationName="Release" BuildVersion_BuildVersioningStyle="Increment.YearStamp.MonthAndDayStamp.TimeStamp" BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

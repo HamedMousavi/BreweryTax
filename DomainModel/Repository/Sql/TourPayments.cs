@@ -134,6 +134,7 @@ namespace DomainModel.Repository.Sql
             payment.Amount.Value = Utils.GetSafeDecimal(reader, "AmountValue");
             payment.Amount.Currency = DomainModel.Currencies.GetById(
                 Utils.GetSafeInt32(reader, "AmountUnitId"));
+            payment.IsDirty = false;
 
             Entities.Tour tour = (Entities.Tour)userData;
             tour.Payments.Add(payment);

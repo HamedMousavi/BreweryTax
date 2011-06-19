@@ -53,6 +53,8 @@ namespace TaxDataStore
             {
                 this.tour.Time.Date = date.Value.Date;
             }
+
+            this.tour.Status = DomainModel.TourStates.GetByIndex(0);
         }
 
 
@@ -202,7 +204,12 @@ namespace TaxDataStore
                     null,
                     string.Empty,
                     null));
-            /*
+
+            if (this.tour.Status == null || this.tour.Status.Id < 0)
+            {
+                this.tour.Status = DomainModel.TourStates.GetByIndex(0);
+            }
+
             this.lblTourStatus.DataBindings.Add(
                 new Binding(
                     "Text",
@@ -212,7 +219,7 @@ namespace TaxDataStore
                     DataSourceUpdateMode.OnPropertyChanged,
                     null,
                     string.Empty,
-                    null));*/
+                    null));
         }
 
 

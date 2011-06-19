@@ -86,6 +86,7 @@ namespace Entities
             payment.Id = this.Id;
             payment.Type = this.Type;
             payment.Amount = this.Amount;
+            payment.IsDirty = this.IsDirty;
         }
     }
 }

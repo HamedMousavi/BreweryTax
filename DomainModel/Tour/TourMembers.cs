@@ -42,7 +42,11 @@ namespace DomainModel
                         if (!(res = members.Update(member))) break;
                     }
 
-                    foreach(Entities.Contact contact in member.Contacts)
+                }
+
+                foreach (Entities.Contact contact in member.Contacts)
+                {
+                    if (contact.IsDirty)
                     {
                         if (contact.Id < 0)
                         {

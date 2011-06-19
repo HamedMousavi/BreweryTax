@@ -95,7 +95,6 @@
     <Compile Include="TourCostRuleCollection.cs" />
     <Compile Include="TourPayment.cs" />
     <Compile Include="TourPaymentCollection.cs" />
-    <Compile Include="TourStatus.cs" />
     <Compile Include="UpdaterSettings.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserCollection.cs" />

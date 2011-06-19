@@ -111,6 +111,7 @@ namespace DomainModel.Repository.Sql
                 Utils.GetSafeInt32(reader, "EmployeeId"));
 
             Entities.Employee emp = new Entities.Employee(user);
+            emp.IsDirty = false;
 
             Entities.Tour tour = (Entities.Tour)userData;
             tour.Employees.Add(emp);

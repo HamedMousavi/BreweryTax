@@ -129,6 +129,7 @@ namespace DomainModel.Repository.Sql
             contact.Media = DomainModel.ContactMediaTypes.GetById(
                 Utils.GetSafeInt32(reader, "ContactMediaId"));
             contact.Value = Utils.GetSafeString(reader, "ContactValue");
+            contact.IsDirty = false;
 
             Entities.TourMember member = (Entities.TourMember)userData;
             member.Contacts.Add(contact);

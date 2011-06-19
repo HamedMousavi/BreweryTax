@@ -20,8 +20,8 @@ namespace Entities
 
 
         public Employee(Employee emp)
+            : this(emp.user)
         {
-            this.user = emp.user;
         }
     }
 }

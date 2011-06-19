@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using System.Drawing;
 
 
 namespace TaxDataStore.Presentation.Controls
@@ -17,6 +18,11 @@ namespace TaxDataStore.Presentation.Controls
             this.headerColumnNames.Add("SignUpType", Resources.Texts.grid_title_signup_type);
 
             this.DataSource = tours;
+
+            this.ColumnHeadersVisible = false;
+            this.DefaultCellStyle.SelectionBackColor = Color.FromArgb(255, 175, 160, 100);
+            //this.DefaultCellStyle.SelectionForeColor = Color.Black;
+            this.Font = Presentation.View.Theme.FormLabelFont;
         }
     }
 }

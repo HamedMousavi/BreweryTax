@@ -13,7 +13,7 @@ namespace Entities
         protected Datetime time;
         protected GeneralType tourType;
         protected GeneralType signUpType;
-        protected TourStatus status;
+        protected GeneralType status;
         protected EmployeeCollection employees;
         protected TourMemberCollection members;
         protected TourCostDetailCollection costDetails;
@@ -77,7 +77,7 @@ namespace Entities
             }
         }
 
-        public TourStatus Status
+        public GeneralType Status
         {
             get
             {
@@ -202,7 +202,6 @@ namespace Entities
 
         public Tour()
         {
-            this.status = new TourStatus();
             this.time = new Datetime("HH:mm");
 
             this.employees = new Entities.EmployeeCollection();
@@ -210,6 +209,7 @@ namespace Entities
             this.costDetails = new TourCostDetailCollection();
             this.payments = new TourPaymentCollection();
 
+            this.status = new GeneralType();
             this.tourType = new GeneralType();
             this.signUpType = new GeneralType();
             this.id = -1;
@@ -236,13 +236,21 @@ namespace Entities
             this.Members.CopyTo(tour.Members);
             this.CostDetails.CopyTo(tour.CostDetails);
             this.Payments.CopyTo(tour.Payments);
-            this.Status.CopyTo(tour.Status);
 
+            tour.Status = this.Status;
             tour.SignUpType = this.SignUpType;
             tour.TourType = this.TourType;
             tour.Comments = this.Comments;
 
             tour.Id = this.Id;
+            
+
+            if (tour.SignUpType != null) tour.SignUpType.IsDirty    = this.SignUpType.IsDirty;
+            if (tour.Time != null) tour.Time.IsDirty                = this.Time.IsDirty;
+            if (tour.TourType != null) tour.TourType.IsDirty        = this.TourType.IsDirty;
+            if (tour.Status != null) tour.Status.IsDirty            = this.Status.IsDirty;
+
+            tour.IsDirty = this.IsDirty;
         }
     }
 }
