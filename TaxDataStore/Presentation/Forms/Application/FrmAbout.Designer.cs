@@ -1,4 +1,5 @@
 ﻿using TaxDataStore.Presentation.Controls;
+
 namespace TaxDataStore
 {
     partial class FrmAbout
@@ -40,15 +41,15 @@ namespace TaxDataStore
             this.lblLastUpdateCheckCaption = new FormLabel("");
             this.gpxUpdates = new System.Windows.Forms.GroupBox();
             this.tlpUpdates = new System.Windows.Forms.TableLayoutPanel();
-            this.btnCheckNow = new System.Windows.Forms.Button();
-            this.btnUnInstallService = new System.Windows.Forms.Button();
-            this.btnInstallUpdate = new System.Windows.Forms.Button();
-            this.btnDownloadUpdate = new System.Windows.Forms.Button();
+            this.btnCheckNow = new ButtonBase();
+            this.btnUnInstallService = new ButtonBase();
+            this.btnInstallUpdate = new ButtonBase();
+            this.btnDownloadUpdate = new ButtonBase();
             this.tbxVersion = new System.Windows.Forms.TextBox();
             this.tbxLastUpdateCheck = new System.Windows.Forms.TextBox();
             this.tbxNewVersionState = new System.Windows.Forms.TextBox();
             this.tbxNewVersionDetails = new System.Windows.Forms.TextBox();
-            this.btnInstallService = new System.Windows.Forms.Button();
+            this.btnInstallService = new ButtonBase();
             this.pbxAppIcon = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tbxOwner = new System.Windows.Forms.TextBox();
@@ -468,17 +469,17 @@ namespace TaxDataStore
         private System.Windows.Forms.TableLayoutPanel tlpUpdates;
         private FormLabel lblVersionCaption;
         private FormLabel lblLastUpdateCheckCaption;
-        private System.Windows.Forms.Button btnCheckNow;
+        private ButtonBase btnCheckNow;
         private FormLabel lblUpdateStateCaption;
-        private System.Windows.Forms.Button btnDownloadUpdate;
-        private System.Windows.Forms.Button btnInstallUpdate;
-        private System.Windows.Forms.Button btnUnInstallService;
+        private ButtonBase btnDownloadUpdate;
+        private ButtonBase btnInstallUpdate;
+        private ButtonBase btnUnInstallService;
         private System.Windows.Forms.PictureBox pbxAppIcon;
         private System.Windows.Forms.TextBox tbxVersion;
         private System.Windows.Forms.TextBox tbxLastUpdateCheck;
         private System.Windows.Forms.TextBox tbxNewVersionState;
         private System.Windows.Forms.TextBox tbxNewVersionDetails;
-        private System.Windows.Forms.Button btnInstallService;
+        private ButtonBase btnInstallService;
         private System.Windows.Forms.TextBox tbxOwner;
         private System.Windows.Forms.LinkLabel lbtnProducer;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

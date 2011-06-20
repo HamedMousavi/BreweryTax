@@ -39,7 +39,7 @@
             this.tbxDatabaseUserId = new System.Windows.Forms.TextBox();
             this.tbxDatabasePassword = new System.Windows.Forms.TextBox();
             this.tbxDatabaseCatalog = new System.Windows.Forms.TextBox();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.btnSave = new ButtonBase();
             this.tlpMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -228,6 +228,6 @@
         private System.Windows.Forms.TextBox tbxDatabaseUserId;
         private System.Windows.Forms.TextBox tbxDatabasePassword;
         private System.Windows.Forms.TextBox tbxDatabaseCatalog;
-        private System.Windows.Forms.Button btnSave;
+        private ButtonBase btnSave;
     }
 }

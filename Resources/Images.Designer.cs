@@ -123,6 +123,13 @@ namespace Resources {
             }
         }
         
+        public static System.Drawing.Bitmap beer_lock {
+            get {
+                object obj = ResourceManager.GetObject("beer_lock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         public static System.Drawing.Bitmap calculator {
             get {
                 object obj = ResourceManager.GetObject("calculator", resourceCulture);
@@ -266,6 +273,13 @@ namespace Resources {
         public static System.Drawing.Bitmap Info {
             get {
                 object obj = ResourceManager.GetObject("Info", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap loading {
+            get {
+                object obj = ResourceManager.GetObject("loading", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

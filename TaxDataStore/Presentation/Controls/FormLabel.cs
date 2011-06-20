@@ -15,8 +15,10 @@ namespace TaxDataStore.Presentation.Controls
             this.textResourceName = textResourceName;
             this.Text = string.Empty;
 
+            this.AutoSize = true;
             this.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Bottom;
             this.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ForeColor = System.Drawing.Color.DimGray;
         }
 
 

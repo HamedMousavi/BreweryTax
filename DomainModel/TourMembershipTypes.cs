@@ -1,14 +1,38 @@
-﻿
+﻿using Entities;
+
 
 namespace DomainModel
 {
 
     public class TourMembershipTypes
     {
+        private static Repository.Sql.Types repo;
+        private static GeneralTypeCollection cache;
 
-        internal static Entities.GeneralType GetById(int id)
+
+        public static void Init(string sqlConnectionString, Entities.Culture culture)
         {
-            return new Entities.GeneralType();
+            repo = new Repository.Sql.Types(sqlConnectionString);
+
+            LoadAll(culture);
+        }
+
+
+        private static void LoadAll(Culture culture)
+        {
+            cache = repo.GetByName("TourMembershipTypes", culture.Id);
+        }
+
+
+        public static GeneralTypeCollection GetAll()
+        {
+            return cache;
+        }
+
+
+        internal static GeneralType GetById(int id)
+        {
+            return cache.GetById(id);
         }
     }
 }

@@ -75,6 +75,7 @@ namespace DomainModel
                 foreach (Entities.Contact contact in member.DeletedContacts)
                 {
                     if (!(res = contacts.Delete(contact))) break;
+
                 }
 
                 if (!(res = tourMembers.Delete(tour, member))) break;

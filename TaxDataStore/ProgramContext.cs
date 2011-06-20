@@ -10,7 +10,14 @@ namespace TaxDataStore
 
         internal ProgramContext()
         {
-            StartApplication();
+            try
+            {
+                StartApplication();
+            }
+            catch (Exception ex)
+            {
+                Exit(ex.Message);
+            }
         }
 
 
@@ -19,49 +26,92 @@ namespace TaxDataStore
             ShowSplashScreen();
             InitApplication();
             LoadAppSettings();
-            SetupUpdater();
             HideSplashScreen();
+            SetupUpdater();
             BeginAuthenticate();
         }
 
 
         private void ShowSplashScreen()
         {
-            Presentation.Controllers.SplashScreen.Show();
-            Application.DoEvents();
+            try
+            {
+                Presentation.Controllers.SplashScreen.Show();
+                Application.DoEvents();
+            }
+            catch { /*Splash screen failed. No problem. */ }
+
+        }
+
+
+        private void InitApplication()
+        {
+            try
+            {
+                DomainModel.Application.Init(
+                    Properties.Settings.Default,
+                    Application.StartupPath);
+            }
+            catch (Exception ex)
+            {
+                // Domain model failed. No reason to continue
+                Exit(ex.Message);
+            }
         }
 
 
         private void LoadAppSettings()
         {
-            Presentation.View.Theme =
-                new Presentation.Theme();
+            try
+            {
+                Presentation.View.Theme =
+                    new Presentation.Theme();
 
-            Presentation.View.Locale =
-                Properties.Settings.Default.DefaultLocale;
-        }
+                Presentation.View.Locale =
+                    Properties.Settings.Default.DefaultLocale;
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "", ex.Message);
+                }
+                catch { }
 
-
-        private void InitApplication()
-        { 
-            DomainModel.Application.Init(
-                Properties.Settings.Default, 
-                Application.StartupPath);
-        }
-
-
-        private void SetupUpdater()
-        {
-            System.Diagnostics.Process.Start(
-                Application.StartupPath + 
-                System.IO.Path.DirectorySeparatorChar +
-                "ApplicationUpdater.exe");
+                // GUI failed. No reason to continue
+                Exit("");
+            }
         }
 
 
         private void HideSplashScreen()
         {
-            Presentation.Controllers.SplashScreen.Hide();
+            try
+            {
+                Presentation.Controllers.SplashScreen.Hide();
+            }
+            catch { /*Splash failed to hide. No problem. */ }
+        }
+
+
+        private void SetupUpdater()
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(
+                    Application.StartupPath +
+                    System.IO.Path.DirectorySeparatorChar +
+                    "SettlementUpdater.exe");
+            }
+            catch (Exception ex)
+            {
+                DomainModel.Application.Status.Update(
+                    StatusController.Abstract.StatusTypes.Error,
+                    "",
+                    ex.Message);
+            }
         }
 
 
@@ -74,7 +124,23 @@ namespace TaxDataStore
             EndAuthenticate(true);
 #else
 
-            Presentation.Controllers.Users.DisplayLoginWindow(this);
+            try
+            {
+                Presentation.Controllers.Users.DisplayLoginWindow(this);
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "", ex.Message);
+                }
+                catch { }
+
+                // GUI failed. No reason to continue
+                Exit(ex.Message);
+            }
 #endif
         }
 
@@ -85,41 +151,100 @@ namespace TaxDataStore
             {
                 if (DomainModel.Application.User.IsAuthenticated)
                 {
+                    ShowSplashScreen();
+
                     LoadUserSettings();
                     BeginMainWindow();
                 }
                 else
                 {
-                    ExitThread();
+                    Exit("");
                 }
             }
             else
             {
-                ExitThread();
+                Exit("");
             }
         }
 
 
         private void LoadUserSettings()
         {
-            Presentation.View.Locale =
-                DomainModel.Application.User.Culture.CultureName;
+            try
+            {
+                Presentation.View.Locale =
+                    DomainModel.Application.User.Culture.CultureName;
 
-            // Set app culture by finding it in app list of cultures
-            DomainModel.Application.Culture =
-                DomainModel.Application.User.Culture;
+                // Set app culture by finding it in app list of cultures
+                DomainModel.Application.Culture =
+                    DomainModel.Application.User.Culture;
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "", ex.Message);
+                }
+                catch { }
+
+                // User is not known. Security issue. Shall exit
+                Exit(ex.Message);
+            }
         }
 
 
         private void BeginMainWindow()
         {
-            Presentation.Controllers.Application.DisplayMainWindow(this);
+            try
+            {
+                Presentation.Controllers.Application.DisplayMainWindow(this);
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "", ex.Message);
+                }
+                catch { }
+
+                // Main window failed. Shall exit now
+                Exit(ex.Message);
+            }
+
+            try
+            {
+                HideSplashScreen();
+            }
+            catch { }
         }
 
 
         internal void EndMainWindow()
         {
             ExitThread();
+        }
+
+
+        private void Exit(string message)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(message))
+                {
+                    MessageBox.Show(message);
+                }
+            
+                ExitThread();
+            }
+            catch 
+            { 
+                // Now what?!
+            }
+
         }
     }
 }

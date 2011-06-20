@@ -40,8 +40,8 @@ namespace TaxDataStore
             this.tbxPassword = new System.Windows.Forms.TextBox();
             this.cbxRole = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSave = new ButtonBase();
+            this.btnCancel = new ButtonBase();
             this.tlpMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -229,8 +229,8 @@ namespace TaxDataStore
         private FormLabel lblRole;
         private System.Windows.Forms.ComboBox cbxRole;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnCancel;
+        private ButtonBase btnSave;
+        private ButtonBase btnCancel;
 
     }
 }

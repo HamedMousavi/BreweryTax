@@ -31,9 +31,9 @@ namespace TaxDataStore
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.tlpControls = new System.Windows.Forms.TableLayoutPanel();
-            this.lblAppName = new FormLabel("app_name");
-            this.lblLoading = new FormLabel("lbl_app_loading");
-            this.lblVersionNumber = new FormLabel("");
+            this.lblAppName = new System.Windows.Forms.Label();
+            this.lblLoading = new System.Windows.Forms.Label();
+            this.lblVersionNumber = new System.Windows.Forms.Label();
             this.pbxAppIcon = new System.Windows.Forms.PictureBox();
             this.tlpMain.SuspendLayout();
             this.tlpControls.SuspendLayout();
@@ -153,9 +153,9 @@ namespace TaxDataStore
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
         private System.Windows.Forms.TableLayoutPanel tlpControls;
-        private FormLabel lblLoading;
-        private FormLabel lblVersionNumber;
+        private System.Windows.Forms.Label lblLoading;
+        private System.Windows.Forms.Label lblVersionNumber;
         private System.Windows.Forms.PictureBox pbxAppIcon;
-        private FormLabel lblAppName;
+        private System.Windows.Forms.Label lblAppName;
     }
 }

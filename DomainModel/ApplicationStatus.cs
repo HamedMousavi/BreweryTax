@@ -30,8 +30,14 @@ namespace DomainModel
 
         public void Update(StatusTypes type, string resourceName, string customText)
         {
-            string text = Application.ResourceManager.GetText(resourceName);
-            if (string.IsNullOrWhiteSpace(text))
+            string text;
+
+            if (!string.IsNullOrWhiteSpace(resourceName) &&
+                Application.ResourceManager != null)
+            {
+                text = Application.ResourceManager.GetText(resourceName);
+            }
+            else
             {
                 text = resourceName;
             }

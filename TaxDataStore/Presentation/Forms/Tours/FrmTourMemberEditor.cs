@@ -30,8 +30,8 @@ namespace TaxDataStore
             this.member = new TourMember();
             
             this.cbxTitle = new ComboBox();
-            this.cbxTitle.DataSource = DomainModel.PersonTitleTypes.GetAll();
-            this.cbxTitle.DisplayMember = "Name";
+            this.cbxTitle.Anchor = AnchorStyles.Top | 
+                AnchorStyles.Left | AnchorStyles.Right;
 
             this.tbxFirstName.DataBindings.Add(
                 new Binding(
@@ -66,13 +66,14 @@ namespace TaxDataStore
                     string.Empty,
                     null));
 
-            this.cbxTitle.Anchor = (AnchorStyles.Top | AnchorStyles.Left) | AnchorStyles.Right;
 
             this.tlpMain.Controls.Add(this.cbxTitle, 1, 0);
 
             this.dgvContacts = new ContactsGridView(this.member.Contacts);
             this.tlpContacts.Controls.Add(this.dgvContacts, 0, 1);
             this.tlpContacts.SetColumnSpan(this.dgvContacts, 3);
+
+            this.Load += new EventHandler(FrmTourMemberEditor_Load);
         }
 
 
@@ -88,6 +89,15 @@ namespace TaxDataStore
         {
             this.editMember = member;
             this.editMember.CopyTo(this.member);
+        }
+
+
+        void FrmTourMemberEditor_Load(object sender, EventArgs e)
+        {
+            this.cbxTitle.DataSource = DomainModel.PersonTitleTypes.GetAll();
+            this.cbxTitle.DisplayMember = "Name";
+            this.member.Title = this.cbxTitle.Items
+                [this.cbxTitle.SelectedIndex] as GeneralType;
         }
 
 

@@ -45,5 +45,42 @@ namespace DomainModel
 
             return cache[index];
         }
+
+
+        public static GeneralType GetNextState(GeneralType currentState)
+        {
+            if (currentState == null)
+            {
+                return GetByIndex(0);
+            }
+
+            bool found = false;
+            foreach (GeneralType type in cache)
+            {
+                if (found)
+                {
+                    return type;
+                }
+                else if (type.Id == currentState.Id)
+                {
+                    found = true;
+                }
+            }
+
+            return currentState;
+        }
+
+        public static bool Exists(GeneralType typeToFind)
+        {
+            foreach (GeneralType type in cache)
+            {
+                if (typeToFind == type)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

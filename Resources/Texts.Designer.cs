@@ -106,6 +106,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change password.
+        /// </summary>
+        public static string change_password {
+            get {
+                return ResourceManager.GetString("change_password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm password.
+        /// </summary>
+        public static string confirm_password {
+            get {
+                return ResourceManager.GetString("confirm_password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &amp;Remove.
         /// </summary>
         public static string delete {
@@ -889,6 +907,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New password.
+        /// </summary>
+        public static string new_password {
+            get {
+                return ResourceManager.GetString("new_password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New version is available to download.
         /// </summary>
         public static string new_version_exists {
@@ -903,6 +930,15 @@ namespace Resources {
         public static string new_version_is_ready_to_install {
             get {
                 return ResourceManager.GetString("new_version_is_ready_to_install", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Old password.
+        /// </summary>
+        public static string old_password {
+            get {
+                return ResourceManager.GetString("old_password", resourceCulture);
             }
         }
         

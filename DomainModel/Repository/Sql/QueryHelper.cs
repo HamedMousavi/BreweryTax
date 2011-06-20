@@ -91,6 +91,7 @@ namespace DomainModel.Repository.Sql
 
                         foreach (SqlParameter param in this.Parameters)
                         {
+                            if (param.Value == null) param.Value = DBNull.Value;
                             cmd.Parameters.Add(param);
                         }
 
@@ -130,6 +131,7 @@ namespace DomainModel.Repository.Sql
 
                         foreach (SqlParameter param in this.Parameters)
                         {
+                            if (param.Value == null) param.Value = DBNull.Value;
                             cmd.Parameters.Add(param);
                         }
 

@@ -208,6 +208,8 @@ namespace Entities
         public Tour()
         {
             this.time = new Datetime("HH:mm");
+            this.time.PropertyChanged += new 
+                PropertyChangedEventHandler(time_PropertyChanged);
 
             this.employees = new Entities.EmployeeCollection();
             this.members = new TourMemberCollection();
@@ -222,6 +224,14 @@ namespace Entities
             this.tourType = new GeneralType();
             this.signUpType = new GeneralType();
             this.id = -1;
+        }
+
+
+        void time_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            // Time.value changes and thus it doesn't directly updates
+            // To understand time updates we must listen to it's changes
+            RaisePropertyChanged("Time");
         }
 
 

@@ -1,5 +1,6 @@
 ﻿using Entities;
 using System.Configuration;
+using System;
 
 
 namespace DomainModel
@@ -34,14 +35,26 @@ namespace DomainModel
             settings = new DomainModel.Settings(applicationSettings);
             settings.StartupPath = startupPath;
 
-            Cultures.Init(settings.SqlConnectionString);
-            //culture = Cultures.GetAll()["en-us"];
+            Status = new ApplicationStatus(new 
+                StatusController.Controller.StatusController());
+
+            try
+            {
+                Cultures.Init(settings.SqlConnectionString);
+                //culture = Cultures.GetAll()["en-us"];
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    // Unable to load cultures
+                    Status.Update(StatusController.Abstract.StatusTypes.Error, "", ex.Message);
+                }
+                catch { }
+            }
 
             // Create a resource manager to access localized resources
             resourceManager = new ResourceManager(settings.DefaultLocale);
-
-            Status = new ApplicationStatus(new 
-                StatusController.Controller.StatusController());
 
             // Init repository
             InitRepository();
@@ -82,6 +95,7 @@ namespace DomainModel
             ContactMediaTypes.Init(settings.SqlConnectionString, culture);
             TourTypes.Init(settings.SqlConnectionString, culture);
             PaymentTypes.Init(settings.SqlConnectionString, culture);
+            TourMembershipTypes.Init(settings.SqlConnectionString, culture);
             TourStates.Init(settings.SqlConnectionString, culture);
 
             TourBasePrices.Init(settings.SqlConnectionString);

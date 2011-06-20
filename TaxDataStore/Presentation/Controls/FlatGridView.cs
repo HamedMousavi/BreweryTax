@@ -33,7 +33,7 @@ namespace TaxDataStore.Presentation.Controls
         protected Dictionary<string, string> headerColumnNames;
 
 
-        public FlatGridView(bool bReadonly = true, bool bRowSelect = true)
+        public FlatGridView(bool bReadonly = true, bool bRowSelect = true, BindingSource binding = null)
             : base()
         {
             Color headTextColor = Color.Gray;
@@ -108,7 +108,15 @@ namespace TaxDataStore.Presentation.Controls
             this.DataBindingComplete += new
                 DataGridViewBindingCompleteEventHandler(FlatGridView_DataBindingComplete);
 
-            this.bs = new BindingSource();
+            if (binding == null)
+            {
+                this.bs = new BindingSource();
+            }
+            else
+            {
+                this.bs = binding;
+            }
+
             this.DataSource = this.bs;
         }
 

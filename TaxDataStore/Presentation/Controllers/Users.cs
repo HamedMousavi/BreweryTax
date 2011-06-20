@@ -82,5 +82,14 @@ namespace TaxDataStore.Presentation.Controllers
                 return (frm.ShowDialog() == DialogResult.OK);
             }
         }
+
+
+        internal static void ChangePassword(Entities.User user)
+        {
+            using (FrmPasswordEditor frm = new FrmPasswordEditor(user))
+            {
+                frm.ShowDialog();
+            }
+        }
     }
 }

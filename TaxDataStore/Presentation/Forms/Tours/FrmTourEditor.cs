@@ -213,8 +213,8 @@ namespace TaxDataStore
             this.lblTourStatus.DataBindings.Add(
                 new Binding(
                     "Text",
-                    this.tour.Status,
-                    "Name",
+                    this.tour,
+                    "Status",
                     false,
                     DataSourceUpdateMode.OnPropertyChanged,
                     null,
@@ -241,7 +241,11 @@ namespace TaxDataStore
             Entities.Employee emp = (Entities.Employee)this.dgvEmployees.SelectedItem;
             if (emp != null)
             {
-                this.tour.DeletedEmployees.Add(emp);
+                if (!this.tour.DeletedEmployees.Contains(emp))
+                {
+                    this.tour.DeletedEmployees.Add(emp);
+                }
+
                 this.tour.Employees.Remove(emp);
             }
 
@@ -344,7 +348,7 @@ namespace TaxDataStore
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-
+            this.tour.Status = DomainModel.TourStates.GetNextState(this.tour.Status);
         }
     }
 }

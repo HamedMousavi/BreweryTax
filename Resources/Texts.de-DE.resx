@@ -468,4 +468,16 @@
   <data name="lbl_payment_type" xml:space="preserve">
     <value>PaymentType</value>
   </data>
+  <data name="change_password" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="confirm_password" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="new_password" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="old_password" xml:space="preserve">
+    <value>Old password</value>
+  </data>
 </root>

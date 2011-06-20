@@ -88,6 +88,8 @@ namespace TaxDataStore
                 this.dgvCostDetails.DefaultCellStyle.BackColor;
             this.dgvCostDetails.DefaultCellStyle.SelectionForeColor =
                 this.dgvCostDetails.DefaultCellStyle.ForeColor;
+            this.dgvCostDetails.ReadOnly = true;
+
 
             this.tlpTourCosts.Controls.Add(this.dgvCostDetails, 0, 1);
 
@@ -133,14 +135,12 @@ namespace TaxDataStore
             {
                 Presentation.Controllers.Tours.Edit(tour);
             }
-            UpdateTourList();
         }
 
 
         private void btnAddTour_Click(object sender, EventArgs e)
         {
             Presentation.Controllers.Tours.AddNew(this.dtpCurrentDate.Value);
-            UpdateTourList();
         }
 
 
@@ -154,8 +154,6 @@ namespace TaxDataStore
                     DomainModel.Tours.Delete(tour);
                 }
             }
-
-            UpdateTourList();
         }
 
 

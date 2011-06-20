@@ -34,8 +34,8 @@ namespace TaxDataStore
             this.lblPaymentAmount = new FormLabel("lbl_payment_amount");
             this.cbxPaymentTypes = new System.Windows.Forms.ComboBox();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSave = new ButtonBase();
+            this.btnCancel = new ButtonBase();
             this.mpkPaymentAmount = new TaxDataStore.Presentation.Controls.MoneyPicker();
             this.tlpMain.SuspendLayout();
             this.tlpButtons.SuspendLayout();
@@ -168,8 +168,8 @@ namespace TaxDataStore
         private FormLabel lblPaymentAmount;
         private System.Windows.Forms.ComboBox cbxPaymentTypes;
         private System.Windows.Forms.TableLayoutPanel tlpButtons;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnCancel;
+        private ButtonBase btnSave;
+        private ButtonBase btnCancel;
         private Presentation.Controls.MoneyPicker mpkPaymentAmount;
     }
 }

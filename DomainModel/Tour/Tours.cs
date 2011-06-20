@@ -37,9 +37,13 @@ namespace DomainModel
 
                     ts.Complete();
 
-                    if (!cache.Contains(tour))
+                    // Clean deleted items cause they saved with no problem
+                    tour.DeletedPayments.Clear();
+                    tour.DeletedMembers.Clear();
+                    tour.DeletedEmployees.Clear();
+                    foreach (Entities.TourMember member in tour.Members)
                     {
-                        cache.Add(tour);
+                        member.DeletedContacts.Clear();
                     }
                 }
 
@@ -71,6 +75,11 @@ namespace DomainModel
                 if (tour.Id < 0)
                 {
                     res = toursRepo.Insert(tour);
+                    if (!cache.Contains(tour) && 
+                        (tour.Time.Value.Date - cache.Time.Date).Days == 0)
+                    {
+                        cache.Add(tour);
+                    }
                 }
                 else
                 {
@@ -97,7 +106,7 @@ namespace DomainModel
             {
                 if (toursRepo.Delete(tour))
                 {
-                    cache.Remove(tour);
+                    if (cache.Contains(tour)) cache.Remove(tour);
                 }
             }
             catch (Exception ex)
@@ -119,6 +128,9 @@ namespace DomainModel
         {
             try
             {
+                cache = tours;
+                cache.Time = date;
+
                 tours.Clear();
                 toursRepo.GetByDate(tours, date);
 

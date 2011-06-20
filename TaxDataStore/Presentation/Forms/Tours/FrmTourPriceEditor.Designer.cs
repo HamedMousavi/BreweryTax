@@ -31,8 +31,8 @@ namespace TaxDataStore
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new ButtonBase();
+            this.btnSave = new ButtonBase();
             this.lblTourType = new FormLabel("lbl_tour_type");
             this.lblBasePrice = new FormLabel("lbl_price");
             this.tbxTourType = new System.Windows.Forms.TextBox();
@@ -153,8 +153,8 @@ namespace TaxDataStore
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
         private System.Windows.Forms.TableLayoutPanel tlpButtons;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnSave;
+        private ButtonBase btnCancel;
+        private ButtonBase btnSave;
         private FormLabel lblTourType;
         private FormLabel lblBasePrice;
         private System.Windows.Forms.TextBox tbxTourType;

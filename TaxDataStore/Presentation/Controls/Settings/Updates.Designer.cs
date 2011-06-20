@@ -36,7 +36,7 @@
             this.tbxUpdateCheckInterval = new System.Windows.Forms.TextBox();
             this.tbxUpdateUrl = new System.Windows.Forms.TextBox();
             this.chbxToggleAutoUpdate = new System.Windows.Forms.CheckBox();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.btnSave = new ButtonBase();
             this.tlpMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -196,6 +196,6 @@
         private FormLabel lblUpdateUrl;
         private System.Windows.Forms.TextBox tbxUpdateUrl;
         private System.Windows.Forms.CheckBox chbxToggleAutoUpdate;
-        private System.Windows.Forms.Button btnSave;
+        private ButtonBase btnSave;
     }
 }

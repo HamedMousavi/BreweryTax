@@ -37,8 +37,8 @@ namespace TaxDataStore
             this.btnAddContact = new FlatButton();
             this.btnRemoveContact = new FlatButton();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new ButtonBase();
+            this.btnSave = new ButtonBase();
             this.tbxFirstName = new System.Windows.Forms.TextBox();
             this.tbxLastName = new System.Windows.Forms.TextBox();
             this.lblContacts = new ToolbarLabel();
@@ -248,8 +248,8 @@ namespace TaxDataStore
         private FormLabel lblFirstName;
         private FormLabel lblLastName;
         private System.Windows.Forms.TableLayoutPanel tlpButtons;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnSave;
+        private ButtonBase btnCancel;
+        private ButtonBase btnSave;
         private System.Windows.Forms.TextBox tbxFirstName;
         private System.Windows.Forms.TextBox tbxLastName;
         private ContainerLayoutPanel tlpContacts;

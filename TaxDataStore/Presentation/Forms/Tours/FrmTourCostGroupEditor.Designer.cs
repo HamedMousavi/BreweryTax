@@ -33,8 +33,8 @@ namespace TaxDataStore
             this.lblGroupName = new FormLabel("lbl_tour_group_name");
             this.tbxGroupName = new System.Windows.Forms.TextBox();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new ButtonBase();
+            this.btnSave = new ButtonBase();
             this.tlpMain.SuspendLayout();
             this.tlpButtons.SuspendLayout();
             this.SuspendLayout();
@@ -149,7 +149,7 @@ namespace TaxDataStore
         private FormLabel lblGroupName;
         private System.Windows.Forms.TextBox tbxGroupName;
         private System.Windows.Forms.TableLayoutPanel tlpButtons;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnSave;
+        private ButtonBase btnCancel;
+        private ButtonBase btnSave;
     }
 }

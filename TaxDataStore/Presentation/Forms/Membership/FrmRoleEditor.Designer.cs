@@ -33,8 +33,8 @@ namespace TaxDataStore
             this.lblRoleName = new FormLabel("role_name");
             this.tbxRoleName = new System.Windows.Forms.TextBox();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new ButtonBase();
+            this.btnSave = new ButtonBase();
             this.tlpMain.SuspendLayout();
             this.tlpButtons.SuspendLayout();
             this.SuspendLayout();
@@ -145,7 +145,7 @@ namespace TaxDataStore
         private FormLabel lblRoleName;
         private System.Windows.Forms.TextBox tbxRoleName;
         private System.Windows.Forms.TableLayoutPanel tlpButtons;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnSave;
+        private ButtonBase btnCancel;
+        private ButtonBase btnSave;
     }
 }
