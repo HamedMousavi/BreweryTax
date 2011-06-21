@@ -30,18 +30,14 @@ namespace TaxDataStore
         private void InitializeComponent()
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
-            this.lblName = new FormLabel("username");
-            this.lblLanguage = new FormLabel("language");
-            this.lblPassword = new FormLabel("password");
-            this.lblRole = new FormLabel("role_name");
             this.chbxIsEnabled = new System.Windows.Forms.CheckBox();
             this.tbxName = new System.Windows.Forms.TextBox();
             this.cbxLanguage = new System.Windows.Forms.ComboBox();
             this.tbxPassword = new System.Windows.Forms.TextBox();
             this.cbxRole = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSave = new ButtonBase();
-            this.btnCancel = new ButtonBase();
+            this.btnSave = new TaxDataStore.Presentation.Controls.ButtonBase();
+            this.btnCancel = new TaxDataStore.Presentation.Controls.ButtonBase();
             this.tlpMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -50,114 +46,87 @@ namespace TaxDataStore
             // 
             this.tlpMain.ColumnCount = 2;
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpMain.Controls.Add(this.chbxIsEnabled, 0, 0);
-            this.tlpMain.Controls.Add(this.lblName, 0, 1);
             this.tlpMain.Controls.Add(this.tbxName, 1, 1);
             this.tlpMain.Controls.Add(this.cbxLanguage, 1, 3);
-            this.tlpMain.Controls.Add(this.lblLanguage, 0, 3);
-            this.tlpMain.Controls.Add(this.lblPassword, 0, 2);
             this.tlpMain.Controls.Add(this.tbxPassword, 1, 2);
-            this.tlpMain.Controls.Add(this.lblRole, 0, 4);
             this.tlpMain.Controls.Add(this.cbxRole, 1, 4);
             this.tlpMain.Controls.Add(this.tableLayoutPanel1, 0, 6);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Name = "tlpMain";
-            this.tlpMain.RowCount = 8;
+            this.tlpMain.RowCount = 7;
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMain.Size = new System.Drawing.Size(277, 175);
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpMain.Size = new System.Drawing.Size(321, 195);
             this.tlpMain.TabIndex = 0;
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(3, 26);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(41, 16);
-            this.lblName.TabIndex = 0;
-            this.lblName.Text = "Name";
             // 
             // chbxIsEnabled
             // 
+            this.chbxIsEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.chbxIsEnabled.AutoSize = true;
             this.chbxIsEnabled.Checked = true;
             this.chbxIsEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tlpMain.SetColumnSpan(this.chbxIsEnabled, 2);
             this.chbxIsEnabled.Location = new System.Drawing.Point(3, 3);
             this.chbxIsEnabled.Name = "chbxIsEnabled";
-            this.chbxIsEnabled.Size = new System.Drawing.Size(72, 20);
+            this.chbxIsEnabled.Size = new System.Drawing.Size(315, 20);
             this.chbxIsEnabled.TabIndex = 9;
             this.chbxIsEnabled.Text = "Enabled";
             this.chbxIsEnabled.UseVisualStyleBackColor = true;
             // 
             // tbxName
             // 
-            this.tbxName.Location = new System.Drawing.Point(72, 29);
+            this.tbxName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbxName.Location = new System.Drawing.Point(3, 29);
             this.tbxName.Name = "tbxName";
-            this.tbxName.Size = new System.Drawing.Size(197, 23);
+            this.tbxName.Size = new System.Drawing.Size(315, 23);
             this.tbxName.TabIndex = 1;
-            // 
-            // lblLanguage
-            // 
-            this.lblLanguage.AutoSize = true;
-            this.lblLanguage.Location = new System.Drawing.Point(3, 84);
-            this.lblLanguage.Name = "lblLanguage";
-            this.lblLanguage.Size = new System.Drawing.Size(63, 16);
-            this.lblLanguage.TabIndex = 4;
-            this.lblLanguage.Text = "Language";
             // 
             // cbxLanguage
             // 
+            this.cbxLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.cbxLanguage.FormattingEnabled = true;
-            this.cbxLanguage.Location = new System.Drawing.Point(72, 87);
+            this.cbxLanguage.Location = new System.Drawing.Point(3, 87);
             this.cbxLanguage.Name = "cbxLanguage";
-            this.cbxLanguage.Size = new System.Drawing.Size(197, 24);
+            this.cbxLanguage.Size = new System.Drawing.Size(315, 24);
             this.cbxLanguage.TabIndex = 5;
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(3, 55);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(63, 16);
-            this.lblPassword.TabIndex = 2;
-            this.lblPassword.Text = "Password";
             // 
             // tbxPassword
             // 
-            this.tbxPassword.Location = new System.Drawing.Point(72, 58);
+            this.tbxPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbxPassword.Location = new System.Drawing.Point(3, 58);
             this.tbxPassword.Name = "tbxPassword";
-            this.tbxPassword.Size = new System.Drawing.Size(197, 23);
+            this.tbxPassword.Size = new System.Drawing.Size(315, 23);
             this.tbxPassword.TabIndex = 3;
             this.tbxPassword.UseSystemPasswordChar = true;
             // 
-            // lblRole
-            // 
-            this.lblRole.AutoSize = true;
-            this.lblRole.Location = new System.Drawing.Point(3, 111);
-            this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(33, 16);
-            this.lblRole.TabIndex = 6;
-            this.lblRole.Text = "Role";
-            // 
             // cbxRole
             // 
+            this.cbxRole.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.cbxRole.FormattingEnabled = true;
-            this.cbxRole.Location = new System.Drawing.Point(72, 114);
+            this.cbxRole.Location = new System.Drawing.Point(3, 117);
             this.cbxRole.Name = "cbxRole";
-            this.cbxRole.Size = new System.Drawing.Size(197, 24);
+            this.cbxRole.Size = new System.Drawing.Size(315, 24);
             this.cbxRole.TabIndex = 7;
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tlpMain.SetColumnSpan(this.tableLayoutPanel1, 2);
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -165,18 +134,18 @@ namespace TaxDataStore
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.btnSave, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnCancel, 2, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 141);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 163);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(277, 32);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(321, 32);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(118, 3);
+            this.btnSave.AutoSize = true;
+            this.btnSave.Location = new System.Drawing.Point(162, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 26);
             this.btnSave.TabIndex = 0;
@@ -186,7 +155,8 @@ namespace TaxDataStore
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(199, 3);
+            this.btnCancel.AutoSize = true;
+            this.btnCancel.Location = new System.Drawing.Point(243, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 26);
             this.btnCancel.TabIndex = 1;
@@ -198,7 +168,7 @@ namespace TaxDataStore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(277, 175);
+            this.ClientSize = new System.Drawing.Size(321, 195);
             this.Controls.Add(this.tlpMain);
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -212,6 +182,7 @@ namespace TaxDataStore
             this.tlpMain.ResumeLayout(false);
             this.tlpMain.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -220,13 +191,9 @@ namespace TaxDataStore
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
         private System.Windows.Forms.CheckBox chbxIsEnabled;
-        private FormLabel lblName;
         private System.Windows.Forms.TextBox tbxName;
         private System.Windows.Forms.ComboBox cbxLanguage;
-        private FormLabel lblLanguage;
-        private FormLabel lblPassword;
         private System.Windows.Forms.TextBox tbxPassword;
-        private FormLabel lblRole;
         private System.Windows.Forms.ComboBox cbxRole;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private ButtonBase btnSave;

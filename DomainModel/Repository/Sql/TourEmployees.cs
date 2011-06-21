@@ -59,7 +59,9 @@ namespace DomainModel.Repository.Sql
                 this.query.Parameters.Add(new SqlParameter("@TourId", tour.Id));
                 this.query.Parameters.Add(new SqlParameter("@EmployeeId", employee.User.Id));
 
-                res = this.query.ExecuteUpdateProc("TourEmployeesDeleteById");
+
+                int affected;
+                res = this.query.ExecuteUpdateProc("TourEmployeesDeleteById", out affected);
 
             }
             catch (Exception ex)

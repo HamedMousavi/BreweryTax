@@ -34,5 +34,15 @@ namespace Entities
                 employees.Add(emp);
             }
         }
+
+        public void UndoDelete(EmployeeCollection originalList)
+        {
+            foreach (Employee emp in this)
+            {
+                originalList.Add(emp);
+            }
+
+            this.Clear();
+        }
     }
 }

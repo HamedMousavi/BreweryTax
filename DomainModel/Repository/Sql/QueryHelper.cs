@@ -77,9 +77,10 @@ namespace DomainModel.Repository.Sql
         }
 
 
-        public bool ExecuteUpdateProc(string procName)
+        public bool ExecuteUpdateProc(string procName, out Int32 affected)
         {
             bool res = false;
+            affected = 0;
 
             try
             {
@@ -97,8 +98,8 @@ namespace DomainModel.Repository.Sql
 
                         cnn.Open();
 
-                        int affected = cmd.ExecuteNonQuery();
-                        res = (affected > 0);
+                        affected = cmd.ExecuteNonQuery();
+                        res = true;
                     }
                 }
             }
@@ -113,6 +114,7 @@ namespace DomainModel.Repository.Sql
                 }
                 catch { }
             }
+
             return res;
         }
 

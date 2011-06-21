@@ -19,5 +19,15 @@ namespace Entities
             }
         }
 
+
+        public void UndoDelete(TourPaymentCollection originalList)
+        {
+            foreach (TourPayment payment in this)
+            {
+                originalList.Add(payment);
+            }
+
+            this.Clear();
+        }
     }
 }

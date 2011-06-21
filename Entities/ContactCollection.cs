@@ -19,5 +19,16 @@ namespace Entities
                 contacts.Add(newcontact);
             }
         }
+
+
+        public void UndoDelete(ContactCollection originalList)
+        {
+            foreach (Contact contact in this)
+            {
+                originalList.Add(contact);
+            }
+
+            this.Clear();
+        }
     }
 }

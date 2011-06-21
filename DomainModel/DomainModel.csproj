@@ -58,19 +58,20 @@
     <Compile Include="ApplicationStatus.cs" />
     <Compile Include="ApplicationUpdater.cs" />
     <Compile Include="Categories.cs" />
-    <Compile Include="ContactMediaTypes.cs" />
+    <Compile Include="Types\ContactMediaTypes.cs" />
     <Compile Include="Cultures.cs" />
     <Compile Include="Currencies.cs" />
     <Compile Include="Repository\Sql\TourMembersRelation.cs" />
-    <Compile Include="TourMembershipTypes.cs" />
+    <Compile Include="Types\TourMembershipTypes.cs" />
+    <Compile Include="Tour\PaymentStrategies\NormalStrategy.cs" />
     <Compile Include="Tour\TourStates.cs" />
     <Compile Include="Tour\Employees.cs" />
     <Compile Include="Membership\Roles.cs" />
     <Compile Include="Membership\Tasks.cs" />
     <Compile Include="Membership\UserSettings.cs" />
     <Compile Include="Membership\Users.cs" />
-    <Compile Include="CostTypes.cs" />
-    <Compile Include="PersonTitleTypes.cs" />
+    <Compile Include="Types\CostTypes.cs" />
+    <Compile Include="Types\PersonTitleTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ApplicationUpdater.cs" />
     <Compile Include="Repository\Currencies.cs" />
@@ -95,7 +96,7 @@
     <Compile Include="Repository\Sql\Users.cs" />
     <Compile Include="Repository\Sql\UserSettings.cs" />
     <Compile Include="Repository\Sql\Utils.cs" />
-    <Compile Include="SignUpTypes.cs" />
+    <Compile Include="Types\SignUpTypes.cs" />
     <Compile Include="Tour\TourBasePrices.cs" />
     <Compile Include="ResourceManager.cs" />
     <Compile Include="Settings.cs" />
@@ -106,9 +107,9 @@
     <Compile Include="Tour\TourEmployees.cs" />
     <Compile Include="Tour\TourMembers.cs" />
     <Compile Include="Tour\TourPayments.cs" />
-    <Compile Include="TourTypes.cs" />
+    <Compile Include="Types\TourTypes.cs" />
     <Compile Include="Tour\Tours.cs" />
-    <Compile Include="Types.cs" />
+    <Compile Include="Types\Types.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entities\Entities.csproj">

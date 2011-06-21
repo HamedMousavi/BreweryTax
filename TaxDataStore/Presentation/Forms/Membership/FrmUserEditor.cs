@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using TaxDataStore.Presentation.Controls;
 
 
 namespace TaxDataStore
@@ -7,6 +8,10 @@ namespace TaxDataStore
 
     public partial class FrmUserEditor : Form
     {
+        private FormLabel lblName;
+        private FormLabel lblLanguage;
+        private FormLabel lblPassword;
+        private FormLabel lblRole;
 
         protected Entities.User user;
         protected Entities.User editUser;
@@ -14,6 +19,16 @@ namespace TaxDataStore
         public FrmUserEditor(Entities.User user = null)
         {
             InitializeComponent();
+
+            this.lblName = new FormLabel("username");
+            this.lblLanguage = new FormLabel("language");
+            this.lblPassword = new FormLabel("password");
+            this.lblRole = new FormLabel("role_name");
+
+            this.tlpMain.Controls.Add(this.lblName, 0, 1);
+            this.tlpMain.Controls.Add(this.lblLanguage, 0, 3);
+            this.tlpMain.Controls.Add(this.lblRole, 0, 4);
+            this.tlpMain.Controls.Add(this.lblPassword, 0, 2);
 
             if (user == null)
             {

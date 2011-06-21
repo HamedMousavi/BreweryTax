@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\ICrypt.cs" />
+    <Compile Include="Abstract\ITourPaymentStrategy.cs" />
     <Compile Include="Abstract\Repository\IRole.cs" />
     <Compile Include="Abstract\Repository\ITask.cs" />
     <Compile Include="Abstract\Repository\IUsers.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Money.cs" />
     <Compile Include="MoneyCurrency.cs" />
     <Compile Include="MoneyCurrencyCollection.cs" />
+    <Compile Include="TourReceipt.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="RoleCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="TourCostRuleCollection.cs" />
     <Compile Include="TourPayment.cs" />
     <Compile Include="TourPaymentCollection.cs" />
+    <Compile Include="TourReceiptItem.cs" />
     <Compile Include="UpdaterSettings.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserCollection.cs" />

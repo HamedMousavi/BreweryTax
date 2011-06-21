@@ -18,5 +18,15 @@ namespace Entities
                 members.Add(memberCopy);
             }
         }
+
+        public void UndoDelete(TourMemberCollection originalList)
+        {
+            foreach (TourMember member in this)
+            {
+                originalList.Add(member);
+            }
+
+            this.Clear();
+        }
     }
 }

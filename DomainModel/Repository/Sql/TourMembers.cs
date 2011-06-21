@@ -81,7 +81,9 @@ namespace DomainModel.Repository.Sql
                 this.query.Parameters.Add(new SqlParameter("@LastName", member.LastName));
                 this.query.Parameters.Add(new SqlParameter("@MembershipType", member.MemberShip.Id));
 
-                res = this.query.ExecuteUpdateProc("TourMembertUpdateById");
+
+                int affected;
+                res = this.query.ExecuteUpdateProc("TourMembertUpdateById", out affected);
             }
             catch (Exception ex)
             {
@@ -153,7 +155,9 @@ namespace DomainModel.Repository.Sql
                 this.query.Parameters.Clear();
                 this.query.Parameters.Add(new SqlParameter("@MemberId", member.Id));
 
-                res = this.query.ExecuteUpdateProc("TourMemberDeleteById");
+
+                int affected;
+                res = this.query.ExecuteUpdateProc("TourMemberDeleteById", out affected);
             }
             catch (Exception ex)
             {

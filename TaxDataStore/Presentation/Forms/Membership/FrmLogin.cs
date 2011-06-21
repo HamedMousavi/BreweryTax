@@ -58,6 +58,7 @@ namespace TaxDataStore
             this.lblLogonProcess.Margin = new Padding(0, 20, 0, 20);
             this.cbxUserName.FormattingEnabled = true;
 
+            this.AcceptButton = this.btnLogin;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
 

@@ -79,7 +79,9 @@ namespace DomainModel.Repository.Sql
                 this.query.Parameters.Add(new SqlParameter("@ContactId", contact.Id));
                 this.query.Parameters.Add(new SqlParameter("@MemberId", member.Id));
 
-                res = this.query.ExecuteUpdateProc("PersonContactUpdateById");
+
+                int affected;
+                res = this.query.ExecuteUpdateProc("PersonContactUpdateById", out affected);
             }
             catch (Exception ex)
             {
@@ -148,7 +150,9 @@ namespace DomainModel.Repository.Sql
                 this.query.Parameters.Clear();
                 this.query.Parameters.Add(new SqlParameter("@ContactId", contact.Id));
 
-                res = this.query.ExecuteUpdateProc("PersonContactDeleteById");
+
+                int affected;
+                res = this.query.ExecuteUpdateProc("PersonContactDeleteById", out affected);
             }
             catch (Exception ex)
             {

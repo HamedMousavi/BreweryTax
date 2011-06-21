@@ -25,30 +25,28 @@ namespace DomainModel
 
         public static bool Save(Entities.Tour tour)
         {
+            bool res = false;
             try
             {
                 using (TransactionScope ts = new TransactionScope())
                 {
-                    if (!SaveTour(tour)) return false;
-                    if (!DomainModel.TourMembers.Save(tour)) return false;
-                    if (!DomainModel.TourPayments.Save(tour)) return false;
-                    if (!DomainModel.TourCosts.Save(tour)) return false;
-                    if (!DomainModel.TourEmployees.Save(tour)) return false;
+                    res = SaveTour(tour);
+                    if (res) res = DomainModel.TourMembers.Save(tour);
+                    if (res) res = DomainModel.TourPayments.Save(tour);
+                    if (res) res = DomainModel.TourCosts.Save(tour);
+                    if (res) res = DomainModel.TourEmployees.Save(tour);
 
-                    ts.Complete();
+                    if (res) ts.Complete();
 
-                    // Clean deleted items cause they saved with no problem
-                    tour.DeletedPayments.Clear();
-                    tour.DeletedMembers.Clear();
-                    tour.DeletedEmployees.Clear();
-                    foreach (Entities.TourMember member in tour.Members)
+                    if (res)
                     {
-                        member.DeletedContacts.Clear();
+                        ClearDeleteCaches(tour);
+                    }
+                    else
+                    {
+                        UndoDeleteCaches(tour);
                     }
                 }
-
-
-                return true;
             }
             catch (Exception ex)
             {
@@ -62,7 +60,33 @@ namespace DomainModel
                 catch { }
             }
 
-            return false;
+            return res;
+        }
+
+
+        private static void UndoDeleteCaches(Entities.Tour tour)
+        {
+            // Clean deleted items cause they saved with no problem
+            tour.DeletedPayments.UndoDelete(tour.Payments);
+            tour.DeletedMembers.UndoDelete(tour.Members);
+            tour.DeletedEmployees.UndoDelete(tour.Employees);
+            foreach (Entities.TourMember member in tour.Members)
+            {
+                member.DeletedContacts.UndoDelete(member.Contacts);
+            }
+        }
+
+
+        private static void ClearDeleteCaches(Entities.Tour tour)
+        {
+            // Clean deleted items cause they saved with no problem
+            tour.DeletedPayments.Clear();
+            tour.DeletedMembers.Clear();
+            tour.DeletedEmployees.Clear();
+            foreach (Entities.TourMember member in tour.Members)
+            {
+                member.DeletedContacts.Clear();
+            }
         }
 
 

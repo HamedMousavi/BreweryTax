@@ -21,6 +21,8 @@ namespace Entities
         protected string comments;
         protected Int32 id;
 
+        public Abstract.ITourPaymentStrategy paymentStrategy;
+
         #endregion Fields
 
 
@@ -197,6 +199,26 @@ namespace Entities
             }
         }
 
+        public TourReceipt Receipt { get; private set; }
+
+        [BrowsableAttribute(false)]
+        public Abstract.ITourPaymentStrategy PaymentStrategy 
+        {
+            get { return this.paymentStrategy; }
+            set 
+            {
+                if (this.paymentStrategy != value)
+                {
+                    if (this.paymentStrategy != null)
+                    {
+                        this.paymentStrategy.UnRegister(this);
+                    }
+
+                    this.paymentStrategy = value;
+                    this.paymentStrategy.Register(this);
+                }
+            }
+        }
 
         public EmployeeCollection DeletedEmployees { get; set; }
         public TourMemberCollection DeletedMembers { get; set; }
@@ -219,6 +241,7 @@ namespace Entities
             this.DeletedEmployees = new Entities.EmployeeCollection();
             this.DeletedMembers = new TourMemberCollection();
             this.DeletedPayments = new TourPaymentCollection();
+            this.Receipt = new TourReceipt();
             
             this.status = new GeneralType();
             this.tourType = new GeneralType();
@@ -259,6 +282,7 @@ namespace Entities
             this.DeletedEmployees.CopyTo(tour.DeletedEmployees);
             this.DeletedMembers.CopyTo(tour.DeletedMembers);
             this.DeletedPayments.CopyTo(tour.DeletedPayments);
+            this.Receipt.CopyTo(tour.Receipt);
 
             tour.Status = this.Status;
             tour.SignUpType = this.SignUpType;

@@ -12,6 +12,7 @@ namespace TaxDataStore.Presentation.Controls
             : base(true, true, tours)
         {
             this.hiddenColumnNames.Add("Comments");
+            this.hiddenColumnNames.Add("Receipt");
 
             this.headerColumnNames.Add("Time", Resources.Texts.grid_title_time);
             this.headerColumnNames.Add("TourType", Resources.Texts.grid_title_tour_type);

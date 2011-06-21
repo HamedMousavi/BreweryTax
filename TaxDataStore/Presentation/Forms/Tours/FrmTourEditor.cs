@@ -29,6 +29,7 @@ namespace TaxDataStore
             InitializeComponent();
 
             this.tour = new Entities.Tour(DomainModel.TourCostGroups.GetAll());
+            this.tour.PaymentStrategy = new DomainModel.PaymentStrategies.NormalStrategy();
 
             SetupControls();
             BindControls();

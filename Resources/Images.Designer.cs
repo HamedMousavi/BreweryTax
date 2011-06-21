@@ -277,13 +277,6 @@ namespace Resources {
             }
         }
         
-        public static System.Drawing.Bitmap loading {
-            get {
-                object obj = ResourceManager.GetObject("loading", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         public static System.Drawing.Bitmap lock_unlock {
             get {
                 object obj = ResourceManager.GetObject("lock_unlock", resourceCulture);

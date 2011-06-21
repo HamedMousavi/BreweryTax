@@ -81,7 +81,9 @@ namespace DomainModel.Repository.Sql
                 this.query.Parameters.Add(new SqlParameter("@CostId", cost.Id));
                 this.query.Parameters.Add(new SqlParameter("@TourId", tour.Id));
 
-                res = this.query.ExecuteUpdateProc("TourCostUpdateById");
+
+                int affected;
+                res = this.query.ExecuteUpdateProc("TourCostUpdateById", out affected);
             }
             catch (Exception ex)
             {

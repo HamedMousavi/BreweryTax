@@ -81,7 +81,9 @@ namespace DomainModel.Repository.Sql
                 this.query.Parameters.Add(new SqlParameter("@PaymentId", pay.Id));
                 this.query.Parameters.Add(new SqlParameter("@TourId", tour.Id));
 
-                res = this.query.ExecuteUpdateProc("TourPaymentUpdateById");
+
+                int affected;
+                res = this.query.ExecuteUpdateProc("TourPaymentUpdateById", out affected);
             }
             catch (Exception ex)
             {
@@ -152,7 +154,9 @@ namespace DomainModel.Repository.Sql
                 this.query.Parameters.Clear();
                 this.query.Parameters.Add(new SqlParameter("@PaymentId", pay.Id));
 
-                res = this.query.ExecuteUpdateProc("TourPaymentDeleteById");
+
+                int affected;
+                res = this.query.ExecuteUpdateProc("TourPaymentDeleteById", out affected);
             }
             catch (Exception ex)
             {
