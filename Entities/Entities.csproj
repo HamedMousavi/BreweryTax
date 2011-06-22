@@ -76,6 +76,10 @@
     <Compile Include="Money.cs" />
     <Compile Include="MoneyCurrency.cs" />
     <Compile Include="MoneyCurrencyCollection.cs" />
+    <Compile Include="TourCostRuleConstraintCollection.cs" />
+    <Compile Include="TourCostRuleConstraintProperty.cs" />
+    <Compile Include="TourCostRuleConstraintPropertyCollection.cs" />
+    <Compile Include="TourCostRuleConstraint.cs" />
     <Compile Include="TourReceipt.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="RoleCollection.cs" />
@@ -98,6 +102,7 @@
     <Compile Include="TourPayment.cs" />
     <Compile Include="TourPaymentCollection.cs" />
     <Compile Include="TourReceiptItem.cs" />
+    <Compile Include="TourReceiptItemCollection.cs" />
     <Compile Include="UpdaterSettings.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserCollection.cs" />

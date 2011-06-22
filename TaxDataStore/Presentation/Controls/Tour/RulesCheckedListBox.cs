@@ -25,6 +25,7 @@ namespace TaxDataStore.Presentation.Controls
             this.BorderStyle = BorderStyle.None;
             this.SelectionMode = System.Windows.Forms.SelectionMode.One;
             this.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.Font = Presentation.View.Theme.FormLabelFont;
 
             BindData();
 

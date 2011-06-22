@@ -9,9 +9,10 @@ namespace TaxDataStore.Presentation.Controls
         public TourCostRulesGridView()
         {
             this.hiddenColumnNames.Add("Id");
+            this.hiddenColumnNames.Add("IsPerPerson");
 
             this.ColumnHeadersVisible = false;
-            this.Font = new System.Drawing.Font("Tahoma", 9.25F, System.Drawing.FontStyle.Bold);
+            this.Font = Presentation.View.Theme.FormLabelFont;
         }
     }
 }

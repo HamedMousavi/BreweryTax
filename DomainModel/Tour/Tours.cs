@@ -1,6 +1,6 @@
-﻿using Entities;
-using System;
+﻿using System;
 using System.Transactions;
+using Entities;
 
 
 namespace DomainModel
@@ -90,7 +90,7 @@ namespace DomainModel
         }
 
 
-        private static bool SaveTour(Tour tour)
+        private static bool SaveTour(Entities.Tour tour)
         {
             bool res = false;
 
@@ -124,7 +124,7 @@ namespace DomainModel
         }
 
 
-        public static void Delete(Tour tour)
+        public static void Delete(Entities.Tour tour)
         {
             try
             {

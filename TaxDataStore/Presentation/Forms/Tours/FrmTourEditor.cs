@@ -9,6 +9,9 @@ namespace TaxDataStore
     public partial class FrmTourEditor : Form
     {
 
+        protected TourReceiptListView fgvTourReceipt;
+        protected Label lblReceiptTotal;
+
         protected EmployeesGridView dgvEmployees;
         protected TourPaymentsGridView dgvPayments;
         protected MembersGridView dgvMembers;
@@ -80,6 +83,17 @@ namespace TaxDataStore
 
             this.dgvCostDetails = new TourCostDetailsGridView(this.tour.CostDetails);
             this.gpxCostGroups.Controls.Add(this.dgvCostDetails);
+
+            this.lblReceiptTotal = new Label();
+            this.lblReceiptTotal.AutoSize = true;
+            this.lblReceiptTotal.Anchor = AnchorStyles.Right;
+            this.lblReceiptTotal.Font = new System.Drawing.Font("Tahoma", 16.25F, System.Drawing.FontStyle.Bold);
+            this.lblReceiptTotal.DataBindings.Add(new Binding("Text", this.tour.Receipt.Total, "FormattedValue"));
+
+            this.fgvTourReceipt = new TourReceiptListView();
+            this.fgvTourReceipt.SetDataSource(this.tour);
+            this.tlpReceipt.Controls.Add(this.fgvTourReceipt, 0, 1);
+            this.tlpReceipt.Controls.Add(this.lblReceiptTotal, 0, 2);
 
             SetupControlImages();
             SetupControlTexts();

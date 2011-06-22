@@ -20,6 +20,7 @@ namespace TaxDataStore.Presentation.Controls
             this.ColumnHeadersVisible = false;
 
             this.DataSource = DomainModel.TourBasePrices.GetAll();
+            this.Font = Presentation.View.Theme.FormLabelFont;
         }
     }
 }

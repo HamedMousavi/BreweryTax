@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 
 
 namespace Entities
@@ -64,6 +65,7 @@ namespace Entities
             }
         }
 
+        [BrowsableAttribute(false)]
         public Int32 Id
         {
             get
@@ -91,15 +93,22 @@ namespace Entities
             }
         }
 
-        
+
+        [BrowsableAttribute(false)]
         public Int32 Index { get; set; }
+        
+        [BrowsableAttribute(false)]
         public Int32 ParentIndex { get; set; }
+
+        [BrowsableAttribute(false)]
         public bool IsCustom { get; set; }
 
 
         public TourReceiptItem()
         {
             this.pricePerPerson = new Money(0, null);
+            this.id = -1;
+            this.IsCustom = false;
         }
 
 

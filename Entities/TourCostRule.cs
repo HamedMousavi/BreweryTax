@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel;
+using Entities.Abstract;
 
 
 namespace Entities
@@ -12,6 +14,7 @@ namespace Entities
         protected string name;
         protected TourCostFormula formula;
         protected Int32 id;
+        protected TourCostRuleConstraintCollection constraints;
 
         #endregion Fields
 
@@ -52,6 +55,7 @@ namespace Entities
             }
         }
 
+        [BrowsableAttribute(false)]
         public Int32 Id
         {
             get
@@ -69,11 +73,33 @@ namespace Entities
             }
         }
 
+        [BrowsableAttribute(false)]
+        public TourCostRuleConstraintCollection Constraints
+        {
+            get
+            {
+                return this.constraints;
+            }
+
+            set
+            {
+                if (this.constraints != value)
+                {
+                    this.constraints = value;
+                    RaisePropertyChanged("Constraints");
+                }
+            }
+        }
+
+
         #endregion Properties
 
 
         public TourCostRule()
         {
+            this.constraints = new TourCostRuleConstraintCollection();
+
+            this.IsPerPerson = true;
             this.id = -1;
             this.formula = new TourCostFormula();
         }
@@ -83,8 +109,45 @@ namespace Entities
         {
             rule.Id = this.Id;
             rule.Name = this.Name;
+            rule.IsPerPerson = this.IsPerPerson;
 
+            this.constraints.CopyTo(rule.Constraints);
             this.Formula.CopyTo(rule.Formula);
+        }
+
+
+        public bool IsPerPerson 
+        { 
+            get; 
+            set; 
+        }
+
+
+        public Money GetTotal(Money tourBasePPS)
+        {
+            // UNDONE: Currency coversion is ignored
+
+            decimal total;
+
+            if (this.formula.ValueOperation == TourCostFormula.ValueOperations.Percent)
+            {
+                total = tourBasePPS.Value * (this.formula.Value / 100.00M);
+            }
+            else
+            {
+                total = this.formula.Value;
+            }
+
+            switch (this.formula.PriceOperation)
+            {
+                case TourCostFormula.PriceOperations.Add:
+                    return new Money(total, tourBasePPS.Currency);
+
+                case TourCostFormula.PriceOperations.Subtract:
+                    return new Money(-total, tourBasePPS.Currency);
+            }
+
+            return null;
         }
     }
 }

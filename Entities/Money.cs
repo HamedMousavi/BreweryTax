@@ -21,6 +21,7 @@ namespace Entities
                 {
                     this.value = value;
                     RaisePropertyChanged("Value");
+                    RaisePropertyChanged("FormattedValue");
                 }
             }
         }
@@ -38,6 +39,15 @@ namespace Entities
         }
 
 
+        public string FormattedValue
+        {
+            get
+            {
+                return ToString();
+            }
+        }
+
+
         public Money(decimal value, MoneyCurrency currency)
         {
             this.value = value;
@@ -49,7 +59,7 @@ namespace Entities
         {
             if (this.currency == null)
             {
-                return string.Format("{0}", this.value);
+                return string.Format("{0:0.00}", this.value);
             }
             else
             {

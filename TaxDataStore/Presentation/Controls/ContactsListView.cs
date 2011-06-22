@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using BrightIdeasSoftware;
-using System.Windows.Forms;
-using System.ComponentModel;
 
 
 namespace TaxDataStore.Presentation.Controls

@@ -8,11 +8,12 @@ namespace Entities
     public class TourReceipt : EntityBase
     {
 
-        protected BindingList<TourReceiptItem> items;
-        protected TourReceiptItem total;
+        protected TourReceiptItemCollection items;
+        protected TourReceiptItemCollection deletedItems;
+        protected Money total;
 
 
-        public TourReceiptItem Total 
+        public Money Total 
         {
             get
             {
@@ -28,7 +29,7 @@ namespace Entities
             }
         }
 
-        public BindingList<TourReceiptItem> Items 
+        public TourReceiptItemCollection Items 
         {
             get
             {
@@ -47,8 +48,9 @@ namespace Entities
 
         public TourReceipt()
         {
-            this.total = new TourReceiptItem();
-            this.items = new BindingList<TourReceiptItem>();
+            this.total = new Money(00.00M, null);
+            this.items = new TourReceiptItemCollection();
+            this.deletedItems = new TourReceiptItemCollection();
         }
 
 
@@ -64,6 +66,27 @@ namespace Entities
 
                 tourReceipt.Items.Add(newitem);
             }
+        }
+
+
+        public bool Delete(TourReceiptItem item)
+        {
+            bool res = true;
+
+            if (this.items.Contains(item))
+            {
+                res = this.items.Remove(item);
+            }
+            else
+            {
+            }
+
+            if (res && !this.deletedItems.Contains(item) && item.Id > 0)
+            {
+                this.deletedItems.Add(item);
+            }
+
+            return res;
         }
     }
 }

@@ -58,6 +58,7 @@
     <Compile Include="ApplicationStatus.cs" />
     <Compile Include="ApplicationUpdater.cs" />
     <Compile Include="Categories.cs" />
+    <Compile Include="Tour\PaymentStrategies\PaymentCriteria.cs" />
     <Compile Include="Types\ContactMediaTypes.cs" />
     <Compile Include="Cultures.cs" />
     <Compile Include="Currencies.cs" />

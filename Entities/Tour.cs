@@ -224,6 +224,17 @@ namespace Entities
         public TourMemberCollection DeletedMembers { get; set; }
         public TourPaymentCollection DeletedPayments { get; set; }
 
+        // If a tour is confirmed, real participant count 
+        // will be used to calculate receipt
+        [BrowsableAttribute(false)]
+        public bool IsConfirmed 
+        {
+            get
+            {
+                return this.Status.Id >= 15;
+            }
+        }
+
         #endregion Properties
 
 
@@ -247,6 +258,21 @@ namespace Entities
             this.tourType = new GeneralType();
             this.signUpType = new GeneralType();
             this.id = -1;
+
+            this.CostDetails.ListChanged += new ListChangedEventHandler(CostDetails_ListChanged);
+            this.Payments.ListChanged += new ListChangedEventHandler(Payments_ListChanged);
+        }
+
+
+        void Payments_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            RaisePropertyChanged("Payments");
+        }
+
+
+        void CostDetails_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            RaisePropertyChanged("CostDetails");
         }
 
 
