@@ -5,7 +5,7 @@ using System;
 namespace TaxDataStore
 {
 
-    public partial class FrmPasswordEditor : Form
+    public partial class FrmPasswordEditor : BaseForm
     {
 
         private Entities.User user;

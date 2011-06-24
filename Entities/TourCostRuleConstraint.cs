@@ -7,9 +7,10 @@ namespace Entities
     public class TourCostRuleConstraint : EntityBase
     {
 
-        public Int32 id;
-        public string name;
-        public TourCostRuleConstraintPropertyCollection properties;
+        protected Int32 id;
+        protected string name;
+        protected GeneralType constraintType;
+        protected TourCostRuleConstraintPropertyCollection properties;
 
 
         public Int32 Id
@@ -43,6 +44,24 @@ namespace Entities
                 {
                     this.name = value;
                     RaisePropertyChanged("Name");
+                }
+            }
+        }
+
+
+        public GeneralType ConstraintType
+        {
+            get
+            {
+                return this.constraintType;
+            }
+
+            set
+            {
+                if (this.constraintType != value)
+                {
+                    this.constraintType = value;
+                    RaisePropertyChanged("ConstraintType");
                 }
             }
         }

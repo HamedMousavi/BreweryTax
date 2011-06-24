@@ -7,7 +7,7 @@ using TaxDataStore.Presentation.Controls;
 namespace TaxDataStore
 {
 
-    public partial class FrmLogin : Form
+    public partial class FrmLogin : BaseForm
     {
         private FormLabel lblUserName;
         private FormLabel lblPassword;

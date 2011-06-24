@@ -5,7 +5,7 @@ using Entities;
 namespace TaxDataStore
 {
 
-    public partial class FrmRoleEditor : Form
+    public partial class FrmRoleEditor : BaseForm
     {
 
         protected Role role;

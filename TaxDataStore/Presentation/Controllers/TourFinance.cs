@@ -64,5 +64,13 @@ namespace TaxDataStore.Presentation.Controllers
             DomainModel.TourCostGroups.Delete(group);
         }
 
+
+        internal static void AddConstraint(TourCostRule rule)
+        {
+            using (FrmRuleConstraintEditor frm = new FrmRuleConstraintEditor(rule))
+            {
+                frm.ShowDialog();
+            }
+        }
     }
 }

@@ -6,7 +6,7 @@ using TaxDataStore.Presentation.Controls;
 namespace TaxDataStore
 {
 
-    public partial class FrmUserEditor : Form
+    public partial class FrmUserEditor : BaseForm
     {
         private FormLabel lblName;
         private FormLabel lblLanguage;

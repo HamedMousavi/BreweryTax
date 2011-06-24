@@ -6,7 +6,7 @@ using Entities;
 namespace TaxDataStore
 {
 
-    public partial class FrmTourPaymentEditor : Form
+    public partial class FrmTourPaymentEditor : BaseForm
     {
 
         protected TourPayment payment;

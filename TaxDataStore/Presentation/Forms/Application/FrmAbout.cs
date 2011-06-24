@@ -5,7 +5,7 @@ using System.Windows.Forms;
 namespace TaxDataStore
 {
 
-    public partial class FrmAbout : Form
+    public partial class FrmAbout : BaseForm
     {
 
         Timer tmrUpdateState;

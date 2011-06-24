@@ -6,7 +6,7 @@ using System;
 namespace TaxDataStore
 {
 
-    public partial class FrmDailyTours : Form
+    public partial class FrmDailyTours : BaseForm
     {
         protected ToursGridView fgvTours;
         protected FlatGridView fgvEmployees;

@@ -128,9 +128,14 @@ namespace DomainModel
         {
             try
             {
-                if (toursRepo.Delete(tour))
+                using (TransactionScope ts = new TransactionScope())
                 {
-                    if (cache.Contains(tour)) cache.Remove(tour);
+                    if (toursRepo.Delete(tour))
+                    {
+                        ts.Complete();
+
+                        if (cache.Contains(tour)) cache.Remove(tour);
+                    }
                 }
             }
             catch (Exception ex)

@@ -5,7 +5,7 @@ using System.Windows.Forms;
 namespace TaxDataStore
 {
 
-    public partial class FrmTourCostGroupEditor : Form
+    public partial class FrmTourCostGroupEditor : BaseForm
     {
 
         protected Entities.TourCostGroup group;

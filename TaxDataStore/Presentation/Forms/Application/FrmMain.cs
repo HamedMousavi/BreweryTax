@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace TaxDataStore
 {
 
-    public partial class FrmMain : Form
+    public partial class FrmMain : BaseForm
     {
 
         public Presentation.SccreenManager ScreenManager { get; private set; }

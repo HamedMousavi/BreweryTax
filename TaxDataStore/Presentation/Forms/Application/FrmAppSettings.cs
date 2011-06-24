@@ -5,7 +5,7 @@ using TaxDataStore.Presentation.Controls;
 namespace TaxDataStore
 {
 
-    public partial class FrmAppSettings : Form
+    public partial class FrmAppSettings : BaseForm
     {
         protected Presentation.Controls.Settings.Database ctrlDatabase;
         protected Presentation.Controls.Settings.Updates ctrlUpdates;

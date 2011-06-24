@@ -5,7 +5,7 @@ using System.Reflection;
 namespace TaxDataStore
 {
 
-    public partial class FrmSplashScreen : Form
+    public partial class FrmSplashScreen : BaseForm
     {
 
         public FrmSplashScreen()

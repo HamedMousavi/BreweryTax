@@ -6,7 +6,7 @@ using TaxDataStore.Presentation.Controls;
 namespace TaxDataStore
 {
 
-    public partial class FrmTourPriceEditor : Form
+    public partial class FrmTourPriceEditor : BaseForm
     {
 
         protected MoneyPicker mpkBasePrice;

@@ -6,7 +6,7 @@ using TaxDataStore.Presentation.Controls;
 namespace TaxDataStore
 {
 
-    public partial class FrmTourEditor : Form
+    public partial class FrmTourEditor : BaseForm
     {
 
         protected TourReceiptListView fgvTourReceipt;

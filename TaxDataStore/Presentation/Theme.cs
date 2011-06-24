@@ -4,21 +4,23 @@ namespace TaxDataStore.Presentation
 {
     public class Theme
     {
-        public Color ToolBarBackColor   { get; set; }  
-        public Color ToolBarForeColor  { get; set; }  
+        public Color ToolBarBackColor { get; set; }
+        public Color ToolBarForeColor { get; set; }
         public Font ToolBarFont { get; set; }
-                                           
-        public Color GroupPanelBackColor   { get; set; }
-                                           
-        public Color FlatButtonBackColor   { get; set; }  
-        public Color FlatButtonBorderColor { get; set; }  
-        public Color FlatButtonForeColor   { get; set; }  
-                                           
-        public Font  GroupPanelTitleFont      { get; set; }  
-        public Color GroupPanelTitleColor     { get; set; }  
-                                           
-        public Font  FormLabelFont      { get; set; }  
-        public Color FormLabelColor     { get; set; }  
+
+        public Color GroupPanelBackColor { get; set; }
+
+        public Color FlatButtonBackColor { get; set; }
+        public Color FlatButtonBorderColor { get; set; }
+        public Color FlatButtonForeColor { get; set; }
+
+        public Font GroupPanelTitleFont { get; set; }
+        public Color GroupPanelTitleColor { get; set; }
+
+        public Font FormLabelFont { get; set; }
+        public Font FormFont { get; set; }
+        public Color FormLabelColor { get; set; }
+        public Color FormBackColor { get; set; }
 
 
         public Theme()
@@ -39,7 +41,9 @@ namespace TaxDataStore.Presentation
             this.ToolBarFont = new System.Drawing.Font("Tahoma", 8.25F, FontStyle.Regular);
 
             this.FormLabelFont = new System.Drawing.Font("Tahoma", 8.25F, FontStyle.Bold);
+            this.FormFont = new System.Drawing.Font("Tahoma", 9.25F, FontStyle.Regular);
             this.FormLabelColor = Color.Black;
+            this.FormBackColor = Color.White;
         }
 
     }

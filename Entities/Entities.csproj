@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\ICrypt.cs" />
+    <Compile Include="Abstract\ITourConstraintMapper.cs" />
     <Compile Include="Abstract\ITourPaymentStrategy.cs" />
     <Compile Include="Abstract\Repository\IRole.cs" />
     <Compile Include="Abstract\Repository\ITask.cs" />
@@ -63,6 +64,8 @@
     <Compile Include="CategoryClassCollection.cs" />
     <Compile Include="CategorySubCollection.cs" />
     <Compile Include="CategorySub.cs" />
+    <Compile Include="ConstraintTourDate.cs" />
+    <Compile Include="ConstraintTourTime.cs" />
     <Compile Include="Contact.cs" />
     <Compile Include="ContactCollection.cs" />
     <Compile Include="Culture.cs" />
@@ -73,9 +76,11 @@
     <Compile Include="EntityBase.cs" />
     <Compile Include="GeneralType.cs" />
     <Compile Include="GeneralTypeCollection.cs" />
+    <Compile Include="TourConstraintDateItem.cs" />
     <Compile Include="Money.cs" />
     <Compile Include="MoneyCurrency.cs" />
     <Compile Include="MoneyCurrencyCollection.cs" />
+    <Compile Include="TourConstraintTimeItem.cs" />
     <Compile Include="TourCostRuleConstraintCollection.cs" />
     <Compile Include="TourCostRuleConstraintProperty.cs" />
     <Compile Include="TourCostRuleConstraintPropertyCollection.cs" />

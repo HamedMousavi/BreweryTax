@@ -78,18 +78,17 @@ namespace DomainModel
 
             Currencies.Init(settings.SqlConnectionString);
             Types.Init(settings.SqlConnectionString);
+            Categories.Init(settings.SqlConnectionString);
             Employees.Init(settings.SqlConnectionString);
+
             Tours.Init(settings.SqlConnectionString);
             TourCostRules.Init(settings.SqlConnectionString);
             TourCostGroups.Init(settings.SqlConnectionString);
-            Categories.Init(settings.SqlConnectionString);
-
-            Tours.Init(settings.SqlConnectionString);
-            TourEmployees.Init(settings.SqlConnectionString);
             TourCosts.Init(settings.SqlConnectionString);
             TourPayments.Init(settings.SqlConnectionString);
             TourMembers.Init(settings.SqlConnectionString);
-           
+            TourEmployees.Init(settings.SqlConnectionString);
+
             SignUpTypes.Init(settings.SqlConnectionString, culture);
             PersonTitleTypes.Init(settings.SqlConnectionString, culture);
             ContactMediaTypes.Init(settings.SqlConnectionString, culture);
@@ -97,6 +96,7 @@ namespace DomainModel
             PaymentTypes.Init(settings.SqlConnectionString, culture);
             TourMembershipTypes.Init(settings.SqlConnectionString, culture);
             TourStates.Init(settings.SqlConnectionString, culture);
+            TourCostConstraintTypes.Init(settings.SqlConnectionString, culture);
 
             TourBasePrices.Init(settings.SqlConnectionString);
         }

@@ -5,7 +5,7 @@ using System.Windows.Forms;
 namespace TaxDataStore
 {
 
-    public partial class FrmUserSettings : Form
+    public partial class FrmUserSettings : BaseForm
     {
 
         protected Entities.User user;

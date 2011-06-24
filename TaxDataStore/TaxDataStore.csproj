@@ -62,6 +62,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presentation\Controls\FlexibleDateSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\FlexibleDateSelector.Designer.cs">
+      <DependentUpon>FlexibleDateSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Controls\FlexibleTimeSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\FlexibleTimeSelector.Designer.cs">
+      <DependentUpon>FlexibleTimeSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Controls\RuleConstraintBaseUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\Tour\RuleConstraintTourDate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\Tour\RuleConstraintTourDate.Designer.cs">
+      <DependentUpon>RuleConstraintTourDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Controls\Tour\RuleConstraintTourTime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\Tour\RuleConstraintTourTime.Designer.cs">
+      <DependentUpon>RuleConstraintTourTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Controls\Tour\RuleConstraintTypeSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\Tour\RuleConstraintTypeSelector.Designer.cs">
+      <DependentUpon>RuleConstraintTypeSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Forms\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\Tours\FrmRuleConstraintEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\Tours\FrmRuleConstraintEditor.Designer.cs">
+      <DependentUpon>FrmRuleConstraintEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\Controls\ButtonBase.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -342,6 +384,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Presentation\Controls\FlexibleDateSelector.resx">
+      <DependentUpon>FlexibleDateSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Controls\FlexibleTimeSelector.resx">
+      <DependentUpon>FlexibleTimeSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Controls\Tour\RuleConstraintTourDate.resx">
+      <DependentUpon>RuleConstraintTourDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Controls\Tour\RuleConstraintTourTime.resx">
+      <DependentUpon>RuleConstraintTourTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Controls\Tour\RuleConstraintTypeSelector.resx">
+      <DependentUpon>RuleConstraintTypeSelector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Forms\Membership\FrmPasswordEditor.resx">
       <DependentUpon>FrmPasswordEditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -362,6 +419,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Forms\Application\FrmSplashScreen.resx">
       <DependentUpon>FrmSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Forms\Tours\FrmRuleConstraintEditor.resx">
+      <DependentUpon>FrmRuleConstraintEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Forms\Tours\FrmRuleEditor.resx">
       <DependentUpon>FrmRuleEditor.cs</DependentUpon>
@@ -520,7 +580,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" BuildVersion_BuildVersioningStyle="Increment.YearStamp.MonthAndDayStamp.TimeStamp" BuildVersion_ConfigurationName="Release" />
+      <UserProperties BuildVersion_ConfigurationName="Release" BuildVersion_BuildVersioningStyle="Increment.YearStamp.MonthAndDayStamp.TimeStamp" BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

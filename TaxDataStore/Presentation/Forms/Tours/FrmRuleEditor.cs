@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Windows.Forms;
 using TaxDataStore.Presentation.Controls;
+using System.Drawing;
 
 
 namespace TaxDataStore
 {
 
-    public partial class FrmRuleEditor : Form
+    public partial class FrmRuleEditor : BaseForm
     {
 
         protected readonly string[] opImageNames = new string[] { "plus", "minus" };
@@ -18,11 +19,17 @@ namespace TaxDataStore
         protected Entities.TourCostRule editRule;
 
 
+        protected FlatGridView fgvConstraints;
+
+
         public FrmRuleEditor()
         {
-            InitializeComponent();
-
             this.rule = new Entities.TourCostRule();
+
+            this.lblRuleName = new FormLabel("lbl_rule_name");
+            this.lblFormula = new FormLabel("lbl_formula");
+            
+            InitializeComponent();
 
             SetupControls();
             BindControlsData();
@@ -47,6 +54,11 @@ namespace TaxDataStore
 
         private void SetupControls()
         {
+
+            this.tlpMain.Controls.Add(this.lblRuleName, 0, 0);
+            this.tlpMain.Controls.Add(this.lblFormula, 0, 1);
+            this.BackColor = Color.White;
+
             this.cbxPriceOperation = new TourFormulaOperationComboBox();
             this.cbxPriceOperation.Anchor = AnchorStyles.Top | 
                 AnchorStyles.Left | AnchorStyles.Right;
@@ -57,8 +69,24 @@ namespace TaxDataStore
             this.cbxPriceOperation.TabIndex = 3;
             this.tlpFormula.Controls.Add(this.cbxPriceOperation, 0, 0);
 
-            
+            this.btnConstraintsAdd.Image = DomainModel.Application.ResourceManager.GetImage("add");
+            this.btnConstraintsDelete.Image = DomainModel.Application.ResourceManager.GetImage("delete");
+            this.btnConstraintsEdit.Image = DomainModel.Application.ResourceManager.GetImage("pencil");
+
+            this.btnConstraintsAdd.Click += new EventHandler(btnConstraintsAdd_Click);
+
+            this.fgvConstraints = new FlatGridView();
+            this.tlpConstraints.Controls.Add(this.fgvConstraints, 0, 1);
+            this.fgvConstraints.SetDataSource(this.rule.Constraints);
+            //this.fgvConstraints.DataMember = "Constraints";
+
             SetupTexts();
+        }
+
+
+        void btnConstraintsAdd_Click(object sender, EventArgs e)
+        {
+            Presentation.Controllers.TourFinance.AddConstraint(this.rule);
         }
 
 

@@ -7,7 +7,7 @@ using TaxDataStore.Presentation.Controls;
 namespace TaxDataStore
 {
 
-    public partial class FrmTourMemberEditor : Form
+    public partial class FrmTourMemberEditor : BaseForm
     {
 
         protected ContactsGridView dgvContacts;

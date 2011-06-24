@@ -7,9 +7,9 @@ namespace Entities
     public class TourCostRuleConstraintProperty : EntityBase
     {
 
-        public Int32 id;
-        public Int32 typeId;
-        public object value;
+        protected Int32 id;
+        protected Int32 typeId;
+        protected object value;
 
 
         public Int32 Id

@@ -2,7 +2,7 @@
 
 namespace TaxDataStore
 {
-    public partial class FrmStaffTimeRecorder : Form
+    public partial class FrmStaffTimeRecorder : BaseForm
     {
         public FrmStaffTimeRecorder()
         {

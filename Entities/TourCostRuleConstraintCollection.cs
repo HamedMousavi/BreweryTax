@@ -6,9 +6,14 @@ namespace Entities
 
     public class TourCostRuleConstraintCollection : BindingList<TourCostRuleConstraint>
     {
-        internal void CopyTo(TourCostRuleConstraintCollection tourCostRuleConstraintCollection)
+        internal void CopyTo(TourCostRuleConstraintCollection constraints)
         {
-            throw new System.NotImplementedException();
+            constraints.Clear();
+
+            foreach(TourCostRuleConstraint constraint in this)
+            {
+                constraints.Add(constraint);
+            }
         }
     }
 }
