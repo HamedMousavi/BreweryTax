@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 
 namespace TaxDataStore.Presentation.Controls
@@ -12,6 +13,9 @@ namespace TaxDataStore.Presentation.Controls
 
         public FlexibleTimeSelector()
         {
+            this.lblHour = new FormLabel("");
+            this.lblMinute = new FormLabel("");
+
             InitializeComponent();
 
             for (int i = 1; i < 25; i++)
@@ -25,27 +29,81 @@ namespace TaxDataStore.Presentation.Controls
             }
 
             this.Time = new Entities.TourConstraintTimeItem();
+
+            this.cbxHour.TextChanged += new EventHandler(cbxHour_TextChanged);
+            this.cbxMinute.TextChanged += new EventHandler(cbxMinute_TextChanged);
         }
 
 
-        private void cbxHour_SelectedIndexChanged(object sender, System.EventArgs e)
+        private void cbxHour_TextChanged(object sender, System.EventArgs e)
         {
-            int index = ((ComboBox)sender).SelectedIndex;
-            this.Time.Hour = index - 1;
+            this.Time.Hour = GetValue((ComboBox)sender);
         }
 
 
-        private void cbxMinute_SelectedIndexChanged(object sender, System.EventArgs e)
+        private void cbxMinute_TextChanged(object sender, System.EventArgs e)
         {
-            int index = ((ComboBox)sender).SelectedIndex;
-            this.Time.Minute = index - 1;
+            this.Time.Minute = GetValue((ComboBox)sender);
         }
 
 
         internal void UpdateControlData()
         {
-            this.cbxHour.SelectedIndex = this.Time.Hour;
-            this.cbxMinute.SelectedIndex = this.Time.Minute;
+            SetValue(this.cbxHour, this.Time.Hour);
+            SetValue(this.cbxMinute, this.Time.Minute);
+        }
+
+
+        private void SetValue(ComboBox comboBox, int value)
+        {
+            try
+            {
+                if (value == -1)
+                {
+                    comboBox.SelectedIndex = 0;
+                }
+                else
+                {
+                    int index = comboBox.FindString(value.ToString());
+                    if (index >= 0)
+                    {
+                        comboBox.SelectedIndex = index;
+                    }
+                    else
+                    {
+                        comboBox.Text = value.ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                comboBox.Text = string.Empty;
+            }
+        }
+
+
+        private int GetValue(ComboBox comboBox)
+        {
+            Int32 value;
+            try
+            {
+                int index = comboBox.FindString(comboBox.Text);
+
+                if (index == 0)
+                {
+                    value = -1;
+                }
+                else
+                {
+                    value = Convert.ToInt32(comboBox.Text);
+                }
+            }
+            catch (Exception ex)
+            {
+                value = -2;
+            }
+
+            return value;
         }
     }
 }

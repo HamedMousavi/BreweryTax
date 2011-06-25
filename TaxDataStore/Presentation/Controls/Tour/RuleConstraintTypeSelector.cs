@@ -8,12 +8,11 @@ namespace TaxDataStore.Presentation.Controls
     public partial class RuleConstraintTypeSelector : RuleConstraintBaseUserControl
     {
 
-        public GeneralType SelectedType { get; set; }
-
-
         public RuleConstraintTypeSelector(Entities.TourCostRuleConstraint constraint)
             : base(constraint)
         {
+            this.label1 = new FormLabel("");
+
             InitializeComponent();
 
             this.Dock = DockStyle.Fill;
@@ -23,12 +22,16 @@ namespace TaxDataStore.Presentation.Controls
 
             this.cbxConstraintTypes.DataSource = DomainModel.TourCostConstraintTypes.GetAll();
         }
-
+        
 
         void cbxConstraintTypes_SelectedIndexChanged(object sender, System.EventArgs e)
         {
             int index = this.cbxConstraintTypes.SelectedIndex;
-            this.SelectedType = DomainModel.TourCostConstraintTypes.GetAll()[index];
+            if (index >= 0 && index < DomainModel.TourCostConstraintTypes.GetAll().Count)
+            {
+                this.constraint.ConstraintType = 
+                    DomainModel.TourCostConstraintTypes.GetAll()[index];
+            }
         }
 
 

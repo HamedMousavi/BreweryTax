@@ -72,5 +72,13 @@ namespace TaxDataStore.Presentation.Controllers
                 frm.ShowDialog();
             }
         }
+
+        internal static void EditConstraint(TourCostRule rule, TourCostRuleConstraint con)
+        {
+            using (FrmRuleConstraintEditor frm = new FrmRuleConstraintEditor(rule, con))
+            {
+                frm.ShowDialog();
+            }
+        }
     }
 }

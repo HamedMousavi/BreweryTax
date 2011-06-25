@@ -60,10 +60,13 @@
     <Compile Include="Categories.cs" />
     <Compile Include="Repository\Sql\TourCostRuleConstraintProperties.cs" />
     <Compile Include="Repository\Sql\TourCostRuleConstraints.cs" />
+    <Compile Include="Tour\Payment\RuleValidators\TourDateValidator.cs" />
+    <Compile Include="Tour\Payment\RuleValidators\TourTimeValidator.cs" />
+    <Compile Include="Tour\TourRuleConstraints.cs" />
     <Compile Include="Tour\Payment\TourDateConstraintMapper.cs" />
     <Compile Include="Tour\Payment\TourTimeConstraintMapper.cs" />
     <Compile Include="Types\TourCostConstraintTypes.cs" />
-    <Compile Include="Tour\Payment\PaymentCriteria.cs" />
+    <Compile Include="Tour\Payment\PaymentRuleValidator.cs" />
     <Compile Include="Types\ContactMediaTypes.cs" />
     <Compile Include="Cultures.cs" />
     <Compile Include="Currencies.cs" />

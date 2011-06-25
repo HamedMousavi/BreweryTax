@@ -74,13 +74,51 @@ namespace TaxDataStore
             this.btnConstraintsEdit.Image = DomainModel.Application.ResourceManager.GetImage("pencil");
 
             this.btnConstraintsAdd.Click += new EventHandler(btnConstraintsAdd_Click);
+            this.btnConstraintsEdit.Click += new EventHandler(btnConstraintsEdit_Click);
+            this.btnConstraintsDelete.Click += new EventHandler(btnConstraintsDelete_Click);
 
             this.fgvConstraints = new FlatGridView();
             this.tlpConstraints.Controls.Add(this.fgvConstraints, 0, 1);
             this.fgvConstraints.SetDataSource(this.rule.Constraints);
-            //this.fgvConstraints.DataMember = "Constraints";
+            this.fgvConstraints.HiddenColumnNames.Add("ConstraintType");
+            this.fgvConstraints.HiddenColumnNames.Add("Properties");
+            this.fgvConstraints.ColumnHeadersVisible = false;
 
             SetupTexts();
+        }
+
+
+        void btnConstraintsDelete_Click(object sender, EventArgs e)
+        {
+            Entities.TourCostRuleConstraint con =
+                (Entities.TourCostRuleConstraint)
+                    this.fgvConstraints.SelectedItem;
+
+            if (con != null)
+            {
+                if (con.Id < 0)
+                {
+                    this.rule.Constraints.Remove(con);
+                }
+                else
+                {
+                    // undone:
+                    // Add to delete list first
+                }
+            }
+        }
+
+
+        void btnConstraintsEdit_Click(object sender, EventArgs e)
+        {
+            Entities.TourCostRuleConstraint con = 
+                (Entities.TourCostRuleConstraint)
+                    this.fgvConstraints.SelectedItem;
+
+            if (con != null)
+            {
+                Presentation.Controllers.TourFinance.EditConstraint(this.rule, con);
+            }
         }
 
 

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
             this.cbxConstraintTypes = new System.Windows.Forms.ComboBox();
             this.tlpMain.SuspendLayout();
             this.SuspendLayout();
@@ -86,7 +85,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
-        private System.Windows.Forms.Label label1;
+        private FormLabel label1;
         private System.Windows.Forms.ComboBox cbxConstraintTypes;
     }
 }

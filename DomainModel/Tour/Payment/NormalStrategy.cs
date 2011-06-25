@@ -1,7 +1,7 @@
-﻿using Entities.Abstract;
-using Entities;
+﻿using System;
 using System.ComponentModel;
-using System;
+using Entities;
+using Entities.Abstract;
 
 
 namespace DomainModel.PaymentStrategies
@@ -9,12 +9,15 @@ namespace DomainModel.PaymentStrategies
 
     public class NormalStrategy : ITourPaymentStrategy
     {
-        TourCollection tours;
+
+        private TourCollection tours;
+        private PaymentRuleValidator ruleValidator;
 
 
         public NormalStrategy()
         {
             this.tours = new TourCollection();
+            this.ruleValidator = new PaymentRuleValidator();
         }
 
 
@@ -84,7 +87,7 @@ namespace DomainModel.PaymentStrategies
                     
                     foreach(TourCostRule rule in detail.CostGroup.Rules)
                     {
-                        if (PaymentCriteria.Matches(rule, tour))
+                        if (this.ruleValidator.Matches(rule, tour))
                         {
                             item = new TourReceiptItem();
 
@@ -140,7 +143,8 @@ namespace DomainModel.PaymentStrategies
             if (string.Equals(e.PropertyName, "TourType", System.StringComparison.InvariantCulture) ||
                 string.Equals(e.PropertyName, "CostDetails", System.StringComparison.InvariantCulture) ||
                 string.Equals(e.PropertyName, "Status", System.StringComparison.InvariantCulture) ||
-                string.Equals(e.PropertyName, "Payments", System.StringComparison.InvariantCulture))
+                string.Equals(e.PropertyName, "Payments", System.StringComparison.InvariantCulture) ||
+                string.Equals(e.PropertyName, "Time", System.StringComparison.InvariantCulture))
             {
                 UpdateReceipt((Entities.Tour)sender);
             }

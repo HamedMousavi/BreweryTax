@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using Entities;
 
 
@@ -13,37 +14,92 @@ namespace TaxDataStore.Presentation.Controls
 
         public ConstraintDateSelector()
         {
+            this.lblYear = new FormLabel("");
+            this.lblMonth = new FormLabel("");
+            this.Daylbl = new FormLabel("");
+
             InitializeComponent();
             this.Date = new TourConstraintDateItem();
+
+            this.cbxYear.TextChanged += new EventHandler(cbxYear_TextChanged);
+            this.cbxMonths.TextChanged += new EventHandler(cbxMonths_TextChanged);
+            this.cbxDay.TextChanged += new EventHandler(cbxDay_TextChanged);
         }
 
-
-        private void cbxYear_SelectedIndexChanged(object sender, System.EventArgs e)
+        void cbxYear_TextChanged(object sender, EventArgs e)
         {
-            int index = ((ComboBox) sender).SelectedIndex;
-            this.Date.Year = index - 1;
+            this.Date.Year = GetValue((ComboBox)sender);
         }
 
-
-        private void cbxMonths_SelectedIndexChanged(object sender, System.EventArgs e)
+        void cbxMonths_TextChanged(object sender, EventArgs e)
         {
-            int index = ((ComboBox)sender).SelectedIndex;
-            this.Date.Month = index - 1;
+            this.Date.Month = GetValue((ComboBox)sender);
         }
 
-
-        private void cbxDay_SelectedIndexChanged(object sender, System.EventArgs e)
+        void cbxDay_TextChanged(object sender, EventArgs e)
         {
-            int index = ((ComboBox)sender).SelectedIndex;
-            this.Date.Day = index - 1;
+            this.Date.Day = GetValue((ComboBox)sender);
         }
 
 
         internal void UpdateControlData()
         {
-            this.cbxDay.SelectedIndex = this.Date.Day;
-            this.cbxMonths.SelectedIndex = this.Date.Month;
-            this.cbxYear.SelectedIndex = this.Date.Year;
+            SetValue(this.cbxDay, this.Date.Day);
+            SetValue(this.cbxMonths, this.Date.Month);
+            SetValue(this.cbxYear, this.Date.Year);
+        }
+
+
+        private void SetValue(ComboBox comboBox, int value)
+        {
+            try
+            {
+                if (value == -1)
+                {
+                    comboBox.SelectedIndex = 0;
+                }
+                else
+                {
+                    int index = comboBox.FindString(value.ToString());
+                    if (index >= 0)
+                    {
+                        comboBox.SelectedIndex = index;
+                    }
+                    else
+                    {
+                        comboBox.Text = value.ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                comboBox.Text = string.Empty;
+            }
+        }
+
+
+        private int GetValue(ComboBox comboBox)
+        {
+            Int32 value;
+            try
+            {
+                int index = comboBox.FindString(comboBox.Text);
+
+                if (index == 0)
+                {
+                    value = -1;
+                }
+                else
+                {
+                    value = Convert.ToInt32(comboBox.Text);
+                }
+            }
+            catch (Exception ex)
+            {
+                value = -2;
+            }
+
+            return value;
         }
     }
 }

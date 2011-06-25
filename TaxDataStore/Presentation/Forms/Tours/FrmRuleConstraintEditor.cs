@@ -48,6 +48,26 @@ namespace TaxDataStore
         {
             this.editConstraint = constraintToEdit;
             this.editConstraint.CopyTo(this.constraint);
+            PrepareForEdit();
+        }
+
+
+        private void PrepareForEdit()
+        {
+            RuleConstraintBaseUserControl control = 
+                GetSelectedUserControl(this.constraint.ConstraintType.Id);
+
+            if (control != null)
+            {
+                if (this.clients.Count > 1) this.clients.RemoveAt(1);
+                this.clients.Insert(1, control);
+                this.tlpMain.Controls.Remove(this.currentClient);
+                this.currentClient = control;
+                this.tlpMain.Controls.Add(this.currentClient, 0, 0);
+                AdjustButtons(1);
+
+                control.Constraint = this.constraint;
+            }
         }
 
 
@@ -138,22 +158,25 @@ namespace TaxDataStore
         }
 
 
-        private RuleConstraintBaseUserControl GetSelectedUserControl()
+        private RuleConstraintBaseUserControl GetSelectedUserControl(int typeId = -1)
         {
-            RuleConstraintTypeSelector type =
-                this.currentClient as RuleConstraintTypeSelector;
-
-            if (type != null && type.SelectedType != null)
+            if (typeId < 0)
             {
-                switch (type.SelectedType.Id)
+                if (this.constraint.ConstraintType != null)
                 {
-                    case 17: // TourDate
-                        return this.ctrlTourDate;
-
-                    case 18: // TourTime
-                        return this.ctrlTourTime;
+                    typeId = this.constraint.ConstraintType.Id;
                 }
             }
+
+            switch (typeId)
+            {
+                case 17: // TourDate
+                    return this.ctrlTourDate;
+
+                case 18: // TourTime
+                    return this.ctrlTourTime;
+            }
+
 
             return null;
         }
@@ -171,7 +194,7 @@ namespace TaxDataStore
                 }
                 else
                 {
-                    this.constraint.CopyTo(this.constraint);
+                    this.constraint.CopyTo(this.editConstraint);
                 }
             }
 

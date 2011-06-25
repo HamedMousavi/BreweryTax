@@ -29,11 +29,8 @@
         private void InitializeComponent()
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
-            this.lblYear = new System.Windows.Forms.Label();
             this.cbxYear = new System.Windows.Forms.ComboBox();
-            this.lblMonth = new System.Windows.Forms.Label();
             this.cbxMonths = new System.Windows.Forms.ComboBox();
-            this.Daylbl = new System.Windows.Forms.Label();
             this.cbxDay = new System.Windows.Forms.ComboBox();
             this.tlpMain.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +56,8 @@
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Margin = new System.Windows.Forms.Padding(0);
             this.tlpMain.Name = "tlpMain";
-            this.tlpMain.RowCount = 1;
+            this.tlpMain.RowCount = 2;
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.AutoSize));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpMain.Size = new System.Drawing.Size(446, 53);
             this.tlpMain.TabIndex = 2;
@@ -82,7 +80,6 @@
             this.cbxYear.Name = "cbxYear";
             this.cbxYear.Size = new System.Drawing.Size(90, 21);
             this.cbxYear.TabIndex = 1;
-            this.cbxYear.SelectedIndexChanged += new System.EventHandler(this.cbxYear_SelectedIndexChanged);
             // 
             // lblMonth
             // 
@@ -114,7 +111,6 @@
             this.cbxMonths.Name = "cbxMonths";
             this.cbxMonths.Size = new System.Drawing.Size(90, 21);
             this.cbxMonths.TabIndex = 3;
-            this.cbxMonths.SelectedIndexChanged += new System.EventHandler(this.cbxMonths_SelectedIndexChanged);
             // 
             // Daylbl
             // 
@@ -165,7 +161,6 @@
             this.cbxDay.Name = "cbxDay";
             this.cbxDay.Size = new System.Drawing.Size(90, 21);
             this.cbxDay.TabIndex = 5;
-            this.cbxDay.SelectedIndexChanged += new System.EventHandler(this.cbxDay_SelectedIndexChanged);
             // 
             // FlexibleDateSelector
             // 
@@ -184,11 +179,11 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
-        private System.Windows.Forms.Label lblYear;
+        private FormLabel lblYear;
         private System.Windows.Forms.ComboBox cbxYear;
-        private System.Windows.Forms.Label lblMonth;
+        private FormLabel lblMonth;
         private System.Windows.Forms.ComboBox cbxMonths;
-        private System.Windows.Forms.Label Daylbl;
+        private FormLabel Daylbl;
         private System.Windows.Forms.ComboBox cbxDay;
     }
 }

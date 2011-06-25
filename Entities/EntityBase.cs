@@ -19,6 +19,15 @@ namespace Entities
         [BrowsableAttribute(false)]
         public bool IsDirty { get; set; }
 
+        /*
+        public bool IsNew
+        {
+            get
+            {
+                return this.Id < 0;
+            }
+        }
+        */
 
         protected void RaisePropertyChanged(string propertyName)
         {

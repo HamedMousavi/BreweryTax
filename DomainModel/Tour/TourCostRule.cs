@@ -12,15 +12,11 @@ namespace DomainModel
 
         private static TourCostRuleCollection rules;
         private static Repository.Sql.TourCostRules repo;
-        private static Repository.Sql.TourCostRuleConstraints constraints;
-        private static Repository.Sql.TourCostRuleConstraintProperties properties;
 
 
         public static void Init(string sqlConnectionString)
         {
             repo = new Repository.Sql.TourCostRules(sqlConnectionString);
-            constraints = new Repository.Sql.TourCostRuleConstraints(sqlConnectionString);
-            properties = new Repository.Sql.TourCostRuleConstraintProperties(sqlConnectionString);
 
             LoadRules();
         }
@@ -36,12 +32,7 @@ namespace DomainModel
             // Load rule constraints
             foreach(TourCostRule rule in rules)
             {
-                // Load rule constraint properties
-                constraints.LoadByRule(rule);
-                foreach (TourCostRuleConstraint constraint in rule.Constraints)
-                {
-                    properties.LoadByConstraint(constraint);
-                }
+                DomainModel.TourRuleConstraints.Load(rule);
             }
         }
 
@@ -73,8 +64,7 @@ namespace DomainModel
                     }
 
                     // Load rule constraint properties
-                    res = constraints.Save(rule);
-                    res = properties.Save(rule);
+                    res = DomainModel.TourRuleConstraints.Save(rule);
 
                     if (res) ts.Complete();
                 }

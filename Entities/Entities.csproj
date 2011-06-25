@@ -56,6 +56,7 @@
     <Compile Include="Abstract\ICrypt.cs" />
     <Compile Include="Abstract\ITourConstraintMapper.cs" />
     <Compile Include="Abstract\ITourPaymentStrategy.cs" />
+    <Compile Include="Abstract\ITourRuleConstraintValidator.cs" />
     <Compile Include="Abstract\Repository\IRole.cs" />
     <Compile Include="Abstract\Repository\ITask.cs" />
     <Compile Include="Abstract\Repository\IUsers.cs" />

@@ -5,7 +5,11 @@ namespace Entities.Abstract
 
     public interface ITourConstraintMapper
     {
-        bool GetProperties(object displayObject, out TourCostRuleConstraintPropertyCollection properties);
-        object GetDisplayObject(TourCostRuleConstraintPropertyCollection properties);
+        bool GetProperties(
+            object displayObject,
+            Entities.TourCostRuleConstraint constraint);
+
+        object GetDisplayObject(
+            TourCostRuleConstraintPropertyCollection properties);
     }
 }

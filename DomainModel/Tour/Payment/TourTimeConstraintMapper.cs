@@ -17,36 +17,49 @@ namespace DomainModel.Tour.Payment
         }
 
 
-        public bool GetProperties(object displayObject, out Entities.TourCostRuleConstraintPropertyCollection properties)
+        public bool GetProperties(object displayObject, Entities.TourCostRuleConstraint con)
         {
             Entities.ConstraintTourTime time = (Entities.ConstraintTourTime)displayObject;
-            properties = new Entities.TourCostRuleConstraintPropertyCollection();
+            con.Properties.Clear();
 
             Entities.TourCostRuleConstraintProperty property;
 
             property = new Entities.TourCostRuleConstraintProperty();
             property.TypeId = (int)TypeIds.StartHour;
             property.Value = time.StartTime.Hour;
-            properties.Add(property);
+            con.Properties.Add(property);
 
             property = new Entities.TourCostRuleConstraintProperty();
             property.TypeId = (int)TypeIds.StartMinute;
             property.Value = time.StartTime.Minute;
-            properties.Add(property);
+            con.Properties.Add(property);
 
             property = new Entities.TourCostRuleConstraintProperty();
             property.TypeId = (int)TypeIds.EndHour;
             property.Value = time.EndTime.Hour;
-            properties.Add(property);
+            con.Properties.Add(property);
 
             property = new Entities.TourCostRuleConstraintProperty();
             property.TypeId = (int)TypeIds.EndMinute;
             property.Value = time.EndTime.Minute;
-            properties.Add(property);
+            con.Properties.Add(property);
+
+            con.Name = GenerateName(time);
 
             return true;
 
             return false;
+        }
+
+
+        private string GenerateName(Entities.ConstraintTourTime time)
+        {
+            return string.Format("Tour time:   [{0}:{1}]  to  [{2}:{3}]",
+                time.StartTime.Hour < 0 ? "Hour" : time.StartTime.Hour.ToString(),
+                time.StartTime.Minute < 0 ? "Minute" : time.StartTime.Minute.ToString(),
+                time.EndTime.Hour < 0 ? "Hour" : time.EndTime.Hour.ToString(),
+                time.EndTime.Minute < 0 ? "Minute" : time.EndTime.Minute.ToString()
+                );
         }
 
 

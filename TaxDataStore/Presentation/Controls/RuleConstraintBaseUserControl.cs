@@ -13,6 +13,7 @@ namespace TaxDataStore.Presentation.Controls
         public RuleConstraintBaseUserControl(Entities.TourCostRuleConstraint constraint)
             : base()
         {
+            this.Dock = DockStyle.Fill;
             this.constraint = constraint;
         }
 

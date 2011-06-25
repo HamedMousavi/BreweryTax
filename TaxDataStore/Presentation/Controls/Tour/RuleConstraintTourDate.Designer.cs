@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+
             this.fdsStartDate = new TaxDataStore.Presentation.Controls.ConstraintDateSelector();
             this.fdsEndDate = new TaxDataStore.Presentation.Controls.ConstraintDateSelector();
             this.tableLayoutPanel1.SuspendLayout();
@@ -110,8 +109,8 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
+        private FormLabel label1;
+        private FormLabel label5;
         private ConstraintDateSelector fdsStartDate;
         private ConstraintDateSelector fdsEndDate;
     }

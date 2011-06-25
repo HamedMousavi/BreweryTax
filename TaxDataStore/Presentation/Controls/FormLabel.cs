@@ -19,6 +19,7 @@ namespace TaxDataStore.Presentation.Controls
             this.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Bottom;
             this.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ForeColor = System.Drawing.Color.DimGray;
+            ///this.BackColor = System.Drawing.Color.Gray;
         }
 
 

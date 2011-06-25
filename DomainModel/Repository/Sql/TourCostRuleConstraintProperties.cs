@@ -63,5 +63,70 @@ namespace DomainModel.Repository.Sql
         {
             throw new NotImplementedException();
         }
+
+
+        internal bool Insert(Entities.TourCostRuleConstraint constraint, Entities.TourCostRuleConstraintProperty property)
+        {
+            bool res = false;
+
+            try
+            {
+                this.query.Parameters.Clear();
+
+                this.query.Parameters.Add(new SqlParameter("@ConstraintId", constraint.Id));
+                this.query.Parameters.Add(new SqlParameter("@PropertyTypeId", property.TypeId));
+                this.query.Parameters.Add(new SqlParameter("@PropertyValue", property.Value));
+
+                int id;
+                res = this.query.ExecuteInsertProc("TourCostRuleConstraintPropertyAdd", out id);
+                property.Id = id;
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "",
+                        ex.Message);
+                }
+                catch { }
+            }
+
+            return res;
+        }
+
+
+        internal bool Update(Entities.TourCostRuleConstraint constraint, Entities.TourCostRuleConstraintProperty property)
+        {
+            bool res = false;
+
+            try
+            {
+                this.query.Parameters.Clear();
+
+                this.query.Parameters.Add(new SqlParameter("@ConstraintId", constraint.Id));
+                this.query.Parameters.Add(new SqlParameter("@PropertyTypeId", property.TypeId));
+                this.query.Parameters.Add(new SqlParameter("@PropertyValue", property.Value));
+                this.query.Parameters.Add(new SqlParameter("@PropertyId", property.Id));
+
+
+                int affected;
+                res = this.query.ExecuteUpdateProc("TourCostRuleConstraintPropertyUpdateById", out affected);
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "",
+                        ex.Message);
+                }
+                catch { }
+            }
+
+            return res;
+        }
     }
 }

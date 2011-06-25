@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 
 
 namespace Entities
@@ -11,24 +12,6 @@ namespace Entities
         protected string name;
         protected GeneralType constraintType;
         protected TourCostRuleConstraintPropertyCollection properties;
-
-
-        public Int32 Id
-        {
-            get
-            {
-                return this.id;
-            }
-
-            set
-            {
-                if (this.id != value)
-                {
-                    this.id = value;
-                    RaisePropertyChanged("Id");
-                }
-            }
-        }
 
 
         public string Name
@@ -85,6 +68,25 @@ namespace Entities
         }
 
 
+        [BrowsableAttribute(false)]
+        public Int32 Id
+        {
+            get
+            {
+                return this.id;
+            }
+
+            set
+            {
+                if (this.id != value)
+                {
+                    this.id = value;
+                    RaisePropertyChanged("Id");
+                }
+            }
+        }
+
+
         public TourCostRuleConstraint()
         {
             this.id = -1;
@@ -96,6 +98,7 @@ namespace Entities
         {
             constraint.Id = this.id;
             constraint.Name = this.name;
+            constraint.ConstraintType = this.ConstraintType;
             this.properties.CopyTo(constraint.Properties);
 
             constraint.IsDirty = this.IsDirty;

@@ -1,5 +1,6 @@
 ﻿using Entities;
 using DomainModel.Tour.Payment;
+using System.ComponentModel;
 
 
 namespace TaxDataStore.Presentation.Controls
@@ -14,6 +15,9 @@ namespace TaxDataStore.Presentation.Controls
         public RuleConstraintTourTime(Entities.TourCostRuleConstraint constraint)
             : base(constraint)
         {
+            this.label1 = new FormLabel("");
+            this.label5 = new FormLabel("");
+
             InitializeComponent();
 
             this.ConstraintMapper = new TourTimeConstraintMapper();
@@ -41,11 +45,14 @@ namespace TaxDataStore.Presentation.Controls
             Entities.ConstraintTourTime time = (Entities.ConstraintTourTime)
                 this.ConstraintMapper.GetDisplayObject(this.constraint.Properties);
 
-            time.StartTime.CopyTo(this.ftsStartTime.Time);
-            time.EndTime.CopyTo(this.ftsEndTime.Time);
+            if (time != null)
+            {
+                time.StartTime.CopyTo(this.ftsStartTime.Time);
+                time.EndTime.CopyTo(this.ftsEndTime.Time);
 
-            this.ftsStartTime.UpdateControlData();
-            this.ftsEndTime.UpdateControlData();
+                this.ftsStartTime.UpdateControlData();
+                this.ftsEndTime.UpdateControlData();
+            }
         }
 
 
@@ -54,11 +61,7 @@ namespace TaxDataStore.Presentation.Controls
             this.ftsStartTime.Time.CopyTo(this.time.StartTime);
             this.ftsEndTime.Time.CopyTo(this.time.EndTime);
 
-            TourCostRuleConstraintPropertyCollection properties;
-
-            this.ConstraintMapper.GetProperties(this.time, out properties);
-
-            this.constraint.Properties = properties;
+            this.ConstraintMapper.GetProperties(this.time, this.constraint);
         }
     }
 }
