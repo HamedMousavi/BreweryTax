@@ -44,6 +44,7 @@ namespace TaxDataStore
  
             this.mpkPaymentAmount.Value.Currency = this.payment.Amount.Currency;
             this.mpkPaymentAmount.ValueEditor = Convert.ToString(this.payment.Amount.Value);
+            //this.mpkPaymentAmount.Value.PropertyChanged
        }
 
 
@@ -76,8 +77,10 @@ namespace TaxDataStore
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            this.mpkPaymentAmount.Value.CopyTo(this.payment.Amount);
+            /*
             this.payment.Amount.Value = this.mpkPaymentAmount.Value.Value;
-            this.payment.Amount.Currency = this.mpkPaymentAmount.Value.Currency;
+            this.payment.Amount.Currency = this.mpkPaymentAmount.Value.Currency;*/
 
             if (this.editPayment != null)
             {

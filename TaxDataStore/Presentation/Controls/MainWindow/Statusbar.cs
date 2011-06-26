@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using StatusController.Abstract;
+using System.ComponentModel;
 
 
 namespace TaxDataStore.Presentation.Controls
@@ -13,11 +14,14 @@ namespace TaxDataStore.Presentation.Controls
 
         private ToolStripStatusLabel label;
         private ToolStripStatusLabel lblUser;
+        private ToolStripStatusLabel lblAppUpdate;
+
         private List<Image> images;
         private List<Color> colors;
         private System.Windows.Forms.Timer backColorTimer;
         private StatusTypes currentState;
         protected AsyncCalls asyncHelper;
+        protected AsyncCalls appUpdAsyncHelper;
 
 
         public Statusbar(StatusController.Controller.StatusController controller)
@@ -34,7 +38,7 @@ namespace TaxDataStore.Presentation.Controls
             {
                 this.BackColor = Presentation.View.Theme.ToolBarBackColor;
                 this.ForeColor = Presentation.View.Theme.ToolBarForeColor;
-                this.Font = Presentation.View.Theme.ToolBarFont;
+                this.Font = Presentation.View.Theme.FormLabelFont;
             }
             else
             {
@@ -49,8 +53,49 @@ namespace TaxDataStore.Presentation.Controls
             SetupTimer();
 
             controller.RegisterForEvents(this);
+
+            this.appUpdAsyncHelper = new AsyncCalls();
+            AppUpdateController.UpdateInfo.PropertyChanged += new
+                PropertyChangedEventHandler(UpdateInfo_PropertyChanged);
         }
 
+
+        void UpdateInfo_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (string.Equals(e.PropertyName, "UpdateExists", StringComparison.InvariantCulture) ||
+                string.Equals(e.PropertyName, "DownloadIsComplete", StringComparison.InvariantCulture))
+            {
+                RefreshAppUpdaterStatus();
+            }
+        }
+
+
+        private delegate void RefreshAppUpdaterStatusDelegate();
+        private void RefreshAppUpdaterStatus()
+        {
+            // Ensure inside UI thread
+            if (!this.appUpdAsyncHelper.Execute(
+                this, new RefreshAppUpdaterStatusDelegate(RefreshAppUpdaterStatus))) return;
+            if (this.InvokeRequired) return;
+            if (!this.Visible) return;
+
+            if (AppUpdateController.UpdateInfo.DownloadIsComplete)
+            {
+                this.lblAppUpdate.Image = DomainModel.Application.ResourceManager.GetImage("flag_red");
+                this.lblAppUpdate.ToolTipText = Resources.Texts.stat_upd_ready_to_install;
+            }
+            else if (AppUpdateController.UpdateInfo.UpdateExists)
+            {
+                this.lblAppUpdate.Image = DomainModel.Application.ResourceManager.GetImage("flag_red");
+                this.lblAppUpdate.ToolTipText = Resources.Texts.stat_upd_exists;
+            }
+
+            else
+            {
+                this.lblAppUpdate.Image = DomainModel.Application.ResourceManager.GetImage("flag_green");
+                this.lblAppUpdate.ToolTipText = Resources.Texts.stat_upd_up_to_date;
+            }
+        }
 
         private void SetupTimer()
         {
@@ -101,10 +146,41 @@ namespace TaxDataStore.Presentation.Controls
             this.lblUser.Image = DomainModel.Application.ResourceManager.GetImage("user_black_female");
             this.Items.Add(this.lblUser);
 
+            this.lblAppUpdate = new ToolStripStatusLabel();
+            this.lblAppUpdate.Name = "status_app_update";
+            this.lblAppUpdate.RightToLeft = View.LayoutDirection;
+            this.lblAppUpdate.Image = DomainModel.Application.ResourceManager.GetImage("flag_green");
+            this.lblAppUpdate.ToolTipText = Resources.Texts.stat_upd_up_to_date;
+            this.lblAppUpdate.AutoToolTip = false;
+            this.lblAppUpdate.Click += new EventHandler(lblAppUpdate_Click);
+            this.Items.Add(this.lblAppUpdate);
+
             this.label.ForeColor = this.ForeColor;
             this.lblUser.ForeColor = this.ForeColor;
             this.label.Font = this.Font;
             this.lblUser.Font = this.Font;
+            this.ShowItemToolTips = true;
+        }
+
+
+        void lblAppUpdate_Click(object sender, EventArgs e)
+        {
+            if (AppUpdateController.UpdateInfo.DownloadIsComplete)
+            {
+                // UNDONE
+                //DomainModel.Application.Status.Update(StatusTypes.Warning, "stat_upd_exists");
+            }
+            else if (AppUpdateController.UpdateInfo.UpdateExists)
+            {
+                this.lblAppUpdate.Image = DomainModel.Application.ResourceManager.GetImage("flag_green");
+                this.lblAppUpdate.ToolTipText = Resources.Texts.stat_upd_downloading;
+                AppUpdateController.DownloadUpdates();
+                //DomainModel.Application.Status.Update(StatusTypes.Warning, "stat_upd_ready_to_install");
+            }
+            else
+            {
+                DomainModel.Application.Status.Update(StatusTypes.Success, "stat_upd_up_to_date");
+            }
         }
 
 
@@ -142,16 +218,13 @@ namespace TaxDataStore.Presentation.Controls
         {
             this.backColorTimer.Stop();
 
-            lock (this)
+            // Delay important messages
+            if ((this.currentState == StatusTypes.Error ||
+                this.currentState == StatusTypes.Warning) &&
+                (status.Type == StatusTypes.Info ||
+                status.Type == StatusTypes.Success))
             {
-                // Delay important messages
-                if ((this.currentState == StatusTypes.Error || this.currentState == StatusTypes.Warning) &&
-                    (status.Type == StatusTypes.Info || status.Type == StatusTypes.Success))
-                {
-                    System.Threading.Thread.Sleep(1000);
-                }
-
-                this.currentState = status.Type;
+                System.Threading.Thread.Sleep(1000);
             }
 
             // Ensure inside UI thread
@@ -162,12 +235,28 @@ namespace TaxDataStore.Presentation.Controls
 
             lock (this)
             {
-                this.label.Text = status.Message;
-                this.label.Image = this.images[(int)status.Type];
-                this.BackColor = this.colors[(int)status.Type];
-                //this.label.ForeColor = Color.White;
+                this.currentState = status.Type;
 
-                if (status.Type == StatusTypes.Info)
+                int imageIndex = (int)status.Type;
+
+                if (this.images.Count > imageIndex)
+                {
+                    this.label.Image = this.images[imageIndex];
+                }
+                else
+                {
+                    this.label.Image = null;
+                }
+
+                if (this.colors.Count > imageIndex)
+                {
+                    this.BackColor = this.colors[imageIndex];
+                }
+
+                this.label.Text = status.Message;
+
+                if (status.Type == StatusTypes.Info ||
+                    status.Type == StatusTypes.Warning)
                 {
                     this.label.ForeColor = this.ForeColor;
                 }

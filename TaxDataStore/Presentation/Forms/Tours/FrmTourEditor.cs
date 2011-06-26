@@ -65,7 +65,7 @@ namespace TaxDataStore
 
             this.lblGuestContacts = new ToolbarLabel("lbl_guest_contacts");
             this.lblGuest = new ToolbarLabel("lbl_guests");
-            this.lblPayments = new ToolbarLabel("lbl_payments");
+            this.lblPayments = new ToolbarLabel("tab_title_Payments");
 
             this.tlpTour.Controls.Add(this.lblTourStatusLabel, 0, 0);
             this.tlpTour.Controls.Add(this.tlpTourState, 1, 0);

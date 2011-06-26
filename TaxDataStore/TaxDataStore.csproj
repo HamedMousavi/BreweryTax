@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppUpdateController.cs" />
     <Compile Include="Presentation\Controls\FlexibleDateSelector.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -356,6 +357,7 @@
     </Compile>
     <Compile Include="Presentation\Controllers\Application.cs" />
     <Compile Include="Presentation\Controllers\Users.cs" />
+    <Compile Include="Presentation\Models\AppUpdateInfo.cs" />
     <Compile Include="Presentation\Models\PriceOperationItem.cs" />
     <Compile Include="Presentation\Models\ValueOperationItem.cs" />
     <Compile Include="Presentation\SccreenManager.cs" />
@@ -580,7 +582,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" BuildVersion_BuildVersioningStyle="Increment.YearStamp.MonthAndDayStamp.TimeStamp" BuildVersion_ConfigurationName="Release" />
+      <UserProperties BuildVersion_ConfigurationName="Release" BuildVersion_BuildVersioningStyle="Increment.YearStamp.MonthAndDayStamp.TimeStamp" BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

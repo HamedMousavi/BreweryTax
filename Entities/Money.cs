@@ -25,6 +25,8 @@ namespace Entities
                 }
             }
         }
+
+
         public MoneyCurrency Currency
         {
             get { return this.currency; }
@@ -78,10 +80,11 @@ namespace Entities
         }
 
 
-        internal void CopyTo(Money money)
+        public void CopyTo(Money money)
         {
             money.Currency = this.currency;
             money.Value = this.value;
         }
+
     }
 }

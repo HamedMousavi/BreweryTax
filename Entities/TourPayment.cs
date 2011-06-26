@@ -29,9 +29,28 @@ namespace Entities
             {
                 if (this.amount != value)
                 {
-                    this.amount = value;
+                    SetAmpunt(value);
                     RaisePropertyChanged("Amount");
                 }
+            }
+        }
+
+
+        private void SetAmpunt(Money value)
+        {
+            if (this.amount != null)
+            {
+                this.amount.PropertyChanged -= 
+                    new PropertyChangedEventHandler(amount_PropertyChanged);
+            }
+
+            this.amount = value;
+
+
+            if (this.amount != null)
+            {
+                this.amount.PropertyChanged += 
+                    new PropertyChangedEventHandler(amount_PropertyChanged);
             }
         }
 
@@ -71,6 +90,12 @@ namespace Entities
         }
 
         #endregion Properties
+
+
+        void amount_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            RaisePropertyChanged("Amount");
+        }
 
 
         public TourPayment()

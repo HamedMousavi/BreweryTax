@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using TaxDataStore.Presentation.Controls;
+using System.ComponentModel;
+using TaxDataStore.Presentation;
 
 
 namespace TaxDataStore
@@ -17,8 +19,7 @@ namespace TaxDataStore
         private FormLabel lblLastUpdateCheckCaption;
         private FormLabel lblSupportCaption;
 
-
-        Timer tmrUpdateState;
+        protected AsyncCalls asyncHelper;
 
 
         public FrmAbout()
@@ -29,22 +30,33 @@ namespace TaxDataStore
 
             this.tlpUpdates.Visible = false;
 
-            this.tmrUpdateState = new Timer();
-            this.tmrUpdateState.Interval = 1000;
-            this.tmrUpdateState.Tick += new EventHandler(tmrUpdateState_Tick);
-            this.tmrUpdateState.Start();
+            this.asyncHelper = new AsyncCalls();
+
+            AppUpdateController.UpdateInfo.PropertyChanged += new 
+                PropertyChangedEventHandler(UpdateInfo_PropertyChanged);
+
+            UpdateData();
+        }
+
+
+        void UpdateInfo_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (this.Visible)
+            {
+                UpdateData();
+            }
         }
 
 
         private void CreateControls()
         {
             this.lblAppName = new FormLabel(0, "lblAppName", false, "");
-            this.lblRegistrationCaption = new FormLabel(0, "lblRegistrationCaption", false, "");
-            this.lblCopyright = new FormLabel(0, "lblCopyright", false, "");
-            this.lblSupportCaption = new FormLabel(0, "lblSupportCaption", false, "");
-            this.lblUpdateStateCaption = new FormLabel(0, "lblUpdateStateCaption", false, "");
-            this.lblVersionCaption = new FormLabel(0, "lblVersionCaption", false, "");
-            this.lblLastUpdateCheckCaption = new FormLabel(0, "lblLastUpdateCheckCaption", false, "");
+            this.lblRegistrationCaption = new FormLabel(1, "lblRegistrationCaption", false, "");
+            this.lblCopyright = new FormLabel(2, "lblCopyright", false, "");
+            this.lblSupportCaption = new FormLabel(3, "lblSupportCaption", false, "");
+            this.lblUpdateStateCaption = new FormLabel(4, "lblUpdateStateCaption", false, "");
+            this.lblVersionCaption = new FormLabel(5, "lblVersionCaption", false, "");
+            this.lblLastUpdateCheckCaption = new FormLabel(6, "lblLastUpdateCheckCaption", false, "");
 
             this.tlpUpdates.Controls.Add(this.lblVersionCaption, 0, 1);
             this.tlpUpdates.Controls.Add(this.lblLastUpdateCheckCaption, 0, 3);
@@ -53,27 +65,6 @@ namespace TaxDataStore
             this.tableLayoutPanel1.Controls.Add(this.lblSupportCaption, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblRegistrationCaption, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblCopyright, 2, 1);
-        }
-
-
-        void tmrUpdateState_Tick(object sender, EventArgs e)
-        {
-            try
-            {
-                this.tmrUpdateState.Stop();
-
-                if (this.tlpUpdates.Visible == false)
-                {
-                    this.tlpUpdates.Visible = true;
-                }
-
-                UpdateData();
-                this.tmrUpdateState.Start();
-            }
-            catch (Exception ex)
-            {
-                // UNDONE: Report error
-            }
         }
 
 
@@ -101,114 +92,74 @@ namespace TaxDataStore
         }
 
 
+        private delegate void UpdateDataDelegate();
         private void UpdateData()
         {
-            //if (TaxDataStoreUpdater.ServiceInterface.ServiceExists)
-            //{
+            // Ensure inside UI thread
+            if (!this.asyncHelper.Execute(
+                this, new UpdateDataDelegate(UpdateData))) return;
+            if (this.InvokeRequired) return;
+
             this.tlpUpdates.Controls.Remove(this.btnInstallService);
             this.tlpUpdates.Controls.Add(this.btnUnInstallService, 2, 2);
-
-            bool updaterIsRunning = true;
-            if (updaterIsRunning)
+            
+            if (this.tlpUpdates.Visible == false)
             {
-                this.btnCheckNow.Visible = true;
-
-                UpdaterService.UpdaterIpcServiceClient sc = new
-                    UpdaterService.UpdaterIpcServiceClient();
-
-                DateTime? time = sc.GetLastCheckTimestamp();
-                bool updateExists = sc.UpdateExists();
-                bool downloadIsComplete = sc.IsDownloadComplete();
-                string details = sc.GetNewVersionDetails();
-                sc.Close();
-
-                this.btnDownloadUpdate.Visible = updateExists & !downloadIsComplete;
-                this.btnInstallUpdate.Visible = downloadIsComplete;
-
-                if (time == null || !time.HasValue)
-                {
-                    this.tbxLastUpdateCheck.Text = string.Empty;
-                }
-                else
-                {
-                    this.tbxLastUpdateCheck.Text = time.Value.ToLocalTime().ToString("HH:mm");
-                }
-
-                if (updateExists)
-                {
-                    this.tbxNewVersionState.Text = Resources.Texts.new_version_exists;
-                    this.tbxNewVersionDetails.Text = details;
-
-                    this.tlpUpdates.Controls.Remove(this.btnInstallUpdate);
-                    this.tlpUpdates.Controls.Add(this.btnDownloadUpdate, 2, 4);
-                }
-                else
-                {
-                    this.tbxNewVersionState.Text = Resources.Texts.program_is_up_to_date;
-                    this.tbxNewVersionDetails.Text = string.Empty;
-                }
-
-                if (downloadIsComplete)
-                {
-                    this.tbxNewVersionState.Text = Resources.Texts.new_version_is_ready_to_install;
-
-                    this.tlpUpdates.Controls.Remove(this.btnDownloadUpdate);
-                    this.tlpUpdates.Controls.Add(this.btnInstallUpdate, 2, 4);
-                }
+                this.tlpUpdates.Visible = true;
             }
 
-        }
+            this.btnCheckNow.Visible = true;
 
-        /*
-        private void btnInstallService_Click(object sender, EventArgs e)
-        {
-            if (TaxDataStoreUpdater.ServiceInterface.ServiceExists)
+            DateTime? time = AppUpdateController.UpdateInfo.LastCheckTime;
+            bool updateExists = AppUpdateController.UpdateInfo.UpdateExists;
+            bool downloadIsComplete = AppUpdateController.UpdateInfo.DownloadIsComplete;
+            string details = AppUpdateController.UpdateInfo.Details;
+
+            this.btnDownloadUpdate.Visible = updateExists & !downloadIsComplete;
+            this.btnInstallUpdate.Visible = downloadIsComplete;
+
+            if (time == null || !time.HasValue)
             {
-                return;
+                this.tbxLastUpdateCheck.Text = string.Empty;
+            }
+            else
+            {
+                this.tbxLastUpdateCheck.Text = time.Value.ToLocalTime().ToString("HH:mm");
             }
 
-            TaxDataStoreUpdater.ServiceInterface.Install();
-
-            if (TaxDataStoreUpdater.ServiceInterface.ServiceExists)
+            if (updateExists)
             {
-                if (!TaxDataStoreUpdater.ServiceInterface.ServiceIsRunning)
-                {
-                    TaxDataStoreUpdater.ServiceInterface.Start();
-                }
+                this.tbxNewVersionState.Text = Resources.Texts.new_version_exists;
+                this.tbxNewVersionDetails.Text = details;
+
+                this.tlpUpdates.Controls.Remove(this.btnInstallUpdate);
+                this.tlpUpdates.Controls.Add(this.btnDownloadUpdate, 2, 4);
+            }
+            else
+            {
+                this.tbxNewVersionState.Text = Resources.Texts.program_is_up_to_date;
+                this.tbxNewVersionDetails.Text = string.Empty;
+            }
+
+            if (downloadIsComplete)
+            {
+                this.tbxNewVersionState.Text = Resources.Texts.new_version_is_ready_to_install;
+
+                this.tlpUpdates.Controls.Remove(this.btnDownloadUpdate);
+                this.tlpUpdates.Controls.Add(this.btnInstallUpdate, 2, 4);
             }
         }
 
-
-        private void btnUnInstallService_Click(object sender, EventArgs e)
-        {
-            if (!TaxDataStoreUpdater.ServiceInterface.ServiceExists)
-            {
-                return;
-            }
-
-            TaxDataStoreUpdater.ServiceInterface.UnInstall();
-        }
-        */
 
         private void btnCheckNow_Click(object sender, EventArgs e)
         {
-            UpdaterService.UpdaterIpcServiceClient sc = new
-                UpdaterService.UpdaterIpcServiceClient();
-
-            sc.CheckForUpdates();
-
-            sc.Close();
+            AppUpdateController.CheckForUpdates();
         }
 
 
         private void btnDownloadUpdate_Click(object sender, EventArgs e)
         {
-            UpdaterService.UpdaterIpcServiceClient sc = new
-                UpdaterService.UpdaterIpcServiceClient();
-
-            sc.DownloadUpdates();
-
-            sc.Close();
+            AppUpdateController.DownloadUpdates();
         }
 
 
@@ -216,13 +167,7 @@ namespace TaxDataStore
         {
             if (Presentation.Controllers.MessageBox.ConfirmUpdate())
             {
-                UpdaterService.UpdaterIpcServiceClient sc = new
-                    UpdaterService.UpdaterIpcServiceClient();
-
-                sc.ApplyUpdates();
-
-                sc.Close();
-
+                AppUpdateController.ApplyUpdates();
                 Application.Exit();
             }
         }

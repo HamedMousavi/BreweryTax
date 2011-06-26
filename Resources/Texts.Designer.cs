@@ -1006,6 +1006,42 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Downloading updates....
+        /// </summary>
+        public static string stat_upd_downloading {
+            get {
+                return ResourceManager.GetString("stat_upd_downloading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New version is available to download. Click here to download it..
+        /// </summary>
+        public static string stat_upd_exists {
+            get {
+                return ResourceManager.GetString("stat_upd_exists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download complete. Ready to install update..
+        /// </summary>
+        public static string stat_upd_ready_to_install {
+            get {
+                return ResourceManager.GetString("stat_upd_ready_to_install", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application is up to date..
+        /// </summary>
+        public static string stat_upd_up_to_date {
+            get {
+                return ResourceManager.GetString("stat_upd_up_to_date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Guest.
         /// </summary>
         public static string tab_title_members {

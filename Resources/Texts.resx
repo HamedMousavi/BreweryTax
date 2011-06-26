@@ -480,4 +480,16 @@
   <data name="old_password" xml:space="preserve">
     <value>Old password</value>
   </data>
+  <data name="stat_upd_exists" xml:space="preserve">
+    <value>New version is available to download. Click here to download it.</value>
+  </data>
+  <data name="stat_upd_ready_to_install" xml:space="preserve">
+    <value>Download complete. Ready to install update.</value>
+  </data>
+  <data name="stat_upd_up_to_date" xml:space="preserve">
+    <value>Application is up to date.</value>
+  </data>
+  <data name="stat_upd_downloading" xml:space="preserve">
+    <value>Downloading updates...</value>
+  </data>
 </root>

@@ -98,20 +98,7 @@ namespace TaxDataStore
 
         private void SetupUpdater()
         {
-            try
-            {
-                System.Diagnostics.Process.Start(
-                    Application.StartupPath +
-                    System.IO.Path.DirectorySeparatorChar +
-                    "SettlementUpdater.exe");
-            }
-            catch (Exception ex)
-            {
-                DomainModel.Application.Status.Update(
-                    StatusController.Abstract.StatusTypes.Error,
-                    "",
-                    ex.Message);
-            }
+            AppUpdateController.StartUpdater();
         }
 
 

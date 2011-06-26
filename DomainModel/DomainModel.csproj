@@ -47,6 +47,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NPOI">
+      <HintPath>ThirdParty\NPOI\NPOI.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -58,6 +61,7 @@
     <Compile Include="ApplicationStatus.cs" />
     <Compile Include="ApplicationUpdater.cs" />
     <Compile Include="Categories.cs" />
+    <Compile Include="Repository\Excell\MonthlyTourBill.cs" />
     <Compile Include="Repository\Sql\TourCostRuleConstraintProperties.cs" />
     <Compile Include="Repository\Sql\TourCostRuleConstraints.cs" />
     <Compile Include="Tour\Payment\RuleValidators\TourDateValidator.cs" />
@@ -152,6 +156,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

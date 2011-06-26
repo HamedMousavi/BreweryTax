@@ -117,9 +117,15 @@ namespace TaxDataStore.Presentation.Controls
 
         void Items_ListChanged(object sender, ListChangedEventArgs e)
         {
+            try
+            {
             this.SetObjects(this.tour.Receipt.Items);
             this.AutoResizeColumns(
                 ColumnHeaderAutoResizeStyle.HeaderSize);
+            }
+            catch (Exception ex)
+            {
+            }
         }
 
 

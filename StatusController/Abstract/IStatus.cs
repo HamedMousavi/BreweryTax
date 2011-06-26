@@ -13,7 +13,8 @@ namespace StatusController.Abstract
         Error = 0,
         Success = 1,
         Warning,
-        Info
+        Info,
+        None
     }
 
     public interface IStatus
