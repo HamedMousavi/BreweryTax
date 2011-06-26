@@ -29,8 +29,6 @@ namespace TaxDataStore
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblLanguage = new FormLabel("language");
-            this.lblPassword = new FormLabel("password");
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.tabSettings = new System.Windows.Forms.TabControl();
             this.tbpGeneral = new System.Windows.Forms.TabPage();
@@ -46,34 +44,6 @@ namespace TaxDataStore
             this.tlpGeneral.SuspendLayout();
             this.tlpButtons.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblLanguage
-            // 
-            this.lblLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblLanguage.AutoSize = true;
-            this.lblLanguage.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblLanguage.ForeColor = System.Drawing.Color.Gray;
-            this.lblLanguage.Location = new System.Drawing.Point(3, 0);
-            this.lblLanguage.Name = "lblLanguage";
-            this.lblLanguage.Size = new System.Drawing.Size(62, 28);
-            this.lblLanguage.TabIndex = 0;
-            this.lblLanguage.Text = "Language";
-            this.lblLanguage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblPassword.ForeColor = System.Drawing.Color.Gray;
-            this.lblPassword.Location = new System.Drawing.Point(3, 28);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(61, 32);
-            this.lblPassword.TabIndex = 1;
-            this.lblPassword.Text = "Password";
-            this.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tlpMain
             // 
@@ -117,8 +87,6 @@ namespace TaxDataStore
             this.tlpGeneral.ColumnCount = 2;
             this.tlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpGeneral.Controls.Add(this.lblLanguage, 0, 0);
-            this.tlpGeneral.Controls.Add(this.lblPassword, 0, 1);
             this.tlpGeneral.Controls.Add(this.cbxLanguages, 1, 0);
             this.tlpGeneral.Controls.Add(this.btnChangePassword, 1, 1);
             this.tlpGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -220,8 +188,6 @@ namespace TaxDataStore
         private System.Windows.Forms.TabPage tbpGeneral;
         private System.Windows.Forms.TableLayoutPanel tlpButtons;
         private System.Windows.Forms.TableLayoutPanel tlpGeneral;
-        private FormLabel lblLanguage;
-        private FormLabel lblPassword;
         private System.Windows.Forms.ComboBox cbxLanguages;
         private ButtonBase btnChangePassword;
         private ButtonBase btnCancel;

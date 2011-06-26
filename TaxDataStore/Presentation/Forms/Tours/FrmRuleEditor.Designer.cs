@@ -263,9 +263,7 @@ namespace TaxDataStore
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
-        private FormLabel lblRuleName;
         private System.Windows.Forms.TextBox tbxRuleName;
-        private FormLabel lblFormula;
         private System.Windows.Forms.TableLayoutPanel tlpFormula;
         private System.Windows.Forms.TextBox tbxValue;
         private System.Windows.Forms.ComboBox cbxValueOperation;

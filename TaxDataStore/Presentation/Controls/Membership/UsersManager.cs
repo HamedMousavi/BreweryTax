@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Drawing;
+using System.Windows.Forms;
 using TaxDataStore.Presentation.Controls;
 
 
@@ -10,21 +10,41 @@ namespace TaxDataStore
     public partial class UsersManager : UserControl
     {
 
+        private FormLabel lblRoleName;
+        private FormLabel lblLanguage;
+        private FormLabel lblName;
+        private FormLabel lblIsEnabled;
+
         protected UsersListView lsvUsers;
 
 
         public UsersManager()
         {
             InitializeComponent();
-
+            CreateControls();
             SetupControls();
+
             this.Dock = DockStyle.Fill;
+        }
+
+
+        private void CreateControls()
+        {
+            this.lblRoleName = new FormLabel(0, "", false, "role_name");
+            this.lblLanguage = new FormLabel(1, "", false, "language");
+            this.lblName = new FormLabel(2, "", false, "name");
+            this.lblIsEnabled = new FormLabel(3, "", false, "select_user");
+
+            this.tlpDetails.Controls.Add(this.lblRoleName, 0, 3);
+            this.tlpDetails.Controls.Add(this.lblLanguage, 0, 2);
+            this.tlpDetails.Controls.Add(this.lblName, 0, 1);
+            this.tlpDetails.Controls.Add(this.lblIsEnabled, 0, 0);
+            this.lblIsEnabled.ForeColor = Color.Red;
         }
 
 
         private void SetupControls()
         {
-            this.lblIsEnabled.ForeColor = Color.Red;
 
             this.btnAddUser.Text = Resources.Texts.add;
             this.btnDeleteUser.Text = Resources.Texts.delete;

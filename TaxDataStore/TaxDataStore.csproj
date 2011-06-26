@@ -95,7 +95,7 @@
     <Compile Include="Presentation\Controls\Tour\RuleConstraintTypeSelector.Designer.cs">
       <DependentUpon>RuleConstraintTypeSelector.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Forms\BaseForm.cs">
+    <Compile Include="Presentation\Controls\Base\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentation\Forms\Tours\FrmRuleConstraintEditor.cs">
@@ -104,7 +104,7 @@
     <Compile Include="Presentation\Forms\Tours\FrmRuleConstraintEditor.Designer.cs">
       <DependentUpon>FrmRuleConstraintEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Controls\ButtonBase.cs">
+    <Compile Include="Presentation\Controls\Base\ButtonBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Presentation\Controls\Tour\TourReceiptListView.cs">
@@ -116,7 +116,7 @@
     <Compile Include="Presentation\Forms\Membership\FrmPasswordEditor.Designer.cs">
       <DependentUpon>FrmPasswordEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Controls\FormLabel.cs">
+    <Compile Include="Presentation\Controls\Base\FormLabel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Presentation\Controls\ContactsListView.cs">
@@ -129,10 +129,10 @@
       <DependentUpon>FrmTourPaymentEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Controllers\MessageBox.cs" />
-    <Compile Include="Presentation\Controls\ContainerLayoutPanel.cs">
+    <Compile Include="Presentation\Controls\Base\ContainerLayoutPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\FlatButton.cs">
+    <Compile Include="Presentation\Controls\Base\FlatButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Presentation\Controls\Settings\CategoryVirtualListDataSource.cs" />
@@ -280,7 +280,7 @@
     <Compile Include="Presentation\Controls\EmployeesSplitButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\FlatGridView.cs">
+    <Compile Include="Presentation\Controls\Base\FlatGridView.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Presentation\Controls\Tour\ToursGridView.cs">
@@ -360,7 +360,7 @@
     <Compile Include="Presentation\Models\ValueOperationItem.cs" />
     <Compile Include="Presentation\SccreenManager.cs" />
     <Compile Include="Presentation\Theme.cs" />
-    <Compile Include="Presentation\Controls\ToolbarLabel.cs">
+    <Compile Include="Presentation\Controls\Base\ToolbarLabel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Presentation\View.cs" />
@@ -580,7 +580,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_ConfigurationName="Release" BuildVersion_BuildVersioningStyle="Increment.YearStamp.MonthAndDayStamp.TimeStamp" BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" />
+      <UserProperties BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" BuildVersion_BuildVersioningStyle="Increment.YearStamp.MonthAndDayStamp.TimeStamp" BuildVersion_ConfigurationName="Release" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

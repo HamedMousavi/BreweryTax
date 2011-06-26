@@ -7,13 +7,15 @@ namespace TaxDataStore.Presentation.Controls
 
     public partial class RuleConstraintTypeSelector : RuleConstraintBaseUserControl
     {
+        private FormLabel lblConstraintType;
 
         public RuleConstraintTypeSelector(Entities.TourCostRuleConstraint constraint)
             : base(constraint)
         {
-            this.label1 = new FormLabel("");
-
             InitializeComponent();
+
+            this.lblConstraintType = new FormLabel(0, "lblConstraintType", false, "Constraint type");
+            this.tlpMain.Controls.Add(this.lblConstraintType, 0, 1);
 
             this.Dock = DockStyle.Fill;
 

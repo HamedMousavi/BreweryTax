@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using TaxDataStore.Presentation.Controls;
 
 
 namespace TaxDataStore
@@ -7,6 +8,7 @@ namespace TaxDataStore
 
     public partial class FrmTourCostGroupEditor : BaseForm
     {
+        private FormLabel lblGroupName;
 
         protected Entities.TourCostGroup group;
         protected Entities.TourCostGroup editGroup;
@@ -17,9 +19,16 @@ namespace TaxDataStore
             InitializeComponent();
 
             this.group = new Entities.TourCostGroup();
-
+            CreateControls();
             SetupControls();
             BindControls();
+        }
+
+
+        private void CreateControls()
+        {
+            this.lblGroupName = new FormLabel(0, "lblGroupName", false, "lbl_tour_group_name");
+            this.tlpMain.Controls.Add(this.lblGroupName, 0, 1);
         }
 
 

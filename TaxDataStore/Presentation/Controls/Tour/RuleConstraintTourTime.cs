@@ -9,21 +9,33 @@ namespace TaxDataStore.Presentation.Controls
     public partial class RuleConstraintTourTime : RuleConstraintBaseUserControl
     {
 
+        private FormLabel lblAfter;
+        private FormLabel lblBefore;
+
+
         protected Entities.ConstraintTourTime time;
 
 
         public RuleConstraintTourTime(Entities.TourCostRuleConstraint constraint)
             : base(constraint)
         {
-            this.label1 = new FormLabel("");
-            this.label5 = new FormLabel("");
-
             InitializeComponent();
+
+            CreateControls();
 
             this.ConstraintMapper = new TourTimeConstraintMapper();
             this.time = new ConstraintTourTime();
         }
 
+
+        private void CreateControls()
+        {
+            this.lblAfter = new FormLabel(0, "lblAfter", false, "Any time after");
+            this.lblBefore = new FormLabel(2, "lblBefore", false, "And before");
+
+            this.tableLayoutPanel1.Controls.Add(this.lblAfter, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblBefore, 0, 2);
+        }
 
         public override TourCostRuleConstraint Constraint
         {

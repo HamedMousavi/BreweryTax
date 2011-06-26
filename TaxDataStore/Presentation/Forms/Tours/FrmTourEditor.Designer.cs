@@ -35,8 +35,6 @@ namespace TaxDataStore
             this.dtpTime = new System.Windows.Forms.DateTimePicker();
             this.tlpTourState = new System.Windows.Forms.TableLayoutPanel();
             this.btnConfirm = new ButtonBase();
-            this.lblGuest = new TaxDataStore.Presentation.Controls.ToolbarLabel();
-            this.lblGuestContacts = new TaxDataStore.Presentation.Controls.ToolbarLabel();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tbpTour = new System.Windows.Forms.TabPage();
             this.tbpMembers = new System.Windows.Forms.TabPage();
@@ -57,21 +55,10 @@ namespace TaxDataStore
             this.btnAddPayment = new TaxDataStore.Presentation.Controls.FlatButton();
             this.btnEditPayment = new TaxDataStore.Presentation.Controls.FlatButton();
             this.btnRemovePayment = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.lblPayments = new TaxDataStore.Presentation.Controls.ToolbarLabel();
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new ButtonBase();
             this.btnSave = new ButtonBase();
-            this.lblDate = new FormLabel("lbl_date");
-            this.lblTime = new FormLabel("lbl_time");
-            this.lblTourStatus = new FormLabel("");
-            this.lblTourStatusLabel = new FormLabel("lbl_tour_status");
-            this.lblTourType = new FormLabel("lbl_tour_type");
-            this.lblGuest = new ToolbarLabel("lbl_guests");
-            this.lblGuestContacts = new ToolbarLabel("lbl_guest_contacts");
-            this.lblEmployees = new FormLabel("lbl_employees");
-            this.lblComments = new FormLabel("lbl_comments");
-            this.lblSignupType = new FormLabel("lbl_signup_type");
             this.tlpTour.SuspendLayout();
             this.tlpTourState.SuspendLayout();
             this.tabMain.SuspendLayout();
@@ -95,20 +82,8 @@ namespace TaxDataStore
             this.tlpTour.ColumnCount = 2;
             this.tlpTour.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpTour.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            
-            this.tlpTour.Controls.Add(this.lblTourStatusLabel, 0, 0);
-            this.tlpTour.Controls.Add(this.tlpTourState, 1, 0);
-
-            this.tlpTour.Controls.Add(this.lblDate, 0, 1);
-            this.tlpTour.Controls.Add(this.dtpDate, 1, 1);
-
-            this.tlpTour.Controls.Add(this.lblTime, 0, 2);
-            this.tlpTour.Controls.Add(this.dtpTime, 1, 2);
 
             this.tlpTour.Controls.Add(this.gpxCostGroups, 0, 5);
-
-            this.tlpTour.Controls.Add(this.lblSignupType, 0, 4);
-            this.tlpTour.Controls.Add(this.lblTourType, 0, 3);
 
             this.tlpTour.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpTour.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -149,34 +124,6 @@ namespace TaxDataStore
             this.dtpDate.Size = new System.Drawing.Size(476, 22);
             this.dtpDate.TabIndex = 1;
             // 
-            // lblDate
-            // 
-            this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.ForeColor = System.Drawing.Color.Gray;
-            this.lblDate.Location = new System.Drawing.Point(3, 32);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(36, 28);
-            this.lblDate.TabIndex = 0;
-            this.lblDate.Text = "Date";
-            this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblTime
-            // 
-            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblTime.AutoSize = true;
-            this.lblTime.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.ForeColor = System.Drawing.Color.Gray;
-            this.lblTime.Location = new System.Drawing.Point(3, 60);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(35, 28);
-            this.lblTime.TabIndex = 2;
-            this.lblTime.Text = "Time";
-            this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // dtpTime
             // 
             this.dtpTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
@@ -189,34 +136,6 @@ namespace TaxDataStore
             this.dtpTime.Size = new System.Drawing.Size(476, 22);
             this.dtpTime.TabIndex = 3;
             // 
-            // lblTourType
-            // 
-            this.lblTourType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblTourType.AutoSize = true;
-            this.lblTourType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblTourType.ForeColor = System.Drawing.Color.Gray;
-            this.lblTourType.Location = new System.Drawing.Point(3, 88);
-            this.lblTourType.Name = "lblTourType";
-            this.lblTourType.Size = new System.Drawing.Size(66, 15);
-            this.lblTourType.TabIndex = 4;
-            this.lblTourType.Text = "TourType";
-            this.lblTourType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblSignupType
-            // 
-            this.lblSignupType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblSignupType.AutoSize = true;
-            this.lblSignupType.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSignupType.ForeColor = System.Drawing.Color.Gray;
-            this.lblSignupType.Location = new System.Drawing.Point(3, 103);
-            this.lblSignupType.Name = "lblSignupType";
-            this.lblSignupType.Size = new System.Drawing.Size(79, 14);
-            this.lblSignupType.TabIndex = 6;
-            this.lblSignupType.Text = "SignUpType";
-            this.lblSignupType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // tlpTourState
             // 
             this.tlpTourState.ColumnCount = 3;
@@ -224,7 +143,6 @@ namespace TaxDataStore
             this.tlpTourState.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpTourState.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpTourState.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpTourState.Controls.Add(this.lblTourStatus, 0, 0);
             this.tlpTourState.Controls.Add(this.btnConfirm, 1, 0);
             this.tlpTourState.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpTourState.Location = new System.Drawing.Point(85, 0);
@@ -234,21 +152,6 @@ namespace TaxDataStore
             this.tlpTourState.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpTourState.Size = new System.Drawing.Size(482, 32);
             this.tlpTourState.TabIndex = 13;
-            // 
-            // lblTourStatus
-            // 
-            this.lblTourStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTourStatus.AutoSize = true;
-            this.lblTourStatus.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblTourStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTourStatus.Location = new System.Drawing.Point(3, 0);
-            this.lblTourStatus.Name = "lblTourStatus";
-            this.lblTourStatus.Size = new System.Drawing.Size(90, 32);
-            this.lblTourStatus.TabIndex = 1;
-            this.lblTourStatus.Text = "[ Reserved ]";
-            this.lblTourStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnConfirm
             // 
@@ -260,76 +163,6 @@ namespace TaxDataStore
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
-            // 
-            // lblTourStatusLabel
-            // 
-            this.lblTourStatusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblTourStatusLabel.AutoSize = true;
-            this.lblTourStatusLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTourStatusLabel.ForeColor = System.Drawing.Color.Gray;
-            this.lblTourStatusLabel.Location = new System.Drawing.Point(3, 0);
-            this.lblTourStatusLabel.Name = "lblTourStatusLabel";
-            this.lblTourStatusLabel.Size = new System.Drawing.Size(48, 32);
-            this.lblTourStatusLabel.TabIndex = 14;
-            this.lblTourStatusLabel.Text = "Status";
-            this.lblTourStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblGuest
-            // 
-            this.lblGuest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblGuest.AutoSize = true;
-            this.lblGuest.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblGuest.ForeColor = System.Drawing.Color.Gray;
-            this.lblGuest.Location = new System.Drawing.Point(3, 0);
-            this.lblGuest.Name = "lblGuest";
-            this.lblGuest.Size = new System.Drawing.Size(42, 30);
-            this.lblGuest.TabIndex = 3;
-            this.lblGuest.Text = "Guest";
-            this.lblGuest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblGuestContacts
-            // 
-            this.lblGuestContacts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblGuestContacts.AutoSize = true;
-            this.lblGuestContacts.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblGuestContacts.ForeColor = System.Drawing.Color.Gray;
-            this.lblGuestContacts.Location = new System.Drawing.Point(173, 0);
-            this.lblGuestContacts.Name = "lblGuestContacts";
-            this.lblGuestContacts.Size = new System.Drawing.Size(99, 30);
-            this.lblGuestContacts.TabIndex = 3;
-            this.lblGuestContacts.Text = "Guest contacts";
-            this.lblGuestContacts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblEmployees
-            // 
-            this.lblEmployees.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblEmployees.AutoSize = true;
-            this.lblEmployees.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblEmployees.ForeColor = System.Drawing.Color.Gray;
-            this.lblEmployees.Location = new System.Drawing.Point(3, 0);
-            this.lblEmployees.Name = "lblEmployees";
-            this.lblEmployees.Size = new System.Drawing.Size(71, 32);
-            this.lblEmployees.TabIndex = 3;
-            this.lblEmployees.Text = "Employees";
-            this.lblEmployees.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblComments
-            // 
-            this.lblComments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblComments.AutoSize = true;
-            this.lblComments.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblComments.ForeColor = System.Drawing.Color.Gray;
-            this.lblComments.Location = new System.Drawing.Point(143, 0);
-            this.lblComments.Name = "lblComments";
-            this.lblComments.Size = new System.Drawing.Size(72, 32);
-            this.lblComments.TabIndex = 17;
-            this.lblComments.Text = "Comments";
-            this.lblComments.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tabMain
             // 
@@ -372,7 +205,6 @@ namespace TaxDataStore
             this.tlpTourMembers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tlpTourMembers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tlpTourMembers.Controls.Add(this.tlpMemberToolbar, 0, 0);
-            this.tlpTourMembers.Controls.Add(this.lblGuestContacts, 1, 0);
             this.tlpTourMembers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpTourMembers.Location = new System.Drawing.Point(0, 0);
             this.tlpTourMembers.Name = "tlpTourMembers";
@@ -393,7 +225,6 @@ namespace TaxDataStore
             this.tlpMemberToolbar.Controls.Add(this.btnAddTourMember, 1, 0);
             this.tlpMemberToolbar.Controls.Add(this.btnRemoveTourMember, 3, 0);
             this.tlpMemberToolbar.Controls.Add(this.btnEditTourMember, 2, 0);
-            this.tlpMemberToolbar.Controls.Add(this.lblGuest, 0, 0);
             this.tlpMemberToolbar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMemberToolbar.Location = new System.Drawing.Point(0, 0);
             this.tlpMemberToolbar.Margin = new System.Windows.Forms.Padding(0);
@@ -446,7 +277,6 @@ namespace TaxDataStore
             this.tlpStaff.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.tlpStaff.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpStaff.Controls.Add(this.tlpEmployeeToolbar, 0, 0);
-            this.tlpStaff.Controls.Add(this.lblComments, 1, 0);
             this.tlpStaff.Controls.Add(this.rtbComments, 1, 1);
             this.tlpStaff.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpStaff.Location = new System.Drawing.Point(0, 0);
@@ -465,7 +295,6 @@ namespace TaxDataStore
             this.tlpEmployeeToolbar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpEmployeeToolbar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpEmployeeToolbar.Controls.Add(this.btnRemoveEmployee, 2, 0);
-            this.tlpEmployeeToolbar.Controls.Add(this.lblEmployees, 0, 0);
             this.tlpEmployeeToolbar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpEmployeeToolbar.Location = new System.Drawing.Point(0, 0);
             this.tlpEmployeeToolbar.Margin = new System.Windows.Forms.Padding(0);
@@ -541,7 +370,6 @@ namespace TaxDataStore
             this.tlpPayments.Controls.Add(this.btnAddPayment, 1, 0);
             this.tlpPayments.Controls.Add(this.btnEditPayment, 2, 0);
             this.tlpPayments.Controls.Add(this.btnRemovePayment, 3, 0);
-            this.tlpPayments.Controls.Add(this.lblPayments, 0, 0);
             this.tlpPayments.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpPayments.Location = new System.Drawing.Point(0, 0);
             this.tlpPayments.Name = "tlpPayments";
@@ -579,15 +407,6 @@ namespace TaxDataStore
             this.btnRemovePayment.TabIndex = 1;
             this.btnRemovePayment.UseVisualStyleBackColor = true;
             this.btnRemovePayment.Click += new System.EventHandler(this.btnRemovePayment_Click);
-            // 
-            // lblPayments
-            // 
-            this.lblPayments.AutoSize = true;
-            this.lblPayments.Location = new System.Drawing.Point(6, 3);
-            this.lblPayments.Name = "lblPayments";
-            this.lblPayments.Size = new System.Drawing.Size(61, 14);
-            this.lblPayments.TabIndex = 2;
-            this.lblPayments.Text = "Payment";
             // 
             // tlpMain
             // 
@@ -686,12 +505,8 @@ namespace TaxDataStore
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpTour;
-        private FormLabel lblDate;
-        private FormLabel lblTime;
         private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.DateTimePicker dtpTime;
-        private FormLabel lblTourType;
-        private FormLabel lblSignupType;
         private System.Windows.Forms.TabControl tabMain;
         private System.Windows.Forms.TabPage tbpTour;
         private System.Windows.Forms.TabPage tbpPayments;
@@ -708,8 +523,6 @@ namespace TaxDataStore
         private System.Windows.Forms.TableLayoutPanel tlpStaff;
         private System.Windows.Forms.TableLayoutPanel tlpMain;
         private ButtonBase btnRemoveEmployee;
-        private FormLabel lblComments;
-        private FormLabel lblEmployees;
         private System.Windows.Forms.RichTextBox rtbComments;
         private System.Windows.Forms.TableLayoutPanel tlpEmployeeToolbar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -717,14 +530,9 @@ namespace TaxDataStore
         private ButtonBase btnCancel;
         private ButtonBase btnSave;
         private ButtonBase btnConfirm;
-        private FormLabel lblTourStatus;
-        private FormLabel lblTourStatusLabel;
         private System.Windows.Forms.TableLayoutPanel tlpMemberToolbar;
-        private ToolbarLabel lblGuest;
-        private ToolbarLabel lblGuestContacts;
         private System.Windows.Forms.GroupBox gpxCostGroups;
         private System.Windows.Forms.TabPage tbpReceipt;
         private ContainerLayoutPanel tlpReceipt;
-        private ToolbarLabel lblPayments;
     }
 }

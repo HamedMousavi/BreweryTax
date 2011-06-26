@@ -8,6 +8,17 @@ namespace TaxDataStore
 
     public partial class FrmTourEditor : BaseForm
     {
+        private FormLabel lblDate;
+        private FormLabel lblTime;
+        private FormLabel lblTourType;
+        private FormLabel lblSignupType;
+        private FormLabel lblComments;
+        private FormLabel lblEmployees;
+        private FormLabel lblTourStatus;
+        private FormLabel lblTourStatusLabel;
+        private ToolbarLabel lblGuest;
+        private ToolbarLabel lblGuestContacts;
+        private ToolbarLabel lblPayments;
 
         protected TourReceiptListView fgvTourReceipt;
         protected Label lblReceiptTotal;
@@ -31,11 +42,46 @@ namespace TaxDataStore
         {
             InitializeComponent();
 
+            CreateControls();
+
             this.tour = new Entities.Tour(DomainModel.TourCostGroups.GetAll());
             this.tour.PaymentStrategy = new DomainModel.PaymentStrategies.NormalStrategy();
 
             SetupControls();
             BindControls();
+        }
+
+
+        private void CreateControls()
+        {
+            this.lblDate = new FormLabel(0, "lblDate", true, "lbl_date");
+            this.lblTime = new FormLabel(1, "lblTime", true, "lbl_time");
+            this.lblTourStatus = new FormLabel(2, "lblTourStatus", true, "");
+            this.lblTourStatusLabel = new FormLabel(3, "lblTourStatusLabel", true, "lbl_tour_status");
+            this.lblTourType = new FormLabel(4, "lblTourType", true, "lbl_tour_type");
+            this.lblEmployees = new FormLabel(5, "lblEmployees", true, "lbl_employees");
+            this.lblComments = new FormLabel(6, "lblComments", true, "lbl_comments");
+            this.lblSignupType = new FormLabel(7, "lblSignupType", true, "lbl_signup_type");
+
+            this.lblGuestContacts = new ToolbarLabel("lbl_guest_contacts");
+            this.lblGuest = new ToolbarLabel("lbl_guests");
+            this.lblPayments = new ToolbarLabel("lbl_payments");
+
+            this.tlpTour.Controls.Add(this.lblTourStatusLabel, 0, 0);
+            this.tlpTour.Controls.Add(this.tlpTourState, 1, 0);
+            this.tlpTour.Controls.Add(this.lblDate, 0, 1);
+            this.tlpTour.Controls.Add(this.dtpDate, 1, 1);
+            this.tlpTour.Controls.Add(this.lblTime, 0, 2);
+            this.tlpTour.Controls.Add(this.dtpTime, 1, 2);
+            this.tlpTour.Controls.Add(this.lblSignupType, 0, 4);
+            this.tlpTour.Controls.Add(this.lblTourType, 0, 3);
+
+            this.tlpTourState.Controls.Add(this.lblTourStatus, 0, 0);
+            this.tlpStaff.Controls.Add(this.lblComments, 1, 0);
+            this.tlpEmployeeToolbar.Controls.Add(this.lblEmployees, 0, 0);
+            this.tlpPayments.Controls.Add(this.lblPayments, 0, 0);
+            this.tlpMemberToolbar.Controls.Add(this.lblGuest, 0, 0);
+            this.tlpTourMembers.Controls.Add(this.lblGuestContacts, 1, 0);
         }
 
 

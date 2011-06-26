@@ -1,6 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using TaxDataStore.Presentation.Controls;
-using System;
 
 
 namespace TaxDataStore
@@ -8,6 +8,8 @@ namespace TaxDataStore
 
     public partial class FrmDailyTours : BaseForm
     {
+        private FormLabel lblDate;
+        
         protected ToursGridView fgvTours;
         protected FlatGridView fgvEmployees;
         protected FlatGridView fgvTourMembers;
@@ -25,6 +27,8 @@ namespace TaxDataStore
 
         public FrmDailyTours()
         {
+            CreateControls();
+
             InitializeComponent();
 
             this.tours = new Entities.TourCollection();
@@ -61,6 +65,12 @@ namespace TaxDataStore
                     null));
 
             SetupControls();
+        }
+
+
+        private void CreateControls()
+        {
+            this.lblDate = new FormLabel(0, "lblDate", false, "date");
         }
 
 

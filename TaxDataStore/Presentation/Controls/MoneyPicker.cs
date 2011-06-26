@@ -82,13 +82,23 @@ namespace TaxDataStore.Presentation.Controls
                         null,
                         string.Empty,
                         null));
+
+                if (Presentation.View.Theme != null)
+                {
+                    this.BackColor = Presentation.View.Theme.FormBackColor;
+                    this.tlpMain.BackColor = Presentation.View.Theme.FormBackColor;
+                }
+                else
+                {
+                    this.BackColor = System.Drawing.SystemColors.Control;
+                }
             }
             catch (Exception)
             {
             }
         }
 
-
+/*
         public MoneyPicker(Entities.Money money, string culture)
         {
             InitializeComponent();
@@ -136,5 +146,7 @@ namespace TaxDataStore.Presentation.Controls
             {
             }
         }
+
+*/
     }
 }

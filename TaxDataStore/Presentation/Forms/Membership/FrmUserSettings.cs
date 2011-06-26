@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using TaxDataStore.Presentation.Controls;
 
 
 namespace TaxDataStore
@@ -7,6 +8,8 @@ namespace TaxDataStore
 
     public partial class FrmUserSettings : BaseForm
     {
+        private FormLabel lblLanguage;
+        private FormLabel lblPassword;
 
         protected Entities.User user;
 
@@ -15,12 +18,24 @@ namespace TaxDataStore
         {
             InitializeComponent();
 
+            CreateControls();
+
             this.user = new Entities.User();
 
             BindControls();
 
             this.Load += new EventHandler(FrmUserSettings_Load);
             this.btnChangePassword.Click += new EventHandler(btnChangePassword_Click);
+        }
+
+
+        private void CreateControls()
+        {
+            this.lblLanguage = new FormLabel(0, "lblLanguage", false, "language");
+            this.lblPassword = new FormLabel(1, "lblPassword", false, "password");
+
+            this.tlpGeneral.Controls.Add(this.lblLanguage, 0, 0);
+            this.tlpGeneral.Controls.Add(this.lblPassword, 0, 1);
         }
 
 

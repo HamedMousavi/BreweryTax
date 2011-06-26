@@ -30,9 +30,6 @@
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.chbxUpdateAutoDownload = new System.Windows.Forms.CheckBox();
-            this.lblUpdateSeconds = new FormLabel("lbl_upd_sseconds");
-            this.lblUpdateEvery = new FormLabel("lbl_upd_interval");
-            this.lblUpdateUrl = new FormLabel("lbl_upd_url");
             this.tbxUpdateCheckInterval = new System.Windows.Forms.TextBox();
             this.tbxUpdateUrl = new System.Windows.Forms.TextBox();
             this.chbxToggleAutoUpdate = new System.Windows.Forms.CheckBox();
@@ -47,10 +44,7 @@
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpMain.Controls.Add(this.chbxUpdateAutoDownload, 0, 3);
-            this.tlpMain.Controls.Add(this.lblUpdateSeconds, 2, 2);
             this.tlpMain.Controls.Add(this.tbxUpdateCheckInterval, 1, 2);
-            this.tlpMain.Controls.Add(this.lblUpdateEvery, 0, 2);
-            this.tlpMain.Controls.Add(this.lblUpdateUrl, 0, 1);
             this.tlpMain.Controls.Add(this.tbxUpdateUrl, 1, 1);
             this.tlpMain.Controls.Add(this.chbxToggleAutoUpdate, 0, 0);
             this.tlpMain.Controls.Add(this.btnSave, 0, 4);
@@ -88,54 +82,12 @@
             this.chbxUpdateAutoDownload.Text = "Download new version automatically";
             this.chbxUpdateAutoDownload.UseVisualStyleBackColor = true;
             // 
-            // lblUpdateSeconds
-            // 
-            this.lblUpdateSeconds.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblUpdateSeconds.AutoSize = true;
-            this.lblUpdateSeconds.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblUpdateSeconds.ForeColor = System.Drawing.Color.DimGray;
-            this.lblUpdateSeconds.Location = new System.Drawing.Point(242, 50);
-            this.lblUpdateSeconds.Name = "lblUpdateSeconds";
-            this.lblUpdateSeconds.Size = new System.Drawing.Size(54, 27);
-            this.lblUpdateSeconds.TabIndex = 5;
-            this.lblUpdateSeconds.Text = "Seconds";
-            this.lblUpdateSeconds.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // tbxUpdateCheckInterval
             // 
             this.tbxUpdateCheckInterval.Location = new System.Drawing.Point(154, 53);
             this.tbxUpdateCheckInterval.Name = "tbxUpdateCheckInterval";
             this.tbxUpdateCheckInterval.Size = new System.Drawing.Size(82, 21);
             this.tbxUpdateCheckInterval.TabIndex = 4;
-            // 
-            // lblUpdateEvery
-            // 
-            this.lblUpdateEvery.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblUpdateEvery.AutoSize = true;
-            this.lblUpdateEvery.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblUpdateEvery.ForeColor = System.Drawing.Color.DimGray;
-            this.lblUpdateEvery.Location = new System.Drawing.Point(3, 50);
-            this.lblUpdateEvery.Name = "lblUpdateEvery";
-            this.lblUpdateEvery.Size = new System.Drawing.Size(145, 27);
-            this.lblUpdateEvery.TabIndex = 3;
-            this.lblUpdateEvery.Text = "Check for updates every";
-            this.lblUpdateEvery.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblUpdateUrl
-            // 
-            this.lblUpdateUrl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblUpdateUrl.AutoSize = true;
-            this.lblUpdateUrl.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblUpdateUrl.ForeColor = System.Drawing.Color.DimGray;
-            this.lblUpdateUrl.Location = new System.Drawing.Point(3, 23);
-            this.lblUpdateUrl.Name = "lblUpdateUrl";
-            this.lblUpdateUrl.Size = new System.Drawing.Size(64, 27);
-            this.lblUpdateUrl.TabIndex = 1;
-            this.lblUpdateUrl.Text = "UpdateUrl";
-            this.lblUpdateUrl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tbxUpdateUrl
             // 
@@ -190,10 +142,7 @@
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
         private System.Windows.Forms.CheckBox chbxUpdateAutoDownload;
-        private FormLabel lblUpdateSeconds;
         private System.Windows.Forms.TextBox tbxUpdateCheckInterval;
-        private FormLabel lblUpdateEvery;
-        private FormLabel lblUpdateUrl;
         private System.Windows.Forms.TextBox tbxUpdateUrl;
         private System.Windows.Forms.CheckBox chbxToggleAutoUpdate;
         private ButtonBase btnSave;

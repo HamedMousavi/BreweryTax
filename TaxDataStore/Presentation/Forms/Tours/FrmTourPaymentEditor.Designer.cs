@@ -30,8 +30,6 @@ namespace TaxDataStore
         private void InitializeComponent()
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
-            this.lblPaymentType = new FormLabel("lbl_payment_type");
-            this.lblPaymentAmount = new FormLabel("lbl_payment_amount");
             this.cbxPaymentTypes = new System.Windows.Forms.ComboBox();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnSave = new ButtonBase();
@@ -46,8 +44,6 @@ namespace TaxDataStore
             this.tlpMain.ColumnCount = 2;
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMain.Controls.Add(this.lblPaymentType, 0, 0);
-            this.tlpMain.Controls.Add(this.lblPaymentAmount, 0, 1);
             this.tlpMain.Controls.Add(this.cbxPaymentTypes, 1, 0);
             this.tlpMain.Controls.Add(this.tlpButtons, 0, 2);
             this.tlpMain.Controls.Add(this.mpkPaymentAmount, 1, 1);
@@ -61,24 +57,6 @@ namespace TaxDataStore
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tlpMain.Size = new System.Drawing.Size(289, 109);
             this.tlpMain.TabIndex = 0;
-            // 
-            // lblPaymentType
-            // 
-            this.lblPaymentType.AutoSize = true;
-            this.lblPaymentType.Location = new System.Drawing.Point(3, 0);
-            this.lblPaymentType.Name = "lblPaymentType";
-            this.lblPaymentType.Size = new System.Drawing.Size(87, 14);
-            this.lblPaymentType.TabIndex = 0;
-            this.lblPaymentType.Text = "Payment Type";
-            // 
-            // lblPaymentAmount
-            // 
-            this.lblPaymentAmount.AutoSize = true;
-            this.lblPaymentAmount.Location = new System.Drawing.Point(3, 28);
-            this.lblPaymentAmount.Name = "lblPaymentAmount";
-            this.lblPaymentAmount.Size = new System.Drawing.Size(103, 14);
-            this.lblPaymentAmount.TabIndex = 1;
-            this.lblPaymentAmount.Text = "Payment Amount";
             // 
             // cbxPaymentTypes
             // 
@@ -164,8 +142,6 @@ namespace TaxDataStore
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
-        private FormLabel lblPaymentType;
-        private FormLabel lblPaymentAmount;
         private System.Windows.Forms.ComboBox cbxPaymentTypes;
         private System.Windows.Forms.TableLayoutPanel tlpButtons;
         private ButtonBase btnSave;

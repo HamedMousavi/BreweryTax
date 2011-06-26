@@ -46,11 +46,8 @@
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMain.Controls.Add(this.lblYear, 0, 0);
             this.tlpMain.Controls.Add(this.cbxYear, 1, 0);
-            this.tlpMain.Controls.Add(this.lblMonth, 2, 0);
             this.tlpMain.Controls.Add(this.cbxMonths, 3, 0);
-            this.tlpMain.Controls.Add(this.Daylbl, 4, 0);
             this.tlpMain.Controls.Add(this.cbxDay, 5, 0);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
@@ -61,15 +58,7 @@
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpMain.Size = new System.Drawing.Size(446, 53);
             this.tlpMain.TabIndex = 2;
-            // 
-            // lblYear
-            // 
-            this.lblYear.AutoSize = true;
-            this.lblYear.Location = new System.Drawing.Point(3, 0);
-            this.lblYear.Name = "lblYear";
-            this.lblYear.Size = new System.Drawing.Size(29, 13);
-            this.lblYear.TabIndex = 0;
-            this.lblYear.Text = "Year";
+
             // 
             // cbxYear
             // 
@@ -80,15 +69,7 @@
             this.cbxYear.Name = "cbxYear";
             this.cbxYear.Size = new System.Drawing.Size(90, 21);
             this.cbxYear.TabIndex = 1;
-            // 
-            // lblMonth
-            // 
-            this.lblMonth.AutoSize = true;
-            this.lblMonth.Location = new System.Drawing.Point(134, 0);
-            this.lblMonth.Name = "lblMonth";
-            this.lblMonth.Size = new System.Drawing.Size(37, 13);
-            this.lblMonth.TabIndex = 2;
-            this.lblMonth.Text = "Month";
+
             // 
             // cbxMonths
             // 
@@ -111,15 +92,7 @@
             this.cbxMonths.Name = "cbxMonths";
             this.cbxMonths.Size = new System.Drawing.Size(90, 21);
             this.cbxMonths.TabIndex = 3;
-            // 
-            // Daylbl
-            // 
-            this.Daylbl.AutoSize = true;
-            this.Daylbl.Location = new System.Drawing.Point(273, 0);
-            this.Daylbl.Name = "Daylbl";
-            this.Daylbl.Size = new System.Drawing.Size(26, 13);
-            this.Daylbl.TabIndex = 4;
-            this.Daylbl.Text = "Day";
+
             // 
             // cbxDay
             // 
@@ -179,11 +152,8 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
-        private FormLabel lblYear;
         private System.Windows.Forms.ComboBox cbxYear;
-        private FormLabel lblMonth;
         private System.Windows.Forms.ComboBox cbxMonths;
-        private FormLabel Daylbl;
         private System.Windows.Forms.ComboBox cbxDay;
     }
 }

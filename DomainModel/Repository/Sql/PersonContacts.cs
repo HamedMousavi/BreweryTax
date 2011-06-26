@@ -77,7 +77,7 @@ namespace DomainModel.Repository.Sql
                 this.query.Parameters.Add(new SqlParameter("@ContactMediaId", contact.Media.Id));
                 this.query.Parameters.Add(new SqlParameter("@ContactValue", contact.Value));
                 this.query.Parameters.Add(new SqlParameter("@ContactId", contact.Id));
-                this.query.Parameters.Add(new SqlParameter("@MemberId", member.Id));
+                this.query.Parameters.Add(new SqlParameter("@PersonId", member.Id));
 
 
                 int affected;

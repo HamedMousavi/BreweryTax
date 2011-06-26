@@ -1,6 +1,5 @@
-﻿using Entities;
-using DomainModel.Tour.Payment;
-using System.ComponentModel;
+﻿using DomainModel.Tour.Payment;
+using Entities;
 
 
 namespace TaxDataStore.Presentation.Controls
@@ -8,6 +7,8 @@ namespace TaxDataStore.Presentation.Controls
 
     public partial class RuleConstraintTourDate : RuleConstraintBaseUserControl
     {
+        private FormLabel lblAfter;
+        private FormLabel lblBefore;
 
         protected Entities.ConstraintTourDate date;
 
@@ -15,13 +16,22 @@ namespace TaxDataStore.Presentation.Controls
         public RuleConstraintTourDate(Entities.TourCostRuleConstraint constraint)
             : base(constraint)
         {
-            this.label1 = new FormLabel("");
-            this.label5 = new FormLabel(""); 
-            
             InitializeComponent();
+
+            CreateControls();
 
             this.ConstraintMapper = new TourDateConstraintMapper();
             this.date = new ConstraintTourDate();
+        }
+
+
+        private void CreateControls()
+        {
+            this.lblAfter = new FormLabel(0, "lblAfter", false, "Any day after");
+            this.lblBefore = new FormLabel(2, "lblBefore", false, "And before"); 
+            
+             this.tableLayoutPanel1.Controls.Add(this.lblAfter, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblBefore, 0, 2);
         }
 
 

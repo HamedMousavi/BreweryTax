@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
-            this.lblDatabaseServerName = new FormLabel("lbl_db_server");
-            this.lblDatabaseTcpPort = new FormLabel("lbl_db_port");
-            this.lblDatabaseUserId = new FormLabel("lbl_db_srv_user");
-            this.lblDatabasePassword = new FormLabel("lbl_db_password");
-            this.lblDatabaseCatalog = new FormLabel("lbl_db_name");
             this.tbxDatabaseServerName = new System.Windows.Forms.TextBox();
             this.tbxDatabaseTcpPort = new System.Windows.Forms.TextBox();
             this.tbxDatabaseUserId = new System.Windows.Forms.TextBox();
@@ -49,11 +44,6 @@
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpMain.Controls.Add(this.lblDatabaseServerName, 0, 1);
-            this.tlpMain.Controls.Add(this.lblDatabaseTcpPort, 0, 2);
-            this.tlpMain.Controls.Add(this.lblDatabaseUserId, 0, 3);
-            this.tlpMain.Controls.Add(this.lblDatabasePassword, 0, 4);
-            this.tlpMain.Controls.Add(this.lblDatabaseCatalog, 0, 5);
             this.tlpMain.Controls.Add(this.tbxDatabaseServerName, 1, 1);
             this.tlpMain.Controls.Add(this.tbxDatabaseTcpPort, 1, 2);
             this.tlpMain.Controls.Add(this.tbxDatabaseUserId, 1, 3);
@@ -80,76 +70,6 @@
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpMain.Size = new System.Drawing.Size(539, 558);
             this.tlpMain.TabIndex = 1;
-            // 
-            // lblDatabaseServerName
-            // 
-            this.lblDatabaseServerName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblDatabaseServerName.AutoSize = true;
-            this.lblDatabaseServerName.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblDatabaseServerName.ForeColor = System.Drawing.Color.DimGray;
-            this.lblDatabaseServerName.Location = new System.Drawing.Point(3, 5);
-            this.lblDatabaseServerName.Name = "lblDatabaseServerName";
-            this.lblDatabaseServerName.Size = new System.Drawing.Size(89, 27);
-            this.lblDatabaseServerName.TabIndex = 0;
-            this.lblDatabaseServerName.Text = "InstanceName";
-            this.lblDatabaseServerName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblDatabaseTcpPort
-            // 
-            this.lblDatabaseTcpPort.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblDatabaseTcpPort.AutoSize = true;
-            this.lblDatabaseTcpPort.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblDatabaseTcpPort.ForeColor = System.Drawing.Color.DimGray;
-            this.lblDatabaseTcpPort.Location = new System.Drawing.Point(3, 32);
-            this.lblDatabaseTcpPort.Name = "lblDatabaseTcpPort";
-            this.lblDatabaseTcpPort.Size = new System.Drawing.Size(55, 27);
-            this.lblDatabaseTcpPort.TabIndex = 2;
-            this.lblDatabaseTcpPort.Text = "TCP Port";
-            this.lblDatabaseTcpPort.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblDatabaseUserId
-            // 
-            this.lblDatabaseUserId.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblDatabaseUserId.AutoSize = true;
-            this.lblDatabaseUserId.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblDatabaseUserId.ForeColor = System.Drawing.Color.DimGray;
-            this.lblDatabaseUserId.Location = new System.Drawing.Point(3, 59);
-            this.lblDatabaseUserId.Name = "lblDatabaseUserId";
-            this.lblDatabaseUserId.Size = new System.Drawing.Size(49, 27);
-            this.lblDatabaseUserId.TabIndex = 4;
-            this.lblDatabaseUserId.Text = "User ID";
-            this.lblDatabaseUserId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblDatabasePassword
-            // 
-            this.lblDatabasePassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblDatabasePassword.AutoSize = true;
-            this.lblDatabasePassword.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblDatabasePassword.ForeColor = System.Drawing.Color.DimGray;
-            this.lblDatabasePassword.Location = new System.Drawing.Point(3, 86);
-            this.lblDatabasePassword.Name = "lblDatabasePassword";
-            this.lblDatabasePassword.Size = new System.Drawing.Size(61, 27);
-            this.lblDatabasePassword.TabIndex = 6;
-            this.lblDatabasePassword.Text = "Password";
-            this.lblDatabasePassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblDatabaseCatalog
-            // 
-            this.lblDatabaseCatalog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblDatabaseCatalog.AutoSize = true;
-            this.lblDatabaseCatalog.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblDatabaseCatalog.ForeColor = System.Drawing.Color.DimGray;
-            this.lblDatabaseCatalog.Location = new System.Drawing.Point(3, 113);
-            this.lblDatabaseCatalog.Name = "lblDatabaseCatalog";
-            this.lblDatabaseCatalog.Size = new System.Drawing.Size(50, 27);
-            this.lblDatabaseCatalog.TabIndex = 8;
-            this.lblDatabaseCatalog.Text = "Catalog";
-            this.lblDatabaseCatalog.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tbxDatabaseServerName
             // 
@@ -218,11 +138,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
-        private FormLabel lblDatabaseServerName;
-        private FormLabel lblDatabaseTcpPort;
-        private FormLabel lblDatabaseUserId;
-        private FormLabel lblDatabasePassword;
-        private FormLabel lblDatabaseCatalog;
         private System.Windows.Forms.TextBox tbxDatabaseServerName;
         private System.Windows.Forms.TextBox tbxDatabaseTcpPort;
         private System.Windows.Forms.TextBox tbxDatabaseUserId;

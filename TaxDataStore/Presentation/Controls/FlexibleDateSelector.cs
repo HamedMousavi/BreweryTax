@@ -9,21 +9,37 @@ namespace TaxDataStore.Presentation.Controls
     public partial class ConstraintDateSelector : UserControl
     {
 
+        private FormLabel lblYear;
+        private FormLabel lblMonth;
+        private FormLabel lblDay;
+
+
         public TourConstraintDateItem Date { get; set; }
 
 
         public ConstraintDateSelector()
         {
-            this.lblYear = new FormLabel("");
-            this.lblMonth = new FormLabel("");
-            this.Daylbl = new FormLabel("");
-
             InitializeComponent();
+
+            CreateControls();
+
             this.Date = new TourConstraintDateItem();
 
             this.cbxYear.TextChanged += new EventHandler(cbxYear_TextChanged);
             this.cbxMonths.TextChanged += new EventHandler(cbxMonths_TextChanged);
             this.cbxDay.TextChanged += new EventHandler(cbxDay_TextChanged);
+        }
+
+
+        private void CreateControls()
+        {
+            this.lblYear = new FormLabel(0, "lblYear", false, "Year");
+            this.lblMonth = new FormLabel(1, "lblMonth", false, "Month");
+            this.lblDay = new FormLabel(2, "lblDay", false, "Day");
+
+            this.tlpMain.Controls.Add(this.lblMonth, 2, 0);
+            this.tlpMain.Controls.Add(this.lblDay, 4, 0);
+            this.tlpMain.Controls.Add(this.lblYear, 0, 0);
         }
 
         void cbxYear_TextChanged(object sender, EventArgs e)

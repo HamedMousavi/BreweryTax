@@ -41,7 +41,6 @@ namespace TaxDataStore
             this.lblRoles = new TaxDataStore.Presentation.Controls.ToolbarLabel();
             this.lblTasks = new TaxDataStore.Presentation.Controls.ToolbarLabel();
             this.panelTasks = new System.Windows.Forms.Panel();
-            this.lblComment = new FormLabel("select_role");
             this.mnuRoles.SuspendLayout();
             this.tlpMain.SuspendLayout();
             this.tlpButtons.SuspendLayout();
@@ -166,24 +165,12 @@ namespace TaxDataStore
             // panelTasks
             // 
             this.panelTasks.BackColor = System.Drawing.Color.White;
-            this.panelTasks.Controls.Add(this.lblComment);
             this.panelTasks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelTasks.Location = new System.Drawing.Point(247, 35);
             this.panelTasks.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.panelTasks.Name = "panelTasks";
             this.panelTasks.Size = new System.Drawing.Size(301, 437);
             this.panelTasks.TabIndex = 4;
-            // 
-            // lblComment
-            // 
-            this.lblComment.AutoSize = true;
-            this.lblComment.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.lblComment.ForeColor = System.Drawing.Color.Red;
-            this.lblComment.Location = new System.Drawing.Point(0, 0);
-            this.lblComment.MaximumSize = new System.Drawing.Size(300, 1024);
-            this.lblComment.Name = "lblComment";
-            this.lblComment.Size = new System.Drawing.Size(0, 14);
-            this.lblComment.TabIndex = 5;
             // 
             // RoleManager
             // 
@@ -219,6 +206,5 @@ namespace TaxDataStore
         private ToolbarLabel lblRoles;
         private ToolbarLabel lblTasks;
         private System.Windows.Forms.Panel panelTasks;
-        private FormLabel lblComment;
     }
 }

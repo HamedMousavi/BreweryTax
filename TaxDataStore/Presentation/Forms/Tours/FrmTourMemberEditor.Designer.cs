@@ -29,9 +29,6 @@ namespace TaxDataStore
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblTitle = new FormLabel("lbl_title");
-            this.lblFirstName = new FormLabel("lbl_first_name");
-            this.lblLastName = new FormLabel("lbl_last_name");
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.tlpContacts = new ContainerLayoutPanel();
             this.btnAddContact = new FlatButton();
@@ -53,9 +50,6 @@ namespace TaxDataStore
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpMain.Controls.Add(this.tlpContacts, 0, 3);
-            this.tlpMain.Controls.Add(this.lblTitle, 0, 0);
-            this.tlpMain.Controls.Add(this.lblFirstName, 0, 1);
-            this.tlpMain.Controls.Add(this.lblLastName, 0, 2);
             this.tlpMain.Controls.Add(this.tlpButtons, 0, 4);
             this.tlpMain.Controls.Add(this.tbxFirstName, 1, 1);
             this.tlpMain.Controls.Add(this.tbxLastName, 1, 2);
@@ -70,48 +64,6 @@ namespace TaxDataStore
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.Size = new System.Drawing.Size(336, 270);
             this.tlpMain.TabIndex = 0;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.ForeColor = System.Drawing.Color.Gray;
-            this.lblTitle.Location = new System.Drawing.Point(3, 0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(32, 13);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Title";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblFirstName
-            // 
-            this.lblFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblFirstName.ForeColor = System.Drawing.Color.Gray;
-            this.lblFirstName.Location = new System.Drawing.Point(3, 13);
-            this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(64, 28);
-            this.lblFirstName.TabIndex = 2;
-            this.lblFirstName.Text = "FirstName";
-            this.lblFirstName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblLastName
-            // 
-            this.lblLastName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblLastName.AutoSize = true;
-            this.lblLastName.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblLastName.ForeColor = System.Drawing.Color.Gray;
-            this.lblLastName.Location = new System.Drawing.Point(3, 41);
-            this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(63, 28);
-            this.lblLastName.TabIndex = 4;
-            this.lblLastName.Text = "LastName";
-            this.lblLastName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tlpContacts
             // 
@@ -244,9 +196,6 @@ namespace TaxDataStore
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
-        private FormLabel lblTitle;
-        private FormLabel lblFirstName;
-        private FormLabel lblLastName;
         private System.Windows.Forms.TableLayoutPanel tlpButtons;
         private ButtonBase btnCancel;
         private ButtonBase btnSave;

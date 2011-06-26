@@ -8,6 +8,7 @@ namespace TaxDataStore
 
     public partial class FrmUserEditor : BaseForm
     {
+
         private FormLabel lblName;
         private FormLabel lblLanguage;
         private FormLabel lblPassword;
@@ -16,14 +17,15 @@ namespace TaxDataStore
         protected Entities.User user;
         protected Entities.User editUser;
 
+
         public FrmUserEditor(Entities.User user = null)
         {
             InitializeComponent();
 
-            this.lblName = new FormLabel("username");
-            this.lblLanguage = new FormLabel("language");
-            this.lblPassword = new FormLabel("password");
-            this.lblRole = new FormLabel("role_name");
+            this.lblName = new FormLabel(0, "lblName", false, "username");
+            this.lblLanguage = new FormLabel(1, "lblLanguage", false, "language");
+            this.lblPassword = new FormLabel(2, "lblPassword", false, "password");
+            this.lblRole = new FormLabel(3, "lblRole", false, "role_name");
 
             this.tlpMain.Controls.Add(this.lblName, 0, 1);
             this.tlpMain.Controls.Add(this.lblLanguage, 0, 3);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Entities;
+using TaxDataStore.Presentation.Controls;
 
 
 namespace TaxDataStore
@@ -8,6 +9,8 @@ namespace TaxDataStore
 
     public partial class FrmTourPaymentEditor : BaseForm
     {
+        private FormLabel lblPaymentType;
+        private FormLabel lblPaymentAmount;
 
         protected TourPayment payment;
         protected TourPayment editPayment;
@@ -17,7 +20,17 @@ namespace TaxDataStore
         public FrmTourPaymentEditor()
         {
             InitializeComponent();
+            CreateControls();
             this.payment = new TourPayment();
+        }
+
+
+        private void CreateControls()
+        {
+            this.lblPaymentType = new FormLabel(0, "lblPaymentType", false, "lbl_payment_type");
+            this.lblPaymentAmount = new FormLabel(1, "lblPaymentAmount", false, "lbl_payment_amount");
+            this.tlpMain.Controls.Add(this.lblPaymentType, 0, 0);
+            this.tlpMain.Controls.Add(this.lblPaymentAmount, 0, 1);
         }
 
 

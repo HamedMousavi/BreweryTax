@@ -33,8 +33,6 @@ namespace TaxDataStore
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new ButtonBase();
             this.btnSave = new ButtonBase();
-            this.lblTourType = new FormLabel("lbl_tour_type");
-            this.lblBasePrice = new FormLabel("lbl_price");
             this.tbxTourType = new System.Windows.Forms.TextBox();
             this.tlpMain.SuspendLayout();
             this.tlpButtons.SuspendLayout();
@@ -46,8 +44,6 @@ namespace TaxDataStore
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpMain.Controls.Add(this.tlpButtons, 0, 2);
-            this.tlpMain.Controls.Add(this.lblTourType, 0, 0);
-            this.tlpMain.Controls.Add(this.lblBasePrice, 0, 1);
             this.tlpMain.Controls.Add(this.tbxTourType, 1, 0);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
@@ -96,28 +92,6 @@ namespace TaxDataStore
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // lblTourType
-            // 
-            this.lblTourType.AutoSize = true;
-            this.lblTourType.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblTourType.ForeColor = System.Drawing.Color.Gray;
-            this.lblTourType.Location = new System.Drawing.Point(3, 0);
-            this.lblTourType.Name = "lblTourType";
-            this.lblTourType.Size = new System.Drawing.Size(61, 13);
-            this.lblTourType.TabIndex = 0;
-            this.lblTourType.Text = "TourType";
-            // 
-            // lblBasePrice
-            // 
-            this.lblBasePrice.AutoSize = true;
-            this.lblBasePrice.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblBasePrice.ForeColor = System.Drawing.Color.Gray;
-            this.lblBasePrice.Location = new System.Drawing.Point(3, 28);
-            this.lblBasePrice.Name = "lblBasePrice";
-            this.lblBasePrice.Size = new System.Drawing.Size(62, 13);
-            this.lblBasePrice.TabIndex = 2;
-            this.lblBasePrice.Text = "BasePrice";
-            // 
             // tbxTourType
             // 
             this.tbxTourType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
@@ -155,8 +129,6 @@ namespace TaxDataStore
         private System.Windows.Forms.TableLayoutPanel tlpButtons;
         private ButtonBase btnCancel;
         private ButtonBase btnSave;
-        private FormLabel lblTourType;
-        private FormLabel lblBasePrice;
         private System.Windows.Forms.TextBox tbxTourType;
     }
 }

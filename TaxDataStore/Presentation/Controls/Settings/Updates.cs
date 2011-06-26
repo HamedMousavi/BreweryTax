@@ -8,6 +8,10 @@ namespace TaxDataStore.Presentation.Controls.Settings
     public partial class Updates : UserControl
     {
 
+        private FormLabel lblUpdateSeconds;
+        private FormLabel lblUpdateEvery;
+        private FormLabel lblUpdateUrl;
+
         protected Entities.UpdaterSettings updaterSettings;
 
         
@@ -15,12 +19,26 @@ namespace TaxDataStore.Presentation.Controls.Settings
         {
             InitializeComponent();
 
+            CreateControls();
+
             this.btnSave.Click += new 
                 EventHandler(btnSave_Click);
 
             this.Dock = DockStyle.Fill;
             SetupTexts();
             LoadData();
+        }
+
+
+        private void CreateControls()
+        {
+            this.lblUpdateSeconds = new FormLabel(0, "lblUpdateSeconds", false, "lbl_upd_sseconds");
+            this.lblUpdateEvery = new FormLabel(1, "lblUpdateEvery", false, "lbl_upd_interval");
+            this.lblUpdateUrl = new FormLabel(2, "lblUpdateUrl", false, "lbl_upd_url");
+
+            this.tlpMain.Controls.Add(this.lblUpdateEvery, 0, 2);
+            this.tlpMain.Controls.Add(this.lblUpdateSeconds, 2, 2);
+            this.tlpMain.Controls.Add(this.lblUpdateUrl, 0, 1);
         }
 
 

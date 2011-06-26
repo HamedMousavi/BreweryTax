@@ -29,7 +29,6 @@ namespace TaxDataStore
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblDate = new FormLabel("date");
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.tlpEmployees = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
             this.lblEmployees = new TaxDataStore.Presentation.Controls.ToolbarLabel();
@@ -68,7 +67,6 @@ namespace TaxDataStore
             // 
             // tlpMain
             // 
-            this.tlpMain.BackColor = System.Drawing.Color.White;
             this.tlpMain.ColumnCount = 2;
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
@@ -414,19 +412,6 @@ namespace TaxDataStore
             this.dtpCurrentDate.TabIndex = 3;
             this.dtpCurrentDate.ValueChanged += new System.EventHandler(this.dtpCurrentDate_ValueChanged);
             // 
-            // lblDate
-            // 
-            this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblDate.Location = new System.Drawing.Point(3, 0);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(36, 31);
-            this.lblDate.TabIndex = 4;
-            this.lblDate.Text = "Date";
-            this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // FrmDailyTours
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -467,7 +452,6 @@ namespace TaxDataStore
         private ContainerLayoutPanel tlpToursContainer;
         private System.Windows.Forms.TableLayoutPanel tlpToursToolbar;
         private System.Windows.Forms.DateTimePicker dtpCurrentDate;
-        private FormLabel lblDate;
         private System.Windows.Forms.TableLayoutPanel tlpButtons;
         private FlatButton btnAddTour;
         private FlatButton btnEditTour;

@@ -36,9 +36,10 @@ namespace TaxDataStore
 
         private void SetupControls()
         {
-            this.lblUserName = new FormLabel("username");
-            this.lblPassword = new FormLabel("password");
-            this.lblLogonProcess = new FormLabel("logon_process");
+            this.lblUserName = new FormLabel(0, "lblUserName", false, "username");
+            this.lblPassword = new FormLabel(1, "lblPassword", false, "password");
+            this.lblLogonProcess = new FormLabel(2, "lblLogonProcess", false, "logon_process");
+
             this.lblLogonProcess.Anchor |= AnchorStyles.Right;
 
             this.pbxAppIcon = new System.Windows.Forms.PictureBox();

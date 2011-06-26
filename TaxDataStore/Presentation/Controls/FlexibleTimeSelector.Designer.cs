@@ -45,9 +45,7 @@
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMain.Controls.Add(this.lblHour, 0, 0);
             this.tlpMain.Controls.Add(this.cbxHour, 1, 0);
-            this.tlpMain.Controls.Add(this.lblMinute, 2, 0);
             this.tlpMain.Controls.Add(this.cbxMinute, 3, 0);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
@@ -59,15 +57,6 @@
             this.tlpMain.Size = new System.Drawing.Size(432, 47);
             this.tlpMain.TabIndex = 3;
             // 
-            // lblHour
-            // 
-            this.lblHour.AutoSize = true;
-            this.lblHour.Location = new System.Drawing.Point(3, 0);
-            this.lblHour.Name = "lblHour";
-            this.lblHour.Size = new System.Drawing.Size(30, 13);
-            this.lblHour.TabIndex = 0;
-            this.lblHour.Text = "Hour";
-            // 
             // cbxHour
             // 
             this.cbxHour.FormattingEnabled = true;
@@ -77,15 +66,6 @@
             this.cbxHour.Name = "cbxHour";
             this.cbxHour.Size = new System.Drawing.Size(90, 21);
             this.cbxHour.TabIndex = 1;
-            // 
-            // lblMinute
-            // 
-            this.lblMinute.AutoSize = true;
-            this.lblMinute.Location = new System.Drawing.Point(135, 0);
-            this.lblMinute.Name = "lblMinute";
-            this.lblMinute.Size = new System.Drawing.Size(39, 13);
-            this.lblMinute.TabIndex = 2;
-            this.lblMinute.Text = "Minute";
             // 
             // cbxMinute
             // 
@@ -114,9 +94,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
-        private FormLabel lblHour;
         private System.Windows.Forms.ComboBox cbxHour;
-        private FormLabel lblMinute;
         private System.Windows.Forms.ComboBox cbxMinute;
     }
 }

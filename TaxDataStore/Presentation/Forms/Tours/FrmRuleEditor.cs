@@ -9,6 +9,8 @@ namespace TaxDataStore
 
     public partial class FrmRuleEditor : BaseForm
     {
+        private FormLabel lblRuleName;
+        private FormLabel lblFormula;
 
         protected readonly string[] opImageNames = new string[] { "plus", "minus" };
         protected readonly string[] opLabels = new string[] { "%" };
@@ -26,10 +28,9 @@ namespace TaxDataStore
         {
             this.rule = new Entities.TourCostRule();
 
-            this.lblRuleName = new FormLabel("lbl_rule_name");
-            this.lblFormula = new FormLabel("lbl_formula");
-            
             InitializeComponent();
+
+            CreateControls();
 
             SetupControls();
             BindControlsData();
@@ -37,6 +38,17 @@ namespace TaxDataStore
             SelectValueOperation(this.rule.Formula.ValueOperation, this.rule.Formula.Currency);
             SelectPriceOperation(this.rule.Formula.PriceOperation);
             this.tbxValue.Text = Convert.ToString(this.rule.Formula.Value);
+        }
+
+
+        private void CreateControls()
+        {
+            this.lblRuleName = new FormLabel(0, "lblRuleName", false, "lbl_rule_name");
+            this.lblFormula = new FormLabel(0, "lblFormula", false, "lbl_formula");
+
+            this.tlpMain.Controls.Add(this.lblRuleName, 0, 0);
+            this.tlpMain.Controls.Add(this.lblFormula, 0, 1);
+            
         }
 
 
@@ -54,9 +66,6 @@ namespace TaxDataStore
 
         private void SetupControls()
         {
-
-            this.tlpMain.Controls.Add(this.lblRuleName, 0, 0);
-            this.tlpMain.Controls.Add(this.lblFormula, 0, 1);
             this.BackColor = Color.White;
 
             this.cbxPriceOperation = new TourFormulaOperationComboBox();

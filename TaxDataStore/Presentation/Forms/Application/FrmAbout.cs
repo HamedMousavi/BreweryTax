@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using TaxDataStore.Presentation.Controls;
 
 
 namespace TaxDataStore
@@ -8,13 +9,22 @@ namespace TaxDataStore
     public partial class FrmAbout : BaseForm
     {
 
+        private FormLabel lblAppName;
+        private FormLabel lblCopyright;
+        private FormLabel lblRegistrationCaption;
+        private FormLabel lblVersionCaption;
+        private FormLabel lblUpdateStateCaption;
+        private FormLabel lblLastUpdateCheckCaption;
+        private FormLabel lblSupportCaption;
+
+
         Timer tmrUpdateState;
 
 
         public FrmAbout()
         {
             InitializeComponent();
-
+            CreateControls();
             SetupTexts();
 
             this.tlpUpdates.Visible = false;
@@ -23,6 +33,26 @@ namespace TaxDataStore
             this.tmrUpdateState.Interval = 1000;
             this.tmrUpdateState.Tick += new EventHandler(tmrUpdateState_Tick);
             this.tmrUpdateState.Start();
+        }
+
+
+        private void CreateControls()
+        {
+            this.lblAppName = new FormLabel(0, "lblAppName", false, "");
+            this.lblRegistrationCaption = new FormLabel(0, "lblRegistrationCaption", false, "");
+            this.lblCopyright = new FormLabel(0, "lblCopyright", false, "");
+            this.lblSupportCaption = new FormLabel(0, "lblSupportCaption", false, "");
+            this.lblUpdateStateCaption = new FormLabel(0, "lblUpdateStateCaption", false, "");
+            this.lblVersionCaption = new FormLabel(0, "lblVersionCaption", false, "");
+            this.lblLastUpdateCheckCaption = new FormLabel(0, "lblLastUpdateCheckCaption", false, "");
+
+            this.tlpUpdates.Controls.Add(this.lblVersionCaption, 0, 1);
+            this.tlpUpdates.Controls.Add(this.lblLastUpdateCheckCaption, 0, 3);
+            this.tlpControls.Controls.Add(this.lblAppName, 0, 0);
+            this.tlpUpdates.Controls.Add(this.lblUpdateStateCaption, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.lblSupportCaption, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblRegistrationCaption, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblCopyright, 2, 1);
         }
 
 

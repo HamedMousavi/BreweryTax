@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using Entities;
+using TaxDataStore.Presentation.Controls;
 
 
 namespace TaxDataStore
@@ -7,6 +8,7 @@ namespace TaxDataStore
 
     public partial class FrmRoleEditor : BaseForm
     {
+        private FormLabel lblRoleName;
 
         protected Role role;
         protected Role editRole;
@@ -15,6 +17,8 @@ namespace TaxDataStore
         public FrmRoleEditor(Entities.Role role = null)
         {
             InitializeComponent();
+
+            CreateControls();
 
             this.role = new Role();
 
@@ -27,6 +31,14 @@ namespace TaxDataStore
             SetupControls();
             BindControls();
         }
+
+
+        private void CreateControls()
+        {
+            this.lblRoleName = new FormLabel(0, "lblRoleName", false, "role_name");
+            this.tlpMain.Controls.Add(this.lblRoleName, 0, 1);
+        }
+
 
         private void SetupControls()
         {

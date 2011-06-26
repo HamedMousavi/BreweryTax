@@ -8,15 +8,18 @@ namespace TaxDataStore.Presentation.Controls
     public partial class FlexibleTimeSelector : UserControl
     {
 
+        private FormLabel lblHour;
+        private FormLabel lblMinute;
+
+
         public Entities.TourConstraintTimeItem Time { get; set; }
 
 
         public FlexibleTimeSelector()
         {
-            this.lblHour = new FormLabel("");
-            this.lblMinute = new FormLabel("");
-
             InitializeComponent();
+
+            CreateControls();
 
             for (int i = 1; i < 25; i++)
             {
@@ -32,6 +35,16 @@ namespace TaxDataStore.Presentation.Controls
 
             this.cbxHour.TextChanged += new EventHandler(cbxHour_TextChanged);
             this.cbxMinute.TextChanged += new EventHandler(cbxMinute_TextChanged);
+        }
+
+
+        private void CreateControls()
+        {
+            this.lblHour = new FormLabel(0, "lblHour", false, "Hour");
+            this.lblMinute = new FormLabel(1, "lblMinute", false, "Minute");
+
+            this.tlpMain.Controls.Add(this.lblHour, 0, 0);
+            this.tlpMain.Controls.Add(this.lblMinute, 2, 0);
         }
 
 

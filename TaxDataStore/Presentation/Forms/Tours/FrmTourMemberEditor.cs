@@ -9,6 +9,9 @@ namespace TaxDataStore
 
     public partial class FrmTourMemberEditor : BaseForm
     {
+        private FormLabel lblTitle;
+        private FormLabel lblFirstName;
+        private FormLabel lblLastName;
 
         protected ContactsGridView dgvContacts;
         protected ComboBox cbxTitle;
@@ -20,6 +23,8 @@ namespace TaxDataStore
         public FrmTourMemberEditor()
         {
             InitializeComponent();
+
+            CreateControls();
 
             this.btnAddContact.Image = DomainModel.Application.ResourceManager.GetImage("add");
             this.btnRemoveContact.Image = DomainModel.Application.ResourceManager.GetImage("delete");
@@ -74,6 +79,18 @@ namespace TaxDataStore
             this.tlpContacts.SetColumnSpan(this.dgvContacts, 3);
 
             this.Load += new EventHandler(FrmTourMemberEditor_Load);
+        }
+
+
+        private void CreateControls()
+        {
+            this.lblTitle = new FormLabel(0, "lblTitle", false, "lbl_title");
+            this.lblFirstName = new FormLabel(1, "lblFirstName", false, "lbl_first_name");
+            this.lblLastName = new FormLabel(2, "lblLastName", false, "lbl_last_name");
+
+            this.tlpMain.Controls.Add(this.lblTitle, 0, 0);
+            this.tlpMain.Controls.Add(this.lblFirstName, 0, 1);
+            this.tlpMain.Controls.Add(this.lblLastName, 0, 2);
         }
 
 

@@ -43,10 +43,6 @@ namespace TaxDataStore
             this.lblUsers = new TaxDataStore.Presentation.Controls.ToolbarLabel("users");
             this.lblDetails = new TaxDataStore.Presentation.Controls.ToolbarLabel("details");
             this.tlpDetails = new System.Windows.Forms.TableLayoutPanel();
-            this.lblRoleName = new FormLabel("role_name");
-            this.lblLanguage = new FormLabel("language");
-            this.lblName = new FormLabel("name");
-            this.lblIsEnabled = new FormLabel("select_user");
             this.lblLanguageValue = new System.Windows.Forms.Label();
             this.lblRoleNameValue = new System.Windows.Forms.Label();
             this.lblNameValue = new System.Windows.Forms.Label();
@@ -200,11 +196,7 @@ namespace TaxDataStore
             this.tlpDetails.ColumnCount = 2;
             this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpDetails.Controls.Add(this.lblRoleName, 0, 3);
             this.tlpDetails.Controls.Add(this.lblRoleNameValue, 1, 3);
-            this.tlpDetails.Controls.Add(this.lblLanguage, 0, 2);
-            this.tlpDetails.Controls.Add(this.lblName, 0, 1);
-            this.tlpDetails.Controls.Add(this.lblIsEnabled, 0, 0);
             this.tlpDetails.Controls.Add(this.lblLanguageValue, 1, 2);
             this.tlpDetails.Controls.Add(this.lblNameValue, 1, 1);
             this.tlpDetails.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -225,17 +217,6 @@ namespace TaxDataStore
             this.tlpDetails.Size = new System.Drawing.Size(283, 431);
             this.tlpDetails.TabIndex = 4;
             // 
-            // lblRoleName
-            // 
-            this.lblRoleName.AutoSize = true;
-            this.lblRoleName.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblRoleName.ForeColor = System.Drawing.Color.Gray;
-            this.lblRoleName.Location = new System.Drawing.Point(3, 42);
-            this.lblRoleName.Name = "lblRoleName";
-            this.lblRoleName.Size = new System.Drawing.Size(34, 14);
-            this.lblRoleName.TabIndex = 5;
-            this.lblRoleName.Text = "Role";
-            // 
             // lblRoleNameValue
             // 
             this.lblRoleNameValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -247,41 +228,6 @@ namespace TaxDataStore
             this.lblRoleNameValue.Size = new System.Drawing.Size(0, 14);
             this.lblRoleNameValue.TabIndex = 6;
             this.lblRoleNameValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblLanguage
-            // 
-            this.lblLanguage.AutoSize = true;
-            this.lblLanguage.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblLanguage.ForeColor = System.Drawing.Color.Gray;
-            this.lblLanguage.Location = new System.Drawing.Point(3, 28);
-            this.lblLanguage.Name = "lblLanguage";
-            this.lblLanguage.Size = new System.Drawing.Size(67, 14);
-            this.lblLanguage.TabIndex = 3;
-            this.lblLanguage.Text = "Language";
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblName.ForeColor = System.Drawing.Color.Gray;
-            this.lblName.Location = new System.Drawing.Point(3, 14);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(40, 14);
-            this.lblName.TabIndex = 1;
-            this.lblName.Text = "Name";
-            // 
-            // lblIsEnabled
-            // 
-            this.lblIsEnabled.AutoSize = true;
-            this.tlpDetails.SetColumnSpan(this.lblIsEnabled, 2);
-            this.lblIsEnabled.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblIsEnabled.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lblIsEnabled.Location = new System.Drawing.Point(3, 0);
-            this.lblIsEnabled.MaximumSize = new System.Drawing.Size(400, 1024);
-            this.lblIsEnabled.Name = "lblIsEnabled";
-            this.lblIsEnabled.Size = new System.Drawing.Size(98, 14);
-            this.lblIsEnabled.TabIndex = 0;
-            this.lblIsEnabled.Text = "User is enabled";
             // 
             // lblLanguageValue
             // 
@@ -343,11 +289,7 @@ namespace TaxDataStore
         private ToolbarLabel lblUsers;
         private ToolbarLabel lblDetails;
         private System.Windows.Forms.TableLayoutPanel tlpDetails;
-        private FormLabel lblRoleName;
         private System.Windows.Forms.Label lblRoleNameValue;
-        private FormLabel lblLanguage;
-        private FormLabel lblName;
-        private FormLabel lblIsEnabled;
         private System.Windows.Forms.Label lblLanguageValue;
         private System.Windows.Forms.Label lblNameValue;
 

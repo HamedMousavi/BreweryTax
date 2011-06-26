@@ -8,6 +8,8 @@ namespace TaxDataStore
 
     public partial class FrmTourPriceEditor : BaseForm
     {
+        private FormLabel lblTourType;
+        private FormLabel lblBasePrice;
 
         protected MoneyPicker mpkBasePrice;
 
@@ -18,9 +20,20 @@ namespace TaxDataStore
         {
             InitializeComponent();
 
+            CreateControls();
+
             this.Text = Resources.Texts.frm_title_base_price_editor;
             this.btnSave.Text = Resources.Texts.save;
             this.btnCancel.Text = Resources.Texts.cancel;
+        }
+
+
+        private void CreateControls()
+        {
+            this.lblTourType = new FormLabel(0, "lblTourType", false, "lbl_tour_type");
+            this.lblBasePrice = new FormLabel(1, "lblBasePrice", false, "lbl_price");
+            this.tlpMain.Controls.Add(this.lblTourType, 0, 0);
+            this.tlpMain.Controls.Add(this.lblBasePrice, 0, 1);
         }
 
 

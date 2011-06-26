@@ -30,7 +30,6 @@ namespace TaxDataStore
         private void InitializeComponent()
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
-            this.lblGroupName = new FormLabel("lbl_tour_group_name");
             this.tbxGroupName = new System.Windows.Forms.TextBox();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new ButtonBase();
@@ -44,7 +43,6 @@ namespace TaxDataStore
             this.tlpMain.ColumnCount = 2;
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMain.Controls.Add(this.lblGroupName, 0, 1);
             this.tlpMain.Controls.Add(this.tbxGroupName, 1, 1);
             this.tlpMain.Controls.Add(this.tlpButtons, 0, 2);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -58,21 +56,6 @@ namespace TaxDataStore
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpMain.Size = new System.Drawing.Size(271, 85);
             this.tlpMain.TabIndex = 2;
-            // 
-            // lblGroupName
-            // 
-            this.lblGroupName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblGroupName.AutoSize = true;
-            this.lblGroupName.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblGroupName.ForeColor = System.Drawing.Color.Gray;
-            this.lblGroupName.Location = new System.Drawing.Point(3, 10);
-            this.lblGroupName.Name = "lblGroupName";
-            this.lblGroupName.Size = new System.Drawing.Size(76, 30);
-            this.lblGroupName.TabIndex = 0;
-            this.lblGroupName.Text = "Group name";
-            this.lblGroupName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tbxGroupName
             // 
@@ -146,7 +129,6 @@ namespace TaxDataStore
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
-        private FormLabel lblGroupName;
         private System.Windows.Forms.TextBox tbxGroupName;
         private System.Windows.Forms.TableLayoutPanel tlpButtons;
         private ButtonBase btnCancel;

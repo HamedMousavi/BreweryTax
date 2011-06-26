@@ -32,13 +32,6 @@ namespace TaxDataStore
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.tlpControls = new System.Windows.Forms.TableLayoutPanel();
-            this.lblAppName = new FormLabel("");
-            this.lblRegistrationCaption = new FormLabel("");
-            this.lblCopyright = new FormLabel("");
-            this.lblSupportCaption = new FormLabel("");
-            this.lblUpdateStateCaption = new FormLabel("");
-            this.lblVersionCaption = new FormLabel("");
-            this.lblLastUpdateCheckCaption = new FormLabel("");
             this.gpxUpdates = new System.Windows.Forms.GroupBox();
             this.tlpUpdates = new System.Windows.Forms.TableLayoutPanel();
             this.btnCheckNow = new ButtonBase();
@@ -84,7 +77,6 @@ namespace TaxDataStore
             this.tlpControls.ColumnCount = 2;
             this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpControls.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpControls.Controls.Add(this.lblAppName, 0, 0);
             this.tlpControls.Controls.Add(this.gpxUpdates, 0, 1);
             this.tlpControls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpControls.Location = new System.Drawing.Point(142, 3);
@@ -98,17 +90,6 @@ namespace TaxDataStore
             this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpControls.Size = new System.Drawing.Size(413, 303);
             this.tlpControls.TabIndex = 0;
-            // 
-            // lblAppName
-            // 
-            this.lblAppName.AutoSize = true;
-            this.tlpControls.SetColumnSpan(this.lblAppName, 2);
-            this.lblAppName.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAppName.Location = new System.Drawing.Point(3, 0);
-            this.lblAppName.Name = "lblAppName";
-            this.lblAppName.Size = new System.Drawing.Size(194, 39);
-            this.lblAppName.TabIndex = 0;
-            this.lblAppName.Text = "Settlement";
             // 
             // gpxUpdates
             // 
@@ -129,10 +110,7 @@ namespace TaxDataStore
             this.tlpUpdates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpUpdates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpUpdates.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpUpdates.Controls.Add(this.lblVersionCaption, 0, 1);
-            this.tlpUpdates.Controls.Add(this.lblLastUpdateCheckCaption, 0, 3);
             this.tlpUpdates.Controls.Add(this.btnCheckNow, 2, 3);
-            this.tlpUpdates.Controls.Add(this.lblUpdateStateCaption, 0, 4);
             this.tlpUpdates.Controls.Add(this.btnUnInstallService, 2, 2);
             this.tlpUpdates.Controls.Add(this.btnInstallUpdate, 2, 5);
             this.tlpUpdates.Controls.Add(this.btnDownloadUpdate, 2, 4);
@@ -155,34 +133,6 @@ namespace TaxDataStore
             this.tlpUpdates.Size = new System.Drawing.Size(401, 238);
             this.tlpUpdates.TabIndex = 0;
             // 
-            // lblVersionCaption
-            // 
-            this.lblVersionCaption.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblVersionCaption.AutoSize = true;
-            this.lblVersionCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblVersionCaption.ForeColor = System.Drawing.Color.Gray;
-            this.lblVersionCaption.Location = new System.Drawing.Point(3, 10);
-            this.lblVersionCaption.Name = "lblVersionCaption";
-            this.lblVersionCaption.Size = new System.Drawing.Size(49, 29);
-            this.lblVersionCaption.TabIndex = 0;
-            this.lblVersionCaption.Text = "Version";
-            this.lblVersionCaption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblLastUpdateCheckCaption
-            // 
-            this.lblLastUpdateCheckCaption.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblLastUpdateCheckCaption.AutoSize = true;
-            this.lblLastUpdateCheckCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblLastUpdateCheckCaption.ForeColor = System.Drawing.Color.Gray;
-            this.lblLastUpdateCheckCaption.Location = new System.Drawing.Point(3, 68);
-            this.lblLastUpdateCheckCaption.Name = "lblLastUpdateCheckCaption";
-            this.lblLastUpdateCheckCaption.Size = new System.Drawing.Size(96, 29);
-            this.lblLastUpdateCheckCaption.TabIndex = 2;
-            this.lblLastUpdateCheckCaption.Text = "Last check time";
-            this.lblLastUpdateCheckCaption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // btnCheckNow
             // 
             this.btnCheckNow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(152)))), ((int)(((byte)(54)))));
@@ -197,20 +147,6 @@ namespace TaxDataStore
             this.btnCheckNow.Text = "Check now";
             this.btnCheckNow.UseVisualStyleBackColor = false;
             this.btnCheckNow.Click += new System.EventHandler(this.btnCheckNow_Click);
-            // 
-            // lblUpdateStateCaption
-            // 
-            this.lblUpdateStateCaption.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblUpdateStateCaption.AutoSize = true;
-            this.lblUpdateStateCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblUpdateStateCaption.ForeColor = System.Drawing.Color.Gray;
-            this.lblUpdateStateCaption.Location = new System.Drawing.Point(3, 97);
-            this.lblUpdateStateCaption.Name = "lblUpdateStateCaption";
-            this.lblUpdateStateCaption.Size = new System.Drawing.Size(71, 29);
-            this.lblUpdateStateCaption.TabIndex = 4;
-            this.lblUpdateStateCaption.Text = "NewUpdate";
-            this.lblUpdateStateCaption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnUnInstallService
             // 
@@ -346,11 +282,8 @@ namespace TaxDataStore
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.lblRegistrationCaption, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tbxOwner, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lblSupportCaption, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lbtnProducer, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblCopyright, 2, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 312);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -360,20 +293,6 @@ namespace TaxDataStore
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(552, 49);
             this.tableLayoutPanel1.TabIndex = 2;
-            // 
-            // lblRegistrationCaption
-            // 
-            this.lblRegistrationCaption.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblRegistrationCaption.AutoSize = true;
-            this.lblRegistrationCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblRegistrationCaption.ForeColor = System.Drawing.Color.Gray;
-            this.lblRegistrationCaption.Location = new System.Drawing.Point(3, 0);
-            this.lblRegistrationCaption.Name = "lblRegistrationCaption";
-            this.lblRegistrationCaption.Size = new System.Drawing.Size(84, 20);
-            this.lblRegistrationCaption.TabIndex = 2;
-            this.lblRegistrationCaption.Text = "Registered to";
-            this.lblRegistrationCaption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tbxOwner
             // 
@@ -389,20 +308,6 @@ namespace TaxDataStore
             this.tbxOwner.Size = new System.Drawing.Size(176, 14);
             this.tbxOwner.TabIndex = 8;
             // 
-            // lblSupportCaption
-            // 
-            this.lblSupportCaption.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblSupportCaption.AutoSize = true;
-            this.lblSupportCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblSupportCaption.ForeColor = System.Drawing.Color.Gray;
-            this.lblSupportCaption.Location = new System.Drawing.Point(3, 20);
-            this.lblSupportCaption.Name = "lblSupportCaption";
-            this.lblSupportCaption.Size = new System.Drawing.Size(52, 29);
-            this.lblSupportCaption.TabIndex = 3;
-            this.lblSupportCaption.Text = "Support";
-            this.lblSupportCaption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // lbtnProducer
             // 
             this.lbtnProducer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -415,19 +320,6 @@ namespace TaxDataStore
             this.lbtnProducer.TabStop = true;
             this.lbtnProducer.Text = "www.SarvSoft.com";
             this.lbtnProducer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblCopyright
-            // 
-            this.lblCopyright.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCopyright.AutoSize = true;
-            this.lblCopyright.ForeColor = System.Drawing.Color.Gray;
-            this.lblCopyright.Location = new System.Drawing.Point(452, 20);
-            this.lblCopyright.Name = "lblCopyright";
-            this.lblCopyright.Size = new System.Drawing.Size(97, 29);
-            this.lblCopyright.TabIndex = 1;
-            this.lblCopyright.Text = "Copyright (c) 2011";
-            this.lblCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // FrmAbout
             // 
@@ -461,16 +353,9 @@ namespace TaxDataStore
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
         private System.Windows.Forms.TableLayoutPanel tlpControls;
-        private FormLabel lblAppName;
-        private FormLabel lblCopyright;
-        private FormLabel lblRegistrationCaption;
-        private FormLabel lblSupportCaption;
         private System.Windows.Forms.GroupBox gpxUpdates;
         private System.Windows.Forms.TableLayoutPanel tlpUpdates;
-        private FormLabel lblVersionCaption;
-        private FormLabel lblLastUpdateCheckCaption;
         private ButtonBase btnCheckNow;
-        private FormLabel lblUpdateStateCaption;
         private ButtonBase btnDownloadUpdate;
         private ButtonBase btnInstallUpdate;
         private ButtonBase btnUnInstallService;
