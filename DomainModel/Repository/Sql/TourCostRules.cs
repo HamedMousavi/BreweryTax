@@ -98,6 +98,7 @@ namespace DomainModel.Repository.Sql
                                 rule.Formula.PriceOperation = (Entities.TourCostFormula.PriceOperations)Utils.GetSafeInt32(reader, "PriceOperationId");
                                 rule.Formula.Value = Utils.GetSafeDecimal(reader, "RuleValue");
                                 rule.Formula.ValueOperation = (Entities.TourCostFormula.ValueOperations)Utils.GetSafeInt32(reader, "ValueOperationId");
+                                rule.IsDirty = false;
 
                                 rules.Add(rule);
                             }

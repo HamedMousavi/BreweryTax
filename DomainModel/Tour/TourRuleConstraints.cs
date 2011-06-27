@@ -24,8 +24,9 @@ namespace DomainModel
             bool res = true;
             try
             {
-                using (TransactionScope ts = new TransactionScope())
-                {
+                // Note: Only is called from inside a transaction
+                //using (TransactionScope ts = new TransactionScope())
+                //{
                     foreach (TourCostRuleConstraint constraint in rule.Constraints)
                     {
                         if (constraint.IsDirty)
@@ -58,11 +59,17 @@ namespace DomainModel
                         if (!res) break;
                     }
 
+                    foreach (TourCostRuleConstraint constraint in rule.DeletedConstraints)
+                    {
+                        if (!(res = constraints.Delete(constraint))) break;
+                    }
+
+                /*
                     if (res)
                     {
                         ts.Complete();
-                    }
-                }
+                    }*/
+                //}
             }
             catch (Exception ex)
             {

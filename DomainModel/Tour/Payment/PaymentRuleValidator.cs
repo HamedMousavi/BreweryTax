@@ -39,7 +39,7 @@ namespace DomainModel
         }
 
 
-        internal bool Matches(Entities.TourCostRule rule, Entities.Tour tour)
+        internal bool Matches(Entities.TourCostRule rule, TourCostDetail detail, Entities.Tour tour)
         {
             bool res = true;
 
@@ -49,7 +49,7 @@ namespace DomainModel
                 {
                     ITourRuleConstraintValidator validator =
                         validators[con.ConstraintType.Id];
-                    if (!validator.Matches(tour, con))
+                    if (!validator.Matches(tour, detail, con))
                     {
                         res = false;
                         break;

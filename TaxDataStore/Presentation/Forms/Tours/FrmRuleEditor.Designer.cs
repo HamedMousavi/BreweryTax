@@ -39,7 +39,6 @@ namespace TaxDataStore
             this.btnSave = new TaxDataStore.Presentation.Controls.ButtonBase();
             this.tlpConstraints = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
             this.tlpConstraintButtons = new System.Windows.Forms.TableLayoutPanel();
-            this.lblConstraints = new TaxDataStore.Presentation.Controls.ToolbarLabel();
             this.btnConstraintsEdit = new TaxDataStore.Presentation.Controls.FlatButton();
             this.btnConstraintsAdd = new TaxDataStore.Presentation.Controls.FlatButton();
             this.btnConstraintsDelete = new TaxDataStore.Presentation.Controls.FlatButton();
@@ -182,7 +181,6 @@ namespace TaxDataStore
             this.tlpConstraintButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpConstraintButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpConstraintButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpConstraintButtons.Controls.Add(this.lblConstraints, 0, 0);
             this.tlpConstraintButtons.Controls.Add(this.btnConstraintsEdit, 2, 0);
             this.tlpConstraintButtons.Controls.Add(this.btnConstraintsAdd, 1, 0);
             this.tlpConstraintButtons.Controls.Add(this.btnConstraintsDelete, 3, 0);
@@ -194,15 +192,6 @@ namespace TaxDataStore
             this.tlpConstraintButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpConstraintButtons.Size = new System.Drawing.Size(389, 30);
             this.tlpConstraintButtons.TabIndex = 0;
-            // 
-            // lblConstraints
-            // 
-            this.lblConstraints.AutoSize = true;
-            this.lblConstraints.Location = new System.Drawing.Point(3, 0);
-            this.lblConstraints.Name = "lblConstraints";
-            this.lblConstraints.Size = new System.Drawing.Size(67, 14);
-            this.lblConstraints.TabIndex = 0;
-            this.lblConstraints.Text = "Constraints";
             // 
             // btnConstraintsEdit
             // 
@@ -272,7 +261,6 @@ namespace TaxDataStore
         private ButtonBase btnSave;
         private ContainerLayoutPanel tlpConstraints;
         private System.Windows.Forms.TableLayoutPanel tlpConstraintButtons;
-        private ToolbarLabel lblConstraints;
         private FlatButton btnConstraintsEdit;
         private FlatButton btnConstraintsDelete;
         private FlatButton btnConstraintsAdd;

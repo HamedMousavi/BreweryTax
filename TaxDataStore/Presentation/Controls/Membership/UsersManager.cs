@@ -14,6 +14,8 @@ namespace TaxDataStore
         private FormLabel lblLanguage;
         private FormLabel lblName;
         private FormLabel lblIsEnabled;
+        private ToolbarLabel lblUsers;
+        private ToolbarLabel lblDetails;
 
         protected UsersListView lsvUsers;
 
@@ -30,15 +32,23 @@ namespace TaxDataStore
 
         private void CreateControls()
         {
-            this.lblRoleName = new FormLabel(0, "", false, "role_name");
-            this.lblLanguage = new FormLabel(1, "", false, "language");
-            this.lblName = new FormLabel(2, "", false, "name");
-            this.lblIsEnabled = new FormLabel(3, "", false, "select_user");
+            this.lblRoleName = new FormLabel(0, "lblRoleName", true, "role_name");
+            this.lblLanguage = new FormLabel(1, "lblLanguage", true, "language");
+            this.lblName = new FormLabel(2, "lblName", true, "name");
+            this.lblIsEnabled = new FormLabel(3, "lblIsEnabled", true, "select_user");
+
+            this.lblUsers = new ToolbarLabel(4, "lblUsers", "users");
+            this.lblDetails = new ToolbarLabel(5, "lblDetails", "details");
 
             this.tlpDetails.Controls.Add(this.lblRoleName, 0, 3);
             this.tlpDetails.Controls.Add(this.lblLanguage, 0, 2);
             this.tlpDetails.Controls.Add(this.lblName, 0, 1);
             this.tlpDetails.Controls.Add(this.lblIsEnabled, 0, 0);
+
+            this.tlpButtons.Controls.Add(this.lblUsers, 0, 0);
+            this.tlpMain.Controls.Add(this.lblDetails, 1, 0);
+
+
             this.lblIsEnabled.ForeColor = Color.Red;
         }
 

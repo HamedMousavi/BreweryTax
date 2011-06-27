@@ -15,5 +15,13 @@ namespace Entities
                 constraints.Add(constraint);
             }
         }
+
+        public void UndoDelet(TourCostRuleConstraintCollection originalList)
+        {
+            foreach(TourCostRuleConstraint constraint in this)
+            {
+                originalList.Add(constraint);
+            }
+        }
     }
 }

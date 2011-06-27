@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 
@@ -11,38 +11,49 @@ namespace TaxDataStore.Presentation.Controls
         protected string textResourceName;
 
 
-        public ToolbarLabel()
+        public ToolbarLabel(int tabIndex, string name, string textResourceName)
             : base()
         {
-            this.VisibleChanged += new EventHandler(ToolbarLabel_VisibleChanged);
-        }
+            this.SuspendLayout();
 
 
-        public ToolbarLabel(string textResourceName)
-            : this()
-        {
+            this.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
+
             this.textResourceName = textResourceName;
-        }
+            this.Name = name;
+            this.TabIndex = tabIndex;
 
+            this.Location = new Point(0, 0);
+            this.Size = new Size(50, 15);
 
-        void ToolbarLabel_VisibleChanged(object sender, EventArgs e)
-        {
-            if (this.Visible && Presentation.View.Theme != null)
+            this.AutoSize = true;
+            this.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Bottom;
+            this.TextAlign = ContentAlignment.MiddleLeft;
+
+            if (Presentation.View.Theme != null)
             {
                 this.Font = Presentation.View.Theme.GroupPanelTitleFont;
                 this.ForeColor = Presentation.View.Theme.GroupPanelTitleColor;
+            }
+            else
+            {
+                this.ForeColor = Color.DimGray;
+            }
 
-                this.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Bottom;
-
-                this.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-
-                if (string.IsNullOrWhiteSpace(this.Text) &&
-                !string.IsNullOrWhiteSpace(this.textResourceName) &&
+            if (!string.IsNullOrWhiteSpace(this.textResourceName) &&
                 DomainModel.Application.ResourceManager != null)
+            {
+                this.Text = DomainModel.Application.ResourceManager.GetText(
+                    this.textResourceName);
+
+                if (string.IsNullOrWhiteSpace(this.Text))
                 {
-                    this.Text = DomainModel.Application.ResourceManager.GetText(this.textResourceName);
+                    this.Text = this.textResourceName;
                 }
             }
+
+            this.ResumeLayout();
         }
     }
 }

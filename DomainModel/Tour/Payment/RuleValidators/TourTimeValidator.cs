@@ -17,7 +17,7 @@ namespace DomainModel
         }
 
 
-        public bool Matches(Entities.Tour tour, Entities.TourCostRuleConstraint constraint)
+        public bool Matches(Entities.Tour tour, Entities.TourCostDetail detail, Entities.TourCostRuleConstraint constraint)
         {
             bool res = false;
 
@@ -93,5 +93,6 @@ namespace DomainModel
 
             return res;
         }
+
     }
 }

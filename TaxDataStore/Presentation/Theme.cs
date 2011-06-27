@@ -35,7 +35,7 @@ namespace TaxDataStore.Presentation
 
             this.GroupPanelBackColor = Color.FromArgb(255, 233, 236, 240);
             this.GroupPanelTitleColor = Color.Black;
-            this.GroupPanelTitleFont = new System.Drawing.Font("Tahoma", 8.25F, FontStyle.Bold);
+            this.GroupPanelTitleFont = new System.Drawing.Font("Tahoma", 9.25F, FontStyle.Bold);
 
             this.FlatButtonBackColor = GroupPanelBackColor;
             this.FlatButtonBorderColor = GroupPanelBackColor;

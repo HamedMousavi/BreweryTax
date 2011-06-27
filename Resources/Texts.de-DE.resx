@@ -480,4 +480,400 @@
   <data name="old_password" xml:space="preserve">
     <value>Old password</value>
   </data>
+  <data name="add1" xml:space="preserve">
+    <value>&amp;Add</value>
+  </data>
+  <data name="app_copyright1" xml:space="preserve">
+    <value>Copyright © 2011 SarvSoft</value>
+  </data>
+  <data name="app_name1" xml:space="preserve">
+    <value>Settlement</value>
+  </data>
+  <data name="app_welcome1" xml:space="preserve">
+    <value>Welcome </value>
+  </data>
+  <data name="cancel1" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="change_password1" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="confirm_password1" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="delete1" xml:space="preserve">
+    <value>&amp;Remove</value>
+  </data>
+  <data name="details1" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="direction1" xml:space="preserve">
+    <value>ltr</value>
+  </data>
+  <data name="disable1" xml:space="preserve">
+    <value>&amp;Disable</value>
+  </data>
+  <data name="edit1" xml:space="preserve">
+    <value>&amp;Edit</value>
+  </data>
+  <data name="edit_role1" xml:space="preserve">
+    <value>Edit role</value>
+  </data>
+  <data name="edit_user1" xml:space="preserve">
+    <value>Edit user</value>
+  </data>
+  <data name="enable1" xml:space="preserve">
+    <value>E&amp;nable</value>
+  </data>
+  <data name="exit1" xml:space="preserve">
+    <value>E&amp;xit</value>
+  </data>
+  <data name="frm_title_base_price_editor1" xml:space="preserve">
+    <value>Price details</value>
+  </data>
+  <data name="frm_title_member_editor1" xml:space="preserve">
+    <value>Member details</value>
+  </data>
+  <data name="frm_title_rule_editor1" xml:space="preserve">
+    <value>Rule details</value>
+  </data>
+  <data name="frm_title_tour_Cost_group_editor1" xml:space="preserve">
+    <value>Group details</value>
+  </data>
+  <data name="frm_title_tour_editor1" xml:space="preserve">
+    <value>Tour details</value>
+  </data>
+  <data name="gpx_contacts1" xml:space="preserve">
+    <value>Contacts</value>
+  </data>
+  <data name="gpx_updates1" xml:space="preserve">
+    <value>Updates</value>
+  </data>
+  <data name="grid_title_Cost_type1" xml:space="preserve">
+    <value>Cost type</value>
+  </data>
+  <data name="grid_title_participants1" xml:space="preserve">
+    <value>Participants</value>
+  </data>
+  <data name="grid_title_price_per_person1" xml:space="preserve">
+    <value>Price per person</value>
+  </data>
+  <data name="grid_title_signup_count1" xml:space="preserve">
+    <value>Signed up</value>
+  </data>
+  <data name="grid_title_signup_type1" xml:space="preserve">
+    <value>SigneUp type</value>
+  </data>
+  <data name="grid_title_time1" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="grid_title_tour_type1" xml:space="preserve">
+    <value>Tour type</value>
+  </data>
+  <data name="language1" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="lbl_app_loading1" xml:space="preserve">
+    <value>Please wait. Loading...</value>
+  </data>
+  <data name="lbl_category" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="lbl_comments1" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="lbl_current_version1" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="lbl_date1" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="lbl_db_name1" xml:space="preserve">
+    <value>Database</value>
+  </data>
+  <data name="lbl_db_password1" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="lbl_db_port1" xml:space="preserve">
+    <value>Port number</value>
+  </data>
+  <data name="lbl_db_server1" xml:space="preserve">
+    <value>Server name</value>
+  </data>
+  <data name="lbl_db_srv_user1" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="lbl_employees1" xml:space="preserve">
+    <value>Employees</value>
+  </data>
+  <data name="lbl_first_name1" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="lbl_formula1" xml:space="preserve">
+    <value>Formula</value>
+  </data>
+  <data name="lbl_guests1" xml:space="preserve">
+    <value>Guests</value>
+  </data>
+  <data name="lbl_guest_contacts1" xml:space="preserve">
+    <value>Guest contacts</value>
+  </data>
+  <data name="lbl_last_name1" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="lbl_last_update_check1" xml:space="preserve">
+    <value>Last checked</value>
+  </data>
+  <data name="lbl_member_contacts" xml:space="preserve">
+    <value>Member Contacts</value>
+  </data>
+  <data name="lbl_notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="lbl_participant_count1" xml:space="preserve">
+    <value>Participants count</value>
+  </data>
+  <data name="lbl_payment_amount1" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="lbl_payment_type1" xml:space="preserve">
+    <value>PaymentType</value>
+  </data>
+  <data name="lbl_price1" xml:space="preserve">
+    <value>&amp;Price</value>
+  </data>
+  <data name="lbl_produced_by1" xml:space="preserve">
+    <value>Produced by</value>
+  </data>
+  <data name="lbl_registered_to1" xml:space="preserve">
+    <value>Registered to</value>
+  </data>
+  <data name="lbl_rule_name1" xml:space="preserve">
+    <value>Rule name</value>
+  </data>
+  <data name="lbl_signup_count1" xml:space="preserve">
+    <value>Sign up count</value>
+  </data>
+  <data name="lbl_signup_type1" xml:space="preserve">
+    <value>Sign up type</value>
+  </data>
+  <data name="lbl_time1" xml:space="preserve">
+    <value>time</value>
+  </data>
+  <data name="lbl_title1" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="lbl_tours" xml:space="preserve">
+    <value>Tours</value>
+  </data>
+  <data name="lbl_tour_costs" xml:space="preserve">
+    <value>Tour Costs</value>
+  </data>
+  <data name="lbl_tour_group_name1" xml:space="preserve">
+    <value>Group name</value>
+  </data>
+  <data name="lbl_tour_members" xml:space="preserve">
+    <value>Tour Members</value>
+  </data>
+  <data name="lbl_tour_status1" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="lbl_tour_type1" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="lbl_types" xml:space="preserve">
+    <value>Types</value>
+  </data>
+  <data name="lbl_updater_state1" xml:space="preserve">
+    <value>Updater is</value>
+  </data>
+  <data name="lbl_update_state1" xml:space="preserve">
+    <value>New version</value>
+  </data>
+  <data name="lbl_upd_auto_check1" xml:space="preserve">
+    <value>Enable automatic update</value>
+  </data>
+  <data name="lbl_upd_auto_download1" xml:space="preserve">
+    <value>Download new version automatically</value>
+  </data>
+  <data name="lbl_upd_interval1" xml:space="preserve">
+    <value>Check for updates every</value>
+  </data>
+  <data name="lbl_upd_sseconds1" xml:space="preserve">
+    <value>seconds</value>
+  </data>
+  <data name="lbl_upd_url1" xml:space="preserve">
+    <value>Update URL</value>
+  </data>
+  <data name="login1" xml:space="preserve">
+    <value>&amp;Login</value>
+  </data>
+  <data name="logon1" xml:space="preserve">
+    <value>Logon to system</value>
+  </data>
+  <data name="logon_process1" xml:space="preserve">
+    <value>Please select your name from users list and enter your password to log in.</value>
+  </data>
+  <data name="mnu_caption_app_settings1" xml:space="preserve">
+    <value>&amp;Application settings</value>
+  </data>
+  <data name="mnu_caption_daily_tours1" xml:space="preserve">
+    <value>&amp;Daily tours</value>
+  </data>
+  <data name="mnu_caption_exit1" xml:space="preserve">
+    <value>E&amp;xit</value>
+  </data>
+  <data name="mnu_caption_help1" xml:space="preserve">
+    <value>&amp;Help</value>
+  </data>
+  <data name="mnu_caption_help_about1" xml:space="preserve">
+    <value>&amp;About</value>
+  </data>
+  <data name="mnu_caption_help_content1" xml:space="preserve">
+    <value>&amp;Content</value>
+  </data>
+  <data name="mnu_caption_presence1" xml:space="preserve">
+    <value>&amp;Presence</value>
+  </data>
+  <data name="mnu_caption_staff1" xml:space="preserve">
+    <value>&amp;Employees</value>
+  </data>
+  <data name="mnu_caption_tools1" xml:space="preserve">
+    <value>&amp;Tools</value>
+  </data>
+  <data name="mnu_caption_tour1" xml:space="preserve">
+    <value>&amp;Tour</value>
+  </data>
+  <data name="mnu_caption_user_settings1" xml:space="preserve">
+    <value>&amp;User settings</value>
+  </data>
+  <data name="mnu_tip_app_settings1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnu_tip_daily_tours1" xml:space="preserve">
+    <value>View and edit today tours</value>
+  </data>
+  <data name="mnu_tip_exit1" xml:space="preserve">
+    <value>Exit application</value>
+  </data>
+  <data name="mnu_tip_help1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnu_tip_help_about1" xml:space="preserve">
+    <value>Information about this application</value>
+  </data>
+  <data name="mnu_tip_help_content1" xml:space="preserve">
+    <value>How to use application</value>
+  </data>
+  <data name="mnu_tip_presence1" xml:space="preserve">
+    <value>Employees worktime report</value>
+  </data>
+  <data name="mnu_tip_staff1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnu_tip_tools1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnu_tip_tour1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnu_tip_user_settings1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="name1" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="new_password1" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="new_version_exists1" xml:space="preserve">
+    <value>New version is available to download</value>
+  </data>
+  <data name="new_version_is_ready_to_install1" xml:space="preserve">
+    <value>New version is ready to install</value>
+  </data>
+  <data name="old_password1" xml:space="preserve">
+    <value>Old password</value>
+  </data>
+  <data name="password1" xml:space="preserve">
+    <value>&amp;Password</value>
+  </data>
+  <data name="program_is_up_to_date1" xml:space="preserve">
+    <value>Program is up to date</value>
+  </data>
+  <data name="roles1" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="role_name1" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="save1" xml:space="preserve">
+    <value>&amp;Save</value>
+  </data>
+  <data name="select_role1" xml:space="preserve">
+    <value>Move mouse pointer over a role name to see or edit it's tasks or select a role to edit it's name.</value>
+  </data>
+  <data name="select_user1" xml:space="preserve">
+    <value>Move mouse pointer over a user to see it's details or select a user to edit.</value>
+  </data>
+  <data name="stat_upd_downloading" xml:space="preserve">
+    <value>Downloading updates...</value>
+  </data>
+  <data name="stat_upd_exists" xml:space="preserve">
+    <value>New version is available to download. Click here to download it.</value>
+  </data>
+  <data name="stat_upd_ready_to_install" xml:space="preserve">
+    <value>Download complete. Ready to install update.</value>
+  </data>
+  <data name="stat_upd_up_to_date" xml:space="preserve">
+    <value>Application is up to date.</value>
+  </data>
+  <data name="tab_title_members1" xml:space="preserve">
+    <value>Guest</value>
+  </data>
+  <data name="tab_title_Payments1" xml:space="preserve">
+    <value>Payments</value>
+  </data>
+  <data name="tab_title_staff1" xml:space="preserve">
+    <value>Staff</value>
+  </data>
+  <data name="tab_title_tour1" xml:space="preserve">
+    <value>Tour</value>
+  </data>
+  <data name="tasks1" xml:space="preserve">
+    <value>Tasks</value>
+  </data>
+  <data name="updater_is_installed1" xml:space="preserve">
+    <value>Updater service is installed</value>
+  </data>
+  <data name="updater_is_not_installed1" xml:space="preserve">
+    <value>Updater service is not installed</value>
+  </data>
+  <data name="update_check_now1" xml:space="preserve">
+    <value>Check now</value>
+  </data>
+  <data name="update_download_now1" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="update_install_now1" xml:space="preserve">
+    <value>Install</value>
+  </data>
+  <data name="update_install_service1" xml:space="preserve">
+    <value>Install</value>
+  </data>
+  <data name="update_remove_service1" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="username1" xml:space="preserve">
+    <value>&amp;UserName</value>
+  </data>
+  <data name="users1" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="user_is_disabled1" xml:space="preserve">
+    <value>User is disabled</value>
+  </data>
+  <data name="user_is_enabled1" xml:space="preserve">
+    <value>User is enabled</value>
+  </data>
 </root>

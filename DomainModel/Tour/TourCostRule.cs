@@ -66,7 +66,16 @@ namespace DomainModel
                     // Load rule constraint properties
                     res = DomainModel.TourRuleConstraints.Save(rule);
 
-                    if (res) ts.Complete();
+                    if (res)
+                    {
+                        ts.Complete();
+                        rule.DeletedConstraints.Clear();
+                    }
+                    else
+                    {
+                        rule.DeletedConstraints.UndoDelet(rule.Constraints);
+                    }
+
                 }
             }
             catch (Exception ex)

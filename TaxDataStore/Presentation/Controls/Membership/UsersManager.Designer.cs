@@ -40,8 +40,6 @@ namespace TaxDataStore
             this.btnEditUser = new TaxDataStore.Presentation.Controls.FlatButton();
             this.btnDeleteUser = new TaxDataStore.Presentation.Controls.FlatButton();
             this.btnEnableUser = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.lblUsers = new TaxDataStore.Presentation.Controls.ToolbarLabel("users");
-            this.lblDetails = new TaxDataStore.Presentation.Controls.ToolbarLabel("details");
             this.tlpDetails = new System.Windows.Forms.TableLayoutPanel();
             this.lblLanguageValue = new System.Windows.Forms.Label();
             this.lblRoleNameValue = new System.Windows.Forms.Label();
@@ -89,7 +87,6 @@ namespace TaxDataStore
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55F));
             this.tlpMain.Controls.Add(this.tlpButtons, 0, 0);
-            this.tlpMain.Controls.Add(this.lblDetails, 1, 0);
             this.tlpMain.Controls.Add(this.tlpDetails, 1, 1);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(3, 3);
@@ -114,7 +111,6 @@ namespace TaxDataStore
             this.tlpButtons.Controls.Add(this.btnEditUser, 2, 0);
             this.tlpButtons.Controls.Add(this.btnDeleteUser, 3, 0);
             this.tlpButtons.Controls.Add(this.btnEnableUser, 4, 0);
-            this.tlpButtons.Controls.Add(this.lblUsers, 0, 0);
             this.tlpButtons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpButtons.Location = new System.Drawing.Point(0, 0);
             this.tlpButtons.Margin = new System.Windows.Forms.Padding(0);
@@ -171,24 +167,6 @@ namespace TaxDataStore
             this.btnEnableUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEnableUser.UseVisualStyleBackColor = true;
             this.btnEnableUser.Click += new System.EventHandler(this.btnEnableUser_Click);
-            // 
-            // lblUsers
-            // 
-            this.lblUsers.AutoSize = true;
-            this.lblUsers.Location = new System.Drawing.Point(3, 0);
-            this.lblUsers.Name = "lblUsers";
-            this.lblUsers.Size = new System.Drawing.Size(34, 13);
-            this.lblUsers.TabIndex = 4;
-            this.lblUsers.Text = "Users";
-            // 
-            // lblDetails
-            // 
-            this.lblDetails.AutoSize = true;
-            this.lblDetails.Location = new System.Drawing.Point(236, 0);
-            this.lblDetails.Name = "lblDetails";
-            this.lblDetails.Size = new System.Drawing.Size(39, 13);
-            this.lblDetails.TabIndex = 3;
-            this.lblDetails.Text = "Details";
             // 
             // tlpDetails
             // 
@@ -286,8 +264,6 @@ namespace TaxDataStore
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem enableToolStripMenuItem;
-        private ToolbarLabel lblUsers;
-        private ToolbarLabel lblDetails;
         private System.Windows.Forms.TableLayoutPanel tlpDetails;
         private System.Windows.Forms.Label lblRoleNameValue;
         private System.Windows.Forms.Label lblLanguageValue;

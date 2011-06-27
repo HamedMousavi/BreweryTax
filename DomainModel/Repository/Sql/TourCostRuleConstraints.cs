@@ -54,7 +54,7 @@ namespace DomainModel.Repository.Sql
             con.Name = Utils.GetSafeString(reader, "ConstraintName");
             con.ConstraintType = DomainModel.TourCostConstraintTypes.GetById(
                 Utils.GetSafeInt32(reader, "ConstraintTypeId"));
-
+            con.IsDirty = false;
 
             Entities.TourCostRule rule =
                 (Entities.TourCostRule)userData;
@@ -111,6 +111,35 @@ namespace DomainModel.Repository.Sql
 
                 int affected;
                 res = this.query.ExecuteUpdateProc("TourCostRuleConstraintUpdateById", out affected);
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "",
+                        ex.Message);
+                }
+                catch { }
+            }
+
+            return res;
+        }
+
+
+        internal bool Delete(Entities.TourCostRuleConstraint constraint)
+        {
+            bool res = false;
+
+            try
+            {
+                this.query.Parameters.Clear();
+                this.query.Parameters.Add(new SqlParameter("@ConstraintId", constraint.Id));
+
+
+                int affected;
+                res = this.query.ExecuteUpdateProc("TourCostRuleConstraintsDeleteById", out affected);
             }
             catch (Exception ex)
             {

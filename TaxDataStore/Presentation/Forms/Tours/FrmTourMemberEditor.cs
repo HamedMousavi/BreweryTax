@@ -12,6 +12,8 @@ namespace TaxDataStore
         private FormLabel lblTitle;
         private FormLabel lblFirstName;
         private FormLabel lblLastName;
+        private ToolbarLabel lblContacts;
+
 
         protected ContactsGridView dgvContacts;
         protected ComboBox cbxTitle;
@@ -30,7 +32,6 @@ namespace TaxDataStore
             this.btnRemoveContact.Image = DomainModel.Application.ResourceManager.GetImage("delete");
 
             this.Text = Resources.Texts.frm_title_member_editor;
-            this.lblContacts.Text = Resources.Texts.gpx_contacts;
             
             this.member = new TourMember();
             
@@ -87,10 +88,12 @@ namespace TaxDataStore
             this.lblTitle = new FormLabel(0, "lblTitle", false, "lbl_title");
             this.lblFirstName = new FormLabel(1, "lblFirstName", false, "lbl_first_name");
             this.lblLastName = new FormLabel(2, "lblLastName", false, "lbl_last_name");
+            this.lblContacts = new ToolbarLabel(3, "lblContacts", "lbl_contacts");
 
             this.tlpMain.Controls.Add(this.lblTitle, 0, 0);
             this.tlpMain.Controls.Add(this.lblFirstName, 0, 1);
             this.tlpMain.Controls.Add(this.lblLastName, 0, 2);
+            this.tlpContacts.Controls.Add(this.lblContacts, 0, 0);
         }
 
 

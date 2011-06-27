@@ -336,7 +336,7 @@
   <data name="frm_title_member_editor" xml:space="preserve">
     <value>Member details</value>
   </data>
-  <data name="gpx_contacts" xml:space="preserve">
+  <data name="lbl_contacts" xml:space="preserve">
     <value>Contacts</value>
   </data>
   <data name="lbl_first_name" xml:space="preserve">
@@ -491,5 +491,47 @@
   </data>
   <data name="stat_upd_downloading" xml:space="preserve">
     <value>Downloading updates...</value>
+  </data>
+  <data name="lbl_category" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="lbl_types" xml:space="preserve">
+    <value>Types</value>
+  </data>
+  <data name="lbl_member_contacts" xml:space="preserve">
+    <value>Member Contacts</value>
+  </data>
+  <data name="lbl_notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="lbl_tours" xml:space="preserve">
+    <value>Tours</value>
+  </data>
+  <data name="lbl_tour_costs" xml:space="preserve">
+    <value>Tour Costs</value>
+  </data>
+  <data name="lbl_tour_members" xml:space="preserve">
+    <value>Tour Members</value>
+  </data>
+  <data name="lbl_cost_rules" xml:space="preserve">
+    <value>Cost Rules</value>
+  </data>
+  <data name="lbl_group" xml:space="preserve">
+    <value>Group</value>
+  </data>
+  <data name="lbl_group_rules" xml:space="preserve">
+    <value>Group Rules</value>
+  </data>
+  <data name="lbl_tour_prices" xml:space="preserve">
+    <value>Tour Prices</value>
+  </data>
+  <data name="lbl_roles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="lbl_tasks" xml:space="preserve">
+    <value>Tasks</value>
+  </data>
+  <data name="lbl_constraints" xml:space="preserve">
+    <value>Constraints</value>
   </data>
 </root>

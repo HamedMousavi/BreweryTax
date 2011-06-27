@@ -9,6 +9,8 @@ namespace TaxDataStore
     public partial class RoleManager : UserControl
     {
         private FormLabel lblComment;
+        private ToolbarLabel lblRoles;
+        private ToolbarLabel lblTasks;
 
         protected RolesListView lsvRoles;
         protected Presentation.Controls.TasksCheckedListBox chlbxTasks;
@@ -25,6 +27,13 @@ namespace TaxDataStore
         private void CreateControls()
         {
             this.lblComment = new FormLabel(0, "lblComment", false, "select_role");
+
+            this.lblRoles = new ToolbarLabel(0, "lblRoles", "lbl_roles");
+            this.lblTasks = new ToolbarLabel(0, "lblTasks", "lbl_tasks");
+
+            this.tlpMain.Controls.Add(this.lblTasks, 1, 0);
+            this.tlpButtons.Controls.Add(this.lblRoles, 0, 0);
+
             this.panelTasks.Controls.Add(this.lblComment);
        }
 

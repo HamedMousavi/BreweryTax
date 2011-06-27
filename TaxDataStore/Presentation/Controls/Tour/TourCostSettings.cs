@@ -6,6 +6,10 @@ namespace TaxDataStore.Presentation.Controls
 
     public partial class TourCostSettings : UserControl
     {
+        private ToolbarLabel lblTourPrices;
+        private ToolbarLabel lblCostRules;
+        private ToolbarLabel lblGroup;
+        private ToolbarLabel lblGroupRules;
 
         protected TourBasePriceGridView dgvTourPrices;
         protected TourCostRulesGridView dgvRules;
@@ -16,6 +20,8 @@ namespace TaxDataStore.Presentation.Controls
         public TourCostSettings()
         {
             InitializeComponent();
+
+            CreateControls();
 
             this.Dock = DockStyle.Fill;
 
@@ -43,6 +49,21 @@ namespace TaxDataStore.Presentation.Controls
 
             this.clbRules = new RulesCheckedListBox();
             this.tlpCostGroups.Controls.Add(this.clbRules, 1, 1);
+        }
+
+
+        private void CreateControls()
+        {
+            this.lblGroup = new ToolbarLabel(0, "lblGroup", "lbl_group");
+            this.lblGroupRules = new ToolbarLabel(1, "lblGroupRules", "lbl_group_rules");
+            this.lblTourPrices = new ToolbarLabel(2, "lblTourPrices", "lbl_tour_prices");
+            this.lblCostRules = new ToolbarLabel(3, "lblCostRules", "lbl_cost_rules");
+
+
+            this.tlpCostGroups.Controls.Add(this.lblGroupRules, 1, 0);
+            this.tlpCostGroupButtons.Controls.Add(this.lblGroup, 0, 0);
+            this.tlpCostRuleButtons.Controls.Add(this.lblCostRules, 0, 0);
+            this.tlpButtons.Controls.Add(this.lblTourPrices, 0, 0);
         }
 
 

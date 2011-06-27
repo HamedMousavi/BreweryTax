@@ -38,7 +38,6 @@ namespace TaxDataStore
             this.btnSave = new ButtonBase();
             this.tbxFirstName = new System.Windows.Forms.TextBox();
             this.tbxLastName = new System.Windows.Forms.TextBox();
-            this.lblContacts = new ToolbarLabel();
             this.tlpMain.SuspendLayout();
             this.tlpContacts.SuspendLayout();
             this.tlpButtons.SuspendLayout();
@@ -74,7 +73,6 @@ namespace TaxDataStore
             this.tlpContacts.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpContacts.Controls.Add(this.btnAddContact, 1, 0);
             this.tlpContacts.Controls.Add(this.btnRemoveContact, 2, 0);
-            this.tlpContacts.Controls.Add(this.lblContacts, 0, 0);
             this.tlpContacts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpContacts.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tlpContacts.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -161,15 +159,6 @@ namespace TaxDataStore
             this.tbxLastName.Size = new System.Drawing.Size(260, 22);
             this.tbxLastName.TabIndex = 5;
             // 
-            // lblContacts
-            // 
-            this.lblContacts.AutoSize = true;
-            this.lblContacts.Location = new System.Drawing.Point(3, 0);
-            this.lblContacts.Name = "lblContacts";
-            this.lblContacts.Size = new System.Drawing.Size(38, 14);
-            this.lblContacts.TabIndex = 2;
-            this.lblContacts.Text = "label1";
-            // 
             // FrmTourMemberEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -204,6 +193,5 @@ namespace TaxDataStore
         private ContainerLayoutPanel tlpContacts;
         private FlatButton btnAddContact;
         private FlatButton btnRemoveContact;
-        private ToolbarLabel lblContacts;
     }
 }

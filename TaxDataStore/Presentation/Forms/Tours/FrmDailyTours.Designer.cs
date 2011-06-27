@@ -31,25 +31,19 @@ namespace TaxDataStore
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.tlpEmployees = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
-            this.lblEmployees = new TaxDataStore.Presentation.Controls.ToolbarLabel();
             this.tlpNotes = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
             this.rtbComments = new System.Windows.Forms.RichTextBox();
-            this.lblNotes = new TaxDataStore.Presentation.Controls.ToolbarLabel();
             this.tlpMemberDetails = new System.Windows.Forms.TableLayoutPanel();
             this.tlpTourMembers = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
-            this.lblTourMembers = new TaxDataStore.Presentation.Controls.ToolbarLabel();
             this.tlpMemberContacts = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
-            this.lblMemberContacts = new TaxDataStore.Presentation.Controls.ToolbarLabel();
-            this.tlpTourCosts = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
-            this.lblTourCosts = new TaxDataStore.Presentation.Controls.ToolbarLabel();
             this.tlpToursContainer = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
+            this.tlpTourCosts = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
             this.tlpTours = new System.Windows.Forms.TableLayoutPanel();
             this.tlpToursToolbar = new System.Windows.Forms.TableLayoutPanel();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnAddTour = new TaxDataStore.Presentation.Controls.FlatButton();
             this.btnEditTour = new TaxDataStore.Presentation.Controls.FlatButton();
             this.btnDeleteTour = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.label1 = new TaxDataStore.Presentation.Controls.ToolbarLabel();
             this.tlpDate = new System.Windows.Forms.TableLayoutPanel();
             this.dtpCurrentDate = new System.Windows.Forms.DateTimePicker();
             this.tlpMain.SuspendLayout();
@@ -90,7 +84,6 @@ namespace TaxDataStore
             this.tlpEmployees.BackColor = System.Drawing.Color.White;
             this.tlpEmployees.ColumnCount = 1;
             this.tlpEmployees.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpEmployees.Controls.Add(this.lblEmployees, 0, 0);
             this.tlpEmployees.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpEmployees.Location = new System.Drawing.Point(3, 344);
             this.tlpEmployees.Name = "tlpEmployees";
@@ -100,22 +93,12 @@ namespace TaxDataStore
             this.tlpEmployees.Size = new System.Drawing.Size(253, 109);
             this.tlpEmployees.TabIndex = 6;
             // 
-            // lblEmployees
-            // 
-            this.lblEmployees.AutoSize = true;
-            this.lblEmployees.Location = new System.Drawing.Point(3, 0);
-            this.lblEmployees.Name = "lblEmployees";
-            this.lblEmployees.Size = new System.Drawing.Size(65, 14);
-            this.lblEmployees.TabIndex = 0;
-            this.lblEmployees.Text = "Employees";
-            // 
             // tlpNotes
             // 
             this.tlpNotes.BackColor = System.Drawing.Color.White;
             this.tlpNotes.ColumnCount = 1;
             this.tlpNotes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpNotes.Controls.Add(this.rtbComments, 0, 1);
-            this.tlpNotes.Controls.Add(this.lblNotes, 0, 0);
             this.tlpNotes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpNotes.Location = new System.Drawing.Point(262, 344);
             this.tlpNotes.Name = "tlpNotes";
@@ -136,15 +119,6 @@ namespace TaxDataStore
             this.rtbComments.Size = new System.Drawing.Size(378, 89);
             this.rtbComments.TabIndex = 1;
             this.rtbComments.Text = "";
-            // 
-            // lblNotes
-            // 
-            this.lblNotes.AutoSize = true;
-            this.lblNotes.Location = new System.Drawing.Point(3, 0);
-            this.lblNotes.Name = "lblNotes";
-            this.lblNotes.Size = new System.Drawing.Size(39, 14);
-            this.lblNotes.TabIndex = 0;
-            this.lblNotes.Text = "Notes";
             // 
             // tlpMemberDetails
             // 
@@ -170,7 +144,6 @@ namespace TaxDataStore
             this.tlpTourMembers.BackColor = System.Drawing.Color.White;
             this.tlpTourMembers.ColumnCount = 1;
             this.tlpTourMembers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpTourMembers.Controls.Add(this.lblTourMembers, 0, 0);
             this.tlpTourMembers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpTourMembers.Location = new System.Drawing.Point(3, 3);
             this.tlpTourMembers.Name = "tlpTourMembers";
@@ -180,21 +153,11 @@ namespace TaxDataStore
             this.tlpTourMembers.Size = new System.Drawing.Size(253, 130);
             this.tlpTourMembers.TabIndex = 6;
             // 
-            // lblTourMembers
-            // 
-            this.lblTourMembers.AutoSize = true;
-            this.lblTourMembers.Location = new System.Drawing.Point(3, 0);
-            this.lblTourMembers.Name = "lblTourMembers";
-            this.lblTourMembers.Size = new System.Drawing.Size(86, 14);
-            this.lblTourMembers.TabIndex = 0;
-            this.lblTourMembers.Text = "Tour Members";
-            // 
             // tlpMemberContacts
             // 
             this.tlpMemberContacts.BackColor = System.Drawing.Color.White;
             this.tlpMemberContacts.ColumnCount = 1;
             this.tlpMemberContacts.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMemberContacts.Controls.Add(this.lblMemberContacts, 0, 0);
             this.tlpMemberContacts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMemberContacts.Location = new System.Drawing.Point(262, 3);
             this.tlpMemberContacts.Name = "tlpMemberContacts";
@@ -204,21 +167,11 @@ namespace TaxDataStore
             this.tlpMemberContacts.Size = new System.Drawing.Size(188, 130);
             this.tlpMemberContacts.TabIndex = 6;
             // 
-            // lblMemberContacts
-            // 
-            this.lblMemberContacts.AutoSize = true;
-            this.lblMemberContacts.Location = new System.Drawing.Point(3, 0);
-            this.lblMemberContacts.Name = "lblMemberContacts";
-            this.lblMemberContacts.Size = new System.Drawing.Size(103, 14);
-            this.lblMemberContacts.TabIndex = 0;
-            this.lblMemberContacts.Text = "Member Contacts";
-            // 
             // tlpTourCosts
             // 
             this.tlpTourCosts.BackColor = System.Drawing.Color.White;
             this.tlpTourCosts.ColumnCount = 1;
             this.tlpTourCosts.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpTourCosts.Controls.Add(this.lblTourCosts, 0, 0);
             this.tlpTourCosts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpTourCosts.Location = new System.Drawing.Point(456, 3);
             this.tlpTourCosts.Name = "tlpTourCosts";
@@ -227,15 +180,6 @@ namespace TaxDataStore
             this.tlpTourCosts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpTourCosts.Size = new System.Drawing.Size(190, 130);
             this.tlpTourCosts.TabIndex = 6;
-            // 
-            // lblTourCosts
-            // 
-            this.lblTourCosts.AutoSize = true;
-            this.lblTourCosts.Location = new System.Drawing.Point(3, 0);
-            this.lblTourCosts.Name = "lblTourCosts";
-            this.lblTourCosts.Size = new System.Drawing.Size(66, 14);
-            this.lblTourCosts.TabIndex = 0;
-            this.lblTourCosts.Text = "Tour Costs";
             // 
             // tlpToursContainer
             // 
@@ -279,7 +223,6 @@ namespace TaxDataStore
             this.tlpToursToolbar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpToursToolbar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpToursToolbar.Controls.Add(this.tlpButtons, 4, 0);
-            this.tlpToursToolbar.Controls.Add(this.label1, 0, 0);
             this.tlpToursToolbar.Controls.Add(this.tlpDate, 2, 0);
             this.tlpToursToolbar.Location = new System.Drawing.Point(0, 0);
             this.tlpToursToolbar.Margin = new System.Windows.Forms.Padding(0);
@@ -371,27 +314,12 @@ namespace TaxDataStore
             this.btnDeleteTour.UseVisualStyleBackColor = false;
             this.btnDeleteTour.Click += new System.EventHandler(this.btnDeleteTour_Click);
             // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 32);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Tours";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // tlpDate
             // 
             this.tlpDate.ColumnCount = 2;
             this.tlpDate.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpDate.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpDate.Controls.Add(this.dtpCurrentDate, 1, 0);
-            this.tlpDate.Controls.Add(this.lblDate, 0, 0);
             this.tlpDate.Location = new System.Drawing.Point(67, 0);
             this.tlpDate.Margin = new System.Windows.Forms.Padding(0);
             this.tlpDate.Name = "tlpDate";
@@ -456,19 +384,13 @@ namespace TaxDataStore
         private FlatButton btnAddTour;
         private FlatButton btnEditTour;
         private FlatButton btnDeleteTour;
-        private ToolbarLabel label1;
         private System.Windows.Forms.TableLayoutPanel tlpTours;
         private System.Windows.Forms.TableLayoutPanel tlpDate;
         private ContainerLayoutPanel tlpTourMembers;
-        private ToolbarLabel lblTourMembers;
         private ContainerLayoutPanel tlpEmployees;
-        private ToolbarLabel lblEmployees;
         private ContainerLayoutPanel tlpMemberContacts;
-        private ToolbarLabel lblMemberContacts;
         private ContainerLayoutPanel tlpTourCosts;
-        private ToolbarLabel lblTourCosts;
         private ContainerLayoutPanel tlpNotes;
-        private ToolbarLabel lblNotes;
         private System.Windows.Forms.RichTextBox rtbComments;
     }
 }

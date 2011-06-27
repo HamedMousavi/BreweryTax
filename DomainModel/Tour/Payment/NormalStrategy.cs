@@ -25,27 +25,39 @@ namespace DomainModel.PaymentStrategies
         {
             bool res = true;
 
+            // Prevent event firing again while changing list
+            Detach(tour);
 
-            // Clear old items
-            int count = tour.Receipt.Items.Count;
-            for (int i = 0; i < count; i++ )
+            try
             {
-                TourReceiptItem item = tour.Receipt.Items[0];
 
-                if (!item.IsCustom)
+                // Clear old items
+                int count = tour.Receipt.Items.Count;
+                for (int i = 0; i < count; i++)
                 {
-                    res = tour.Receipt.Delete(item);
-                    if (!res) break;
+                    TourReceiptItem item = tour.Receipt.Items[0];
+
+                    if (!item.IsCustom)
+                    {
+                        res = tour.Receipt.Delete(item);
+                        if (!res) break;
+                    }
                 }
-            }
 
-            // recalculate
-            if (res)
+                // recalculate
+                if (res)
+                {
+                    CreateReceipt(tour);
+                }
+
+                CalculateTotal(tour);
+            }
+            catch (Exception ex)
             {
-                CreateReceipt(tour);
             }
 
-            CalculateTotal(tour);
+            // attach back to tour
+            Attach(tour);
 
             return res;
         }
@@ -83,11 +95,11 @@ namespace DomainModel.PaymentStrategies
                     item.PricePerPerson = tourBasePPS;
                     item.Quantity = quantity;
                     item.Description = detail.CostGroup.Name;
-                    tour.Receipt.Items.Add(item);
+                    if (item.Total.Value != 0.0M) tour.Receipt.Items.Add(item);
                     
                     foreach(TourCostRule rule in detail.CostGroup.Rules)
                     {
-                        if (this.ruleValidator.Matches(rule, tour))
+                        if (this.ruleValidator.Matches(rule, detail, tour))
                         {
                             item = new TourReceiptItem();
 
@@ -96,7 +108,7 @@ namespace DomainModel.PaymentStrategies
                             item.Description = rule.Name + " (" + rule.Formula.ToString() + ")";
                             item.Quantity = rule.IsPerPerson ? quantity : 1;
                             item.PricePerPerson = rule.GetTotal(tourBasePPS);
-                            tour.Receipt.Items.Add(item);
+                            if (item.Total.Value != 0.0M) tour.Receipt.Items.Add(item);
                         }
                     }
 

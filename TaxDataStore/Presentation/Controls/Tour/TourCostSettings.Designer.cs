@@ -34,17 +34,13 @@
             this.btnAddGroup = new TaxDataStore.Presentation.Controls.FlatButton();
             this.btnEditGroup = new TaxDataStore.Presentation.Controls.FlatButton();
             this.btnRemoveGroup = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.lblGroup = new TaxDataStore.Presentation.Controls.ToolbarLabel();
-            this.lblGroupRules = new TaxDataStore.Presentation.Controls.ToolbarLabel();
             this.tlpTourPriceContainer = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnEditTourPrice = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.lblTourPrices = new TaxDataStore.Presentation.Controls.ToolbarLabel();
             this.tlpCostRules = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
             this.tlpCostRuleButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnAddRule = new TaxDataStore.Presentation.Controls.FlatButton();
             this.btnEditRule = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.lblCostRules = new TaxDataStore.Presentation.Controls.ToolbarLabel();
             this.btnRemoveRule = new TaxDataStore.Presentation.Controls.FlatButton();
             this.tlpMain.SuspendLayout();
             this.tlpCostGroups.SuspendLayout();
@@ -82,7 +78,6 @@
             this.tlpCostGroups.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tlpCostGroups.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
             this.tlpCostGroups.Controls.Add(this.tlpCostGroupButtons, 0, 0);
-            this.tlpCostGroups.Controls.Add(this.lblGroupRules, 1, 0);
             this.tlpCostGroups.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpCostGroups.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.tlpCostGroups.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -105,7 +100,6 @@
             this.tlpCostGroupButtons.Controls.Add(this.btnAddGroup, 1, 0);
             this.tlpCostGroupButtons.Controls.Add(this.btnEditGroup, 2, 0);
             this.tlpCostGroupButtons.Controls.Add(this.btnRemoveGroup, 3, 0);
-            this.tlpCostGroupButtons.Controls.Add(this.lblGroup, 0, 0);
             this.tlpCostGroupButtons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpCostGroupButtons.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.tlpCostGroupButtons.Location = new System.Drawing.Point(0, 0);
@@ -143,34 +137,6 @@
             this.btnRemoveGroup.UseVisualStyleBackColor = true;
             this.btnRemoveGroup.Click += new System.EventHandler(this.btnRemoveGroup_Click);
             // 
-            // lblGroup
-            // 
-            this.lblGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblGroup.AutoSize = true;
-            this.lblGroup.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblGroup.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblGroup.Location = new System.Drawing.Point(3, 0);
-            this.lblGroup.Name = "lblGroup";
-            this.lblGroup.Size = new System.Drawing.Size(41, 30);
-            this.lblGroup.TabIndex = 3;
-            this.lblGroup.Text = "Group";
-            this.lblGroup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblGroupRules
-            // 
-            this.lblGroupRules.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblGroupRules.AutoSize = true;
-            this.lblGroupRules.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblGroupRules.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblGroupRules.Location = new System.Drawing.Point(164, 0);
-            this.lblGroupRules.Name = "lblGroupRules";
-            this.lblGroupRules.Size = new System.Drawing.Size(72, 30);
-            this.lblGroupRules.TabIndex = 1;
-            this.lblGroupRules.Text = "Group rules";
-            this.lblGroupRules.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // tlpTourPriceContainer
             // 
             this.tlpTourPriceContainer.BackColor = System.Drawing.Color.White;
@@ -193,7 +159,6 @@
             this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpButtons.Controls.Add(this.btnEditTourPrice, 1, 0);
-            this.tlpButtons.Controls.Add(this.lblTourPrices, 0, 0);
             this.tlpButtons.Location = new System.Drawing.Point(0, 0);
             this.tlpButtons.Margin = new System.Windows.Forms.Padding(0);
             this.tlpButtons.Name = "tlpButtons";
@@ -210,20 +175,6 @@
             this.btnEditTourPrice.TabIndex = 0;
             this.btnEditTourPrice.UseVisualStyleBackColor = true;
             this.btnEditTourPrice.Click += new System.EventHandler(this.btnEditTourPrice_Click);
-            // 
-            // lblTourPrices
-            // 
-            this.lblTourPrices.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblTourPrices.AutoSize = true;
-            this.lblTourPrices.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblTourPrices.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblTourPrices.Location = new System.Drawing.Point(3, 0);
-            this.lblTourPrices.Name = "lblTourPrices";
-            this.lblTourPrices.Size = new System.Drawing.Size(70, 30);
-            this.lblTourPrices.TabIndex = 0;
-            this.lblTourPrices.Text = "Tour prices";
-            this.lblTourPrices.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tlpCostRules
             // 
@@ -251,7 +202,6 @@
             this.tlpCostRuleButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpCostRuleButtons.Controls.Add(this.btnAddRule, 1, 0);
             this.tlpCostRuleButtons.Controls.Add(this.btnEditRule, 2, 0);
-            this.tlpCostRuleButtons.Controls.Add(this.lblCostRules, 0, 0);
             this.tlpCostRuleButtons.Controls.Add(this.btnRemoveRule, 3, 0);
             this.tlpCostRuleButtons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpCostRuleButtons.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -280,20 +230,6 @@
             this.btnEditRule.TabIndex = 3;
             this.btnEditRule.UseVisualStyleBackColor = true;
             this.btnEditRule.Click += new System.EventHandler(this.btnEditRule_Click);
-            // 
-            // lblCostRules
-            // 
-            this.lblCostRules.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblCostRules.AutoSize = true;
-            this.lblCostRules.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblCostRules.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblCostRules.Location = new System.Drawing.Point(3, 0);
-            this.lblCostRules.Name = "lblCostRules";
-            this.lblCostRules.Size = new System.Drawing.Size(92, 30);
-            this.lblCostRules.TabIndex = 1;
-            this.lblCostRules.Text = "Cost Rules";
-            this.lblCostRules.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnRemoveRule
             // 
@@ -334,19 +270,15 @@
         private Presentation.Controls.ContainerLayoutPanel tlpTourPriceContainer;
         private System.Windows.Forms.TableLayoutPanel tlpButtons;
         private FlatButton btnEditTourPrice;
-        private ToolbarLabel lblTourPrices;
         private Presentation.Controls.ContainerLayoutPanel tlpCostRules;
         private System.Windows.Forms.TableLayoutPanel tlpCostRuleButtons;
         private FlatButton btnAddRule;
         private FlatButton btnEditRule;
-        private ToolbarLabel lblCostRules;
         private FlatButton btnRemoveRule;
         private Presentation.Controls.ContainerLayoutPanel tlpCostGroups;
         private System.Windows.Forms.TableLayoutPanel tlpCostGroupButtons;
         private FlatButton btnAddGroup;
         private FlatButton btnEditGroup;
         private FlatButton btnRemoveGroup;
-        private ToolbarLabel lblGroup;
-        private ToolbarLabel lblGroupRules;
     }
 }

@@ -91,6 +91,9 @@ namespace Entities
             }
         }
 
+        [BrowsableAttribute(false)]
+        public TourCostRuleConstraintCollection DeletedConstraints { get; private set; }
+
 
         #endregion Properties
 
@@ -98,6 +101,7 @@ namespace Entities
         public TourCostRule()
         {
             this.constraints = new TourCostRuleConstraintCollection();
+            this.DeletedConstraints = new TourCostRuleConstraintCollection();
 
             this.IsPerPerson = true;
             this.id = -1;
@@ -113,6 +117,9 @@ namespace Entities
 
             this.constraints.CopyTo(rule.Constraints);
             this.Formula.CopyTo(rule.Formula);
+            this.DeletedConstraints.CopyTo(rule.DeletedConstraints);
+
+            rule.IsDirty = this.IsDirty;
         }
 
 

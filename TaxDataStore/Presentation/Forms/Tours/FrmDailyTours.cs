@@ -9,7 +9,14 @@ namespace TaxDataStore
     public partial class FrmDailyTours : BaseForm
     {
         private FormLabel lblDate;
-        
+
+        private ToolbarLabel lblTours;
+        private ToolbarLabel lblTourMembers;
+        private ToolbarLabel lblEmployees;
+        private ToolbarLabel lblMemberContacts;
+        private ToolbarLabel lblTourCosts;
+        private ToolbarLabel lblNotes;
+       
         protected ToursGridView fgvTours;
         protected FlatGridView fgvEmployees;
         protected FlatGridView fgvTourMembers;
@@ -27,9 +34,9 @@ namespace TaxDataStore
 
         public FrmDailyTours()
         {
-            CreateControls();
-
             InitializeComponent();
+
+            CreateControls();
 
             this.tours = new Entities.TourCollection();
             UpdateTourList();
@@ -70,7 +77,22 @@ namespace TaxDataStore
 
         private void CreateControls()
         {
-            this.lblDate = new FormLabel(0, "lblDate", false, "date");
+            this.lblDate = new FormLabel(0, "lblDate", true, "date");
+
+            this.lblTourMembers = new ToolbarLabel(1, "lblTourMembers", "lbl_tour_members");
+            this.lblEmployees = new ToolbarLabel(2, "lblEmployees", "lbl_employees");
+            this.lblNotes = new ToolbarLabel(3, "lblNotes", "lbl_notes");
+            this.lblMemberContacts = new ToolbarLabel(4, "lblMemberContacts", "lbl_member_contacts");
+            this.lblTourCosts = new ToolbarLabel(5, "lblTourCosts", "lbl_tour_costs");
+            this.lblTours = new ToolbarLabel(6, "lblTours", "lbl_tours");
+
+            this.tlpEmployees.Controls.Add(this.lblEmployees, 0, 0);
+            this.tlpTourMembers.Controls.Add(this.lblTourMembers, 0, 0);
+            this.tlpMemberContacts.Controls.Add(this.lblMemberContacts, 0, 0);
+            this.tlpTourCosts.Controls.Add(this.lblTourCosts, 0, 0);
+            this.tlpToursToolbar.Controls.Add(this.lblTours, 0, 0);
+            this.tlpNotes.Controls.Add(this.lblNotes, 0, 0);
+            this.tlpDate.Controls.Add(this.lblDate, 0, 0);
         }
 
 

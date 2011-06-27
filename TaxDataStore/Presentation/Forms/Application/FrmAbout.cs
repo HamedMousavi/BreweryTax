@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Windows.Forms;
-using TaxDataStore.Presentation.Controls;
 using System.ComponentModel;
+using System.Windows.Forms;
 using TaxDataStore.Presentation;
+using TaxDataStore.Presentation.Controls;
 
 
 namespace TaxDataStore
@@ -50,13 +50,13 @@ namespace TaxDataStore
 
         private void CreateControls()
         {
-            this.lblAppName = new FormLabel(0, "lblAppName", false, "");
-            this.lblRegistrationCaption = new FormLabel(1, "lblRegistrationCaption", false, "");
-            this.lblCopyright = new FormLabel(2, "lblCopyright", false, "");
-            this.lblSupportCaption = new FormLabel(3, "lblSupportCaption", false, "");
-            this.lblUpdateStateCaption = new FormLabel(4, "lblUpdateStateCaption", false, "");
-            this.lblVersionCaption = new FormLabel(5, "lblVersionCaption", false, "");
-            this.lblLastUpdateCheckCaption = new FormLabel(6, "lblLastUpdateCheckCaption", false, "");
+            this.lblAppName = new FormLabel(0, "lblAppName", true, "");
+            this.lblRegistrationCaption = new FormLabel(1, "lblRegistrationCaption", true, "");
+            this.lblCopyright = new FormLabel(2, "lblCopyright", true, "");
+            this.lblSupportCaption = new FormLabel(3, "lblSupportCaption", true, "");
+            this.lblUpdateStateCaption = new FormLabel(4, "lblUpdateStateCaption", true, "");
+            this.lblVersionCaption = new FormLabel(5, "lblVersionCaption", true, "");
+            this.lblLastUpdateCheckCaption = new FormLabel(6, "lblLastUpdateCheckCaption", true, "");
 
             this.tlpUpdates.Controls.Add(this.lblVersionCaption, 0, 1);
             this.tlpUpdates.Controls.Add(this.lblLastUpdateCheckCaption, 0, 3);
@@ -65,6 +65,8 @@ namespace TaxDataStore
             this.tableLayoutPanel1.Controls.Add(this.lblSupportCaption, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblRegistrationCaption, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblCopyright, 2, 1);
+
+            this.tlpMain.BackColor = System.Drawing.Color.White;
         }
 
 

@@ -32,11 +32,11 @@ namespace TaxDataStore.Presentation.Controls.Settings
 
         private void CreateControls()
         {
-            this.lblDatabaseServerName = new FormLabel(0, "lblDatabaseServerName", false, "lbl_db_server");
-            this.lblDatabaseTcpPort = new FormLabel(1, "lblDatabaseTcpPort", false, "lbl_db_port");
-            this.lblDatabaseUserId = new FormLabel(2, "lblDatabaseUserId", false, "lbl_db_srv_user");
-            this.lblDatabasePassword = new FormLabel(3, "lblDatabasePassword", false, "lbl_db_password");
-            this.lblDatabaseCatalog = new FormLabel(4, "lblDatabaseCatalog", false, "lbl_db_name");
+            this.lblDatabaseServerName = new FormLabel(0, "lblDatabaseServerName", true, "lbl_db_server");
+            this.lblDatabaseTcpPort = new FormLabel(1, "lblDatabaseTcpPort", true, "lbl_db_port");
+            this.lblDatabaseUserId = new FormLabel(2, "lblDatabaseUserId", true, "lbl_db_srv_user");
+            this.lblDatabasePassword = new FormLabel(3, "lblDatabasePassword", true, "lbl_db_password");
+            this.lblDatabaseCatalog = new FormLabel(4, "lblDatabaseCatalog", true, "lbl_db_name");
 
             this.tlpMain.Controls.Add(this.lblDatabaseServerName, 0, 1);
             this.tlpMain.Controls.Add(this.lblDatabaseTcpPort, 0, 2);

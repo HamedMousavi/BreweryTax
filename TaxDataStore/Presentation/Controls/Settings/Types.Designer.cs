@@ -30,8 +30,6 @@
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.panelCategory = new System.Windows.Forms.Panel();
-            this.lblCategory = new ToolbarLabel();
-            this.lblTypes = new ToolbarLabel();
             this.tlpContainer = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
             this.tlpToolbar = new System.Windows.Forms.TableLayoutPanel();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
@@ -70,32 +68,6 @@
             this.panelCategory.Size = new System.Drawing.Size(142, 362);
             this.panelCategory.TabIndex = 0;
             // 
-            // lblCategory
-            // 
-            this.lblCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblCategory.AutoSize = true;
-            this.lblCategory.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblCategory.Location = new System.Drawing.Point(3, 0);
-            this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(59, 30);
-            this.lblCategory.TabIndex = 0;
-            this.lblCategory.Text = "Category";
-            this.lblCategory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblTypes
-            // 
-            this.lblTypes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblTypes.AutoSize = true;
-            this.lblTypes.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lblTypes.Location = new System.Drawing.Point(3, 0);
-            this.lblTypes.Name = "lblTypes";
-            this.lblTypes.Size = new System.Drawing.Size(41, 30);
-            this.lblTypes.TabIndex = 1;
-            this.lblTypes.Text = "Types";
-            this.lblTypes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // tlpContainer
             // 
             this.tlpContainer.BackColor = System.Drawing.Color.White;
@@ -122,7 +94,6 @@
             this.tlpToolbar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpToolbar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpToolbar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpToolbar.Controls.Add(this.lblCategory, 0, 0);
             this.tlpToolbar.Controls.Add(this.tlpButtons, 1, 0);
             this.tlpToolbar.Location = new System.Drawing.Point(0, 0);
             this.tlpToolbar.Margin = new System.Windows.Forms.Padding(0);
@@ -139,7 +110,6 @@
             this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpButtons.Controls.Add(this.lblTypes, 0, 0);
             this.tlpButtons.Controls.Add(this.btnDeleteType, 2, 0);
             this.tlpButtons.Controls.Add(this.btnAddType, 1, 0);
             this.tlpButtons.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -197,8 +167,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
-        private ToolbarLabel lblCategory;
-        private ToolbarLabel lblTypes;
         private ContainerLayoutPanel tlpContainer;
         private System.Windows.Forms.TableLayoutPanel tlpToolbar;
         private FlatButton btnAddType;

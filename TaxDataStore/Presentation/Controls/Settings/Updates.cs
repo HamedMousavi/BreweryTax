@@ -32,9 +32,9 @@ namespace TaxDataStore.Presentation.Controls.Settings
 
         private void CreateControls()
         {
-            this.lblUpdateSeconds = new FormLabel(0, "lblUpdateSeconds", false, "lbl_upd_sseconds");
-            this.lblUpdateEvery = new FormLabel(1, "lblUpdateEvery", false, "lbl_upd_interval");
-            this.lblUpdateUrl = new FormLabel(2, "lblUpdateUrl", false, "lbl_upd_url");
+            this.lblUpdateSeconds = new FormLabel(0, "lblUpdateSeconds", true, "lbl_upd_sseconds");
+            this.lblUpdateEvery = new FormLabel(1, "lblUpdateEvery", true, "lbl_upd_interval");
+            this.lblUpdateUrl = new FormLabel(2, "lblUpdateUrl", true, "lbl_upd_url");
 
             this.tlpMain.Controls.Add(this.lblUpdateEvery, 0, 2);
             this.tlpMain.Controls.Add(this.lblUpdateSeconds, 2, 2);

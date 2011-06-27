@@ -63,9 +63,9 @@ namespace TaxDataStore
             this.lblComments = new FormLabel(6, "lblComments", true, "lbl_comments");
             this.lblSignupType = new FormLabel(7, "lblSignupType", true, "lbl_signup_type");
 
-            this.lblGuestContacts = new ToolbarLabel("lbl_guest_contacts");
-            this.lblGuest = new ToolbarLabel("lbl_guests");
-            this.lblPayments = new ToolbarLabel("tab_title_Payments");
+            this.lblGuestContacts = new ToolbarLabel(8, "lblGuestContacts", "lbl_guest_contacts");
+            this.lblGuest = new ToolbarLabel(9, "lblGuest", "lbl_guests");
+            this.lblPayments = new ToolbarLabel(10, "lblPayments", "tab_title_Payments");
 
             this.tlpTour.Controls.Add(this.lblTourStatusLabel, 0, 0);
             this.tlpTour.Controls.Add(this.tlpTourState, 1, 0);

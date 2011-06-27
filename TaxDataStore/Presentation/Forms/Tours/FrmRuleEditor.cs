@@ -11,6 +11,8 @@ namespace TaxDataStore
     {
         private FormLabel lblRuleName;
         private FormLabel lblFormula;
+        private ToolbarLabel lblConstraints;
+
 
         protected readonly string[] opImageNames = new string[] { "plus", "minus" };
         protected readonly string[] opLabels = new string[] { "%" };
@@ -44,8 +46,10 @@ namespace TaxDataStore
         private void CreateControls()
         {
             this.lblRuleName = new FormLabel(0, "lblRuleName", false, "lbl_rule_name");
-            this.lblFormula = new FormLabel(0, "lblFormula", false, "lbl_formula");
+            this.lblFormula = new FormLabel(1, "lblFormula", false, "lbl_formula");
+            this.lblConstraints = new ToolbarLabel(2, "lblConstraints", "lbl_constraints");
 
+            this.tlpConstraintButtons.Controls.Add(this.lblConstraints, 0, 0);
             this.tlpMain.Controls.Add(this.lblRuleName, 0, 0);
             this.tlpMain.Controls.Add(this.lblFormula, 0, 1);
             
@@ -105,15 +109,12 @@ namespace TaxDataStore
 
             if (con != null)
             {
-                if (con.Id < 0)
+                if (con.Id >= 0)
                 {
-                    this.rule.Constraints.Remove(con);
+                    this.rule.DeletedConstraints.Add(con);
                 }
-                else
-                {
-                    // undone:
-                    // Add to delete list first
-                }
+
+                this.rule.Constraints.Remove(con);
             }
         }
 
@@ -253,14 +254,15 @@ namespace TaxDataStore
         private void btnSave_Click(object sender, EventArgs e)
         {
             GetUserInput();
-            if (this.editRule != null)
-            {
-                // Update edit user and database
-                this.rule.CopyTo(this.editRule);
-            }
 
             if (DomainModel.TourCostRules.Save(this.rule))
             {
+                if (this.editRule != null)
+                {
+                    // Update original object
+                    this.rule.CopyTo(this.editRule);
+                }
+
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 Close();
             }
