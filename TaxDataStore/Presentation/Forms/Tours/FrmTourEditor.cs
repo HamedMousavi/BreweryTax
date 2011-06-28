@@ -49,6 +49,12 @@ namespace TaxDataStore
 
             SetupControls();
             BindControls();
+            this.FormClosing += new FormClosingEventHandler(FrmTourEditor_FormClosing);
+        }
+
+        void FrmTourEditor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.fgvTourReceipt.CleanUp();
         }
 
 

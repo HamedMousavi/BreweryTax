@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
 using System;
 
-
+//System.Net.WebRequest.DefaultWebProxy = new System.Net.WebProxy(proxy.Domain, proxy.Port);
 namespace TaxDataStore
 {
 
@@ -32,11 +32,11 @@ namespace TaxDataStore
         }
 
 
-        private void ShowSplashScreen()
+        private void ShowSplashScreen(Entities.JobProgress progress = null)
         {
             try
             {
-                Presentation.Controllers.SplashScreen.Show();
+                Presentation.Controllers.SplashScreen.Show(progress);
                 Application.DoEvents();
             }
             catch { /*Splash screen failed. No problem. */ }
@@ -138,7 +138,8 @@ namespace TaxDataStore
             {
                 if (DomainModel.Application.User.IsAuthenticated)
                 {
-                    ShowSplashScreen();
+                    ShowSplashScreen(DomainModel.Application.
+                        Progress.Jobs.GetByName("Init"));
 
                     LoadUserSettings();
                     BeginMainWindow();

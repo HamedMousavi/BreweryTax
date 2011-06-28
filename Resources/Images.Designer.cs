@@ -263,6 +263,13 @@ namespace Resources {
             }
         }
         
+        public static System.Drawing.Bitmap flag_yellow {
+            get {
+                object obj = ResourceManager.GetObject("flag_yellow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         public static System.Drawing.Bitmap gear {
             get {
                 object obj = ResourceManager.GetObject("gear", resourceCulture);

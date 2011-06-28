@@ -9,6 +9,9 @@ namespace TaxDataStore.Presentation.Controls
 
         protected MenuItem miTour;
         protected MenuItem miDailyTours;
+        protected MenuItem miTourReports;
+        protected MenuItem miTourReportMonthly;
+
         protected MenuItem miPresence;
         protected MenuItem miSettlementExit;
 
@@ -79,6 +82,24 @@ namespace TaxDataStore.Presentation.Controls
                 string.Empty,
                 Presentation.Controllers.Tours.Today);
 
+            this.miTourReportMonthly = new MenuItem(
+                "tour_report_monthly",
+                string.Empty,
+                string.Empty,
+                Presentation.Controllers.TourReports.MonthlyBill);
+
+            this.miTourReports = new MenuItem(
+                "tour_report",
+                string.Empty,
+                string.Empty,
+                null);
+
+            this.miTourReports.DropDownItems.AddRange(
+                new ToolStripItem[] 
+                {
+                    this.miTourReportMonthly
+                });
+
             this.miSettlementExit = new MenuItem(
                 "exit",
                 string.Empty,
@@ -90,11 +111,11 @@ namespace TaxDataStore.Presentation.Controls
                 string.Empty,
                 string.Empty,
                 null);
-
             this.miTour.DropDownItems.AddRange(
                 new ToolStripItem[] 
                 {
                     this.miDailyTours,
+                    this.miTourReports,
                     this.separators[0],
                     this.miSettlementExit
                 });

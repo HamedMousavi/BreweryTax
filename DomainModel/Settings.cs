@@ -54,5 +54,15 @@ namespace DomainModel
         }
 
         public string StartupPath { get; set; }
+
+        public string DefaultReportPath 
+        {
+            get
+            {
+                return StartupPath +
+                    System.IO.Path.DirectorySeparatorChar +
+                    "Reports";
+            }
+        }
     }
 }

@@ -67,11 +67,12 @@ namespace TaxDataStore
             this.tlpControls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpControls.Location = new System.Drawing.Point(138, 3);
             this.tlpControls.Name = "tlpControls";
-            this.tlpControls.RowCount = 4;
+            this.tlpControls.RowCount = 5;
             this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tlpControls.Size = new System.Drawing.Size(312, 281);
             this.tlpControls.TabIndex = 0;
             // 

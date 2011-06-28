@@ -1,9 +1,9 @@
-﻿using BrightIdeasSoftware;
-using Entities;
-using System.Drawing;
-using System;
+﻿using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
+using BrightIdeasSoftware;
+using Entities;
 
 
 namespace TaxDataStore.Presentation.Controls
@@ -208,6 +208,19 @@ namespace TaxDataStore.Presentation.Controls
             {
                 olvItem.ForeColor = Color.Black;
             }
+        }
+
+        internal void CleanUp()
+        {
+            try
+            {
+                if (this.tour != null)
+                {
+                    this.tour.Receipt.Items.ListChanged -= new
+                        ListChangedEventHandler(Items_ListChanged);
+                }
+            }
+            catch { }
         }
     }
 }

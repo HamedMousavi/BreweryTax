@@ -63,6 +63,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppUpdateController.cs" />
+    <Compile Include="Presentation\Controllers\File.cs" />
+    <Compile Include="Presentation\Controls\JobProgress.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\JobProgress.Designer.cs">
+      <DependentUpon>JobProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Controls\MainWindow\StatusLabelAppUpdate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\Reports\FrmMonthlyReportInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\Reports\FrmMonthlyReportInfo.Designer.cs">
+      <DependentUpon>FrmMonthlyReportInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Controllers\TourReports.cs" />
     <Compile Include="Presentation\Controls\FlexibleDateSelector.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -392,6 +409,9 @@
     <EmbeddedResource Include="Presentation\Controls\FlexibleTimeSelector.resx">
       <DependentUpon>FlexibleTimeSelector.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Controls\JobProgress.resx">
+      <DependentUpon>JobProgress.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Controls\Tour\RuleConstraintTourDate.resx">
       <DependentUpon>RuleConstraintTourDate.cs</DependentUpon>
     </EmbeddedResource>
@@ -421,6 +441,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Forms\Application\FrmSplashScreen.resx">
       <DependentUpon>FrmSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Forms\Reports\FrmMonthlyReportInfo.resx">
+      <DependentUpon>FrmMonthlyReportInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Forms\Tours\FrmRuleConstraintEditor.resx">
       <DependentUpon>FrmRuleConstraintEditor.cs</DependentUpon>

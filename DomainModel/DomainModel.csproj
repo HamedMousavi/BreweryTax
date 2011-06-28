@@ -61,6 +61,7 @@
     <Compile Include="ApplicationStatus.cs" />
     <Compile Include="ApplicationUpdater.cs" />
     <Compile Include="Categories.cs" />
+    <Compile Include="JobProgressController.cs" />
     <Compile Include="Repository\Excell\MonthlyTourBill.cs" />
     <Compile Include="Repository\Sql\TourCostRuleConstraintProperties.cs" />
     <Compile Include="Repository\Sql\TourCostRuleConstraints.cs" />

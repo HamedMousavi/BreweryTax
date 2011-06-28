@@ -916,6 +916,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reports.
+        /// </summary>
+        public static string mnu_caption_tour_report {
+            get {
+                return ResourceManager.GetString("mnu_caption_tour_report", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Monthly Bills.
+        /// </summary>
+        public static string mnu_caption_tour_report_monthly {
+            get {
+                return ResourceManager.GetString("mnu_caption_tour_report_monthly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &amp;User settings.
         /// </summary>
         public static string mnu_caption_user_settings {
@@ -1017,9 +1035,54 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string mnu_tip_tour_report {
+            get {
+                return ResourceManager.GetString("mnu_tip_tour_report", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string mnu_tip_tour_report_monthly {
+            get {
+                return ResourceManager.GetString("mnu_tip_tour_report_monthly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string mnu_tip_user_settings {
             get {
                 return ResourceManager.GetString("mnu_tip_user_settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check for updates.
+        /// </summary>
+        public static string mnu_upd_check_now {
+            get {
+                return ResourceManager.GetString("mnu_upd_check_now", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Install update.
+        /// </summary>
+        public static string mnu_upd_install {
+            get {
+                return ResourceManager.GetString("mnu_upd_install", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download update.
+        /// </summary>
+        public static string mnu_upd_update {
+            get {
+                return ResourceManager.GetString("mnu_upd_update", resourceCulture);
             }
         }
         
@@ -1128,6 +1191,24 @@ namespace Resources {
         public static string select_user {
             get {
                 return ResourceManager.GetString("select_user", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Applying updates.
+        /// </summary>
+        public static string stat_upd_applying {
+            get {
+                return ResourceManager.GetString("stat_upd_applying", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Checking for new version.
+        /// </summary>
+        public static string stat_upd_checking {
+            get {
+                return ResourceManager.GetString("stat_upd_checking", resourceCulture);
             }
         }
         

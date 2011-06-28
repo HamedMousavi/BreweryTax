@@ -8,6 +8,8 @@ namespace TaxDataStore
     public partial class FrmSplashScreen : BaseForm
     {
 
+        protected Presentation.Controls.JobProgress progressBar;
+
         public FrmSplashScreen()
         {
             InitializeComponent();
@@ -22,6 +24,21 @@ namespace TaxDataStore
 
             this.pbxAppIcon.Image = Resources.Images.beer;
             //this.pbxLoading.Image = Resources.Images.loading;
+        }
+
+        
+        public Entities.JobProgress Progress
+        {
+            set
+            {
+                if (value != null)
+                {
+                    this.progressBar = new Presentation.Controls.JobProgress(value);
+                    this.tlpControls.Controls.Add(this.progressBar, 0, 4);
+                    this.tlpControls.SetColumnSpan(this.progressBar, 2);
+                    this.progressBar.Visible = true;
+                }
+            }
         }
     }
 }

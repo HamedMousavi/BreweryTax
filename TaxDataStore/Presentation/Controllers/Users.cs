@@ -29,6 +29,7 @@ namespace TaxDataStore.Presentation.Controllers
 
         static void OnLoginFormClosed(object sender, FormClosedEventArgs e)
         {
+            frmLogin.Hide();
             program.EndAuthenticate(frmLogin.DialogResult == DialogResult.OK);
         }
 

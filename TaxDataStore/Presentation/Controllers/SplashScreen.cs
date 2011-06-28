@@ -9,13 +9,14 @@ namespace TaxDataStore.Presentation.Controllers
         private static FrmSplashScreen frmSplash;
 
 
-        internal static void Show()
+        internal static void Show(Entities.JobProgress progress = null)
         {
             if (frmSplash == null)
             {
                 frmSplash = new FrmSplashScreen();
             }
 
+            frmSplash.Progress = progress;
             frmSplash.Show();
 
             System.Windows.Forms.Application.DoEvents();

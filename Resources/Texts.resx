@@ -534,4 +534,31 @@
   <data name="lbl_constraints" xml:space="preserve">
     <value>Constraints</value>
   </data>
+  <data name="mnu_caption_tour_report" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="mnu_caption_tour_report_monthly" xml:space="preserve">
+    <value>Monthly Bills</value>
+  </data>
+  <data name="mnu_tip_tour_report" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnu_tip_tour_report_monthly" xml:space="preserve">
+    <value />
+  </data>
+  <data name="mnu_upd_install" xml:space="preserve">
+    <value>Install update</value>
+  </data>
+  <data name="mnu_upd_update" xml:space="preserve">
+    <value>Download update</value>
+  </data>
+  <data name="mnu_upd_check_now" xml:space="preserve">
+    <value>Check for updates</value>
+  </data>
+  <data name="stat_upd_applying" xml:space="preserve">
+    <value>Applying updates</value>
+  </data>
+  <data name="stat_upd_checking" xml:space="preserve">
+    <value>Checking for new version</value>
+  </data>
 </root>

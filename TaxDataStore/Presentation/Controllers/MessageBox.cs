@@ -20,5 +20,20 @@ namespace TaxDataStore.Presentation.Controllers
         {
             return true;
         }
+
+        internal static bool ConfirmRestart()
+        {
+            if (System.Windows.Forms.MessageBox.Show(
+                "Installation will restart application. Restart now?",
+                "Confirm restart",
+                System.Windows.Forms.MessageBoxButtons.YesNo,
+                System.Windows.Forms.MessageBoxIcon.Question) ==
+                System.Windows.Forms.DialogResult.Yes)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

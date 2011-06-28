@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using StatusController.Abstract;
-using System.ComponentModel;
 
 
 namespace TaxDataStore.Presentation.Controls
@@ -14,14 +14,13 @@ namespace TaxDataStore.Presentation.Controls
 
         private ToolStripStatusLabel label;
         private ToolStripStatusLabel lblUser;
-        private ToolStripStatusLabel lblAppUpdate;
+        private StatusLabelAppUpdate lblAppUpdate;
 
         private List<Image> images;
         private List<Color> colors;
         private System.Windows.Forms.Timer backColorTimer;
         private StatusTypes currentState;
         protected AsyncCalls asyncHelper;
-        protected AsyncCalls appUpdAsyncHelper;
 
 
         public Statusbar(StatusController.Controller.StatusController controller)
@@ -54,48 +53,9 @@ namespace TaxDataStore.Presentation.Controls
 
             controller.RegisterForEvents(this);
 
-            this.appUpdAsyncHelper = new AsyncCalls();
-            AppUpdateController.UpdateInfo.PropertyChanged += new
-                PropertyChangedEventHandler(UpdateInfo_PropertyChanged);
+            this.asyncHelper = new AsyncCalls();
         }
 
-
-        void UpdateInfo_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            if (string.Equals(e.PropertyName, "UpdateExists", StringComparison.InvariantCulture) ||
-                string.Equals(e.PropertyName, "DownloadIsComplete", StringComparison.InvariantCulture))
-            {
-                RefreshAppUpdaterStatus();
-            }
-        }
-
-
-        private delegate void RefreshAppUpdaterStatusDelegate();
-        private void RefreshAppUpdaterStatus()
-        {
-            // Ensure inside UI thread
-            if (!this.appUpdAsyncHelper.Execute(
-                this, new RefreshAppUpdaterStatusDelegate(RefreshAppUpdaterStatus))) return;
-            if (this.InvokeRequired) return;
-            if (!this.Visible) return;
-
-            if (AppUpdateController.UpdateInfo.DownloadIsComplete)
-            {
-                this.lblAppUpdate.Image = DomainModel.Application.ResourceManager.GetImage("flag_red");
-                this.lblAppUpdate.ToolTipText = Resources.Texts.stat_upd_ready_to_install;
-            }
-            else if (AppUpdateController.UpdateInfo.UpdateExists)
-            {
-                this.lblAppUpdate.Image = DomainModel.Application.ResourceManager.GetImage("flag_red");
-                this.lblAppUpdate.ToolTipText = Resources.Texts.stat_upd_exists;
-            }
-
-            else
-            {
-                this.lblAppUpdate.Image = DomainModel.Application.ResourceManager.GetImage("flag_green");
-                this.lblAppUpdate.ToolTipText = Resources.Texts.stat_upd_up_to_date;
-            }
-        }
 
         private void SetupTimer()
         {
@@ -146,13 +106,7 @@ namespace TaxDataStore.Presentation.Controls
             this.lblUser.Image = DomainModel.Application.ResourceManager.GetImage("user_black_female");
             this.Items.Add(this.lblUser);
 
-            this.lblAppUpdate = new ToolStripStatusLabel();
-            this.lblAppUpdate.Name = "status_app_update";
-            this.lblAppUpdate.RightToLeft = View.LayoutDirection;
-            this.lblAppUpdate.Image = DomainModel.Application.ResourceManager.GetImage("flag_green");
-            this.lblAppUpdate.ToolTipText = Resources.Texts.stat_upd_up_to_date;
-            this.lblAppUpdate.AutoToolTip = false;
-            this.lblAppUpdate.Click += new EventHandler(lblAppUpdate_Click);
+            this.lblAppUpdate = new StatusLabelAppUpdate();
             this.Items.Add(this.lblAppUpdate);
 
             this.label.ForeColor = this.ForeColor;
@@ -160,27 +114,6 @@ namespace TaxDataStore.Presentation.Controls
             this.label.Font = this.Font;
             this.lblUser.Font = this.Font;
             this.ShowItemToolTips = true;
-        }
-
-
-        void lblAppUpdate_Click(object sender, EventArgs e)
-        {
-            if (AppUpdateController.UpdateInfo.DownloadIsComplete)
-            {
-                // UNDONE
-                //DomainModel.Application.Status.Update(StatusTypes.Warning, "stat_upd_exists");
-            }
-            else if (AppUpdateController.UpdateInfo.UpdateExists)
-            {
-                this.lblAppUpdate.Image = DomainModel.Application.ResourceManager.GetImage("flag_green");
-                this.lblAppUpdate.ToolTipText = Resources.Texts.stat_upd_downloading;
-                AppUpdateController.DownloadUpdates();
-                //DomainModel.Application.Status.Update(StatusTypes.Warning, "stat_upd_ready_to_install");
-            }
-            else
-            {
-                DomainModel.Application.Status.Update(StatusTypes.Success, "stat_upd_up_to_date");
-            }
         }
 
 
