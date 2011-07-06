@@ -69,7 +69,7 @@ namespace DomainModel
             // Clean deleted items cause they saved with no problem
             //tour.DeletedPayments.UndoDelete(tour.Payments);
             //tour.DeletedMembers.UndoDelete(tour.Members);
-            tour.DeletedEmployees.UndoDelete(tour.Employees);
+            //tour.DeletedEmployees.UndoDelete(tour.Employees);
             //foreach (Entities.TourMember member in tour.Members)
             //{
             //    member.DeletedContacts.UndoDelete(member.Contacts);

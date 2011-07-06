@@ -56,7 +56,7 @@ namespace TaxDataStore
             if (DomainModel.Application.ResourceManager != null)
             {
                 this.editToolbar.Title = DomainModel.
-                    Application.ResourceManager.GetText("contacts");
+                    Application.ResourceManager.GetText("lbl_contacts");
             }
 
             if (Presentation.View.Theme != null)
@@ -69,6 +69,8 @@ namespace TaxDataStore
 
             this.fgvMembers.HiddenColumnNames.Add("MemberShip");
             this.fgvMembers.ColumnHeadersVisible = false;
+            this.fgvMembers.Margin = new Padding(2, 2, 1, 2);
+            this.lsvMemberContacts.Margin = new Padding(0, 2, 2, 2);
 
             this.tlpMain.Controls.Add(this.fgvMembers, 0, 1);
             this.tlpMain.Controls.Add(this.lsvMemberContacts, 1, 1);

@@ -18,7 +18,7 @@ namespace DomainModel
         internal static bool Save(Entities.Tour tour)
         {
             bool res = true;
-
+            /*
             foreach(Entities.Employee emp in tour.Employees)
             {
                 if (!empRepo.Insert(tour, emp))
@@ -26,7 +26,7 @@ namespace DomainModel
                     res = false;
                     break;
                 }
-            }
+            }*/
 
             foreach(Entities.Employee emp in tour.DeletedEmployees)
             {

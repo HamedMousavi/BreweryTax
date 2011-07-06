@@ -11,6 +11,9 @@ namespace TaxDataStore
         private FormLabel lblComment;
         private ToolbarLabel lblRoles;
         private ToolbarLabel lblTasks;
+        private FlatButton btnAddRole;
+        private FlatButton btnEditRole;
+        private FlatButton btnDeleteRole;
 
         protected RolesListView lsvRoles;
         protected Presentation.Controls.TasksCheckedListBox chlbxTasks;
@@ -28,8 +31,16 @@ namespace TaxDataStore
         {
             this.lblComment = new FormLabel(0, "lblComment", false, "select_role");
 
-            this.lblRoles = new ToolbarLabel(0, "lblRoles", "lbl_roles");
-            this.lblTasks = new ToolbarLabel(0, "lblTasks", "lbl_tasks");
+            this.lblRoles = new ToolbarLabel(1, "lblRoles", "lbl_roles");
+            this.lblTasks = new ToolbarLabel(2, "lblTasks", "lbl_tasks");
+
+            this.btnAddRole = new FlatButton(3, "add", "add", "add");
+            this.btnEditRole = new FlatButton(4, "edit", "pencil", "edit");
+            this.btnDeleteRole = new FlatButton(5, "delete", "delete","delete");
+            
+            this.tlpButtons.Controls.Add(this.btnAddRole, 1, 0);
+            this.tlpButtons.Controls.Add(this.btnEditRole, 2, 0);
+            this.tlpButtons.Controls.Add(this.btnDeleteRole, 3, 0);
 
             this.tlpMain.Controls.Add(this.lblTasks, 1, 0);
             this.tlpButtons.Controls.Add(this.lblRoles, 0, 0);

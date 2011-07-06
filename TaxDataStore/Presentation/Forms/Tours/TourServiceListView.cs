@@ -22,6 +22,8 @@ namespace TaxDataStore
         {
             InitializeComponent();
 
+            this.BackColor = System.Drawing.Color.White;
+
             BindControls();
         }
 

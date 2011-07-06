@@ -116,7 +116,7 @@ namespace DomainModel.Repository.Sql
             emp.IsDirty = false;
 
             Entities.Tour tour = (Entities.Tour)userData;
-            tour.Employees.Add(emp);
+            //tour.Employees.Add(emp);
         }
     }
 }

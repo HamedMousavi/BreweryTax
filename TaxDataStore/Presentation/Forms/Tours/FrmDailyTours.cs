@@ -16,6 +16,9 @@ namespace TaxDataStore
         private ToolbarLabel lblMemberContacts;
         private ToolbarLabel lblTourCosts;
         private ToolbarLabel lblNotes;
+        private FlatButton btnAddTour;
+        private FlatButton btnEditTour;
+        private FlatButton btnDeleteTour;
 
         private ToursListView tlvTours;
        /*
@@ -88,12 +91,24 @@ namespace TaxDataStore
             this.lblTourCosts = new ToolbarLabel(5, "lblTourCosts", "lbl_tour_costs");
             this.lblTours = new ToolbarLabel(6, "lblTours", "lbl_tours");
 
+            this.btnAddTour = new FlatButton(7, "btnAdd", "add", "add");
+            this.btnEditTour = new FlatButton(8, "btnEdit", "pencil", "edit");
+            this.btnDeleteTour = new FlatButton(9, "btnDelete", "delete", "delete");
+
+            this.btnAddTour.Click += new EventHandler(btnAddTour_Click);
+            this.btnEditTour.Click += new EventHandler(btnEditTour_Click);
+            this.btnDeleteTour.Click += new EventHandler(btnDeleteTour_Click);
+            
+            this.tlpButtons.Controls.Add(this.btnAddTour, 0, 0);
+            this.tlpButtons.Controls.Add(this.btnEditTour, 1, 0);
+            this.tlpButtons.Controls.Add(this.btnDeleteTour, 2, 0);
+
             //this.tlpEmployees.Controls.Add(this.lblEmployees, 0, 0);
             //this.tlpTourMembers.Controls.Add(this.lblTourMembers, 0, 0);
             //this.tlpMemberContacts.Controls.Add(this.lblMemberContacts, 0, 0);
             //this.tlpTourCosts.Controls.Add(this.lblTourCosts, 0, 0);
-            this.tlpToursToolbar.Controls.Add(this.lblTours, 0, 0);
             //this.tlpNotes.Controls.Add(this.lblNotes, 0, 0);
+            this.tlpToursToolbar.Controls.Add(this.lblTours, 0, 0);
             this.tlpDate.Controls.Add(this.lblDate, 0, 0);
         }
 
@@ -138,9 +153,6 @@ namespace TaxDataStore
             this.tlvTours.Dock = DockStyle.Fill;
             this.tlpTours.Controls.Add(this.tlvTours);
 
-            this.btnAddTour.Image = DomainModel.Application.ResourceManager.GetImage("add");
-            this.btnDeleteTour.Image = DomainModel.Application.ResourceManager.GetImage("delete");
-            this.btnEditTour.Image = DomainModel.Application.ResourceManager.GetImage("pencil");
             /*
             this.fgvEmployees.DataSource = this.bstEmployees;
             this.fgvTourMembers.DataSource = this.bstTourContacts;
@@ -183,14 +195,18 @@ namespace TaxDataStore
             //Presentation.Controllers.Tours.AddNew(this.dtpCurrentDate.Value);
             Entities.Tour tour = new Entities.Tour();
             tour.Time.Value = DateTime.Now;
-            tour.Status.Id = 19;
             tour.Id = 0;
 
             Entities.TourGroup group = new Entities.TourGroup();
             group.Name = "123456";
             group.SignUpType.Id = 5;
-
+            group.Status.Id = 19;
             tour.Groups.Add(group);
+
+            group = new Entities.TourGroup();
+            group.Name = "654321";
+            group.SignUpType.Id = 4;
+            group.Status.Id = 18;
             tour.Groups.Add(group);
 
             tours.Add(tour);

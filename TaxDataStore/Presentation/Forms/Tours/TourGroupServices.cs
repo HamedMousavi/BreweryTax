@@ -48,7 +48,7 @@ namespace TaxDataStore
             if (DomainModel.Application.ResourceManager != null)
             {
                 this.editToolbar.Title = DomainModel.
-                    Application.ResourceManager.GetText("services");
+                    Application.ResourceManager.GetText("lbl_services");
             }
 
             if (Presentation.View.Theme != null)

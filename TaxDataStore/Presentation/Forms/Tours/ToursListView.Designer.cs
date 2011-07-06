@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flpTours = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpTours = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // flpTours
             // 
             this.flpTours.AutoScroll = true;
             this.flpTours.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpTours.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpTours.Location = new System.Drawing.Point(0, 0);
             this.flpTours.Name = "flpTours";
+            this.flpTours.Padding = new System.Windows.Forms.Padding(3);
             this.flpTours.Size = new System.Drawing.Size(314, 199);
             this.flpTours.TabIndex = 0;
             // 
@@ -54,6 +54,6 @@
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flpTours;
+        private System.Windows.Forms.Panel flpTours;
     }
 }

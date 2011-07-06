@@ -10,6 +10,13 @@ namespace TaxDataStore.Presentation.Controls
         private ToolbarLabel lblCostRules;
         private ToolbarLabel lblGroup;
         private ToolbarLabel lblGroupRules;
+        private FlatButton btnEditTourPrice;
+        private FlatButton btnAddRule;
+        private FlatButton btnEditRule;
+        private FlatButton btnRemoveRule;
+        private FlatButton btnAddGroup;
+        private FlatButton btnEditGroup;
+        private FlatButton btnRemoveGroup;
 
         protected TourBasePriceGridView dgvTourPrices;
         protected TourCostRulesGridView dgvRules;
@@ -58,7 +65,22 @@ namespace TaxDataStore.Presentation.Controls
             this.lblGroupRules = new ToolbarLabel(1, "lblGroupRules", "lbl_group_rules");
             this.lblTourPrices = new ToolbarLabel(2, "lblTourPrices", "lbl_tour_prices");
             this.lblCostRules = new ToolbarLabel(3, "lblCostRules", "lbl_cost_rules");
+            
+            this.btnAddGroup = new FlatButton(4, "add", "add", "add");
+            this.btnEditGroup = new FlatButton(5, "edit", "pencil", "edit");
+            this.btnRemoveGroup = new FlatButton(6, "delete", "delete", "delete");
+            this.btnEditTourPrice = new FlatButton(7, "edit", "pencil", "edit");
+            this.btnAddRule = new FlatButton(8, "add", "add", "add");
+            this.btnEditRule = new FlatButton(9, "edit", "pencil", "edit");
+            this.btnRemoveRule = new FlatButton(10, "delete", "delete", "delete");
 
+            this.tlpCostGroupButtons.Controls.Add(this.btnAddGroup, 1, 0);
+            this.tlpCostGroupButtons.Controls.Add(this.btnEditGroup, 2, 0);
+            this.tlpCostGroupButtons.Controls.Add(this.btnRemoveGroup, 3, 0);
+            this.tlpCostRuleButtons.Controls.Add(this.btnAddRule, 1, 0);
+            this.tlpCostRuleButtons.Controls.Add(this.btnEditRule, 2, 0);
+            this.tlpCostRuleButtons.Controls.Add(this.btnRemoveRule, 3, 0);
+            this.tlpButtons.Controls.Add(this.btnEditTourPrice, 1, 0);
 
             this.tlpCostGroups.Controls.Add(this.lblGroupRules, 1, 0);
             this.tlpCostGroupButtons.Controls.Add(this.lblGroup, 0, 0);

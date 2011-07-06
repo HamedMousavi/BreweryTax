@@ -31,17 +31,10 @@
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.tlpCostGroups = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
             this.tlpCostGroupButtons = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAddGroup = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.btnEditGroup = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.btnRemoveGroup = new TaxDataStore.Presentation.Controls.FlatButton();
             this.tlpTourPriceContainer = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
-            this.btnEditTourPrice = new TaxDataStore.Presentation.Controls.FlatButton();
             this.tlpCostRules = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
             this.tlpCostRuleButtons = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAddRule = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.btnEditRule = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.btnRemoveRule = new TaxDataStore.Presentation.Controls.FlatButton();
             this.tlpMain.SuspendLayout();
             this.tlpCostGroups.SuspendLayout();
             this.tlpCostGroupButtons.SuspendLayout();
@@ -97,9 +90,6 @@
             this.tlpCostGroupButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpCostGroupButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpCostGroupButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpCostGroupButtons.Controls.Add(this.btnAddGroup, 1, 0);
-            this.tlpCostGroupButtons.Controls.Add(this.btnEditGroup, 2, 0);
-            this.tlpCostGroupButtons.Controls.Add(this.btnRemoveGroup, 3, 0);
             this.tlpCostGroupButtons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpCostGroupButtons.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.tlpCostGroupButtons.Location = new System.Drawing.Point(0, 0);
@@ -109,33 +99,6 @@
             this.tlpCostGroupButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpCostGroupButtons.Size = new System.Drawing.Size(161, 30);
             this.tlpCostGroupButtons.TabIndex = 0;
-            // 
-            // btnAddGroup
-            // 
-            this.btnAddGroup.Location = new System.Drawing.Point(50, 3);
-            this.btnAddGroup.Name = "btnAddGroup";
-            this.btnAddGroup.Size = new System.Drawing.Size(24, 24);
-            this.btnAddGroup.TabIndex = 0;
-            this.btnAddGroup.UseVisualStyleBackColor = true;
-            this.btnAddGroup.Click += new System.EventHandler(this.btnAddGroup_Click);
-            // 
-            // btnEditGroup
-            // 
-            this.btnEditGroup.Location = new System.Drawing.Point(80, 3);
-            this.btnEditGroup.Name = "btnEditGroup";
-            this.btnEditGroup.Size = new System.Drawing.Size(24, 24);
-            this.btnEditGroup.TabIndex = 1;
-            this.btnEditGroup.UseVisualStyleBackColor = true;
-            this.btnEditGroup.Click += new System.EventHandler(this.btnEditGroup_Click);
-            // 
-            // btnRemoveGroup
-            // 
-            this.btnRemoveGroup.Location = new System.Drawing.Point(110, 3);
-            this.btnRemoveGroup.Name = "btnRemoveGroup";
-            this.btnRemoveGroup.Size = new System.Drawing.Size(24, 24);
-            this.btnRemoveGroup.TabIndex = 2;
-            this.btnRemoveGroup.UseVisualStyleBackColor = true;
-            this.btnRemoveGroup.Click += new System.EventHandler(this.btnRemoveGroup_Click);
             // 
             // tlpTourPriceContainer
             // 
@@ -158,7 +121,6 @@
             this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpButtons.Controls.Add(this.btnEditTourPrice, 1, 0);
             this.tlpButtons.Location = new System.Drawing.Point(0, 0);
             this.tlpButtons.Margin = new System.Windows.Forms.Padding(0);
             this.tlpButtons.Name = "tlpButtons";
@@ -166,15 +128,6 @@
             this.tlpButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpButtons.Size = new System.Drawing.Size(156, 30);
             this.tlpButtons.TabIndex = 2;
-            // 
-            // btnEditTourPrice
-            // 
-            this.btnEditTourPrice.Location = new System.Drawing.Point(79, 3);
-            this.btnEditTourPrice.Name = "btnEditTourPrice";
-            this.btnEditTourPrice.Size = new System.Drawing.Size(22, 24);
-            this.btnEditTourPrice.TabIndex = 0;
-            this.btnEditTourPrice.UseVisualStyleBackColor = true;
-            this.btnEditTourPrice.Click += new System.EventHandler(this.btnEditTourPrice_Click);
             // 
             // tlpCostRules
             // 
@@ -200,9 +153,6 @@
             this.tlpCostRuleButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpCostRuleButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpCostRuleButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpCostRuleButtons.Controls.Add(this.btnAddRule, 1, 0);
-            this.tlpCostRuleButtons.Controls.Add(this.btnEditRule, 2, 0);
-            this.tlpCostRuleButtons.Controls.Add(this.btnRemoveRule, 3, 0);
             this.tlpCostRuleButtons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpCostRuleButtons.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.tlpCostRuleButtons.Location = new System.Drawing.Point(0, 0);
@@ -212,33 +162,6 @@
             this.tlpCostRuleButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpCostRuleButtons.Size = new System.Drawing.Size(297, 30);
             this.tlpCostRuleButtons.TabIndex = 1;
-            // 
-            // btnAddRule
-            // 
-            this.btnAddRule.Location = new System.Drawing.Point(101, 3);
-            this.btnAddRule.Name = "btnAddRule";
-            this.btnAddRule.Size = new System.Drawing.Size(22, 24);
-            this.btnAddRule.TabIndex = 2;
-            this.btnAddRule.UseVisualStyleBackColor = true;
-            this.btnAddRule.Click += new System.EventHandler(this.btnAddRule_Click);
-            // 
-            // btnEditRule
-            // 
-            this.btnEditRule.Location = new System.Drawing.Point(129, 3);
-            this.btnEditRule.Name = "btnEditRule";
-            this.btnEditRule.Size = new System.Drawing.Size(22, 24);
-            this.btnEditRule.TabIndex = 3;
-            this.btnEditRule.UseVisualStyleBackColor = true;
-            this.btnEditRule.Click += new System.EventHandler(this.btnEditRule_Click);
-            // 
-            // btnRemoveRule
-            // 
-            this.btnRemoveRule.Location = new System.Drawing.Point(157, 3);
-            this.btnRemoveRule.Name = "btnRemoveRule";
-            this.btnRemoveRule.Size = new System.Drawing.Size(22, 24);
-            this.btnRemoveRule.TabIndex = 0;
-            this.btnRemoveRule.UseVisualStyleBackColor = true;
-            this.btnRemoveRule.Click += new System.EventHandler(this.btnRemoveRule_Click);
             // 
             // TourCostSettings
             // 
@@ -269,16 +192,9 @@
         private System.Windows.Forms.TableLayoutPanel tlpMain;
         private Presentation.Controls.ContainerLayoutPanel tlpTourPriceContainer;
         private System.Windows.Forms.TableLayoutPanel tlpButtons;
-        private FlatButton btnEditTourPrice;
         private Presentation.Controls.ContainerLayoutPanel tlpCostRules;
         private System.Windows.Forms.TableLayoutPanel tlpCostRuleButtons;
-        private FlatButton btnAddRule;
-        private FlatButton btnEditRule;
-        private FlatButton btnRemoveRule;
         private Presentation.Controls.ContainerLayoutPanel tlpCostGroups;
         private System.Windows.Forms.TableLayoutPanel tlpCostGroupButtons;
-        private FlatButton btnAddGroup;
-        private FlatButton btnEditGroup;
-        private FlatButton btnRemoveGroup;
     }
 }

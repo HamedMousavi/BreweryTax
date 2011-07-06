@@ -31,8 +31,6 @@ namespace TaxDataStore
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.tlpContacts = new ContainerLayoutPanel();
-            this.btnAddContact = new FlatButton();
-            this.btnRemoveContact = new FlatButton();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new ButtonBase();
             this.btnSave = new ButtonBase();
@@ -71,8 +69,6 @@ namespace TaxDataStore
             this.tlpContacts.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpContacts.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpContacts.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpContacts.Controls.Add(this.btnAddContact, 1, 0);
-            this.tlpContacts.Controls.Add(this.btnRemoveContact, 2, 0);
             this.tlpContacts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpContacts.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tlpContacts.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -84,24 +80,6 @@ namespace TaxDataStore
             this.tlpContacts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpContacts.Size = new System.Drawing.Size(336, 169);
             this.tlpContacts.TabIndex = 0;
-            // 
-            // btnAddContact
-            // 
-            this.btnAddContact.Location = new System.Drawing.Point(47, 3);
-            this.btnAddContact.Name = "btnAddContact";
-            this.btnAddContact.Size = new System.Drawing.Size(24, 24);
-            this.btnAddContact.TabIndex = 0;
-            this.btnAddContact.UseVisualStyleBackColor = true;
-            this.btnAddContact.Click += new System.EventHandler(this.btnAddContact_Click);
-            // 
-            // btnRemoveContact
-            // 
-            this.btnRemoveContact.Location = new System.Drawing.Point(77, 3);
-            this.btnRemoveContact.Name = "btnRemoveContact";
-            this.btnRemoveContact.Size = new System.Drawing.Size(24, 24);
-            this.btnRemoveContact.TabIndex = 1;
-            this.btnRemoveContact.UseVisualStyleBackColor = true;
-            this.btnRemoveContact.Click += new System.EventHandler(this.btnRemoveContact_Click);
             // 
             // tlpButtons
             // 
@@ -191,7 +169,5 @@ namespace TaxDataStore
         private System.Windows.Forms.TextBox tbxFirstName;
         private System.Windows.Forms.TextBox tbxLastName;
         private ContainerLayoutPanel tlpContacts;
-        private FlatButton btnAddContact;
-        private FlatButton btnRemoveContact;
     }
 }

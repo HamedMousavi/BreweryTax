@@ -36,10 +36,6 @@ namespace TaxDataStore
             this.enableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tlpMain = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAddUser = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.btnEditUser = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.btnDeleteUser = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.btnEnableUser = new TaxDataStore.Presentation.Controls.FlatButton();
             this.tlpDetails = new System.Windows.Forms.TableLayoutPanel();
             this.lblLanguageValue = new System.Windows.Forms.Label();
             this.lblRoleNameValue = new System.Windows.Forms.Label();
@@ -107,10 +103,6 @@ namespace TaxDataStore
             this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpButtons.Controls.Add(this.btnAddUser, 1, 0);
-            this.tlpButtons.Controls.Add(this.btnEditUser, 2, 0);
-            this.tlpButtons.Controls.Add(this.btnDeleteUser, 3, 0);
-            this.tlpButtons.Controls.Add(this.btnEnableUser, 4, 0);
             this.tlpButtons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpButtons.Location = new System.Drawing.Point(0, 0);
             this.tlpButtons.Margin = new System.Windows.Forms.Padding(0);
@@ -119,54 +111,6 @@ namespace TaxDataStore
             this.tlpButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpButtons.Size = new System.Drawing.Size(233, 32);
             this.tlpButtons.TabIndex = 2;
-            // 
-            // btnAddUser
-            // 
-            this.btnAddUser.Location = new System.Drawing.Point(43, 3);
-            this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(75, 26);
-            this.btnAddUser.TabIndex = 0;
-            this.btnAddUser.Text = "Add";
-            this.btnAddUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAddUser.UseVisualStyleBackColor = true;
-            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
-            // 
-            // btnEditUser
-            // 
-            this.btnEditUser.Location = new System.Drawing.Point(124, 3);
-            this.btnEditUser.Name = "btnEditUser";
-            this.btnEditUser.Size = new System.Drawing.Size(75, 26);
-            this.btnEditUser.TabIndex = 1;
-            this.btnEditUser.Text = "Edit";
-            this.btnEditUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEditUser.UseVisualStyleBackColor = true;
-            this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
-            // 
-            // btnDeleteUser
-            // 
-            this.btnDeleteUser.Location = new System.Drawing.Point(205, 3);
-            this.btnDeleteUser.Name = "btnDeleteUser";
-            this.btnDeleteUser.Size = new System.Drawing.Size(75, 26);
-            this.btnDeleteUser.TabIndex = 2;
-            this.btnDeleteUser.Text = "Delete";
-            this.btnDeleteUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDeleteUser.UseVisualStyleBackColor = true;
-            this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
-            // 
-            // btnEnableUser
-            // 
-            this.btnEnableUser.Location = new System.Drawing.Point(286, 3);
-            this.btnEnableUser.Name = "btnEnableUser";
-            this.btnEnableUser.Size = new System.Drawing.Size(75, 26);
-            this.btnEnableUser.TabIndex = 3;
-            this.btnEnableUser.Text = "Enable";
-            this.btnEnableUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEnableUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEnableUser.UseVisualStyleBackColor = true;
-            this.btnEnableUser.Click += new System.EventHandler(this.btnEnableUser_Click);
             // 
             // tlpDetails
             // 
@@ -256,10 +200,6 @@ namespace TaxDataStore
 
         private ContainerLayoutPanel tlpMain;
         private System.Windows.Forms.TableLayoutPanel tlpButtons;
-        private FlatButton btnAddUser;
-        private FlatButton btnEditUser;
-        private FlatButton btnDeleteUser;
-        private FlatButton btnEnableUser;
         private System.Windows.Forms.ContextMenuStrip mnuUsers;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;

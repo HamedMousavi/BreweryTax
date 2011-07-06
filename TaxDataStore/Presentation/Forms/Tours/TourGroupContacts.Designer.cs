@@ -55,10 +55,13 @@
             this.editToolbar.AutoSize = true;
             this.editToolbar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tlpMain.SetColumnSpan(this.editToolbar, 2);
-            this.editToolbar.Location = new System.Drawing.Point(3, 3);
+            this.editToolbar.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.editToolbar.Location = new System.Drawing.Point(0, 0);
+            this.editToolbar.Margin = new System.Windows.Forms.Padding(0);
             this.editToolbar.Name = "editToolbar";
-            this.editToolbar.Size = new System.Drawing.Size(266, 29);
+            this.editToolbar.Size = new System.Drawing.Size(272, 29);
             this.editToolbar.TabIndex = 0;
+            this.editToolbar.Title = "";
             // 
             // TourGroupContacts
             // 

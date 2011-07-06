@@ -39,9 +39,7 @@ namespace TaxDataStore
             this.btnSave = new TaxDataStore.Presentation.Controls.ButtonBase();
             this.tlpConstraints = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
             this.tlpConstraintButtons = new System.Windows.Forms.TableLayoutPanel();
-            this.btnConstraintsEdit = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.btnConstraintsAdd = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.btnConstraintsDelete = new TaxDataStore.Presentation.Controls.FlatButton();
+
             this.tlpMain.SuspendLayout();
             this.tlpFormula.SuspendLayout();
             this.tlpButtons.SuspendLayout();
@@ -181,9 +179,6 @@ namespace TaxDataStore
             this.tlpConstraintButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpConstraintButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpConstraintButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpConstraintButtons.Controls.Add(this.btnConstraintsEdit, 2, 0);
-            this.tlpConstraintButtons.Controls.Add(this.btnConstraintsAdd, 1, 0);
-            this.tlpConstraintButtons.Controls.Add(this.btnConstraintsDelete, 3, 0);
             this.tlpConstraintButtons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpConstraintButtons.Location = new System.Drawing.Point(0, 0);
             this.tlpConstraintButtons.Margin = new System.Windows.Forms.Padding(0);
@@ -192,34 +187,6 @@ namespace TaxDataStore
             this.tlpConstraintButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpConstraintButtons.Size = new System.Drawing.Size(389, 30);
             this.tlpConstraintButtons.TabIndex = 0;
-            // 
-            // btnConstraintsEdit
-            // 
-            this.btnConstraintsEdit.Location = new System.Drawing.Point(165, 3);
-            this.btnConstraintsEdit.Name = "btnConstraintsEdit";
-            this.btnConstraintsEdit.Size = new System.Drawing.Size(75, 23);
-            this.btnConstraintsEdit.TabIndex = 2;
-            this.btnConstraintsEdit.Text = "Edit";
-            this.btnConstraintsEdit.UseVisualStyleBackColor = true;
-            // 
-            // btnConstraintsAdd
-            // 
-            this.btnConstraintsAdd.AutoSize = true;
-            this.btnConstraintsAdd.Location = new System.Drawing.Point(76, 3);
-            this.btnConstraintsAdd.Name = "btnConstraintsAdd";
-            this.btnConstraintsAdd.Size = new System.Drawing.Size(83, 24);
-            this.btnConstraintsAdd.TabIndex = 3;
-            this.btnConstraintsAdd.Text = "Add";
-            this.btnConstraintsAdd.UseVisualStyleBackColor = true;
-            // 
-            // btnConstraintsDelete
-            // 
-            this.btnConstraintsDelete.Location = new System.Drawing.Point(246, 3);
-            this.btnConstraintsDelete.Name = "btnConstraintsDelete";
-            this.btnConstraintsDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnConstraintsDelete.TabIndex = 4;
-            this.btnConstraintsDelete.Text = "Remove";
-            this.btnConstraintsDelete.UseVisualStyleBackColor = true;
             // 
             // FrmRuleEditor
             // 
@@ -261,8 +228,5 @@ namespace TaxDataStore
         private ButtonBase btnSave;
         private ContainerLayoutPanel tlpConstraints;
         private System.Windows.Forms.TableLayoutPanel tlpConstraintButtons;
-        private FlatButton btnConstraintsEdit;
-        private FlatButton btnConstraintsDelete;
-        private FlatButton btnConstraintsAdd;
     }
 }

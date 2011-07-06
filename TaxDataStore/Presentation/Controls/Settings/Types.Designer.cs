@@ -33,8 +33,6 @@
             this.tlpContainer = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
             this.tlpToolbar = new System.Windows.Forms.TableLayoutPanel();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
-            this.btnDeleteType = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.btnAddType = new TaxDataStore.Presentation.Controls.FlatButton();
             this.tlpMain.SuspendLayout();
             this.tlpContainer.SuspendLayout();
             this.tlpToolbar.SuspendLayout();
@@ -110,8 +108,6 @@
             this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpButtons.Controls.Add(this.btnDeleteType, 2, 0);
-            this.tlpButtons.Controls.Add(this.btnAddType, 1, 0);
             this.tlpButtons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpButtons.Location = new System.Drawing.Point(144, 0);
             this.tlpButtons.Margin = new System.Windows.Forms.Padding(0);
@@ -121,28 +117,6 @@
             this.tlpButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlpButtons.Size = new System.Drawing.Size(268, 30);
             this.tlpButtons.TabIndex = 4;
-            // 
-            // btnDeleteType
-            // 
-            this.btnDeleteType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDeleteType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteType.Location = new System.Drawing.Point(80, 3);
-            this.btnDeleteType.Name = "btnDeleteType";
-            this.btnDeleteType.Size = new System.Drawing.Size(24, 24);
-            this.btnDeleteType.TabIndex = 3;
-            this.btnDeleteType.UseVisualStyleBackColor = true;
-            this.btnDeleteType.Click += new System.EventHandler(this.btnDeleteType_Click);
-            // 
-            // btnAddType
-            // 
-            this.btnAddType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAddType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddType.Location = new System.Drawing.Point(50, 3);
-            this.btnAddType.Name = "btnAddType";
-            this.btnAddType.Size = new System.Drawing.Size(24, 24);
-            this.btnAddType.TabIndex = 2;
-            this.btnAddType.UseVisualStyleBackColor = true;
-            this.btnAddType.Click += new System.EventHandler(this.btnAddType_Click);
             // 
             // Types
             // 
@@ -169,8 +143,6 @@
         private System.Windows.Forms.TableLayoutPanel tlpMain;
         private ContainerLayoutPanel tlpContainer;
         private System.Windows.Forms.TableLayoutPanel tlpToolbar;
-        private FlatButton btnAddType;
-        private FlatButton btnDeleteType;
         private System.Windows.Forms.TableLayoutPanel tlpButtons;
         private System.Windows.Forms.Panel panelCategory;
     }

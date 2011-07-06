@@ -35,9 +35,6 @@ namespace TaxDataStore
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tlpMain = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAddRole = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.btnEditRole = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.btnDeleteRole = new TaxDataStore.Presentation.Controls.FlatButton();
             this.panelTasks = new System.Windows.Forms.Panel();
             this.mnuRoles.SuspendLayout();
             this.tlpMain.SuspendLayout();
@@ -92,9 +89,6 @@ namespace TaxDataStore
             this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpButtons.Controls.Add(this.btnAddRole, 1, 0);
-            this.tlpButtons.Controls.Add(this.btnEditRole, 2, 0);
-            this.tlpButtons.Controls.Add(this.btnDeleteRole, 3, 0);
             this.tlpButtons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpButtons.Location = new System.Drawing.Point(0, 0);
             this.tlpButtons.Margin = new System.Windows.Forms.Padding(0);
@@ -103,42 +97,6 @@ namespace TaxDataStore
             this.tlpButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpButtons.Size = new System.Drawing.Size(247, 32);
             this.tlpButtons.TabIndex = 2;
-            // 
-            // btnAddRole
-            // 
-            this.btnAddRole.Location = new System.Drawing.Point(42, 3);
-            this.btnAddRole.Name = "btnAddRole";
-            this.btnAddRole.Size = new System.Drawing.Size(75, 26);
-            this.btnAddRole.TabIndex = 0;
-            this.btnAddRole.Text = "Add";
-            this.btnAddRole.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddRole.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAddRole.UseVisualStyleBackColor = true;
-            this.btnAddRole.Click += new System.EventHandler(this.btnAddRole_Click);
-            // 
-            // btnEditRole
-            // 
-            this.btnEditRole.Location = new System.Drawing.Point(123, 3);
-            this.btnEditRole.Name = "btnEditRole";
-            this.btnEditRole.Size = new System.Drawing.Size(75, 26);
-            this.btnEditRole.TabIndex = 1;
-            this.btnEditRole.Text = "Edit";
-            this.btnEditRole.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditRole.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEditRole.UseVisualStyleBackColor = true;
-            this.btnEditRole.Click += new System.EventHandler(this.btnEditRole_Click);
-            // 
-            // btnDeleteRole
-            // 
-            this.btnDeleteRole.Location = new System.Drawing.Point(204, 3);
-            this.btnDeleteRole.Name = "btnDeleteRole";
-            this.btnDeleteRole.Size = new System.Drawing.Size(75, 26);
-            this.btnDeleteRole.TabIndex = 2;
-            this.btnDeleteRole.Text = "Delete";
-            this.btnDeleteRole.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteRole.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDeleteRole.UseVisualStyleBackColor = true;
-            this.btnDeleteRole.Click += new System.EventHandler(this.btnDeleteRole_Click);
             // 
             // panelTasks
             // 
@@ -178,9 +136,6 @@ namespace TaxDataStore
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private ContainerLayoutPanel tlpMain;
         private System.Windows.Forms.TableLayoutPanel tlpButtons;
-        private FlatButton btnAddRole;
-        private FlatButton btnEditRole;
-        private FlatButton btnDeleteRole;
         private System.Windows.Forms.Panel panelTasks;
     }
 }

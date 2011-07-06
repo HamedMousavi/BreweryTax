@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
-using System.Drawing;
 
 
 namespace TaxDataStore
@@ -22,18 +20,7 @@ namespace TaxDataStore
 
         private void SetupControls()
         {
-            this.BackColor = System.Drawing.Color.Black;
-
-            this.flpTours.WrapContents = false;
-
-            this.flpTours.SizeChanged += new
-                EventHandler(flpTours_SizeChanged);
-        }
-
-
-        void flpTours_SizeChanged(object sender, EventArgs e)
-        {
-            SetupClientSize();
+            this.BackColor = System.Drawing.Color.White;
         }
 
 
@@ -75,24 +62,30 @@ namespace TaxDataStore
                 }
             }
 
-            foreach (TourControl tourCtrl in removable)
+            lock (this)
             {
-                this.flpTours.Controls.Remove(tourCtrl);
-                tourCtrl.Dispose();
-            }
-            removable.Clear();
+                this.flpTours.SuspendLayout();
 
-            foreach (Entities.Tour tour in tours)
-            {
-                TourControl ctrl = FindInClients(tour);
-                if (ctrl == null)
+                foreach (TourControl tourCtrl in removable)
                 {
-                    TourControl client = new TourControl(tour);
-                    this.flpTours.Controls.Add(client);
+                    this.flpTours.Controls.Remove(tourCtrl);
+                    tourCtrl.Dispose();
                 }
-            }
+                removable.Clear();
 
-            SetupClientSize();
+                foreach (Entities.Tour tour in tours)
+                {
+                    TourControl ctrl = FindInClients(tour);
+                    if (ctrl == null)
+                    {
+                        TourControl client = new TourControl(tour);
+                        client.Dock = DockStyle.Top;
+                        this.flpTours.Controls.Add(client);
+                    }
+                }
+
+                this.flpTours.ResumeLayout(true);
+            }
         }
 
 
@@ -111,21 +104,6 @@ namespace TaxDataStore
             }
 
             return null;
-        }
-
-
-        private void SetupClientSize()
-        {
-            foreach (Control client in this.flpTours.Controls)
-            {
-                Int32 width =
-                    this.flpTours.ClientRectangle.Width -
-                    this.flpTours.Margin.Size.Width;
-
-                client.Width = width;
-                //client.MinimumSize = new Size(width, 0);
-                //client.MaximumSize = new Size(width, 0);
-            }
         }
     }
 }

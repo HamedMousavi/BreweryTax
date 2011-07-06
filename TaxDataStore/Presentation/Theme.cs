@@ -47,10 +47,6 @@ namespace TaxDataStore.Presentation
             this.GroupPanelTitleColor = Color.Black;
             this.GroupPanelTitleFont = new System.Drawing.Font("Tahoma", 9.25F, FontStyle.Bold);
 
-            this.FlatButtonBackColor = GroupPanelBackColor;
-            this.FlatButtonBorderColor = GroupPanelBackColor;
-            this.FlatButtonForeColor = GroupPanelTitleColor;
-
             this.ToolBarBackColor = Color.FromArgb(255, 225, 223, 216);
             this.ToolBarForeColor = Color.Black;
             this.ToolBarFont = new System.Drawing.Font("Tahoma", 8.25F, FontStyle.Regular);
@@ -75,6 +71,10 @@ namespace TaxDataStore.Presentation
             this.TourBackColor = Color.Gray;
 
             this.TourTitleFont = new System.Drawing.Font("Tahoma", 12.25F, FontStyle.Bold);
+
+            this.FlatButtonBackColor = Color.Gray;
+            this.FlatButtonBorderColor = this.TourGroupItemBackColor;
+            this.FlatButtonForeColor = GroupPanelTitleColor;
         }
 
     }

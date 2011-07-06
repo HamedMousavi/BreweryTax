@@ -32,8 +32,7 @@ namespace TaxDataStore
         {
             InitializeComponent();
 
-            this.Dock = DockStyle.Fill;
-            this.BackColor = System.Drawing.Color.Gray;
+            this.BackColor = System.Drawing.Color.DimGray;
             
             SetupControls();
         }

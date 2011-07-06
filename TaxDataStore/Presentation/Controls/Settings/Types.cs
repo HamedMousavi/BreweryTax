@@ -11,6 +11,8 @@ namespace TaxDataStore.Presentation.Controls.Settings
         private CategoryListView clvTypes;
         private ToolbarLabel lblCategory;
         private ToolbarLabel lblTypes;
+        private FlatButton btnAddType;
+        private FlatButton btnDeleteType;
 
 
         public Types()
@@ -28,9 +30,6 @@ namespace TaxDataStore.Presentation.Controls.Settings
             this.flvclasses.SelectionChanged += new 
                 System.EventHandler(flvclasses_SelectionChanged);
 
-            this.btnAddType.Image = DomainModel.Application.ResourceManager.GetImage("add");
-            this.btnDeleteType.Image = DomainModel.Application.ResourceManager.GetImage("delete");
-
             this.panelCategory.BackColor = Presentation.View.Theme.GroupPanelBackColor;
         }
 
@@ -39,6 +38,12 @@ namespace TaxDataStore.Presentation.Controls.Settings
         {
             this.lblCategory = new ToolbarLabel(0, "lblCategory", "lbl_category");
             this.lblTypes = new ToolbarLabel(1, "lblTypes", "lbl_types");
+
+            this.btnAddType = new TaxDataStore.Presentation.Controls.FlatButton(2, "btnAdd", "add", "add");
+            this.btnDeleteType = new TaxDataStore.Presentation.Controls.FlatButton(3, "btnDelete", "delete", "delete");
+
+            this.tlpButtons.Controls.Add(this.btnDeleteType, 2, 0);
+            this.tlpButtons.Controls.Add(this.btnAddType, 1, 0);
 
             this.tlpToolbar.Controls.Add(this.lblCategory, 0, 0);
             this.tlpButtons.Controls.Add(this.lblTypes, 0, 0);

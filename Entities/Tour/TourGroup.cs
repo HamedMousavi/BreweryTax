@@ -15,6 +15,8 @@ namespace Entities
         protected GeneralType signUpType;
         protected TourMemberCollection members;
         protected TourServiceCollection services;
+        protected EmployeeCollection employees;
+        protected GeneralType status;
         
         #endregion Fields
 
@@ -116,6 +118,51 @@ namespace Entities
                 return this;
             }
         }
+        
+        public GeneralType Status
+        {
+            get
+            {
+                return this.status;
+            }
+
+            set
+            {
+                if (this.status != value)
+                {
+                    this.status = value;
+                    RaisePropertyChanged("Status");
+                }
+            }
+        }
+
+        public EmployeeCollection Employees
+        {
+            get
+            {
+                return this.employees;
+            }
+
+            set
+            {
+                if (this.employees != value)
+                {
+                    this.employees = value;
+                    RaisePropertyChanged("Employees");
+                }
+            }
+        }
+
+        // If a tour is confirmed, real participant count 
+        // will be used to calculate receipt
+        [BrowsableAttribute(false)]
+        public bool IsConfirmed
+        {
+            get
+            {
+                return this.Status.Id >= 15;
+            }
+        }
 
         #endregion Properties
 
@@ -126,6 +173,8 @@ namespace Entities
             this.signUpType = new GeneralType();
             this.members = new TourMemberCollection();
             this.services = new TourServiceCollection();
+            this.employees = new Entities.EmployeeCollection();
+            this.status = new GeneralType();
 
             this.DeletedMembers = new TourMemberCollection();
         }
@@ -138,6 +187,14 @@ namespace Entities
             this.services.CopyTo(group.services);
             this.SignUpType.CopyTo(group.SignUpType);
 
+            this.Employees.CopyTo(group.Employees);
+            group.Status = this.Status;
+
+            if (group.Status != null)
+            {
+                group.Status.IsDirty = this.Status.IsDirty;
+            }
+            
             group.Id = this.Id;
             group.name = this.name;
             group.IsDirty = this.IsDirty;

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using Microsoft.VisualBasic.PowerPacks;
 
 
 namespace TaxDataStore
@@ -13,7 +12,8 @@ namespace TaxDataStore
     {
 
         public Entities.Tour Tour { get; set; }
-        protected DataRepeater rptGroups;
+
+        protected Panel pnlGroups;
 
 
         public TourControl(Entities.Tour tour)
@@ -28,7 +28,6 @@ namespace TaxDataStore
 
         private void SetupControls()
         {
-            this.Margin = new Padding(3, 3, 3, 0);
             if (Presentation.View.Theme != null)
             {
                 this.lblDetails.ForeColor = Presentation.View.Theme.TourForeColor;
@@ -37,20 +36,13 @@ namespace TaxDataStore
                 this.BackColor = Presentation.View.Theme.TourBackColor;
             }
 
-            this.lblDetails.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            this.pnlGroups = new Panel();
+            this.pnlGroups.AutoScroll = false;
+            this.pnlGroups.AutoSize = true;
+            this.pnlGroups.Anchor = AnchorStyles.Left |
+                AnchorStyles.Top | AnchorStyles.Right;
 
-            this.AutoSize = false;
-
-            this.rptGroups = new DataRepeater();
-            this.rptGroups.Location = new System.Drawing.Point(0, 0);
-            this.rptGroups.Size = new System.Drawing.Size(700, 150);
-            this.rptGroups.LayoutStyle = DataRepeaterLayoutStyles.Vertical;
-            this.rptGroups.Dock = DockStyle.Fill;
-            //this.rptGroups.ItemTemplate.AutoSize = true;
-            //this.rptGroups.ItemTemplate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            
-            this.tlpMain.Dock = DockStyle.Fill;
-            this.tlpMain.Controls.Add(this.rptGroups, 0, 1);
+            this.tlpMain.Controls.Add(this.pnlGroups, 0, 1);
         }
 
 
@@ -58,14 +50,10 @@ namespace TaxDataStore
         {
             this.Tour = tour;
 
-            tour.Groups.ListChanged += new ListChangedEventHandler(Groups_ListChanged);
+            tour.Groups.ListChanged += new 
+                ListChangedEventHandler(Groups_ListChanged);
 
-            TourGroup ctrlGroups = new TourGroup();
-            ctrlGroups.DataBindings.Add(new Binding("Group", this.Tour.Groups, ""));
-            this.rptGroups.ItemTemplate.Controls.Add(ctrlGroups);
-            this.rptGroups.DataSource = tour.Groups;
-
-            //UpdateData(tour);
+            UpdateData(tour);
         }
 
 
@@ -89,10 +77,10 @@ namespace TaxDataStore
                 DomainModel.Application.ResourceManager.GetText("lbl_services"),
                 tour.ServiceCount
                 );
-            /*
+            
             List<TourGroup> removable = new List<TourGroup>();
 
-            foreach (UserControl ctrl in this.rptGroups.ItemTemplate.Controls)
+            foreach (UserControl ctrl in this.pnlGroups.Controls)
             {
                 TourGroup grpCtrl = ctrl as TourGroup;
                 if (grpCtrl != null)
@@ -101,7 +89,7 @@ namespace TaxDataStore
 
                     if (tour.Groups.Contains(grp))
                     {
-                        grpCtrl.UpdateData();
+                        //grpCtrl.UpdateData();
                     }
                     else
                     {
@@ -112,7 +100,7 @@ namespace TaxDataStore
 
             foreach (TourGroup grpCtrl in removable)
             {
-                this.rptGroups.ItemTemplate.Controls.Remove(grpCtrl);
+                this.pnlGroups.Controls.Remove(grpCtrl);
                 grpCtrl.Dispose();
             }
             removable.Clear();
@@ -124,17 +112,17 @@ namespace TaxDataStore
                 {
                     TourGroup client = new TourGroup(grp);
                     client.Dock = DockStyle.Top;
-                    this.rptGroups.ItemTemplate.Controls.Add(client);
+                    this.pnlGroups.Controls.Add(client);
                 }
             }
-*/
+
             SetupClientSize();
         }
 
 
         private TourGroup FindInClients(Entities.TourGroup group)
         {
-            foreach (UserControl ctrl in this.rptGroups.ItemTemplate.Controls)
+            foreach (UserControl ctrl in this.pnlGroups.Controls)
             {
                 TourGroup grpCtrl = ctrl as TourGroup;
                 if (grpCtrl != null)
@@ -174,11 +162,12 @@ namespace TaxDataStore
                 //client.MinimumSize = new Size(width, client.Height);
                 //client.MaximumSize = new Size(width, client.Height);
             }*/
+            /**/
 
             Int32 height = 
                 this.Tour.Groups.Count * 120 +
-                this.tableLayoutPanel2.Height +
-                this.tableLayoutPanel2.Margin.Size.Height +
+                this.tlpTourDetail.Height +
+                this.tlpTourDetail.Margin.Size.Height +
                 this.Margin.Size.Height +
                 this.Padding.Size.Height+
                 this.tlpMain.Margin.Size.Height;
@@ -187,6 +176,7 @@ namespace TaxDataStore
             {
                 this.Height = height;
             }
+            //this.pnlGroups.PerformLayout();
         }
     }
 }

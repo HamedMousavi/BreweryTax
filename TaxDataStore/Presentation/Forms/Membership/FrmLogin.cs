@@ -46,8 +46,8 @@ namespace TaxDataStore
             this.lblAppName = new System.Windows.Forms.Label();
             this.cbxUserName = new System.Windows.Forms.ComboBox();
             this.tbxPassword = new System.Windows.Forms.TextBox();
-            this.btnExit = new FlatButton();
-            this.btnLogin = new FlatButton();
+            this.btnExit = new FlatButton(1, "exit", "", "exit");
+            this.btnLogin = new FlatButton(2, "login", "", "login");
 
             this.pbxAppIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.lblAppName.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -99,8 +99,6 @@ namespace TaxDataStore
 
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = Resources.Texts.logon;
-            this.btnExit.Text = Resources.Texts.exit;
-            this.btnLogin.Text = Resources.Texts.login;
             this.lblAppName.Text = Resources.Texts.app_name;
 
             this.pbxAppIcon.Image = DomainModel.Application.ResourceManager.GetImage("beer_lock");

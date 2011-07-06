@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using TaxDataStore.Presentation.Controls;
 
 
 namespace TaxDataStore
@@ -8,9 +9,17 @@ namespace TaxDataStore
     public partial class EditToolbar : UserControl
     {
 
+        private FlatButton btnAdd;
+        private FlatButton btnEdit;
+        private FlatButton btnDelete;
+        private ToolbarLabel lblTitle;
+
+
         public EditToolbar()
         {
             InitializeComponent();
+
+            SetupControls();
         }
 
         public EditToolbar(string title, bool showAdd = true, bool showEdit = true, bool showDelete = true)
@@ -20,23 +29,20 @@ namespace TaxDataStore
             this.btnDelete.Visible = showDelete;
             this.btnEdit.Visible = showEdit;
             this.lblTitle.Text = title;
-
-            SetupControls();
         }
 
 
         private void SetupControls()
         {
-            if (DomainModel.Application.ResourceManager != null)
-            {
-                this.btnAdd.Text = DomainModel.Application.ResourceManager.GetText("add");
-                this.btnDelete.Text = DomainModel.Application.ResourceManager.GetText("delete");
-                this.btnEdit.Text = DomainModel.Application.ResourceManager.GetText("edit");
+            this.lblTitle = new ToolbarLabel(0, "lblTitle", "title");
+            this.btnAdd = new FlatButton(1, "btnAdd", "add", "");
+            this.btnEdit =      new FlatButton(2, "btnEdit", "pencil", "");
+            this.btnDelete =    new FlatButton(3, "btnDelete", "delete", "");
 
-                this.btnAdd.Image = DomainModel.Application.ResourceManager.GetImage("add");
-                this.btnDelete.Image = DomainModel.Application.ResourceManager.GetImage("delete");
-                this.btnEdit.Image = DomainModel.Application.ResourceManager.GetImage("pencil");
-            }
+            this.tlpMain.Controls.Add(this.lblTitle, 0, 0);
+            this.tlpMain.Controls.Add(this.btnAdd, 1, 0);
+            this.tlpMain.Controls.Add(this.btnEdit, 2, 0);
+            this.tlpMain.Controls.Add(this.btnDelete, 3, 0);
         }
 
 

@@ -15,11 +15,6 @@ namespace Entities
         protected string comments;
         protected Int32 id;
 
-
-        protected GeneralType status;
-
-        protected EmployeeCollection employees;
-
         #endregion Fields
 
 
@@ -59,40 +54,6 @@ namespace Entities
             }
         }
 
-        public GeneralType Status
-        {
-            get
-            {
-                return this.status;
-            }
-
-            set
-            {
-                if (this.status != value)
-                {
-                    this.status = value;
-                    RaisePropertyChanged("Status");
-                }
-            }
-        }
-
-        public EmployeeCollection Employees
-        {
-            get
-            {
-                return this.employees;
-            }
-
-            set
-            {
-                if (this.employees != value)
-                {
-                    this.employees = value;
-                    RaisePropertyChanged("Employees");
-                }
-            }
-        }
-        
         public string Comments
         {
             get
@@ -130,16 +91,6 @@ namespace Entities
 
         public EmployeeCollection DeletedEmployees { get; set; }
 
-        // If a tour is confirmed, real participant count 
-        // will be used to calculate receipt
-        [BrowsableAttribute(false)]
-        public bool IsConfirmed 
-        {
-            get
-            {
-                return this.Status.Id >= 15;
-            }
-        }
 
         #endregion Properties
 
@@ -151,10 +102,8 @@ namespace Entities
                 PropertyChangedEventHandler(time_PropertyChanged);
 
             this.groups = new TourGroupCollection();
-            this.employees = new Entities.EmployeeCollection();
             this.DeletedEmployees = new Entities.EmployeeCollection();
             
-            this.status = new GeneralType();
             this.id = -1;
         }
 
@@ -183,17 +132,14 @@ namespace Entities
         public void CopyTo(Tour tour)
         {
             this.Time.CopyTo(tour.Time);
-            this.Employees.CopyTo(tour.Employees);
 
             this.DeletedEmployees.CopyTo(tour.DeletedEmployees);
 
-            tour.Status = this.Status;
             tour.Comments = this.Comments;
 
             tour.Id = this.Id;
             
-            if (tour.Time != null) tour.Time.IsDirty         = this.Time.IsDirty;
-            if (tour.Status != null) tour.Status.IsDirty     = this.Status.IsDirty;
+            if (tour.Time != null) tour.Time.IsDirty = this.Time.IsDirty;
 
             tour.IsDirty = this.IsDirty;
         }

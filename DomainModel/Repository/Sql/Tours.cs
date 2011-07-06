@@ -35,7 +35,7 @@ namespace DomainModel.Repository.Sql
                 this.query.Parameters.Clear();
 
                 this.query.Parameters.Add(new SqlParameter("@TourTime", tour.Time.Value));
-                this.query.Parameters.Add(new SqlParameter("@TourState", tour.Status.Id));
+                //this.query.Parameters.Add(new SqlParameter("@TourState", tour.Status.Id));
                 //this.query.Parameters.Add(new SqlParameter("@TourTypeId", tour.TourType.Id));
                 //this.query.Parameters.Add(new SqlParameter("@SignupTypeId", tour.SignUpType.Id));
                 this.query.Parameters.Add(new SqlParameter("@Comments", tour.Comments));
@@ -77,7 +77,7 @@ namespace DomainModel.Repository.Sql
                 this.query.Parameters.Clear();
 
                 this.query.Parameters.Add(new SqlParameter("@TourTime", tour.Time.Value));
-                this.query.Parameters.Add(new SqlParameter("@TourState", tour.Status == null ? -1 : tour.Status.Id));
+                //this.query.Parameters.Add(new SqlParameter("@TourState", tour.Status == null ? -1 : tour.Status.Id));
                 //this.query.Parameters.Add(new SqlParameter("@TourTypeId", tour.TourType.Id));
                 //this.query.Parameters.Add(new SqlParameter("@SignupTypeId", tour.SignUpType.Id));
                 this.query.Parameters.Add(new SqlParameter("@Comments", tour.Comments));
@@ -137,7 +137,7 @@ namespace DomainModel.Repository.Sql
 
             tour.Id = Utils.GetSafeInt32(reader, "TourId");
             tour.Time.Value = Utils.GetSafeDateTime(reader, "TourTime", DateTime.UtcNow);
-            tour.Status = DomainModel.TourStates.GetById(Utils.GetSafeInt32(reader, "TourState"));
+            //tour.Status = DomainModel.TourStates.GetById(Utils.GetSafeInt32(reader, "TourState"));
             //tour.TourType = DomainModel.TourTypes.GetById(Utils.GetSafeInt32(reader, "TourTypeId"));
             //tour.SignUpType = DomainModel.SignUpTypes.GetById(Utils.GetSafeInt32(reader, "SignupTypeId"));
             tour.Comments = Utils.GetSafeString(reader, "Comments");
@@ -145,7 +145,7 @@ namespace DomainModel.Repository.Sql
             //if (tour.SignUpType != null) tour.SignUpType.IsDirty = false;
             if (tour.Time != null) tour.Time.IsDirty = false;
             //if (tour.TourType != null) tour.TourType.IsDirty = false;
-            if (tour.Status != null) tour.Status.IsDirty = false;
+            //if (tour.Status != null) tour.Status.IsDirty = false;
             tour.IsDirty = false;
 
             tours.Add(tour);

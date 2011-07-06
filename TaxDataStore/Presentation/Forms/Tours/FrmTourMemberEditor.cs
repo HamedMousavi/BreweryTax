@@ -13,6 +13,8 @@ namespace TaxDataStore
         private FormLabel lblFirstName;
         private FormLabel lblLastName;
         private ToolbarLabel lblContacts;
+        private FlatButton btnAddContact;
+        private FlatButton btnRemoveContact;
 
 
         protected ContactsGridView dgvContacts;
@@ -27,9 +29,6 @@ namespace TaxDataStore
             InitializeComponent();
 
             CreateControls();
-
-            this.btnAddContact.Image = DomainModel.Application.ResourceManager.GetImage("add");
-            this.btnRemoveContact.Image = DomainModel.Application.ResourceManager.GetImage("delete");
 
             this.Text = Resources.Texts.frm_title_member_editor;
             
@@ -89,6 +88,12 @@ namespace TaxDataStore
             this.lblFirstName = new FormLabel(1, "lblFirstName", false, "lbl_first_name");
             this.lblLastName = new FormLabel(2, "lblLastName", false, "lbl_last_name");
             this.lblContacts = new ToolbarLabel(3, "lblContacts", "lbl_contacts");
+       
+            this.btnAddContact      = new FlatButton(4, "btnAdd", "add", "add");
+            this.btnRemoveContact   = new FlatButton(5, "btnDelete", "delete", "delete");
+
+            this.tlpContacts.Controls.Add(this.btnAddContact, 1, 0);
+            this.tlpContacts.Controls.Add(this.btnRemoveContact, 2, 0);
 
             this.tlpMain.Controls.Add(this.lblTitle, 0, 0);
             this.tlpMain.Controls.Add(this.lblFirstName, 0, 1);

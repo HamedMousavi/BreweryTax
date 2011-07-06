@@ -110,7 +110,7 @@ namespace TaxDataStore
                 this.tour.Time.Date = date.Value.Date;
             }
 
-            this.tour.Status = DomainModel.TourStates.GetByIndex(0);
+            //this.tour.Status = DomainModel.TourStates.GetByIndex(0);
         }
 
 
@@ -119,7 +119,7 @@ namespace TaxDataStore
             this.spbEmployees = new EmployeesSplitButton(OnMenuItemClicked);
             this.tlpEmployeeToolbar.Controls.Add(this.spbEmployees, 1, 0);
 
-            this.dgvEmployees = new EmployeesGridView(this.tour.Employees);
+            //this.dgvEmployees = new EmployeesGridView(this.tour.Employees);
             this.tlpStaff.Controls.Add(this.dgvEmployees, 0, 1);
 
             //this.dgvPayments = new TourPaymentsGridView(this.tour.Payments);
@@ -165,16 +165,8 @@ namespace TaxDataStore
 
         private void SetupControlImages()
         {
-            this.btnAddTourMember.Image = DomainModel.Application.ResourceManager.GetImage("add");
-            this.btnEditTourMember.Image = DomainModel.Application.ResourceManager.GetImage("pencil");
-            this.btnRemoveTourMember.Image = DomainModel.Application.ResourceManager.GetImage("delete");
-            
             this.btnRemoveEmployee.Image = DomainModel.Application.ResourceManager.GetImage("delete");
 
-            this.btnEditPayment.Image = DomainModel.Application.ResourceManager.GetImage("pencil");
-            this.btnAddPayment.Image = DomainModel.Application.ResourceManager.GetImage("add");
-            this.btnRemovePayment.Image = DomainModel.Application.ResourceManager.GetImage("delete");
-            
             this.tabMain.ImageList = new ImageList();
             this.tabMain.ImageList.Images.Add(DomainModel.Application.ResourceManager.GetImage("calendar_day"));
             this.tabMain.ImageList.Images.Add(DomainModel.Application.ResourceManager.GetImage("money_coin"));
@@ -271,11 +263,11 @@ namespace TaxDataStore
                     null,
                     string.Empty,
                     null));
-
+            /*
             if (this.tour.Status == null || this.tour.Status.Id < 0)
             {
                 this.tour.Status = DomainModel.TourStates.GetByIndex(0);
-            }
+            }*/
 
             this.lblTourStatus.DataBindings.Add(
                 new Binding(
@@ -291,7 +283,7 @@ namespace TaxDataStore
 
 
         public void OnMenuItemClicked(string itemName)
-        {
+        {/*
             Entities.Employee emp = DomainModel.Employees.GetByName(itemName);
             if (emp != null)
             {
@@ -299,7 +291,7 @@ namespace TaxDataStore
                 {
                     this.tour.Employees.Add(emp);
                 }
-            }
+            }*/
         }
 
 
@@ -313,7 +305,7 @@ namespace TaxDataStore
                     this.tour.DeletedEmployees.Add(emp);
                 }
 
-                this.tour.Employees.Remove(emp);
+                //this.tour.Employees.Remove(emp);
             }
 
             // UNDONE: Highlight next item
@@ -415,7 +407,7 @@ namespace TaxDataStore
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            this.tour.Status = DomainModel.TourStates.GetNextState(this.tour.Status);
+            //this.tour.Status = DomainModel.TourStates.GetNextState(this.tour.Status);
         }
     }
 }

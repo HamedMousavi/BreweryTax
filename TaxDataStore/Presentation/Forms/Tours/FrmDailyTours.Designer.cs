@@ -34,9 +34,6 @@ namespace TaxDataStore
             this.tlpToursToolbar = new System.Windows.Forms.TableLayoutPanel();
             this.rtbComments = new System.Windows.Forms.RichTextBox();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAddTour = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.btnEditTour = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.btnDeleteTour = new TaxDataStore.Presentation.Controls.FlatButton();
             this.tlpDate = new System.Windows.Forms.TableLayoutPanel();
             this.dtpCurrentDate = new System.Windows.Forms.DateTimePicker();
             this.tlpTours = new System.Windows.Forms.TableLayoutPanel();
@@ -118,9 +115,6 @@ namespace TaxDataStore
             this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpButtons.Controls.Add(this.btnAddTour, 0, 0);
-            this.tlpButtons.Controls.Add(this.btnEditTour, 1, 0);
-            this.tlpButtons.Controls.Add(this.btnDeleteTour, 2, 0);
             this.tlpButtons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpButtons.Location = new System.Drawing.Point(220, 0);
             this.tlpButtons.Margin = new System.Windows.Forms.Padding(0);
@@ -129,69 +123,6 @@ namespace TaxDataStore
             this.tlpButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpButtons.Size = new System.Drawing.Size(303, 32);
             this.tlpButtons.TabIndex = 0;
-            // 
-            // btnAddTour
-            // 
-            this.btnAddTour.AutoSize = true;
-            this.btnAddTour.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAddTour.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(210)))), ((int)(((byte)(240)))));
-            this.btnAddTour.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
-            this.btnAddTour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddTour.ForeColor = System.Drawing.Color.Black;
-            this.btnAddTour.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddTour.Location = new System.Drawing.Point(0, 0);
-            this.btnAddTour.Margin = new System.Windows.Forms.Padding(0);
-            this.btnAddTour.Name = "btnAddTour";
-            this.btnAddTour.Padding = new System.Windows.Forms.Padding(1);
-            this.btnAddTour.Size = new System.Drawing.Size(70, 28);
-            this.btnAddTour.TabIndex = 0;
-            this.btnAddTour.Text = "Add tour";
-            this.btnAddTour.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddTour.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAddTour.UseVisualStyleBackColor = false;
-            this.btnAddTour.Click += new System.EventHandler(this.btnAddTour_Click);
-            // 
-            // btnEditTour
-            // 
-            this.btnEditTour.AutoSize = true;
-            this.btnEditTour.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnEditTour.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(210)))), ((int)(((byte)(240)))));
-            this.btnEditTour.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
-            this.btnEditTour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditTour.ForeColor = System.Drawing.Color.Black;
-            this.btnEditTour.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditTour.Location = new System.Drawing.Point(70, 0);
-            this.btnEditTour.Margin = new System.Windows.Forms.Padding(0);
-            this.btnEditTour.Name = "btnEditTour";
-            this.btnEditTour.Padding = new System.Windows.Forms.Padding(1);
-            this.btnEditTour.Size = new System.Drawing.Size(69, 28);
-            this.btnEditTour.TabIndex = 1;
-            this.btnEditTour.Text = "Edit tour";
-            this.btnEditTour.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditTour.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEditTour.UseVisualStyleBackColor = false;
-            this.btnEditTour.Click += new System.EventHandler(this.btnEditTour_Click);
-            // 
-            // btnDeleteTour
-            // 
-            this.btnDeleteTour.AutoSize = true;
-            this.btnDeleteTour.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnDeleteTour.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(210)))), ((int)(((byte)(240)))));
-            this.btnDeleteTour.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(135)))), ((int)(((byte)(160)))));
-            this.btnDeleteTour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteTour.ForeColor = System.Drawing.Color.Black;
-            this.btnDeleteTour.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteTour.Location = new System.Drawing.Point(139, 0);
-            this.btnDeleteTour.Margin = new System.Windows.Forms.Padding(0);
-            this.btnDeleteTour.Name = "btnDeleteTour";
-            this.btnDeleteTour.Padding = new System.Windows.Forms.Padding(1);
-            this.btnDeleteTour.Size = new System.Drawing.Size(84, 28);
-            this.btnDeleteTour.TabIndex = 2;
-            this.btnDeleteTour.Text = "Delete tour";
-            this.btnDeleteTour.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteTour.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDeleteTour.UseVisualStyleBackColor = false;
-            this.btnDeleteTour.Click += new System.EventHandler(this.btnDeleteTour_Click);
             // 
             // tlpDate
             // 
@@ -259,9 +190,6 @@ namespace TaxDataStore
         private System.Windows.Forms.TableLayoutPanel tlpToursToolbar;
         private System.Windows.Forms.DateTimePicker dtpCurrentDate;
         private System.Windows.Forms.TableLayoutPanel tlpButtons;
-        private FlatButton btnAddTour;
-        private FlatButton btnEditTour;
-        private FlatButton btnDeleteTour;
         private System.Windows.Forms.TableLayoutPanel tlpDate;
         private System.Windows.Forms.RichTextBox rtbComments;
         private System.Windows.Forms.TableLayoutPanel tlpTours;

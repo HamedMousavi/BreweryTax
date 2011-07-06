@@ -16,6 +16,10 @@ namespace TaxDataStore
         private FormLabel lblIsEnabled;
         private ToolbarLabel lblUsers;
         private ToolbarLabel lblDetails;
+        private FlatButton btnAddUser;
+        private FlatButton btnEditUser;
+        private FlatButton btnDeleteUser;
+        private FlatButton btnEnableUser;
 
         protected UsersListView lsvUsers;
 
@@ -39,6 +43,16 @@ namespace TaxDataStore
 
             this.lblUsers = new ToolbarLabel(4, "lblUsers", "users");
             this.lblDetails = new ToolbarLabel(5, "lblDetails", "details");
+            
+            this.btnAddUser     = new FlatButton(6, "btnAdd", "add", "add");
+            this.btnEditUser    = new FlatButton(7, "btnEdit", "pencil", "edit");
+            this.btnDeleteUser  = new FlatButton(8, "btnDelete", "delete", "delete");
+            this.btnEnableUser = new FlatButton(9, "disable", "closed_lock", "disable");
+
+            this.tlpButtons.Controls.Add(this.btnAddUser, 1, 0);
+            this.tlpButtons.Controls.Add(this.btnEditUser, 2, 0);
+            this.tlpButtons.Controls.Add(this.btnDeleteUser, 3, 0);
+            this.tlpButtons.Controls.Add(this.btnEnableUser, 4, 0);
 
             this.tlpDetails.Controls.Add(this.lblRoleName, 0, 3);
             this.tlpDetails.Controls.Add(this.lblLanguage, 0, 2);
@@ -55,17 +69,6 @@ namespace TaxDataStore
 
         private void SetupControls()
         {
-
-            this.btnAddUser.Text = Resources.Texts.add;
-            this.btnDeleteUser.Text = Resources.Texts.delete;
-            this.btnEditUser.Text = Resources.Texts.edit;
-            this.btnEnableUser.Text = Resources.Texts.disable;
-
-            this.btnAddUser.Image = DomainModel.Application.ResourceManager.GetImage("add");
-            this.btnDeleteUser.Image = DomainModel.Application.ResourceManager.GetImage("delete");
-            this.btnEditUser.Image = DomainModel.Application.ResourceManager.GetImage("pencil");
-            this.btnEnableUser.Image = DomainModel.Application.ResourceManager.GetImage("closed_lock");
-
             this.mnuUsers.Items[0].Text = Resources.Texts.edit;
             this.mnuUsers.Items[1].Text = Resources.Texts.delete;
             this.mnuUsers.Items[2].Text = Resources.Texts.disable;

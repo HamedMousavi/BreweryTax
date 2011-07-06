@@ -12,6 +12,9 @@ namespace TaxDataStore
         private FormLabel lblRuleName;
         private FormLabel lblFormula;
         private ToolbarLabel lblConstraints;
+        private FlatButton btnConstraintsEdit;
+        private FlatButton btnConstraintsDelete;
+        private FlatButton btnConstraintsAdd;
 
 
         protected readonly string[] opImageNames = new string[] { "plus", "minus" };
@@ -49,6 +52,14 @@ namespace TaxDataStore
             this.lblFormula = new FormLabel(1, "lblFormula", false, "lbl_formula");
             this.lblConstraints = new ToolbarLabel(2, "lblConstraints", "lbl_constraints");
 
+            this.btnConstraintsEdit = new FlatButton(3, "edit", "pencil", "edit");
+            this.btnConstraintsAdd = new FlatButton(4, "add", "add", "add");
+            this.btnConstraintsDelete = new FlatButton(5, "delete", "delete", "delete");
+
+            this.tlpConstraintButtons.Controls.Add(this.btnConstraintsAdd, 1, 0);
+            this.tlpConstraintButtons.Controls.Add(this.btnConstraintsEdit, 2, 0);
+            this.tlpConstraintButtons.Controls.Add(this.btnConstraintsDelete, 3, 0);
+
             this.tlpConstraintButtons.Controls.Add(this.lblConstraints, 0, 0);
             this.tlpMain.Controls.Add(this.lblRuleName, 0, 0);
             this.tlpMain.Controls.Add(this.lblFormula, 0, 1);
@@ -81,10 +92,6 @@ namespace TaxDataStore
             this.cbxPriceOperation.Size = new System.Drawing.Size(72, 22);
             this.cbxPriceOperation.TabIndex = 3;
             this.tlpFormula.Controls.Add(this.cbxPriceOperation, 0, 0);
-
-            this.btnConstraintsAdd.Image = DomainModel.Application.ResourceManager.GetImage("add");
-            this.btnConstraintsDelete.Image = DomainModel.Application.ResourceManager.GetImage("delete");
-            this.btnConstraintsEdit.Image = DomainModel.Application.ResourceManager.GetImage("pencil");
 
             this.btnConstraintsAdd.Click += new EventHandler(btnConstraintsAdd_Click);
             this.btnConstraintsEdit.Click += new EventHandler(btnConstraintsEdit_Click);

@@ -40,9 +40,6 @@ namespace TaxDataStore
             this.tbpMembers = new System.Windows.Forms.TabPage();
             this.tlpTourMembers = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
             this.tlpMemberToolbar = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAddTourMember = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.btnRemoveTourMember = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.btnEditTourMember = new TaxDataStore.Presentation.Controls.FlatButton();
             this.tbpStaff = new System.Windows.Forms.TabPage();
             this.tlpStaff = new System.Windows.Forms.TableLayoutPanel();
             this.tlpEmployeeToolbar = new System.Windows.Forms.TableLayoutPanel();
@@ -52,9 +49,6 @@ namespace TaxDataStore
             this.tlpReceipt = new ContainerLayoutPanel();
             this.tbpPayments = new System.Windows.Forms.TabPage();
             this.tlpPayments = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
-            this.btnAddPayment = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.btnEditPayment = new TaxDataStore.Presentation.Controls.FlatButton();
-            this.btnRemovePayment = new TaxDataStore.Presentation.Controls.FlatButton();
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new ButtonBase();
@@ -222,9 +216,6 @@ namespace TaxDataStore
             this.tlpMemberToolbar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpMemberToolbar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpMemberToolbar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpMemberToolbar.Controls.Add(this.btnAddTourMember, 1, 0);
-            this.tlpMemberToolbar.Controls.Add(this.btnRemoveTourMember, 3, 0);
-            this.tlpMemberToolbar.Controls.Add(this.btnEditTourMember, 2, 0);
             this.tlpMemberToolbar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMemberToolbar.Location = new System.Drawing.Point(0, 0);
             this.tlpMemberToolbar.Margin = new System.Windows.Forms.Padding(0);
@@ -233,33 +224,6 @@ namespace TaxDataStore
             this.tlpMemberToolbar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpMemberToolbar.Size = new System.Drawing.Size(170, 30);
             this.tlpMemberToolbar.TabIndex = 3;
-            // 
-            // btnAddTourMember
-            // 
-            this.btnAddTourMember.Location = new System.Drawing.Point(83, 3);
-            this.btnAddTourMember.Name = "btnAddTourMember";
-            this.btnAddTourMember.Size = new System.Drawing.Size(24, 24);
-            this.btnAddTourMember.TabIndex = 1;
-            this.btnAddTourMember.UseVisualStyleBackColor = true;
-            this.btnAddTourMember.Click += new System.EventHandler(this.btnAddTourMember_Click);
-            // 
-            // btnRemoveTourMember
-            // 
-            this.btnRemoveTourMember.Location = new System.Drawing.Point(143, 3);
-            this.btnRemoveTourMember.Name = "btnRemoveTourMember";
-            this.btnRemoveTourMember.Size = new System.Drawing.Size(24, 24);
-            this.btnRemoveTourMember.TabIndex = 1;
-            this.btnRemoveTourMember.UseVisualStyleBackColor = true;
-            this.btnRemoveTourMember.Click += new System.EventHandler(this.btnRemoveTourMember_Click);
-            // 
-            // btnEditTourMember
-            // 
-            this.btnEditTourMember.Location = new System.Drawing.Point(113, 3);
-            this.btnEditTourMember.Name = "btnEditTourMember";
-            this.btnEditTourMember.Size = new System.Drawing.Size(24, 24);
-            this.btnEditTourMember.TabIndex = 2;
-            this.btnEditTourMember.UseVisualStyleBackColor = true;
-            this.btnEditTourMember.Click += new System.EventHandler(this.btnEditTourMember_Click);
             // 
             // tbpStaff
             // 
@@ -367,9 +331,6 @@ namespace TaxDataStore
             this.tlpPayments.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpPayments.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpPayments.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpPayments.Controls.Add(this.btnAddPayment, 1, 0);
-            this.tlpPayments.Controls.Add(this.btnEditPayment, 2, 0);
-            this.tlpPayments.Controls.Add(this.btnRemovePayment, 3, 0);
             this.tlpPayments.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpPayments.Location = new System.Drawing.Point(0, 0);
             this.tlpPayments.Name = "tlpPayments";
@@ -380,33 +341,6 @@ namespace TaxDataStore
             this.tlpPayments.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpPayments.Size = new System.Drawing.Size(567, 332);
             this.tlpPayments.TabIndex = 2;
-            // 
-            // btnAddPayment
-            // 
-            this.btnAddPayment.Location = new System.Drawing.Point(73, 6);
-            this.btnAddPayment.Name = "btnAddPayment";
-            this.btnAddPayment.Size = new System.Drawing.Size(24, 24);
-            this.btnAddPayment.TabIndex = 1;
-            this.btnAddPayment.UseVisualStyleBackColor = true;
-            this.btnAddPayment.Click += new System.EventHandler(this.btnAddPayment_Click);
-            // 
-            // btnEditPayment
-            // 
-            this.btnEditPayment.Location = new System.Drawing.Point(103, 6);
-            this.btnEditPayment.Name = "btnEditPayment";
-            this.btnEditPayment.Size = new System.Drawing.Size(24, 24);
-            this.btnEditPayment.TabIndex = 1;
-            this.btnEditPayment.UseVisualStyleBackColor = true;
-            this.btnEditPayment.Click += new System.EventHandler(this.btnEditPayment_Click);
-            // 
-            // btnRemovePayment
-            // 
-            this.btnRemovePayment.Location = new System.Drawing.Point(133, 6);
-            this.btnRemovePayment.Name = "btnRemovePayment";
-            this.btnRemovePayment.Size = new System.Drawing.Size(24, 24);
-            this.btnRemovePayment.TabIndex = 1;
-            this.btnRemovePayment.UseVisualStyleBackColor = true;
-            this.btnRemovePayment.Click += new System.EventHandler(this.btnRemovePayment_Click);
             // 
             // tlpMain
             // 
@@ -513,13 +447,7 @@ namespace TaxDataStore
         private System.Windows.Forms.TabPage tbpMembers;
         private System.Windows.Forms.TabPage tbpStaff;
         private ContainerLayoutPanel tlpPayments;
-        private FlatButton btnAddPayment;
-        private FlatButton btnEditPayment;
-        private FlatButton btnRemovePayment;
         private ContainerLayoutPanel tlpTourMembers;
-        private FlatButton btnAddTourMember;
-        private FlatButton btnRemoveTourMember;
-        private FlatButton btnEditTourMember;
         private System.Windows.Forms.TableLayoutPanel tlpStaff;
         private System.Windows.Forms.TableLayoutPanel tlpMain;
         private ButtonBase btnRemoveEmployee;

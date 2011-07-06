@@ -52,7 +52,6 @@
     <ApplicationIcon>beer.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -410,52 +409,52 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="TourControl.cs">
+    <Compile Include="Presentation\Forms\Tours\TourControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TourControl.Designer.cs">
+    <Compile Include="Presentation\Forms\Tours\TourControl.Designer.cs">
       <DependentUpon>TourControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="TourGroup.cs">
+    <Compile Include="Presentation\Forms\Tours\TourGroup.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TourGroup.Designer.cs">
+    <Compile Include="Presentation\Forms\Tours\TourGroup.Designer.cs">
       <DependentUpon>TourGroup.cs</DependentUpon>
     </Compile>
-    <Compile Include="TourGroupContacts.cs">
+    <Compile Include="Presentation\Forms\Tours\TourGroupContacts.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TourGroupContacts.Designer.cs">
+    <Compile Include="Presentation\Forms\Tours\TourGroupContacts.Designer.cs">
       <DependentUpon>TourGroupContacts.cs</DependentUpon>
     </Compile>
-    <Compile Include="TourGroupDetails.cs">
+    <Compile Include="Presentation\Forms\Tours\TourGroupDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TourGroupDetails.Designer.cs">
+    <Compile Include="Presentation\Forms\Tours\TourGroupDetails.Designer.cs">
       <DependentUpon>TourGroupDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="TourGroupServices.cs">
+    <Compile Include="Presentation\Forms\Tours\TourGroupServices.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TourGroupServices.Designer.cs">
+    <Compile Include="Presentation\Forms\Tours\TourGroupServices.Designer.cs">
       <DependentUpon>TourGroupServices.cs</DependentUpon>
     </Compile>
-    <Compile Include="TourServiceItem.cs">
+    <Compile Include="Presentation\Forms\Tours\TourServiceItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TourServiceItem.Designer.cs">
+    <Compile Include="Presentation\Forms\Tours\TourServiceItem.Designer.cs">
       <DependentUpon>TourServiceItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="TourServiceListView.cs">
+    <Compile Include="Presentation\Forms\Tours\TourServiceListView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TourServiceListView.Designer.cs">
+    <Compile Include="Presentation\Forms\Tours\TourServiceListView.Designer.cs">
       <DependentUpon>TourServiceListView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ToursListView.cs">
+    <Compile Include="Presentation\Forms\Tours\ToursListView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ToursListView.Designer.cs">
+    <Compile Include="Presentation\Forms\Tours\ToursListView.Designer.cs">
       <DependentUpon>ToursListView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="EditToolbar.resx">
@@ -567,28 +566,28 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="TourControl.resx">
+    <EmbeddedResource Include="Presentation\Forms\Tours\TourControl.resx">
       <DependentUpon>TourControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TourGroup.resx">
+    <EmbeddedResource Include="Presentation\Forms\Tours\TourGroup.resx">
       <DependentUpon>TourGroup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TourGroupContacts.resx">
+    <EmbeddedResource Include="Presentation\Forms\Tours\TourGroupContacts.resx">
       <DependentUpon>TourGroupContacts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TourGroupDetails.resx">
+    <EmbeddedResource Include="Presentation\Forms\Tours\TourGroupDetails.resx">
       <DependentUpon>TourGroupDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TourGroupServices.resx">
+    <EmbeddedResource Include="Presentation\Forms\Tours\TourGroupServices.resx">
       <DependentUpon>TourGroupServices.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TourServiceItem.resx">
+    <EmbeddedResource Include="Presentation\Forms\Tours\TourServiceItem.resx">
       <DependentUpon>TourServiceItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TourServiceListView.resx">
+    <EmbeddedResource Include="Presentation\Forms\Tours\TourServiceListView.resx">
       <DependentUpon>TourServiceListView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ToursListView.resx">
+    <EmbeddedResource Include="Presentation\Forms\Tours\ToursListView.resx">
       <DependentUpon>ToursListView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
@@ -687,7 +686,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_ConfigurationName="Release" BuildVersion_BuildVersioningStyle="Increment.YearStamp.MonthAndDayStamp.TimeStamp" BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" />
+      <UserProperties BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" BuildVersion_BuildVersioningStyle="Increment.YearStamp.MonthAndDayStamp.TimeStamp" BuildVersion_ConfigurationName="Release" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
