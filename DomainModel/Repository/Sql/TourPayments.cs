@@ -141,7 +141,7 @@ namespace DomainModel.Repository.Sql
             payment.IsDirty = false;
 
             Entities.Tour tour = (Entities.Tour)userData;
-            tour.Payments.Add(payment);
+            //tour.Payments.Add(payment);
         }
 
 

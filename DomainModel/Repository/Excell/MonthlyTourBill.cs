@@ -186,6 +186,7 @@ namespace DomainModel.Repository.Excell
         private static TypeColumnCollection CreateDailyBill(DateTime dt, TypeColumnCollection columns)
         {
             TypeColumnCollection row = new TypeColumnCollection();
+            /*
             for (int i = 0; i < columns.Count; i++)
             {
                 row.Add(new TypeColumn(i, null, columns[i].CellType));
@@ -203,7 +204,7 @@ namespace DomainModel.Repository.Excell
                     //row.AddToValue(detail.ParticipantsCount, tour.TourType);
                 }
             }
-
+            */
             return row;
         }
     }

@@ -16,20 +16,22 @@ namespace TaxDataStore
         private ToolbarLabel lblMemberContacts;
         private ToolbarLabel lblTourCosts;
         private ToolbarLabel lblNotes;
-       
+
+        private ToursListView tlvTours;
+       /*
         protected ToursGridView fgvTours;
         protected FlatGridView fgvEmployees;
         protected FlatGridView fgvTourMembers;
         protected ContactsListView fgvMemberContacts;
-        protected TourCostDetailsGridView dgvCostDetails;
+        protected TourCostDetailsGridView dgvCostDetails;*/
 
         protected Entities.TourCollection tours;
 
-        protected BindingSource bstMaster;
+        protected BindingSource bstMaster;/*
         protected BindingSource bstEmployees;
         protected BindingSource bstTourContacts;
         protected BindingSource bstMemberContacts;
-        protected BindingSource bstTourCosts;
+        protected BindingSource bstTourCosts;*/
 
 
         public FrmDailyTours()
@@ -43,7 +45,7 @@ namespace TaxDataStore
 
             bstMaster = new BindingSource();
             bstMaster.DataSource = this.tours;
-
+            /*
             bstEmployees = new BindingSource();
             bstEmployees.DataSource = bstMaster;
             bstEmployees.DataMember = "Employees";
@@ -58,7 +60,7 @@ namespace TaxDataStore
 
             bstTourCosts = new BindingSource();
             bstTourCosts.DataSource = bstMaster;
-            bstTourCosts.DataMember = "CostDetails";
+            bstTourCosts.DataMember = "CostDetails";*/
 
             this.rtbComments.DataBindings.Add(
                 new Binding(
@@ -86,19 +88,22 @@ namespace TaxDataStore
             this.lblTourCosts = new ToolbarLabel(5, "lblTourCosts", "lbl_tour_costs");
             this.lblTours = new ToolbarLabel(6, "lblTours", "lbl_tours");
 
-            this.tlpEmployees.Controls.Add(this.lblEmployees, 0, 0);
-            this.tlpTourMembers.Controls.Add(this.lblTourMembers, 0, 0);
-            this.tlpMemberContacts.Controls.Add(this.lblMemberContacts, 0, 0);
-            this.tlpTourCosts.Controls.Add(this.lblTourCosts, 0, 0);
+            //this.tlpEmployees.Controls.Add(this.lblEmployees, 0, 0);
+            //this.tlpTourMembers.Controls.Add(this.lblTourMembers, 0, 0);
+            //this.tlpMemberContacts.Controls.Add(this.lblMemberContacts, 0, 0);
+            //this.tlpTourCosts.Controls.Add(this.lblTourCosts, 0, 0);
             this.tlpToursToolbar.Controls.Add(this.lblTours, 0, 0);
-            this.tlpNotes.Controls.Add(this.lblNotes, 0, 0);
+            //this.tlpNotes.Controls.Add(this.lblNotes, 0, 0);
             this.tlpDate.Controls.Add(this.lblDate, 0, 0);
         }
 
 
         private void SetupControls()
         {
+            this.tlvTours = new ToursListView(this.tours);
+            /*
             this.fgvTours = new ToursGridView(this.bstMaster);
+            
             this.fgvEmployees = new FlatGridView();
             this.fgvTourMembers = new FlatGridView();
             this.fgvMemberContacts = new ContactsListView();
@@ -121,28 +126,31 @@ namespace TaxDataStore
             this.dgvCostDetails.DefaultCellStyle.SelectionForeColor =
                 this.dgvCostDetails.DefaultCellStyle.ForeColor;
             this.dgvCostDetails.ReadOnly = true;
+            */
 
+            //this.tlpTourCosts.Controls.Add(this.dgvCostDetails, 0, 1);
 
-            this.tlpTourCosts.Controls.Add(this.dgvCostDetails, 0, 1);
+            //this.tlpTours.Controls.Add(this.fgvTours);
+            //this.tlpEmployees.Controls.Add(this.fgvEmployees, 0, 1);
+            //this.tlpTourMembers.Controls.Add(this.fgvTourMembers, 0, 1);
+            //this.tlpMemberContacts.Controls.Add(this.fgvMemberContacts, 0, 1);
 
-            this.tlpTours.Controls.Add(this.fgvTours);
-            this.tlpEmployees.Controls.Add(this.fgvEmployees, 0, 1);
-            this.tlpTourMembers.Controls.Add(this.fgvTourMembers, 0, 1);
-            this.tlpMemberContacts.Controls.Add(this.fgvMemberContacts, 0, 1);
+            this.tlvTours.Dock = DockStyle.Fill;
+            this.tlpTours.Controls.Add(this.tlvTours);
 
             this.btnAddTour.Image = DomainModel.Application.ResourceManager.GetImage("add");
             this.btnDeleteTour.Image = DomainModel.Application.ResourceManager.GetImage("delete");
             this.btnEditTour.Image = DomainModel.Application.ResourceManager.GetImage("pencil");
-            
+            /*
             this.fgvEmployees.DataSource = this.bstEmployees;
             this.fgvTourMembers.DataSource = this.bstTourContacts;
             this.dgvCostDetails.SetDataSource(this.bstTourCosts);
-
+            
             this.fgvTourMembers.SelectionChanged += new
-                EventHandler(fgvTourMembers_SelectionChanged);
+                EventHandler(fgvTourMembers_SelectionChanged);*/
         }
 
-
+        /*
         void fgvTourMembers_SelectionChanged(object sender, EventArgs e)
         {
             Entities.TourMember member = 
@@ -157,27 +165,40 @@ namespace TaxDataStore
             {
                 this.fgvMemberContacts.SetDataSource(null);
             }
-        }
+        }*/
 
 
         private void btnEditTour_Click(object sender, EventArgs e)
-        {
+        {/*
             Entities.Tour tour =  (Entities.Tour)this.fgvTours.SelectedItem;
             if (tour != null)
             {
                 Presentation.Controllers.Tours.Edit(tour);
-            }
+            }*/
         }
 
 
         private void btnAddTour_Click(object sender, EventArgs e)
         {
-            Presentation.Controllers.Tours.AddNew(this.dtpCurrentDate.Value);
+            //Presentation.Controllers.Tours.AddNew(this.dtpCurrentDate.Value);
+            Entities.Tour tour = new Entities.Tour();
+            tour.Time.Value = DateTime.Now;
+            tour.Status.Id = 19;
+            tour.Id = 0;
+
+            Entities.TourGroup group = new Entities.TourGroup();
+            group.Name = "123456";
+            group.SignUpType.Id = 5;
+
+            tour.Groups.Add(group);
+            tour.Groups.Add(group);
+
+            tours.Add(tour);
         }
 
 
         private void btnDeleteTour_Click(object sender, EventArgs e)
-        {
+        {/*
             Entities.Tour tour = (Entities.Tour)this.fgvTours.SelectedItem;
             if (tour != null)
             {
@@ -185,7 +206,7 @@ namespace TaxDataStore
                 {
                     DomainModel.Tours.Delete(tour);
                 }
-            }
+            }*/
         }
 
 

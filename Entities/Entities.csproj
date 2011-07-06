@@ -57,6 +57,7 @@
     <Compile Include="Abstract\ITourConstraintMapper.cs" />
     <Compile Include="Abstract\ITourPaymentStrategy.cs" />
     <Compile Include="Abstract\ITourRuleConstraintValidator.cs" />
+    <Compile Include="Abstract\ITourService.cs" />
     <Compile Include="Abstract\Repository\IRole.cs" />
     <Compile Include="Abstract\Repository\ITask.cs" />
     <Compile Include="Abstract\Repository\IUsers.cs" />
@@ -65,57 +66,62 @@
     <Compile Include="CategoryClassCollection.cs" />
     <Compile Include="CategorySubCollection.cs" />
     <Compile Include="CategorySub.cs" />
-    <Compile Include="ConstraintTourDate.cs" />
-    <Compile Include="ConstraintTourTime.cs" />
-    <Compile Include="Contact.cs" />
-    <Compile Include="ContactCollection.cs" />
+    <Compile Include="Tour\ConstraintTourDate.cs" />
+    <Compile Include="Tour\ConstraintTourTime.cs" />
+    <Compile Include="Tour\Contact.cs" />
+    <Compile Include="Tour\ContactCollection.cs" />
     <Compile Include="Culture.cs" />
     <Compile Include="CultureCollection.cs" />
     <Compile Include="Datetime.cs" />
-    <Compile Include="Employee.cs" />
-    <Compile Include="EmployeeCollection.cs" />
+    <Compile Include="Tour\Employee.cs" />
+    <Compile Include="Tour\EmployeeCollection.cs" />
     <Compile Include="EntityBase.cs" />
     <Compile Include="GeneralType.cs" />
     <Compile Include="GeneralTypeCollection.cs" />
     <Compile Include="JobProgress.cs" />
     <Compile Include="JobProgressCollection.cs" />
     <Compile Include="ReportInfo.cs" />
-    <Compile Include="TourConstraintDateItem.cs" />
+    <Compile Include="Tour\TourConstraintDateItem.cs" />
     <Compile Include="Money.cs" />
     <Compile Include="MoneyCurrency.cs" />
     <Compile Include="MoneyCurrencyCollection.cs" />
-    <Compile Include="TourConstraintTimeItem.cs" />
-    <Compile Include="TourCostRuleConstraintCollection.cs" />
-    <Compile Include="TourCostRuleConstraintProperty.cs" />
-    <Compile Include="TourCostRuleConstraintPropertyCollection.cs" />
-    <Compile Include="TourCostRuleConstraint.cs" />
-    <Compile Include="TourReceipt.cs" />
-    <Compile Include="Role.cs" />
-    <Compile Include="RoleCollection.cs" />
+    <Compile Include="Tour\TourConstraintTimeItem.cs" />
+    <Compile Include="Tour\TourCostRuleConstraintCollection.cs" />
+    <Compile Include="Tour\TourCostRuleConstraintProperty.cs" />
+    <Compile Include="Tour\TourCostRuleConstraintPropertyCollection.cs" />
+    <Compile Include="Tour\TourCostRuleConstraint.cs" />
+    <Compile Include="Tour\TourGroup.cs" />
+    <Compile Include="Tour\TourGroupCollection.cs" />
+    <Compile Include="Tour\TourReceipt.cs" />
+    <Compile Include="Membership\Role.cs" />
+    <Compile Include="Membership\RoleCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Task.cs" />
-    <Compile Include="TaskCollection.cs" />
-    <Compile Include="Tour.cs" />
-    <Compile Include="TourCollection.cs" />
-    <Compile Include="TourMember.cs" />
-    <Compile Include="TourMemberCollection.cs" />
-    <Compile Include="TourBasePrice.cs" />
-    <Compile Include="TourBasePriceCollection.cs" />
-    <Compile Include="TourCostDetail.cs" />
-    <Compile Include="TourCostDetailCollection.cs" />
-    <Compile Include="TourCostFormula.cs" />
-    <Compile Include="TourCostGroup.cs" />
-    <Compile Include="TourCostGroupCollection.cs" />
-    <Compile Include="TourCostRule.cs" />
-    <Compile Include="TourCostRuleCollection.cs" />
-    <Compile Include="TourPayment.cs" />
-    <Compile Include="TourPaymentCollection.cs" />
-    <Compile Include="TourReceiptItem.cs" />
-    <Compile Include="TourReceiptItemCollection.cs" />
+    <Compile Include="Membership\Task.cs" />
+    <Compile Include="Membership\TaskCollection.cs" />
+    <Compile Include="Tour\Tour.cs" />
+    <Compile Include="Tour\TourCollection.cs" />
+    <Compile Include="Tour\TourMember.cs" />
+    <Compile Include="Tour\TourMemberCollection.cs" />
+    <Compile Include="Tour\TourBasePrice.cs" />
+    <Compile Include="Tour\TourBasePriceCollection.cs" />
+    <Compile Include="Tour\TourCostDetail.cs" />
+    <Compile Include="Tour\TourCostDetailCollection.cs" />
+    <Compile Include="Tour\TourCostFormula.cs" />
+    <Compile Include="Tour\TourCostGroup.cs" />
+    <Compile Include="Tour\TourCostGroupCollection.cs" />
+    <Compile Include="Tour\TourCostRule.cs" />
+    <Compile Include="Tour\TourCostRuleCollection.cs" />
+    <Compile Include="Tour\TourPayment.cs" />
+    <Compile Include="Tour\TourPaymentCollection.cs" />
+    <Compile Include="Tour\TourReceiptItem.cs" />
+    <Compile Include="Tour\TourReceiptItemCollection.cs" />
+    <Compile Include="Tour\TourServiceBase.cs" />
+    <Compile Include="Tour\TourServiceCollection.cs" />
     <Compile Include="UpdaterSettings.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="UserCollection.cs" />
-    <Compile Include="UserSettings.cs" />
+    <Compile Include="Membership\User.cs" />
+    <Compile Include="Membership\UserCollection.cs" />
+    <Compile Include="Membership\UserSettings.cs" />
+    <Compile Include="Tour\TourService\VisitService.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
@@ -138,6 +144,9 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

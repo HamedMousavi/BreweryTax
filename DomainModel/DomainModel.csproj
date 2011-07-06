@@ -65,6 +65,7 @@
     <Compile Include="Repository\Excell\MonthlyTourBill.cs" />
     <Compile Include="Repository\Sql\TourCostRuleConstraintProperties.cs" />
     <Compile Include="Repository\Sql\TourCostRuleConstraints.cs" />
+    <Compile Include="ServiceBasePrices.cs" />
     <Compile Include="Tour\Payment\RuleValidators\TourDateValidator.cs" />
     <Compile Include="Tour\Payment\RuleValidators\TourTimeValidator.cs" />
     <Compile Include="Tour\TourRuleConstraints.cs" />

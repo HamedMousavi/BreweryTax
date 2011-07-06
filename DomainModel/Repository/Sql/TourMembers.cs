@@ -142,7 +142,7 @@ namespace DomainModel.Repository.Sql
             member.IsDirty = false;
 
             Entities.Tour tour = (Entities.Tour)userData;
-            tour.Members.Add(member);
+            //tour.Members.Add(member);
         }
 
 

@@ -130,6 +130,20 @@ namespace Resources {
             }
         }
         
+        public static System.Drawing.Bitmap bottle {
+            get {
+                object obj = ResourceManager.GetObject("bottle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap bucket {
+            get {
+                object obj = ResourceManager.GetObject("bucket", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         public static System.Drawing.Bitmap calculator {
             get {
                 object obj = ResourceManager.GetObject("calculator", resourceCulture);
@@ -235,6 +249,13 @@ namespace Resources {
             }
         }
         
+        public static System.Drawing.Bitmap email_open {
+            get {
+                object obj = ResourceManager.GetObject("email_open", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         public static System.Drawing.Bitmap Error {
             get {
                 object obj = ResourceManager.GetObject("Error", resourceCulture);
@@ -287,6 +308,13 @@ namespace Resources {
         public static System.Drawing.Bitmap hammer {
             get {
                 object obj = ResourceManager.GetObject("hammer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap home {
+            get {
+                object obj = ResourceManager.GetObject("home", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

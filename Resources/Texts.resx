@@ -561,4 +561,10 @@
   <data name="stat_upd_checking" xml:space="preserve">
     <value>Checking for new version</value>
   </data>
+  <data name="lbl_groups" xml:space="preserve">
+    <value>Groups</value>
+  </data>
+  <data name="lbl_services" xml:space="preserve">
+    <value>Services</value>
+  </data>
 </root>

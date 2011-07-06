@@ -493,6 +493,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Groups.
+        /// </summary>
+        public static string lbl_groups {
+            get {
+                return ResourceManager.GetString("lbl_groups", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Guest contacts.
         /// </summary>
         public static string lbl_guest_contacts {
@@ -615,6 +624,15 @@ namespace Resources {
         public static string lbl_rule_name {
             get {
                 return ResourceManager.GetString("lbl_rule_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Services.
+        /// </summary>
+        public static string lbl_services {
+            get {
+                return ResourceManager.GetString("lbl_services", resourceCulture);
             }
         }
         

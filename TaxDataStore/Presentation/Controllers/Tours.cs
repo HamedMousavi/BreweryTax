@@ -40,11 +40,11 @@ namespace TaxDataStore.Presentation.Controllers
 
 
         internal static void AddMember(Entities.Tour tour)
-        {
+        {/*
             using (FrmTourMemberEditor frm = new FrmTourMemberEditor(tour.Members))
             {
                 frm.ShowDialog();
-            }
+            }*/
         }
 
 

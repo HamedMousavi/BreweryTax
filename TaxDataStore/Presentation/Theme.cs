@@ -26,6 +26,16 @@ namespace TaxDataStore.Presentation
         public Color FormLightLabelColor { get; set; }
         public Color FormLightBackColor { get; set; }
 
+        public Color TourGroupItemBackColor { get; set; }
+        public Color TourGroupServiceCountForeColor { get; set; }
+        public Color TourGroupServiceNameForeColor { get; set; }
+        public Color TourForeColor { get; set; }
+        public Color TourBackColor { get; set; }
+
+        public Font TourGroupServiceCountFont { get; set; }
+        public Font TourGroupServiceNameFont { get; set; }
+        public Font TourTitleFont { get; set; }
+
 
         public Theme()
         {
@@ -53,6 +63,18 @@ namespace TaxDataStore.Presentation
 
             this.FormLightLabelColor = Color.Black;
             this.FormLightBackColor = Color.White;
+
+            this.TourGroupItemBackColor = Color.FromArgb(255, 150, 150, 150);
+            this.TourGroupServiceCountForeColor = Color.FromArgb(255, 255, 150, 150);
+            this.TourGroupServiceNameForeColor = Color.FromArgb(255, 150, 150, 150);
+
+            this.TourGroupServiceCountFont = new System.Drawing.Font("Tahoma", 10.25F, FontStyle.Bold);
+            this.TourGroupServiceNameFont = new System.Drawing.Font("Tahoma", 10.25F, FontStyle.Bold);
+
+            this.TourForeColor = Color.White;
+            this.TourBackColor = Color.Gray;
+
+            this.TourTitleFont = new System.Drawing.Font("Tahoma", 12.25F, FontStyle.Bold);
         }
 
     }

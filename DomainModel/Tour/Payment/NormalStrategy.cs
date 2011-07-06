@@ -10,36 +10,36 @@ namespace DomainModel.PaymentStrategies
     public class NormalStrategy : ITourPaymentStrategy
     {
 
-        private TourCollection tours;
+        private TourServiceCollection services;
         private PaymentRuleValidator ruleValidator;
 
 
         public NormalStrategy()
         {
-            this.tours = new TourCollection();
+            this.services = new TourServiceCollection();
             this.ruleValidator = new PaymentRuleValidator();
         }
 
 
-        public bool UpdateReceipt(Entities.Tour tour)
+        public bool UpdateReceipt(ITourService service)
         {
             bool res = true;
 
             // Prevent event firing again while changing list
-            Detach(tour);
+            Detach(service);
 
             try
             {
 
                 // Clear old items
-                int count = tour.Receipt.Items.Count;
+                int count = service.Bill.Items.Count;
                 for (int i = 0; i < count; i++)
                 {
-                    TourReceiptItem item = tour.Receipt.Items[0];
+                    TourReceiptItem item = service.Bill.Items[0];
 
                     if (!item.IsCustom)
                     {
-                        res = tour.Receipt.Delete(item);
+                        res = service.Bill.Delete(item);
                         if (!res) break;
                     }
                 }
@@ -47,59 +47,59 @@ namespace DomainModel.PaymentStrategies
                 // recalculate
                 if (res)
                 {
-                    CreateReceipt(tour);
+                    CreateReceipt(service);
                 }
 
-                CalculateTotal(tour);
+                CalculateTotal(service);
             }
             catch (Exception ex)
             {
             }
 
             // attach back to tour
-            Attach(tour);
+            Attach(service);
 
             return res;
         }
 
 
-        private void CalculateTotal(Entities.Tour tour)
+        private void CalculateTotal(ITourService service)
         {
-            tour.Receipt.Total.Value = 0.00M;
+            service.Bill.Total.Value = 0.00M;
 
-            foreach (TourReceiptItem item in tour.Receipt.Items)
+            foreach (TourReceiptItem item in service.Bill.Items)
             {
-                tour.Receipt.Total.Value += item.Total.Value;
-                if (tour.Receipt.Total.Currency == null)
+                service.Bill.Total.Value += item.Total.Value;
+                if (service.Bill.Total.Currency == null)
                 {
-                    tour.Receipt.Total.Currency = item.Total.Currency;
+                    service.Bill.Total.Currency = item.Total.Currency;
                 }
             }
         }
 
 
-        private void CreateReceipt(Entities.Tour tour)
+        private void CreateReceipt(ITourService service)
         {
-            Money tourBasePPS = DomainModel.TourBasePrices.GetByType(tour.TourType);
+            Money tourBasePPS = DomainModel.ServiceBasePrices.GetPricePerPerson(service);
 
             int index = 0;
             if (tourBasePPS != null)
             {
-                foreach (TourCostDetail detail in tour.CostDetails)
+                foreach (TourCostDetail detail in service.CostDetails)
                 {
                     TourReceiptItem item = new TourReceiptItem();
-                    Int32 quantity = tour.IsConfirmed ? detail.ParticipantsCount : detail.SignUpCount;
+                    Int32 quantity = service.ClientCount;
 
                     item.Index = index;
                     item.ParentIndex = -1;
                     item.PricePerPerson = tourBasePPS;
                     item.Quantity = quantity;
                     item.Description = detail.CostGroup.Name;
-                    if (item.Total.Value != 0.0M) tour.Receipt.Items.Add(item);
+                    if (item.Total.Value != 0.0M) service.Bill.Items.Add(item);
                     
                     foreach(TourCostRule rule in detail.CostGroup.Rules)
                     {
-                        if (this.ruleValidator.Matches(rule, detail, tour))
+                        if (this.ruleValidator.Matches(rule, detail, service))
                         {
                             item = new TourReceiptItem();
 
@@ -108,7 +108,7 @@ namespace DomainModel.PaymentStrategies
                             item.Description = rule.Name + " (" + rule.Formula.ToString() + ")";
                             item.Quantity = rule.IsPerPerson ? quantity : 1;
                             item.PricePerPerson = rule.GetTotal(tourBasePPS);
-                            if (item.Total.Value != 0.0M) tour.Receipt.Items.Add(item);
+                            if (item.Total.Value != 0.0M) service.Bill.Items.Add(item);
                         }
                     }
 
@@ -118,47 +118,47 @@ namespace DomainModel.PaymentStrategies
         }
 
 
-        public void Register(Entities.Tour tour)
+        public void Register(ITourService service)
         {
-            if (!this.tours.Contains(tour))
+            if (!this.services.Contains(service))
             {
-                this.tours.Add(tour);
-                Attach(tour);
+                this.services.Add(service);
+                Attach(service);
             }
         }
 
 
-        public void UnRegister(Entities.Tour tour)
+        public void UnRegister(ITourService service)
         {
-            if (this.tours.Contains(tour))
+            if (this.services.Contains(service))
             {
-                Detach(tour);
-                this.tours.Remove(tour);
+                Detach(service);
+                this.services.Remove(service);
             }
         }
 
 
-        private void Detach(Entities.Tour tour)
+        private void Detach(ITourService service)
         {
-            tour.PropertyChanged -= new PropertyChangedEventHandler(tour_PropertyChanged);
+            service.PropertyChanged -= new PropertyChangedEventHandler(tour_PropertyChanged);
         }
 
 
-        private void Attach(Entities.Tour tour)
+        private void Attach(ITourService service)
         {
-            tour.PropertyChanged += new PropertyChangedEventHandler(tour_PropertyChanged);
+            service.PropertyChanged += new PropertyChangedEventHandler(tour_PropertyChanged);
         }
 
 
         void tour_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (string.Equals(e.PropertyName, "TourType", System.StringComparison.InvariantCulture) ||
+            if (string.Equals(e.PropertyName, "VisitType", System.StringComparison.InvariantCulture) ||
                 string.Equals(e.PropertyName, "CostDetails", System.StringComparison.InvariantCulture) ||
                 string.Equals(e.PropertyName, "Status", System.StringComparison.InvariantCulture) ||
                 string.Equals(e.PropertyName, "Payments", System.StringComparison.InvariantCulture) ||
                 string.Equals(e.PropertyName, "Time", System.StringComparison.InvariantCulture))
             {
-                UpdateReceipt((Entities.Tour)sender);
+                UpdateReceipt((ITourService)sender);
             }
         }
 

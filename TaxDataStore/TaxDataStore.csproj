@@ -52,6 +52,7 @@
     <ApplicationIcon>beer.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -63,6 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppUpdateController.cs" />
+    <Compile Include="EditToolbar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EditToolbar.Designer.cs">
+      <DependentUpon>EditToolbar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\Controllers\File.cs" />
     <Compile Include="Presentation\Controls\JobProgress.cs">
       <SubType>UserControl</SubType>
@@ -403,6 +410,57 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="TourControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TourControl.Designer.cs">
+      <DependentUpon>TourControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TourGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TourGroup.Designer.cs">
+      <DependentUpon>TourGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TourGroupContacts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TourGroupContacts.Designer.cs">
+      <DependentUpon>TourGroupContacts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TourGroupDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TourGroupDetails.Designer.cs">
+      <DependentUpon>TourGroupDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TourGroupServices.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TourGroupServices.Designer.cs">
+      <DependentUpon>TourGroupServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TourServiceItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TourServiceItem.Designer.cs">
+      <DependentUpon>TourServiceItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TourServiceListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TourServiceListView.Designer.cs">
+      <DependentUpon>TourServiceListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToursListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ToursListView.Designer.cs">
+      <DependentUpon>ToursListView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="EditToolbar.resx">
+      <DependentUpon>EditToolbar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Controls\FlexibleDateSelector.resx">
       <DependentUpon>FlexibleDateSelector.cs</DependentUpon>
     </EmbeddedResource>
@@ -509,6 +567,30 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TourControl.resx">
+      <DependentUpon>TourControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TourGroup.resx">
+      <DependentUpon>TourGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TourGroupContacts.resx">
+      <DependentUpon>TourGroupContacts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TourGroupDetails.resx">
+      <DependentUpon>TourGroupDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TourGroupServices.resx">
+      <DependentUpon>TourGroupServices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TourServiceItem.resx">
+      <DependentUpon>TourServiceItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TourServiceListView.resx">
+      <DependentUpon>TourServiceListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToursListView.resx">
+      <DependentUpon>ToursListView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\DataSources\Entities.CategoryClass.datasource" />
     <None Include="Properties\Settings.settings">

@@ -92,5 +92,12 @@ namespace Entities
         {
             return this.Name;
         }
+
+
+        internal void CopyTo(GeneralType type)
+        {
+            type = this;
+            type.IsDirty = this.IsDirty;
+        }
     }
 }

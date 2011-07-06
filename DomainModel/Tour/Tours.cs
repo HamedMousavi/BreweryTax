@@ -67,26 +67,26 @@ namespace DomainModel
         private static void UndoDeleteCaches(Entities.Tour tour)
         {
             // Clean deleted items cause they saved with no problem
-            tour.DeletedPayments.UndoDelete(tour.Payments);
-            tour.DeletedMembers.UndoDelete(tour.Members);
+            //tour.DeletedPayments.UndoDelete(tour.Payments);
+            //tour.DeletedMembers.UndoDelete(tour.Members);
             tour.DeletedEmployees.UndoDelete(tour.Employees);
-            foreach (Entities.TourMember member in tour.Members)
-            {
-                member.DeletedContacts.UndoDelete(member.Contacts);
-            }
+            //foreach (Entities.TourMember member in tour.Members)
+            //{
+            //    member.DeletedContacts.UndoDelete(member.Contacts);
+            //}
         }
 
 
         private static void ClearDeleteCaches(Entities.Tour tour)
         {
             // Clean deleted items cause they saved with no problem
-            tour.DeletedPayments.Clear();
-            tour.DeletedMembers.Clear();
+            //tour.DeletedPayments.Clear();
+            //tour.DeletedMembers.Clear();
             tour.DeletedEmployees.Clear();
-            foreach (Entities.TourMember member in tour.Members)
-            {
-                member.DeletedContacts.Clear();
-            }
+            //foreach (Entities.TourMember member in tour.Members)
+            //{
+            //    member.DeletedContacts.Clear();
+            //}
         }
 
 

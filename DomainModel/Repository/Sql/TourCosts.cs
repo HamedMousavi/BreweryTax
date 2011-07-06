@@ -140,7 +140,7 @@ namespace DomainModel.Repository.Sql
             cost.IsDirty = false;
 
             Entities.Tour tour = (Entities.Tour)userData;
-            tour.CostDetails.Add(cost);
+            //tour.CostDetails.Add(cost);
         }
     }
 }

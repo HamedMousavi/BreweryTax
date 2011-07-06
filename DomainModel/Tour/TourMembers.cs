@@ -25,7 +25,7 @@ namespace DomainModel
         internal static bool Save(Entities.Tour tour)
         {
             bool res = true;
-
+            /*
             // (Added /edited) members / contacts
             foreach (Entities.TourMember member in tour.Members)
             {
@@ -63,7 +63,8 @@ namespace DomainModel
                     if (!(res = contacts.Delete(contact))) break;
                 }
             }
-
+            */
+            /*
             // (Removed) members / contacts
             foreach (Entities.TourMember member in tour.DeletedMembers)
             {
@@ -81,7 +82,7 @@ namespace DomainModel
                 if (!(res = tourMembers.Delete(tour, member))) break;
                 if (!(res = members.Delete(member))) break;
 
-            }
+            }*/
 
             return res;
         }
@@ -92,11 +93,12 @@ namespace DomainModel
             try
             {
                 members.GetByTour(tour);
-
+                /*
                 foreach (Entities.TourMember member in tour.Members)
                 {
                     contacts.GetByMember(member);
                 }
+                */
             }
             catch (Exception ex)
             {

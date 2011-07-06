@@ -1,0 +1,476 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Entities.CategoryClass" Collapsed="true">
+    <Position X="39" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAACAAAAAAAQAAAAAAAAAAAAIAAAQAAA=</HashCode>
+      <FileName>CategoryClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.CategoryClassCollection" Collapsed="true">
+    <Position X="40.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CategoryClassCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.CategorySub" Collapsed="true">
+    <Position X="42.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CategorySub.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.CategorySubCollection" Collapsed="true">
+    <Position X="44.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CategorySubCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.ConstraintTourDate" Collapsed="true">
+    <Position X="46" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAEAAIAA=</HashCode>
+      <FileName>ConstraintTourDate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.ConstraintTourTime" Collapsed="true">
+    <Position X="47.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAgAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>ConstraintTourTime.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Contact" Collapsed="true">
+    <Position X="29.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAgBAAAIgQ=</HashCode>
+      <FileName>Contact.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.ContactCollection" Collapsed="true">
+    <Position X="39" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>ContactCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Culture" Collapsed="true">
+    <Position X="40.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAgAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Culture.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.CultureCollection" Collapsed="true">
+    <Position X="42.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CultureCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Datetime" Collapsed="true">
+    <Position X="9.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAACAAAAAgAACABAAAgAAAAIQA=</HashCode>
+      <FileName>Datetime.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Employee" Collapsed="true">
+    <Position X="14" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.EmployeeCollection" Collapsed="true">
+    <Position X="8.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABCAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>EmployeeCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.EntityBase" Collapsed="true">
+    <Position X="18.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAgAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>EntityBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Entities.GeneralType" Collapsed="true">
+    <Position X="32" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAACAEAAAAAIAAAEAAAAAAQAAAAEAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>GeneralType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.GeneralTypeCollection" Collapsed="true">
+    <Position X="44.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>GeneralTypeCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.JobProgress" Collapsed="true">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQQAAAEAAAAAAgAIAAIAAAAAAAAADAAAAAgKAAAACA=</HashCode>
+      <FileName>JobProgress.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.JobProgressCollection" Collapsed="true">
+    <Position X="46" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIg=</HashCode>
+      <FileName>JobProgressCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Money" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="47.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAACAAAAAAAEAAAIAAAAiAAAACAAAAAgAAAAIAA=</HashCode>
+      <FileName>Money.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Entities.MoneyCurrency" Collapsed="true">
+    <Position X="16.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAKAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAACgA=</HashCode>
+      <FileName>MoneyCurrency.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.MoneyCurrencyCollection" Collapsed="true">
+    <Position X="39" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>MoneyCurrencyCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.ReportInfo" Collapsed="true">
+    <Position X="40.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAIAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ReportInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Role" Collapsed="true">
+    <Position X="42.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACEAAAAAAAAAAEAAAAAAQAAgAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Role.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.RoleCollection" Collapsed="true">
+    <Position X="44.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAQAAAAAAABAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>RoleCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Task" Collapsed="true">
+    <Position X="46" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Task.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.TaskCollection" Collapsed="true">
+    <Position X="47.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAgABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TaskCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Tour">
+    <Position X="11.75" Y="2.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AARjBEAEAAZEQAAAAAAIgAACCIAAAwQAACAkgAAAYwA=</HashCode>
+      <FileName>Tour.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Comments" />
+      <Property Name="CostDetails" />
+      <Property Name="DeletedEmployees" />
+      <Property Name="DeletedMembers" />
+      <Property Name="DeletedPayments" />
+      <Property Name="Employees" />
+      <Property Name="Id" />
+      <Property Name="IsConfirmed" />
+      <Property Name="Members" />
+      <Property Name="Payments" />
+      <Property Name="PaymentStrategy" />
+      <Property Name="Receipt" />
+      <Property Name="SignUpType" />
+      <Property Name="Status" />
+      <Property Name="Time" />
+      <Property Name="TourType" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Entities.TourBasePrice" Collapsed="true">
+    <Position X="18.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACBAAAAQQAAAAAAAAAAAAAAAAAAAAAAAAACAAAIgg=</HashCode>
+      <FileName>TourBasePrice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.TourBasePriceCollection" Collapsed="true">
+    <Position X="39" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>TourBasePriceCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.TourCollection" Collapsed="true">
+    <Position X="40.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>TourCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.TourConstraintDateItem" Collapsed="true">
+    <Position X="42.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAJAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAIAA=</HashCode>
+      <FileName>TourConstraintDateItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.TourConstraintTimeItem" Collapsed="true">
+    <Position X="44.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACIAAAAAAAAAIAA=</HashCode>
+      <FileName>TourConstraintTimeItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.TourCostDetail" Collapsed="true">
+    <Position X="2.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAgAAAAAAAAAAAAIAAAACAAAAgAAACIAIgA=</HashCode>
+      <FileName>TourCostDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.TourCostDetailCollection" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAACAAIAA=</HashCode>
+      <FileName>TourCostDetailCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.TourCostFormula" Collapsed="true">
+    <Position X="46" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAIAEAEAAAAAACAAAAAAEAAAgAAAAIAA=</HashCode>
+      <FileName>TourCostFormula.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.TourCostGroup" Collapsed="true">
+    <Position X="20.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACAAIAAAAAAAAEAAAAAAQAAAAEAAAAAAAAAAAAIgA=</HashCode>
+      <FileName>TourCostGroup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.TourCostGroupCollection" Collapsed="true">
+    <Position X="47.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>TourCostGroupCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.TourCostRule" Collapsed="true">
+    <Position X="25.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACBAAAAAAAAAAAAAAAAAQEAAAEBBAAIAAQAIAAIgA=</HashCode>
+      <FileName>TourCostRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.TourCostRuleCollection" Collapsed="true">
+    <Position X="39" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TourCostRuleCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.TourCostRuleConstraint" Collapsed="true">
+    <Position X="34.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEICAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAABCIgA=</HashCode>
+      <FileName>TourCostRuleConstraint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.TourCostRuleConstraintCollection" Collapsed="true">
+    <Position X="40.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>TourCostRuleConstraintCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.TourCostRuleConstraintProperty" Collapsed="true">
+    <Position X="7.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAACAgAAAgIAAAIgA=</HashCode>
+      <FileName>TourCostRuleConstraintProperty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.TourCostRuleConstraintPropertyCollection" Collapsed="true">
+    <Position X="42.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>TourCostRuleConstraintPropertyCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.TourMember" Collapsed="true">
+    <Position X="23" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACAEQAQABAAEAAAABAAAAAQAAAAAAAAQAACAAAIgg=</HashCode>
+      <FileName>TourMember.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.TourMemberCollection" Collapsed="true">
+    <Position X="14.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>TourMemberCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.TourPayment" Collapsed="true">
+    <Position X="27.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAACAAAAAAAACAAAABgAAAAQAAAAAAIgA=</HashCode>
+      <FileName>TourPayment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.TourPaymentCollection" Collapsed="true">
+    <Position X="8.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>TourPaymentCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.TourReceipt" Collapsed="true">
+    <Position X="36.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAgAAAAAAAEAQAAAAEgAAAAAIAA=</HashCode>
+      <FileName>TourReceipt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.TourReceiptItem" Collapsed="true">
+    <Position X="5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAABAAAgAAAAIAAAAAAAAAAAQACAAAEAyAAAIgg=</HashCode>
+      <FileName>TourReceiptItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.TourReceiptItemCollection" Collapsed="true">
+    <Position X="44.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TourReceiptItemCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.UpdaterSettings" Collapsed="true">
+    <Position X="46" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAABEAAAAAAAAQAAAUAA=</HashCode>
+      <FileName>UpdaterSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.User" Collapsed="true">
+    <Position X="47.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAEAEAAAQgAwAAAAACgAAAAAAAABA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.UserCollection" Collapsed="true">
+    <Position X="39" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAACAAEAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>UserCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.UserSettings" Collapsed="true">
+    <Position X="40.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAgAAQAAAA=</HashCode>
+      <FileName>UserSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.String" Collapsed="true">
+    <Position X="11.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Struct Name="System.Int32" Collapsed="true">
+    <Position X="11.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Struct>
+  <Struct Name="System.Boolean" Collapsed="true">
+    <Position X="14.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Struct>
+  <Interface Name="Entities.Abstract.ICrypt" Collapsed="true">
+    <Position X="39" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Abstract\ICrypt.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Entities.Abstract.ITourConstraintMapper" Collapsed="true">
+    <Position X="44.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Abstract\ITourConstraintMapper.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Entities.Abstract.ITourPaymentStrategy" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAIAAAAEAA=</HashCode>
+      <FileName>Abstract\ITourPaymentStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Entities.Abstract.ITourRuleConstraintValidator" Collapsed="true">
+    <Position X="46" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Abstract\ITourRuleConstraintValidator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Entities.Abstract.Repository.IRole" Collapsed="true">
+    <Position X="40.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAAAAIAAAAAAAAAACAAGAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Abstract\Repository\IRole.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Entities.Abstract.Repository.ITask" Collapsed="true">
+    <Position X="42.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Abstract\Repository\ITask.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Entities.Abstract.Repository.IUsers" Collapsed="true">
+    <Position X="47.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAAAAAAAAAAAAAAAAAAEAAAAAAiAAAAAAAAA=</HashCode>
+      <FileName>Abstract\Repository\IUsers.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Entities.Abstract.Repository.IUserSettings" Collapsed="true">
+    <Position X="39" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAMAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Abstract\Repository\IUserSettings.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -6,10 +6,10 @@ namespace Entities.Abstract
     public interface ITourPaymentStrategy
     {
 
-        bool UpdateReceipt(Entities.Tour tour);
+        bool UpdateReceipt(ITourService tour);
 
-        void Register(Tour tour);
+        void Register(ITourService tour);
 
-        void UnRegister(Tour tour);
+        void UnRegister(ITourService tour);
     }
 }

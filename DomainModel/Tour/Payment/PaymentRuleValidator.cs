@@ -66,5 +66,11 @@ namespace DomainModel
             
             return res;
         }
+
+
+        internal bool Matches(TourCostRule rule, TourCostDetail detail, ITourService service)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

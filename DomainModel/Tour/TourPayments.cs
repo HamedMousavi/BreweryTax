@@ -19,7 +19,7 @@ namespace DomainModel
         internal static bool Save(Entities.Tour tour)
         {
             bool res = true;
-
+            /*
             foreach (Entities.TourPayment pay in tour.Payments)
             {
                 if (pay.IsDirty)
@@ -39,7 +39,7 @@ namespace DomainModel
             {
                 if (!(res = repo.Delete(tour, pay))) break;
             }
-
+            */
             return res;
         }
 

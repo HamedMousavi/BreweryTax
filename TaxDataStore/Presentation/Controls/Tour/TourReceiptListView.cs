@@ -12,7 +12,7 @@ namespace TaxDataStore.Presentation.Controls
     public class TourReceiptListView : ObjectListView
     {
 
-        protected Tour tour;
+        protected TourControl tour;
         private System.Drawing.Font boldFont;
         private System.Drawing.Font regularFont;
 
@@ -106,12 +106,13 @@ namespace TaxDataStore.Presentation.Controls
 
 
         internal void SetDataSource(Entities.Tour tour)
-        {
+        {/*
             this.tour = tour;
             this.tour.Receipt.Items.ListChanged += new 
                 ListChangedEventHandler(Items_ListChanged);
 
             this.SetObjects(this.tour.Receipt.Items);
+          */ 
         }
 
 
@@ -119,7 +120,7 @@ namespace TaxDataStore.Presentation.Controls
         {
             try
             {
-            this.SetObjects(this.tour.Receipt.Items);
+            //this.SetObjects(this.tour.Receipt.Items);
             this.AutoResizeColumns(
                 ColumnHeaderAutoResizeStyle.HeaderSize);
             }
@@ -215,9 +216,9 @@ namespace TaxDataStore.Presentation.Controls
             try
             {
                 if (this.tour != null)
-                {
-                    this.tour.Receipt.Items.ListChanged -= new
-                        ListChangedEventHandler(Items_ListChanged);
+                {/*
+                    this.tour.Bill.Items.ListChanged -= new
+                        ListChangedEventHandler(Items_ListChanged);*/
                 }
             }
             catch { }

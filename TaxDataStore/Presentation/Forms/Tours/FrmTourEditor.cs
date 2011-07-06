@@ -44,8 +44,8 @@ namespace TaxDataStore
 
             CreateControls();
 
-            this.tour = new Entities.Tour(DomainModel.TourCostGroups.GetAll());
-            this.tour.PaymentStrategy = new DomainModel.PaymentStrategies.NormalStrategy();
+            //this.tour = new Entities.Tour(DomainModel.TourCostGroups.GetAll());
+            //this.tour.PaymentStrategy = new DomainModel.PaymentStrategies.NormalStrategy();
 
             SetupControls();
             BindControls();
@@ -122,25 +122,25 @@ namespace TaxDataStore
             this.dgvEmployees = new EmployeesGridView(this.tour.Employees);
             this.tlpStaff.Controls.Add(this.dgvEmployees, 0, 1);
 
-            this.dgvPayments = new TourPaymentsGridView(this.tour.Payments);
+            //this.dgvPayments = new TourPaymentsGridView(this.tour.Payments);
             this.tlpPayments.Controls.Add(this.dgvPayments, 0, 1);
             this.tlpPayments.SetColumnSpan(this.dgvPayments, 4);
             this.tlpPayments.SetRowSpan(this.dgvPayments, 2);
 
-            this.dgvMembers = new MembersGridView(this.tour.Members);
+            //this.dgvMembers = new MembersGridView(this.tour.Members);
             this.tlpTourMembers.Controls.Add(this.dgvMembers, 0, 1);
 
             this.dgvContacts = new ContactsGridView(this.dgvMembers.BindingSource, "Contacts");
             this.tlpTourMembers.Controls.Add(this.dgvContacts, 3, 1);
 
-            this.dgvCostDetails = new TourCostDetailsGridView(this.tour.CostDetails);
+            //this.dgvCostDetails = new TourCostDetailsGridView(this.tour.CostDetails);
             this.gpxCostGroups.Controls.Add(this.dgvCostDetails);
 
             this.lblReceiptTotal = new Label();
             this.lblReceiptTotal.AutoSize = true;
             this.lblReceiptTotal.Anchor = AnchorStyles.Right;
             this.lblReceiptTotal.Font = new System.Drawing.Font("Tahoma", 16.25F, System.Drawing.FontStyle.Bold);
-            this.lblReceiptTotal.DataBindings.Add(new Binding("Text", this.tour.Receipt.Total, "FormattedValue"));
+            //this.lblReceiptTotal.DataBindings.Add(new Binding("Text", this.tour.Receipt.Total, "FormattedValue"));
 
             this.fgvTourReceipt = new TourReceiptListView();
             this.fgvTourReceipt.SetDataSource(this.tour);
@@ -205,8 +205,8 @@ namespace TaxDataStore
 
         void FrmTourEditor_Load(object sender, EventArgs e)
         {
-            this.tour.SignUpType = (Entities.GeneralType)this.cbxSignUpTypes.SelectedItem;
-            this.tour.TourType = (Entities.GeneralType)this.cbxTourTypes.SelectedItem;
+            //this.tour.SignUpType = (Entities.GeneralType)this.cbxSignUpTypes.SelectedItem;
+            //this.tour.TourType = (Entities.GeneralType)this.cbxTourTypes.SelectedItem;
         }
 
 
@@ -338,7 +338,7 @@ namespace TaxDataStore
 
 
         private void btnRemoveTourMember_Click(object sender, EventArgs e)
-        {
+        {/*
             Entities.TourMember member = (Entities.TourMember) this.dgvMembers.SelectedItem;
             if (member != null)
             {
@@ -348,7 +348,7 @@ namespace TaxDataStore
                 }
 
                 this.tour.Members.Remove(member);
-            }
+            }*/
         }
 
 
@@ -384,12 +384,12 @@ namespace TaxDataStore
 
         private void btnAddPayment_Click(object sender, EventArgs e)
         {
-            Presentation.Controllers.Tours.AddPayment(this.tour.Payments);
+            //Presentation.Controllers.Tours.AddPayment(this.tour.Payments);
         }
 
 
         private void btnRemovePayment_Click(object sender, EventArgs e)
-        {
+        {/*
             Entities.TourPayment payment = (Entities.TourPayment)this.dgvPayments.SelectedItem;
             if (payment != null)
             {
@@ -399,7 +399,7 @@ namespace TaxDataStore
                 }
 
                 this.tour.Payments.Remove(payment);
-            }
+            }*/
         }
 
 

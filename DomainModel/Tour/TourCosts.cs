@@ -16,7 +16,7 @@ namespace DomainModel
         public static bool Save(Entities.Tour tour)
         {
             bool res = true;
-
+            /*
             foreach (Entities.TourCostDetail cost in tour.CostDetails)
             {
                 if (cost.IsDirty)
@@ -30,7 +30,7 @@ namespace DomainModel
                         if (!(res = repo.Update(tour, cost))) break;
                     }
                 }
-            }
+            }*/
 
             return res;
         }
