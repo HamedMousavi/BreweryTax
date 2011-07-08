@@ -101,7 +101,8 @@ namespace DomainModel.Repository.Sql
                     return defaultVal;
                 }
 
-                return Convert.ToDateTime(objDateTime, CultureInfo.InvariantCulture);
+                defaultVal = Convert.ToDateTime(objDateTime, CultureInfo.InvariantCulture);
+                return defaultVal;//.ToLocalTime();
             }
             catch (Exception ex)
             {/*
@@ -165,6 +166,12 @@ namespace DomainModel.Repository.Sql
             }
 
             return 0.0m;
+        }
+
+
+        internal static object GetDbTime(DateTime dateTime)
+        {
+            return dateTime;
         }
     }
 

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Windows.Forms;
 
 
@@ -37,6 +36,8 @@ namespace TaxDataStore
                 this.BackColor = Presentation.View.Theme.TourListBackColor;
             }
 
+            this.lblTourTime.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+
             this.pnlGroups = new Panel();
             this.pnlGroups.AutoScroll = false;
             this.pnlGroups.AutoSize = true;
@@ -49,9 +50,16 @@ namespace TaxDataStore
             this.etbGroups.ButtonAutohide = false;
             this.etbGroups.Anchor = AnchorStyles.Left |
                 AnchorStyles.Top | AnchorStyles.Right;
+            this.etbGroups.AddButtonClick += new EventHandler(Groups_AddButtonClick);
 
             this.tlpTourDetail.Controls.Add(this.etbGroups, 1, 0);
             this.tlpMain.Controls.Add(this.pnlGroups, 0, 1);
+        }
+
+
+        void Groups_AddButtonClick(object sender, EventArgs e)
+        {
+            Presentation.Controllers.Tours.AddGroup(this.Tour);
         }
 
 
@@ -62,7 +70,7 @@ namespace TaxDataStore
             tour.Groups.ListChanged += new 
                 ListChangedEventHandler(Groups_ListChanged);
 
-            UpdateData(tour);
+            UpdateData();
         }
 
 
@@ -70,7 +78,7 @@ namespace TaxDataStore
         {
             if (IsDisposed) return;
 
-            UpdateData((Entities.Tour)sender);
+            UpdateData();
         }
 
 

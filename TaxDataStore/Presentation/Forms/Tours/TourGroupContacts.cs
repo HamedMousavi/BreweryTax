@@ -77,6 +77,15 @@ namespace TaxDataStore
 
             this.fgvMembers.SelectionChanged += new
                 EventHandler(fgvMembers_SelectionChanged);
+
+            this.editToolbar.AddButtonClick += new 
+                EventHandler(editToolbar_AddButtonClick);
+        }
+
+
+        void editToolbar_AddButtonClick(object sender, EventArgs e)
+        {
+            Presentation.Controllers.Tours.AddMember(this.group);
         }
 
 

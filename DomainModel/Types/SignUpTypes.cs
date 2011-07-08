@@ -35,5 +35,16 @@ namespace DomainModel
         {
             return cache.GetById(tourTypeId);
         }
+
+
+        public static GeneralType GetByIndex(int index)
+        {
+            if (cache.Count <= index)
+            {
+                return null;
+            }
+
+            return cache[index];
+        }
     }
 }

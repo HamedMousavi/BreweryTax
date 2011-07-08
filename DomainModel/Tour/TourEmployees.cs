@@ -27,7 +27,7 @@ namespace DomainModel
                     break;
                 }
             }*/
-
+            /*
             foreach(Entities.Employee emp in tour.DeletedEmployees)
             {
                 if (!empRepo.Delete(tour, emp))
@@ -36,7 +36,7 @@ namespace DomainModel
                     break;
                 }
             }
-
+            */
             return res;
         }
 

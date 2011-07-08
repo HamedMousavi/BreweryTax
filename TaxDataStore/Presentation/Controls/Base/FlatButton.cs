@@ -27,9 +27,11 @@ namespace TaxDataStore.Presentation.Controls
                 this.UseVisualStyleBackColor = false;
 
                 this.BackColor = System.Drawing.Color.Transparent;
-                this.FlatAppearance.BorderColor = Presentation.View.Theme.FlatButtonBorderColor;
+                this.FlatAppearance.BorderSize = 0;// = Presentation.View.Theme.FlatButtonBorderColor;
+                this.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
                 this.ForeColor = Presentation.View.Theme.FlatButtonForeColor;
                 this.Anchor = AnchorStyles.Left;
+                this.Cursor = Cursors.Hand;
             }
             
             if (DomainModel.Application.ResourceManager != null)

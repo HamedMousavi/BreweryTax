@@ -24,20 +24,9 @@ namespace DomainModel.Repository.Sql
 
             try
             {
-                if (tour.Id >= 0)
-                {
-                    DomainModel.Application.Status.Update(
-                        StatusTypes.Warning,
-                        "stat_wrn_db_id_already_exists");
-                    return true;
-                }
-
                 this.query.Parameters.Clear();
 
-                this.query.Parameters.Add(new SqlParameter("@TourTime", tour.Time.Value));
-                //this.query.Parameters.Add(new SqlParameter("@TourState", tour.Status.Id));
-                //this.query.Parameters.Add(new SqlParameter("@TourTypeId", tour.TourType.Id));
-                //this.query.Parameters.Add(new SqlParameter("@SignupTypeId", tour.SignUpType.Id));
+                this.query.Parameters.Add(new SqlParameter("@TourTime", Utils.GetDbTime(tour.Time.Value)));
                 this.query.Parameters.Add(new SqlParameter("@Comments", tour.Comments));
 
                 int id;
@@ -66,20 +55,9 @@ namespace DomainModel.Repository.Sql
 
             try
             {
-                if (tour.Id < 0)
-                {
-                    DomainModel.Application.Status.Update(
-                        StatusTypes.Warning,
-                        "stat_wrn_db_id_not_exists");
-                    return true;
-                }
-
                 this.query.Parameters.Clear();
 
-                this.query.Parameters.Add(new SqlParameter("@TourTime", tour.Time.Value));
-                //this.query.Parameters.Add(new SqlParameter("@TourState", tour.Status == null ? -1 : tour.Status.Id));
-                //this.query.Parameters.Add(new SqlParameter("@TourTypeId", tour.TourType.Id));
-                //this.query.Parameters.Add(new SqlParameter("@SignupTypeId", tour.SignUpType.Id));
+                this.query.Parameters.Add(new SqlParameter("@TourTime", Utils.GetDbTime(tour.Time.Value)));
                 this.query.Parameters.Add(new SqlParameter("@Comments", tour.Comments));
                 this.query.Parameters.Add(new SqlParameter("@TourId", tour.Id));
 
@@ -110,7 +88,7 @@ namespace DomainModel.Repository.Sql
             try
             {
                 this.query.Parameters.Clear();
-                this.query.Parameters.Add(new SqlParameter("@TourTime", date));
+                this.query.Parameters.Add(new SqlParameter("@TourTime", Utils.GetDbTime(date)));
 
                 res = this.query.ExecuteReader("ToursGetByDate", MapTourToObject, tours);
             }
@@ -136,16 +114,10 @@ namespace DomainModel.Repository.Sql
             Entities.Tour tour = new Entities.Tour();
 
             tour.Id = Utils.GetSafeInt32(reader, "TourId");
-            tour.Time.Value = Utils.GetSafeDateTime(reader, "TourTime", DateTime.UtcNow);
-            //tour.Status = DomainModel.TourStates.GetById(Utils.GetSafeInt32(reader, "TourState"));
-            //tour.TourType = DomainModel.TourTypes.GetById(Utils.GetSafeInt32(reader, "TourTypeId"));
-            //tour.SignUpType = DomainModel.SignUpTypes.GetById(Utils.GetSafeInt32(reader, "SignupTypeId"));
+            tour.Time.Value = Utils.GetSafeDateTime(reader, "TourTime", DateTime.Now);
             tour.Comments = Utils.GetSafeString(reader, "Comments");
             
-            //if (tour.SignUpType != null) tour.SignUpType.IsDirty = false;
             if (tour.Time != null) tour.Time.IsDirty = false;
-            //if (tour.TourType != null) tour.TourType.IsDirty = false;
-            //if (tour.Status != null) tour.Status.IsDirty = false;
             tour.IsDirty = false;
 
             tours.Add(tour);

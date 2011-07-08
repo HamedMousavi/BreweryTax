@@ -164,6 +164,8 @@ namespace Entities
             }
         }
 
+        public EmployeeCollection DeletedEmployees { get; set; }
+
         #endregion Properties
 
 
@@ -177,6 +179,7 @@ namespace Entities
             this.status = new GeneralType();
 
             this.DeletedMembers = new TourMemberCollection();
+            this.DeletedEmployees = new Entities.EmployeeCollection();
         }
 
 
@@ -188,6 +191,7 @@ namespace Entities
             this.SignUpType.CopyTo(group.SignUpType);
 
             this.Employees.CopyTo(group.Employees);
+            this.DeletedEmployees.CopyTo(group.DeletedEmployees);
             group.Status = this.Status;
 
             if (group.Status != null)

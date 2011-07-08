@@ -93,12 +93,12 @@ namespace DomainModel
             JobProgress progress = progressController.Jobs.GetByName("Init");
             if (progress == null)
             {
-                progress = progressController.CreateJob(0, 21, "Init");
+                progress = progressController.CreateJob(0, 22, "Init");
             }
             else
             {
                 progress.MinValue = 0;
-                progress.MaxValue = 21;
+                progress.MaxValue = 22;
             }
 
             Currencies.Init(settings.SqlConnectionString);
@@ -162,6 +162,9 @@ namespace DomainModel
             progress.Value++;
 
             TourEmployees.Init(settings.SqlConnectionString);
+            progress.Value++;
+
+            TourGroups.Init(settings.SqlConnectionString);
             progress.Value++;
 
             // Note: please fix # of progress jobs if you added 

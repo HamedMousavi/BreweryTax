@@ -73,5 +73,25 @@ namespace TaxDataStore.Presentation.Controllers
                 frm.ShowDialog();
             }
         }
+
+
+        internal static void AddGroup(Entities.Tour tour)
+        {
+            Entities.TourGroup group = new Entities.TourGroup();
+            group.Status = DomainModel.TourStates.GetByIndex(0);
+            group.SignUpType = DomainModel.SignUpTypes.GetByIndex(0);
+            tour.Groups.Add(group);
+
+            if (!DomainModel.Tours.SaveChanges(tour))
+            {
+                tour.Groups.Remove(group);
+            }
+        }
+
+
+        internal static void AddMember(Entities.TourGroup tourGroup)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

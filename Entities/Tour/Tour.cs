@@ -89,9 +89,6 @@ namespace Entities
             }
         }
 
-        public EmployeeCollection DeletedEmployees { get; set; }
-
-
         #endregion Properties
 
 
@@ -102,7 +99,6 @@ namespace Entities
                 PropertyChangedEventHandler(time_PropertyChanged);
 
             this.groups = new TourGroupCollection();
-            this.DeletedEmployees = new Entities.EmployeeCollection();
             
             this.id = -1;
         }
@@ -133,7 +129,6 @@ namespace Entities
         {
             this.Time.CopyTo(tour.Time);
 
-            this.DeletedEmployees.CopyTo(tour.DeletedEmployees);
 
             tour.Comments = this.Comments;
 

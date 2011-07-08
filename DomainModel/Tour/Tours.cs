@@ -23,29 +23,36 @@ namespace DomainModel
         }
 
 
-        public static bool Save(Entities.Tour tour)
+        private static bool Save(Entities.Tour tour)
         {
             bool res = false;
             try
             {
-                using (TransactionScope ts = new TransactionScope())
+                if (tour.IsDirty)
                 {
-                    res = SaveTour(tour);
-                    if (res) res = DomainModel.TourMembers.Save(tour);
-                    if (res) res = DomainModel.TourPayments.Save(tour);
-                    if (res) res = DomainModel.TourCosts.Save(tour);
-                    if (res) res = DomainModel.TourEmployees.Save(tour);
-
-                    if (res) ts.Complete();
-
-                    if (res)
+                    if (tour.Id < 0)
                     {
-                        ClearDeleteCaches(tour);
+                        res = toursRepo.Insert(tour);
+
+                        if (!cache.Contains(tour) &&
+                            (tour.Time.Value.Date - cache.Time.Date).Days == 0)
+                        {
+                            cache.Add(tour);
+                        }
                     }
                     else
                     {
-                        UndoDeleteCaches(tour);
+                        res = toursRepo.Update(tour);
                     }
+
+                    if (res)
+                    {
+                        tour.IsDirty = false;
+                    }
+                }
+                else
+                {
+                    res = true;
                 }
             }
             catch (Exception ex)
@@ -82,45 +89,11 @@ namespace DomainModel
             // Clean deleted items cause they saved with no problem
             //tour.DeletedPayments.Clear();
             //tour.DeletedMembers.Clear();
-            tour.DeletedEmployees.Clear();
+            //tour.DeletedEmployees.Clear();
             //foreach (Entities.TourMember member in tour.Members)
             //{
             //    member.DeletedContacts.Clear();
             //}
-        }
-
-
-        private static bool SaveTour(Entities.Tour tour)
-        {
-            bool res = false;
-
-            if (tour.IsDirty)
-            {
-                if (tour.Id < 0)
-                {
-                    res = toursRepo.Insert(tour);
-                    if (!cache.Contains(tour) && 
-                        (tour.Time.Value.Date - cache.Time.Date).Days == 0)
-                    {
-                        cache.Add(tour);
-                    }
-                }
-                else
-                {
-                    res = toursRepo.Update(tour);
-                }
-
-                if (res)
-                {
-                    tour.IsDirty = false;
-                }
-            }
-            else
-            {
-                res = true;
-            }
-
-            return res;
         }
 
 
@@ -165,6 +138,7 @@ namespace DomainModel
 
                 foreach (Entities.Tour tour in tours)
                 {
+                    DomainModel.TourGroups.Load(tour);
                     DomainModel.TourMembers.Load(tour);
                     DomainModel.TourPayments.Load(tour);
                     DomainModel.TourCosts.Load(tour);
@@ -183,6 +157,36 @@ namespace DomainModel
                 catch { }
             }
 
+        }
+
+
+        public static bool SaveChanges(Entities.Tour tour)
+        {
+            bool res = false;
+            try
+            {
+                using (TransactionScope ts = new TransactionScope())
+                {
+                    res = Save(tour);
+                    if (res) res = DomainModel.TourGroups.Save(tour);
+
+                    ts.Complete();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "",
+                        ex.Message);
+                }
+                catch { }
+            }
+
+            return res;
         }
     }
 }
