@@ -20,7 +20,7 @@ namespace DomainModel
 
         private static void LoadAll(Culture culture)
         {
-            cache = repo.GetByName("TourStateTypes", culture.Id);
+            cache = repo.GetByName("GroupStateTypes", culture.Id);
         }
 
 

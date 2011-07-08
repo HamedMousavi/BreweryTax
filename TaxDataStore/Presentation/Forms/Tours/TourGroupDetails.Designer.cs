@@ -30,9 +30,10 @@
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.pbxSignupType = new System.Windows.Forms.PictureBox();
-            this.lblSignupType = new System.Windows.Forms.Label();
+            this.pbxGroupState = new System.Windows.Forms.PictureBox();
             this.tlpMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSignupType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxGroupState)).BeginInit();
             this.SuspendLayout();
             // 
             // tlpMain
@@ -40,14 +41,14 @@
             this.tlpMain.ColumnCount = 1;
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpMain.Controls.Add(this.pbxSignupType, 0, 1);
-            this.tlpMain.Controls.Add(this.lblSignupType, 0, 2);
+            this.tlpMain.Controls.Add(this.pbxGroupState, 0, 0);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Name = "tlpMain";
-            this.tlpMain.RowCount = 3;
+            this.tlpMain.RowCount = 2;
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpMain.Size = new System.Drawing.Size(80, 150);
             this.tlpMain.TabIndex = 0;
             // 
@@ -55,21 +56,23 @@
             // 
             this.pbxSignupType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbxSignupType.Location = new System.Drawing.Point(3, 84);
+            this.pbxSignupType.Location = new System.Drawing.Point(3, 115);
             this.pbxSignupType.Name = "pbxSignupType";
-            this.pbxSignupType.Size = new System.Drawing.Size(74, 50);
-            this.pbxSignupType.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbxSignupType.Size = new System.Drawing.Size(74, 32);
+            this.pbxSignupType.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxSignupType.TabIndex = 0;
             this.pbxSignupType.TabStop = false;
             // 
-            // lblSignupType
+            // pbxGroupState
             // 
-            this.lblSignupType.AutoSize = true;
-            this.lblSignupType.Location = new System.Drawing.Point(3, 137);
-            this.lblSignupType.Name = "lblSignupType";
-            this.lblSignupType.Size = new System.Drawing.Size(35, 13);
-            this.lblSignupType.TabIndex = 1;
-            this.lblSignupType.Text = "label1";
+            this.pbxGroupState.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbxGroupState.Location = new System.Drawing.Point(3, 3);
+            this.pbxGroupState.Name = "pbxGroupState";
+            this.pbxGroupState.Size = new System.Drawing.Size(74, 32);
+            this.pbxGroupState.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxGroupState.TabIndex = 2;
+            this.pbxGroupState.TabStop = false;
             // 
             // TourGroupDetails
             // 
@@ -79,8 +82,8 @@
             this.Name = "TourGroupDetails";
             this.Size = new System.Drawing.Size(80, 150);
             this.tlpMain.ResumeLayout(false);
-            this.tlpMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSignupType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxGroupState)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -89,6 +92,6 @@
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
         private System.Windows.Forms.PictureBox pbxSignupType;
-        private System.Windows.Forms.Label lblSignupType;
+        private System.Windows.Forms.PictureBox pbxGroupState;
     }
 }

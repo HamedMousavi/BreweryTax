@@ -161,6 +161,7 @@ namespace TaxDataStore.Presentation
 
             // this.frmCurrent.Visible = true;
             this.frmCurrent.Show();
+            this.frmCurrent.Focus();
 
             return true;
         }

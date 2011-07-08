@@ -26,6 +26,7 @@ namespace TaxDataStore.Presentation
         public Color FormLightLabelColor { get; set; }
         public Color FormLightBackColor { get; set; }
 
+        public Color TourListBackColor { get; set; }
         public Color TourGroupItemBackColor { get; set; }
         public Color TourGroupServiceCountForeColor { get; set; }
         public Color TourGroupServiceNameForeColor { get; set; }
@@ -75,7 +76,8 @@ namespace TaxDataStore.Presentation
             this.FlatButtonBackColor = Color.Gray;
             this.FlatButtonBorderColor = this.TourGroupItemBackColor;
             this.FlatButtonForeColor = GroupPanelTitleColor;
-        }
 
+            this.TourListBackColor = System.Drawing.Color.White;
+        }
     }
 }

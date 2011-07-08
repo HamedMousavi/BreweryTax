@@ -179,9 +179,6 @@
     <None Include="Resources\mobile-phone.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\telephone.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\users.png" />
   </ItemGroup>
   <ItemGroup>
@@ -225,12 +222,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\node-select-all.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\database.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\globe-green.png" />
   </ItemGroup>
   <ItemGroup>
@@ -255,16 +246,31 @@
     <None Include="Resources\flag_yellow.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\home.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\email_open.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\bottle.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bucket.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\node_select_all.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\telephone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group_state_confirmed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group_state_reserved.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\signup_type_office.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\signup_type_mail.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

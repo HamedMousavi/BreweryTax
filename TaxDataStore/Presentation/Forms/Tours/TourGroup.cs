@@ -1,4 +1,6 @@
 ﻿using System.Windows.Forms;
+using System.Drawing;
+using System;
 
 
 namespace TaxDataStore
@@ -26,6 +28,7 @@ namespace TaxDataStore
         TourGroupDetails ctrlDetail;
         TourGroupContacts ctrlContacts;
         TourGroupServices ctrlServices;
+        TourGroupEmployees ctrlEmployees;
 
 
         public TourGroup()
@@ -33,7 +36,7 @@ namespace TaxDataStore
             InitializeComponent();
 
             this.BackColor = System.Drawing.Color.DimGray;
-            
+
             SetupControls();
         }
 
@@ -50,14 +53,17 @@ namespace TaxDataStore
             this.ctrlDetail = new TourGroupDetails();
             this.ctrlContacts = new TourGroupContacts();
             this.ctrlServices = new TourGroupServices();
+            this.ctrlEmployees = new TourGroupEmployees();
 
             this.ctrlDetail.Dock = DockStyle.Fill;
             this.ctrlContacts.Dock = DockStyle.Fill;
             this.ctrlServices.Dock = DockStyle.Fill;
+            this.ctrlEmployees.Dock = DockStyle.Fill;
 
             this.tlpMain.Controls.Add(this.ctrlDetail, 0, 0);
             this.tlpMain.Controls.Add(this.ctrlContacts, 1, 0);
             this.tlpMain.Controls.Add(this.ctrlServices, 2, 0);
+            this.tlpMain.Controls.Add(this.ctrlEmployees, 3, 0);
         }
 
 

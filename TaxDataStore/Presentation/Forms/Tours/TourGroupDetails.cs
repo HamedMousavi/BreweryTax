@@ -12,6 +12,11 @@ namespace TaxDataStore
 
         protected Entities.TourGroup group;
 
+
+        protected Dictionary<string, Image> sginupTypeImages;
+        protected Dictionary<string, Image> groupStateImages;
+
+
         public Entities.TourGroup Group
         {
             get { return this.group; }
@@ -33,7 +38,8 @@ namespace TaxDataStore
             {
                 this.group.PropertyChanged += new
                     PropertyChangedEventHandler(group_PropertyChanged);
-                UpdateSignupState();
+
+                BindControls();
             }
         }
 
@@ -47,9 +53,6 @@ namespace TaxDataStore
             }
         }
 
-        
-        protected Dictionary<string, Image> images;
-
 
         public TourGroupDetails()
         {
@@ -57,7 +60,6 @@ namespace TaxDataStore
 
             SetupControls();
             CreateImages();
-            BindControls();
         }
 
 
@@ -79,14 +81,20 @@ namespace TaxDataStore
 
         private void CreateImages()
         {
-            this.images = new Dictionary<string, Image>();
-            this.images.Add("tourism_office", DomainModel.Application.ResourceManager.GetImage("home"));
-            this.images.Add("email", DomainModel.Application.ResourceManager.GetImage("email_open"));
+            this.sginupTypeImages = new Dictionary<string, Image>();
+            this.sginupTypeImages.Add("tourism_office", DomainModel.Application.ResourceManager.GetImage("signup_type_office"));
+            this.sginupTypeImages.Add("email", DomainModel.Application.ResourceManager.GetImage("signup_type_mail"));
+
+            this.groupStateImages = new Dictionary<string, Image>();
+            this.groupStateImages.Add("reserved", DomainModel.Application.ResourceManager.GetImage("group_state_reserved"));
+            this.groupStateImages.Add("confirmed", DomainModel.Application.ResourceManager.GetImage("group_state_confirmed"));
         }
 
 
         private void BindControls()
         {
+            UpdateSignupState();
+            UpdateGroupState();
         }
 
 
@@ -96,13 +104,37 @@ namespace TaxDataStore
             {
                 UpdateSignupState();
             }
+            else if (string.Equals(e.PropertyName, "Status", System.StringComparison.InvariantCulture))
+            {
+                UpdateGroupState();
+            }
+        }
+
+
+        private void UpdateGroupState()
+        {
+            this.pbxGroupState.Image = GetGroupStateImage(this.group);
         }
 
 
         private void UpdateSignupState()
         {
-            this.lblSignupType.Text = this.group.SignUpType.Name;
             this.pbxSignupType.Image = GetSignupTypeImage(this.group);
+        }
+
+
+        private Image GetGroupStateImage(Entities.TourGroup group)
+        {
+            switch (group.Status.Id)
+            {
+                case 14: // reserved
+                    return this.groupStateImages["reserved"];
+
+                case 15: // confirmed
+                    return this.groupStateImages["confirmed"];
+            }
+
+            return null;
         }
 
 
@@ -111,10 +143,10 @@ namespace TaxDataStore
             switch (group.SignUpType.Id)
             {
                 case 4: // Tourism office
-                    return this.images["tourism_office"];
+                    return this.sginupTypeImages["tourism_office"];
 
                 case 5: // E-Mail
-                    return this.images["email"];
+                    return this.sginupTypeImages["email"];
             }
 
             return null;

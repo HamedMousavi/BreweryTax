@@ -49,7 +49,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>beer.ico</ApplicationIcon>
+    <ApplicationIcon>tour.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -380,6 +380,12 @@
     </Compile>
     <Compile Include="Presentation\Controllers\Application.cs" />
     <Compile Include="Presentation\Controllers\Users.cs" />
+    <Compile Include="Presentation\Forms\Tours\TourGroupEmployees.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\Tours\TourGroupEmployees.Designer.cs">
+      <DependentUpon>TourGroupEmployees.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\Models\AppUpdateInfo.cs" />
     <Compile Include="Presentation\Models\PriceOperationItem.cs" />
     <Compile Include="Presentation\Models\ValueOperationItem.cs" />
@@ -556,6 +562,9 @@
     <EmbeddedResource Include="Presentation\Forms\Membership\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Forms\Tours\TourGroupEmployees.resx">
+      <DependentUpon>TourGroupEmployees.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -641,7 +650,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="beer.ico" />
+    <Content Include="tour.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">

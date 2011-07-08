@@ -17,8 +17,8 @@ namespace TaxDataStore.Presentation.Controls
                 this.AutoSizeMode = AutoSizeMode.GrowOnly;
                 this.FlatStyle = FlatStyle.Flat;
 
-                this.Margin = new Padding(2, 2, 2, 2);
-                this.Padding = new Padding(0, 0, 3, 1);
+                this.Margin = new Padding(1, 1, 0, 0);
+                this.Padding = new Padding(0, 0, 2, 0);
 
                 this.Size = new System.Drawing.Size(10, 10);
                 this.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

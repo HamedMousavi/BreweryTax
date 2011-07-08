@@ -20,7 +20,10 @@ namespace TaxDataStore
 
         private void SetupControls()
         {
-            this.BackColor = System.Drawing.Color.White;
+            if (Presentation.View.Theme != null)
+            {
+                this.BackColor = Presentation.View.Theme.TourListBackColor;
+            }
         }
 
 

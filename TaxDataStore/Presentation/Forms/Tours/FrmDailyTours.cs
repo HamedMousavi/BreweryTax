@@ -21,12 +21,12 @@ namespace TaxDataStore
         private FlatButton btnDeleteTour;
 
         private ToursListView tlvTours;
-       /*
-        protected ToursGridView fgvTours;
-        protected FlatGridView fgvEmployees;
-        protected FlatGridView fgvTourMembers;
-        protected ContactsListView fgvMemberContacts;
-        protected TourCostDetailsGridView dgvCostDetails;*/
+        /*
+         protected ToursGridView fgvTours;
+         protected FlatGridView fgvEmployees;
+         protected FlatGridView fgvTourMembers;
+         protected ContactsListView fgvMemberContacts;
+         protected TourCostDetailsGridView dgvCostDetails;*/
 
         protected Entities.TourCollection tours;
 
@@ -98,7 +98,7 @@ namespace TaxDataStore
             this.btnAddTour.Click += new EventHandler(btnAddTour_Click);
             this.btnEditTour.Click += new EventHandler(btnEditTour_Click);
             this.btnDeleteTour.Click += new EventHandler(btnDeleteTour_Click);
-            
+
             this.tlpButtons.Controls.Add(this.btnAddTour, 0, 0);
             this.tlpButtons.Controls.Add(this.btnEditTour, 1, 0);
             this.tlpButtons.Controls.Add(this.btnDeleteTour, 2, 0);
@@ -200,13 +200,14 @@ namespace TaxDataStore
             Entities.TourGroup group = new Entities.TourGroup();
             group.Name = "123456";
             group.SignUpType.Id = 5;
-            group.Status.Id = 19;
+            group.SignUpType.Name = "E-Mail";
+            group.Status.Id = 14;
             tour.Groups.Add(group);
 
             group = new Entities.TourGroup();
             group.Name = "654321";
             group.SignUpType.Id = 4;
-            group.Status.Id = 18;
+            group.Status.Id = 15;
             tour.Groups.Add(group);
 
             tours.Add(tour);

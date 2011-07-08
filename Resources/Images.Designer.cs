@@ -249,13 +249,6 @@ namespace Resources {
             }
         }
         
-        public static System.Drawing.Bitmap email_open {
-            get {
-                object obj = ResourceManager.GetObject("email_open", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         public static System.Drawing.Bitmap Error {
             get {
                 object obj = ResourceManager.GetObject("Error", resourceCulture);
@@ -305,16 +298,23 @@ namespace Resources {
             }
         }
         
-        public static System.Drawing.Bitmap hammer {
+        public static System.Drawing.Bitmap group_state_confirmed {
             get {
-                object obj = ResourceManager.GetObject("hammer", resourceCulture);
+                object obj = ResourceManager.GetObject("group_state_confirmed", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        public static System.Drawing.Bitmap home {
+        public static System.Drawing.Bitmap group_state_reserved {
             get {
-                object obj = ResourceManager.GetObject("home", resourceCulture);
+                object obj = ResourceManager.GetObject("group_state_reserved", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap hammer {
+            get {
+                object obj = ResourceManager.GetObject("hammer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -385,6 +385,20 @@ namespace Resources {
         public static System.Drawing.Bitmap plus {
             get {
                 object obj = ResourceManager.GetObject("plus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap signup_type_mail {
+            get {
+                object obj = ResourceManager.GetObject("signup_type_mail", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap signup_type_office {
+            get {
+                object obj = ResourceManager.GetObject("signup_type_office", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

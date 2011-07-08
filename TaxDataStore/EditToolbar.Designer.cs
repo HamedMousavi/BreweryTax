@@ -63,7 +63,7 @@ namespace TaxDataStore
             this.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "EditToolbar";
-            this.Size = new System.Drawing.Size(520, 40);
+            this.Size = new System.Drawing.Size(100, 24);
             this.tlpMain.ResumeLayout(false);
             this.tlpMain.PerformLayout();
             this.ResumeLayout(false);

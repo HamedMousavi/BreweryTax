@@ -48,7 +48,7 @@
             this.tlpMain.RowCount = 2;
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMain.Size = new System.Drawing.Size(205, 70);
+            this.tlpMain.Size = new System.Drawing.Size(207, 68);
             this.tlpMain.TabIndex = 0;
             // 
             // tlpTourDetail
@@ -57,17 +57,18 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpTourDetail.AutoSize = true;
             this.tlpTourDetail.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tlpTourDetail.ColumnCount = 2;
+            this.tlpTourDetail.ColumnCount = 3;
             this.tlpTourDetail.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpTourDetail.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpTourDetail.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpTourDetail.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpTourDetail.Controls.Add(this.lblTourTime, 0, 0);
-            this.tlpTourDetail.Controls.Add(this.lblDetails, 1, 0);
-            this.tlpTourDetail.Location = new System.Drawing.Point(3, 3);
+            this.tlpTourDetail.Controls.Add(this.lblDetails, 2, 0);
+            this.tlpTourDetail.Location = new System.Drawing.Point(0, 0);
             this.tlpTourDetail.Margin = new System.Windows.Forms.Padding(0);
             this.tlpTourDetail.Name = "tlpTourDetail";
             this.tlpTourDetail.RowCount = 1;
-            this.tlpTourDetail.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpTourDetail.Size = new System.Drawing.Size(199, 13);
+            this.tlpTourDetail.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpTourDetail.Size = new System.Drawing.Size(207, 13);
             this.tlpTourDetail.TabIndex = 0;
             // 
             // lblTourTime
@@ -82,9 +83,9 @@
             // 
             // lblDetails
             // 
-            this.lblDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDetails.AutoSize = true;
-            this.lblDetails.Location = new System.Drawing.Point(34, 0);
+            this.lblDetails.Location = new System.Drawing.Point(92, 0);
             this.lblDetails.Margin = new System.Windows.Forms.Padding(0);
             this.lblDetails.Name = "lblDetails";
             this.lblDetails.Size = new System.Drawing.Size(115, 13);
@@ -95,10 +96,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tlpMain);
             this.Name = "TourControl";
-            this.Size = new System.Drawing.Size(205, 70);
+            this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.Size = new System.Drawing.Size(207, 72);
             this.tlpMain.ResumeLayout(false);
             this.tlpMain.PerformLayout();
             this.tlpTourDetail.ResumeLayout(false);

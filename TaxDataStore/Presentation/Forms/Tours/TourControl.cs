@@ -14,7 +14,7 @@ namespace TaxDataStore
         public Entities.Tour Tour { get; set; }
 
         protected Panel pnlGroups;
-
+        protected EditToolbar etbGroups;
 
         public TourControl(Entities.Tour tour)
         {
@@ -33,7 +33,8 @@ namespace TaxDataStore
                 this.lblDetails.ForeColor = Presentation.View.Theme.TourForeColor;
                 this.lblTourTime.ForeColor = Presentation.View.Theme.TourForeColor;
                 this.lblTourTime.Font = Presentation.View.Theme.TourTitleFont;
-                this.BackColor = Presentation.View.Theme.TourBackColor;
+                this.tlpMain.BackColor = Presentation.View.Theme.TourBackColor;
+                this.BackColor = Presentation.View.Theme.TourListBackColor;
             }
 
             this.pnlGroups = new Panel();
@@ -42,6 +43,14 @@ namespace TaxDataStore
             this.pnlGroups.Anchor = AnchorStyles.Left |
                 AnchorStyles.Top | AnchorStyles.Right;
 
+            this.etbGroups = new EditToolbar(
+                DomainModel.Application.ResourceManager.
+                GetText("lbl_groups"), true, false, false);
+            this.etbGroups.ButtonAutohide = false;
+            this.etbGroups.Anchor = AnchorStyles.Left |
+                AnchorStyles.Top | AnchorStyles.Right;
+
+            this.tlpTourDetail.Controls.Add(this.etbGroups, 1, 0);
             this.tlpMain.Controls.Add(this.pnlGroups, 0, 1);
         }
 
