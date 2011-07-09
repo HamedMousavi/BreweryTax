@@ -38,16 +38,6 @@ namespace TaxDataStore.Presentation.Controllers
             }
         }
 
-
-        internal static void AddMember(Entities.Tour tour)
-        {/*
-            using (FrmTourMemberEditor frm = new FrmTourMemberEditor(tour.Members))
-            {
-                frm.ShowDialog();
-            }*/
-        }
-
-
         internal static void EditMember(Entities.TourMember member)
         {
             using (FrmTourMemberEditor frm = new FrmTourMemberEditor(member))
@@ -82,7 +72,7 @@ namespace TaxDataStore.Presentation.Controllers
             group.SignUpType = DomainModel.SignUpTypes.GetByIndex(0);
             tour.Groups.Add(group);
 
-            if (!DomainModel.Tours.SaveChanges(tour))
+            if (!DomainModel.TourGroups.Save(tour))
             {
                 tour.Groups.Remove(group);
             }
@@ -91,7 +81,10 @@ namespace TaxDataStore.Presentation.Controllers
 
         internal static void AddMember(Entities.TourGroup tourGroup)
         {
-            throw new NotImplementedException();
+            using (FrmTourMemberEditor frm = new FrmTourMemberEditor(tourGroup))
+            {
+                frm.ShowDialog();
+            }
         }
     }
 }

@@ -40,7 +40,7 @@ namespace TaxDataStore.Presentation.Controls
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ShowGroups = false;
             this.ShowImagesOnSubItems = true;
-            this.ShowItemToolTips = false;
+            this.ShowItemToolTips = true;
             this.UseAlternatingBackColors = false;
             this.UseCompatibleStateImageBehavior = false;
             this.UseHotItem = true;
@@ -52,6 +52,9 @@ namespace TaxDataStore.Presentation.Controls
             this.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GridLines = false;
             this.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+
+            this.HighlightBackgroundColor = this.BackColor;
+            this.HighlightForegroundColor = this.ForeColor;
 
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
         }
@@ -79,7 +82,7 @@ namespace TaxDataStore.Presentation.Controls
             columnType.AspectToStringConverter = ContactMediaTextGetter;
             columnType.IsEditable = false;
             columnType.FillsFreeSpace = false;
-            columnType.Width = 28;
+            columnType.Width = 20;
 
             this.Columns.Add(columnType);
 

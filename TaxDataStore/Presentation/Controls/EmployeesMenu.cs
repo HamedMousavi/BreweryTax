@@ -9,7 +9,7 @@ namespace TaxDataStore.Presentation.Controls
     public class EmployeesMenu : ContextMenu
     {
 
-        protected BindingSource datasource;
+        protected BindingSource bindingsource;
         
         public delegate void ExecutionAction(string employeeName);
         public ExecutionAction ClickAction { get; set; }
@@ -18,10 +18,11 @@ namespace TaxDataStore.Presentation.Controls
         public EmployeesMenu()
             : base()
         {
-            this.datasource = new BindingSource();
-            this.datasource.ListChanged += new ListChangedEventHandler(datasource_ListChanged);
+            this.bindingsource = new BindingSource();
+            this.bindingsource.ListChanged += new 
+                ListChangedEventHandler(datasource_ListChanged);
 
-            this.datasource.DataSource = DomainModel.Employees.GetAll();
+            this.bindingsource.DataSource = DomainModel.Employees.GetAll();
 
             UpdateItems();
         }
@@ -37,7 +38,7 @@ namespace TaxDataStore.Presentation.Controls
         {
             this.MenuItems.Clear();
 
-            foreach (Employee item in (EmployeeCollection)this.datasource.DataSource)
+            foreach (Employee item in (EmployeeCollection)this.bindingsource.DataSource)
             {
                 // Add to menu
                 this.MenuItems.Add(
@@ -47,6 +48,7 @@ namespace TaxDataStore.Presentation.Controls
             }
         }
 
+
         private void OnMenuItemClick(object sender, System.EventArgs e)
         {
             System.Windows.Forms.MenuItem menuItem =
@@ -54,7 +56,7 @@ namespace TaxDataStore.Presentation.Controls
 
             if (menuItem != null)
             {
-                ClickAction(menuItem.Text);
+                if (ClickAction!= null) ClickAction(menuItem.Text);
             }
         }
 

@@ -70,6 +70,9 @@
       <DependentUpon>EditToolbar.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Controllers\File.cs" />
+    <Compile Include="Presentation\Controls\GeneralTypeToolStripItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Presentation\Controls\JobProgress.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -77,6 +80,9 @@
       <DependentUpon>JobProgress.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Controls\MainWindow\StatusLabelAppUpdate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\GeneralTypeMenu.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Presentation\Forms\Reports\FrmMonthlyReportInfo.cs">
@@ -695,7 +701,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" BuildVersion_BuildVersioningStyle="Increment.YearStamp.MonthAndDayStamp.TimeStamp" BuildVersion_ConfigurationName="Release" />
+      <UserProperties BuildVersion_ConfigurationName="Release" BuildVersion_BuildVersioningStyle="Increment.YearStamp.MonthAndDayStamp.TimeStamp" BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

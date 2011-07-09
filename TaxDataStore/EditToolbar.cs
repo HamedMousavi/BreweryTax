@@ -22,6 +22,7 @@ namespace TaxDataStore
                 }
             }
         }
+        public ContextMenu AddContextMenu;
 
 
         private FlatButton btnAdd;
@@ -87,14 +88,37 @@ namespace TaxDataStore
 
             this.PerformLayout();
 
+            this.btnAdd.Click += new EventHandler(OnButtonClick);
+            this.btnDelete.Click += new EventHandler(OnButtonClick);
+            this.btnEdit.Click += new EventHandler(OnButtonClick);
+
             this.Disposed += new EventHandler(EditToolbar_Disposed);
             AttachMouseEvents(this);
+        }
+
+
+        void OnButtonClick(object sender, EventArgs e)
+        {
+            if (sender == this.btnAdd && this.AddContextMenu != null)
+            {
+                this.AddContextMenu.Show(
+                    this.btnAdd,
+                    new Point(this.btnAdd.Location.X, this.btnAdd.Height));
+            }
+            if (this.autoHide)
+            {
+                ShowEditOptions(false);
+            }
         }
 
 
         void EditToolbar_Disposed(object sender, EventArgs e)
         {
             DetachMouseEvents(this);
+
+            this.btnAdd.Click -= new EventHandler(OnButtonClick);
+            this.btnDelete.Click -= new EventHandler(OnButtonClick);
+            this.btnEdit.Click -= new EventHandler(OnButtonClick);
         }
 
 

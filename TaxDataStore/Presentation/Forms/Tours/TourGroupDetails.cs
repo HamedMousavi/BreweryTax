@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+using TaxDataStore.Presentation.Controls;
 
 
 namespace TaxDataStore
@@ -12,6 +13,8 @@ namespace TaxDataStore
 
         protected Entities.TourGroup group;
 
+        protected GeneralTypeMenu mnuSignupType;
+        protected GeneralTypeMenu mnuGroupState;
 
         protected Dictionary<string, Image> sginupTypeImages;
         protected Dictionary<string, Image> groupStateImages;
@@ -76,6 +79,12 @@ namespace TaxDataStore
             {
                 this.BackColor = Presentation.View.Theme.TourGroupItemBackColor;
             }
+
+            this.mnuSignupType = new GeneralTypeMenu(DomainModel.SignUpTypes.GetAll());
+            this.mnuSignupType.ClickAction = OnSignupTypeMenu;
+
+            this.mnuGroupState = new GeneralTypeMenu(DomainModel.TourStates.GetAll());
+            this.mnuGroupState.ClickAction = OnGroupStateMenu;
         }
 
 
@@ -152,5 +161,50 @@ namespace TaxDataStore
             return null;
         }
 
+        private void pbxGroupState_Click(object sender, System.EventArgs e)
+        {
+            this.mnuGroupState.Show(
+                this.pbxGroupState,
+                new Point(this.pbxGroupState.Location.X, this.pbxGroupState.Height), 
+                ToolStripDropDownDirection.BelowRight);
+        }
+
+
+        private void pbxSignupType_Click(object sender, System.EventArgs e)
+        {
+            this.mnuSignupType.Show(
+                this.pbxSignupType,
+                new Point(this.pbxSignupType.Location.X, this.pbxSignupType.Height),
+                ToolStripDropDownDirection.BelowRight);
+        }
+
+        private void btnDeleteGroup_Click(object sender, System.EventArgs e)
+        {
+            DomainModel.TourGroups.Delete(this.group);
+        }
+
+
+        public void OnSignupTypeMenu(Entities.GeneralType item)
+        {
+            Entities.GeneralType old = this.group.SignUpType;
+
+            this.group.SignUpType = item;
+            if (!DomainModel.TourGroups.Save(this.group))
+            {
+                this.group.SignUpType = old;
+            }
+        }
+
+
+        public void OnGroupStateMenu(Entities.GeneralType item)
+        {
+            Entities.GeneralType old = this.group.Status;
+
+            this.group.Status = item;
+            if (!DomainModel.TourGroups.Save(this.group))
+            {
+                this.group.Status = old;
+            }
+        }
     }
 }

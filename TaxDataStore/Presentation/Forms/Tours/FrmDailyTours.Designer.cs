@@ -40,7 +40,6 @@ namespace TaxDataStore
             this.tlpMain.SuspendLayout();
             this.tlpToursContainer.SuspendLayout();
             this.tlpToursToolbar.SuspendLayout();
-            this.tlpButtons.SuspendLayout();
             this.tlpDate.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,6 +106,7 @@ namespace TaxDataStore
             this.rtbComments.Size = new System.Drawing.Size(74, 26);
             this.rtbComments.TabIndex = 1;
             this.rtbComments.Text = "";
+            this.rtbComments.Visible = false;
             // 
             // tlpButtons
             // 
@@ -159,7 +159,7 @@ namespace TaxDataStore
             this.tlpTours.Name = "tlpTours";
             this.tlpTours.RowCount = 1;
             this.tlpTours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpTours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpTours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 412F));
             this.tlpTours.Size = new System.Drawing.Size(637, 412);
             this.tlpTours.TabIndex = 7;
             // 
@@ -176,8 +176,6 @@ namespace TaxDataStore
             this.tlpMain.ResumeLayout(false);
             this.tlpToursContainer.ResumeLayout(false);
             this.tlpToursToolbar.ResumeLayout(false);
-            this.tlpButtons.ResumeLayout(false);
-            this.tlpButtons.PerformLayout();
             this.tlpDate.ResumeLayout(false);
             this.ResumeLayout(false);
 

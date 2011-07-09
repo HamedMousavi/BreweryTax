@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Data.SqlClient;
-using DomainModel.Repository.Sql;
-using StatusController.Abstract;
 
 
 namespace DomainModel.Repository.Sql
@@ -18,95 +16,6 @@ namespace DomainModel.Repository.Sql
         }
 
 
-        public bool Insert(Entities.Tour tour, Entities.Employee employee)
-        {
-            bool res = false;
-
-            try
-            {
-                this.query.Parameters.Clear();
-
-                this.query.Parameters.Add(new SqlParameter("@TourId", tour.Id));
-                this.query.Parameters.Add(new SqlParameter("@EmployeeId", employee.User.Id));
-
-                int ret;
-                res = this.query.ExecuteInsertProc("TourEmployeesAdd", out ret);
-            }
-            catch (Exception ex)
-            {
-                try
-                {
-                    DomainModel.Application.Status.Update(
-                        StatusController.Abstract.StatusTypes.Error,
-                        "",
-                        ex.Message);
-                }
-                catch { }
-            }
-
-            return res;
-        }
-
-
-        public bool Delete(Entities.Tour tour, Entities.Employee employee)
-        {
-            bool res = false;
-
-            try
-            {
-                this.query.Parameters.Clear();
-
-                this.query.Parameters.Add(new SqlParameter("@TourId", tour.Id));
-                this.query.Parameters.Add(new SqlParameter("@EmployeeId", employee.User.Id));
-
-
-                int affected;
-                res = this.query.ExecuteUpdateProc("TourEmployeesDeleteById", out affected);
-
-            }
-            catch (Exception ex)
-            {
-                try
-                {
-                    DomainModel.Application.Status.Update(
-                        StatusController.Abstract.StatusTypes.Error,
-                        "",
-                        ex.Message);
-                }
-                catch { }
-            }
-
-            return res;
-        }
-
-
-        internal bool GetByTour(Entities.Tour tour)
-        {
-            bool res = false;
-
-            try
-            {
-                this.query.Parameters.Clear();
-                this.query.Parameters.Add(new SqlParameter("@TourId", tour.Id));
-
-                res = this.query.ExecuteReader("TourEmployeesGetByTourId", MapTourEmployeesToObject, tour);
-            }
-            catch (Exception ex)
-            {
-                try
-                {
-                    DomainModel.Application.Status.Update(
-                        StatusController.Abstract.StatusTypes.Error,
-                        "",
-                        ex.Message);
-                }
-                catch { }
-            }
-
-            return res;
-        }
-
-
         protected void MapTourEmployeesToObject(SqlDataReader reader, object userData)
         {
             Entities.User user = DomainModel.Membership.Users.GetById(
@@ -115,8 +24,97 @@ namespace DomainModel.Repository.Sql
             Entities.Employee emp = new Entities.Employee(user);
             emp.IsDirty = false;
 
-            Entities.Tour tour = (Entities.Tour)userData;
-            //tour.Employees.Add(emp);
+            Entities.TourGroup group = (Entities.TourGroup)userData;
+            group.Employees.Add(emp);
+        }
+
+
+        internal bool GetByGroup(Entities.TourGroup group)
+        {
+            bool res = false;
+
+            try
+            {
+                this.query.Parameters.Clear();
+                this.query.Parameters.Add(new SqlParameter("@GroupId", group.Id));
+
+                res = this.query.ExecuteReader("TourGroupEmployeesGetByTourId", MapTourEmployeesToObject, group);
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "",
+                        ex.Message);
+                }
+                catch { }
+            }
+
+            return res;
+        }
+
+
+        internal bool Delete(Entities.TourGroup group, Entities.Employee employee)
+        {
+            bool res = false;
+
+            try
+            {
+                this.query.Parameters.Clear();
+
+                this.query.Parameters.Add(new SqlParameter("@GroupId", group.Id));
+                this.query.Parameters.Add(new SqlParameter("@EmployeeId", employee.User.Id));
+
+
+                int affected;
+                res = this.query.ExecuteUpdateProc("TourGroupEmployeesDeleteById", out affected);
+
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "",
+                        ex.Message);
+                }
+                catch { }
+            }
+
+            return res;
+        }
+
+
+        internal bool Insert(Entities.TourGroup group, Entities.Employee employee)
+        {
+            bool res = false;
+
+            try
+            {
+                this.query.Parameters.Clear();
+
+                this.query.Parameters.Add(new SqlParameter("@GroupId", group.Id));
+                this.query.Parameters.Add(new SqlParameter("@EmployeeId", employee.User.Id));
+
+                int ret;
+                res = this.query.ExecuteInsertProc("TourGroupEmployeesAdd", out ret);
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "",
+                        ex.Message);
+                }
+                catch { }
+            }
+
+            return res;
         }
     }
 }

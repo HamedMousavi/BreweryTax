@@ -153,11 +153,11 @@ namespace TaxDataStore
             {
                 // Update edit user and database
                 this.tour.CopyTo(this.editTour);
-                res = DomainModel.Tours.SaveChanges(this.editTour);
+                res = DomainModel.Tours.Save(this.editTour);
             }
             else
             {
-                res = DomainModel.Tours.SaveChanges(this.tour);
+                res = DomainModel.Tours.Save(this.tour);
             }
 
             if (res)

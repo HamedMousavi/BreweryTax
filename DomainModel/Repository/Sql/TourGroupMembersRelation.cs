@@ -5,19 +5,19 @@ using System.Data.SqlClient;
 namespace DomainModel.Repository.Sql
 {
 
-    class TourMembersRelation
+    class TourGroupMembersRelation
     {
 
         protected QueryHelper query;
 
 
-        public TourMembersRelation(string sqlCnnStr)
+        public TourGroupMembersRelation(string sqlCnnStr)
         {
             this.query = new QueryHelper(sqlCnnStr);
         }
 
 
-        internal bool Insert(Entities.Tour tour, Entities.TourMember member)
+        internal bool Insert(Entities.TourGroup group, Entities.TourMember member)
         {
             bool res = false;
 
@@ -26,10 +26,10 @@ namespace DomainModel.Repository.Sql
                 this.query.Parameters.Clear();
 
                 this.query.Parameters.Add(new SqlParameter("@PersonId", member.Id));
-                this.query.Parameters.Add(new SqlParameter("@TourId", tour.Id));
+                this.query.Parameters.Add(new SqlParameter("@GroupId", group.Id));
 
                 int id;
-                res = this.query.ExecuteInsertProc("TourMembersAdd", out id);
+                res = this.query.ExecuteInsertProc("TourGroupMemberAdd", out id);
             }
             catch (Exception ex)
             {
@@ -47,7 +47,7 @@ namespace DomainModel.Repository.Sql
         }
 
 
-        internal bool Delete(Entities.Tour tour, Entities.TourMember member)
+        internal bool Delete(Entities.TourGroup group, Entities.TourMember member)
         {
             bool res = false;
 
@@ -55,10 +55,10 @@ namespace DomainModel.Repository.Sql
             {
                 this.query.Parameters.Clear();
                 this.query.Parameters.Add(new SqlParameter("@PersonId", member.Id));
-                this.query.Parameters.Add(new SqlParameter("@TourId", tour.Id));
+                this.query.Parameters.Add(new SqlParameter("@GroupId", group.Id));
 
                 int affected;
-                res = this.query.ExecuteUpdateProc("TourMembersDeleteById", out affected);
+                res = this.query.ExecuteUpdateProc("TourGroupMemberDeleteById", out affected);
             }
             catch (Exception ex)
             {

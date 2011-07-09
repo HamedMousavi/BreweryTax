@@ -20,7 +20,24 @@ namespace DomainModel
         {
             try
             {
+                // Load group info
                 groups.GetByTour(tour);
+
+                // load group members
+                foreach (Entities.TourGroup group in tour.Groups)
+                {
+                    DomainModel.TourGroupMembers.Load(group);
+
+                    // load group employees
+                    DomainModel.TourEmployees.Load(group);
+                }
+
+
+                // undone: load group services
+                /*
+                DomainModel.TourCosts.Load(tour);
+                DomainModel.TourPayments.Load(tour);
+*/
             }
             catch (Exception ex)
             {
@@ -40,7 +57,7 @@ namespace DomainModel
         {
             bool res = true;
 
-            foreach(Entities.TourGroup group in tour.Groups)
+            foreach (Entities.TourGroup group in tour.Groups)
             {
                 if (group.IsDirty)
                 {
@@ -53,6 +70,43 @@ namespace DomainModel
                         if (!(res = groups.Update(tour, group))) break;
                     }
                 }
+            }
+
+            return res;
+        }
+
+
+        public static bool Delete(Entities.TourGroup group)
+        {
+            bool res = true;
+
+            try
+            {
+                groups.Delete(group);
+            }
+            catch (Exception)
+            {
+            }
+
+            return res;
+
+        }
+
+
+        public static bool Save(Entities.TourGroup group)
+        {
+            bool res = true;
+
+            try
+            {
+                if (group.IsDirty)
+                {
+                    res = groups.Update(group);
+                }
+            }
+            catch (Exception)
+            {
+                res = false;
             }
 
             return res;

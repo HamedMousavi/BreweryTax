@@ -17,7 +17,7 @@ namespace DomainModel.Repository.Sql
         }
 
 
-        internal bool GetByTour(Entities.Tour tour)
+        public bool GetByTour(Entities.Tour tour)
         {
             bool res = false;
 
@@ -44,7 +44,7 @@ namespace DomainModel.Repository.Sql
         }
 
 
-        internal bool Insert(Entities.Tour tour, Entities.TourGroup group)
+        public bool Insert(Entities.Tour tour, Entities.TourGroup group)
         {
             bool res = false;
 
@@ -76,7 +76,7 @@ namespace DomainModel.Repository.Sql
         }
 
 
-        internal bool Update(Entities.Tour tour, Entities.TourGroup group)
+        public bool Update(Entities.Tour tour, Entities.TourGroup group)
         {
             bool res = false;
 
@@ -124,5 +124,64 @@ namespace DomainModel.Repository.Sql
         }
 
 
+        public bool Delete(Entities.TourGroup group)
+        {
+            bool res = false;
+
+            try
+            {
+                this.query.Parameters.Clear();
+                this.query.Parameters.Add(new SqlParameter("@GroupId", group.Id));
+
+
+                int affected;
+                res = this.query.ExecuteUpdateProc("TourGroupDeleteById", out affected);
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "",
+                        ex.Message);
+                }
+                catch { }
+            }
+
+            return res;
+        }
+
+
+        internal bool Update(Entities.TourGroup group)
+        {
+            bool res = false;
+
+            try
+            {
+                this.query.Parameters.Clear();
+
+                this.query.Parameters.Add(new SqlParameter("@SignupTypeId", group.SignUpType.Id));
+                this.query.Parameters.Add(new SqlParameter("@StateTypeId", group.Status.Id));
+                this.query.Parameters.Add(new SqlParameter("@GroupId", group.Id));
+                this.query.Parameters.Add(new SqlParameter("@TourId", -1)); // if TourId < 0 it will be ignored
+
+                int affected;
+                res = this.query.ExecuteUpdateProc("TourGroupstUpdateById", out affected);
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "",
+                        ex.Message);
+                }
+                catch { }
+            }
+
+            return res;
+        }
     }
 }

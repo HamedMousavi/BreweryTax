@@ -1,6 +1,6 @@
-﻿
+﻿using System;
 
-using System;
+
 namespace DomainModel
 {
 
@@ -15,37 +15,11 @@ namespace DomainModel
         }
 
 
-        internal static bool Save(Entities.Tour tour)
-        {
-            bool res = true;
-            /*
-            foreach(Entities.Employee emp in tour.Employees)
-            {
-                if (!empRepo.Insert(tour, emp))
-                {
-                    res = false;
-                    break;
-                }
-            }*/
-            /*
-            foreach(Entities.Employee emp in tour.DeletedEmployees)
-            {
-                if (!empRepo.Delete(tour, emp))
-                {
-                    res = false;
-                    break;
-                }
-            }
-            */
-            return res;
-        }
-
-
-        internal static void Load(Entities.Tour tour)
+        internal static void Load(Entities.TourGroup group)
         {
             try
             {
-                empRepo.GetByTour(tour);
+                empRepo.GetByGroup(group);
             }
             catch (Exception ex)
             {
@@ -58,6 +32,64 @@ namespace DomainModel
                 }
                 catch { }
             }
+        }
+
+
+        public static bool Add(Entities.TourGroup group, Entities.Employee emp)
+        {
+            bool res;
+
+            try
+            {
+                if ((res = empRepo.Insert(group, emp)))
+                {
+                    group.Employees.Add(emp);
+                }
+            }
+            catch (Exception ex)
+            {
+                res = false;
+
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "",
+                        ex.Message);
+                }
+                catch { }
+            }
+
+            return res;
+        }
+
+
+        public static bool Delete(Entities.TourGroup group, Entities.Employee emp)
+        {
+            bool res;
+
+            try
+            {
+                if ((res = empRepo.Delete(group, emp)))
+                {
+                    group.Employees.Remove(emp);
+                }
+            }
+            catch (Exception ex)
+            {
+                res = false;
+
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "",
+                        ex.Message);
+                }
+                catch { }
+            }
+
+            return res;
         }
     }
 }

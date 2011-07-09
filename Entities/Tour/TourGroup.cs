@@ -92,7 +92,7 @@ namespace Entities
             }
         }
 
-        public TourMemberCollection DeletedMembers { get; set; }
+        //public TourMemberCollection DeletedMembers { get; set; }
 
         public TourServiceCollection Services
         {
@@ -178,7 +178,6 @@ namespace Entities
             this.employees = new Entities.EmployeeCollection();
             this.status = new GeneralType();
 
-            this.DeletedMembers = new TourMemberCollection();
             this.DeletedEmployees = new Entities.EmployeeCollection();
         }
 
@@ -186,7 +185,7 @@ namespace Entities
         public void CopyTo(TourGroup group)
         {
             this.Members.CopyTo(group.Members);
-            this.DeletedMembers.CopyTo(group.DeletedMembers);
+            //this.DeletedMembers.CopyTo(group.DeletedMembers);
             this.services.CopyTo(group.services);
             this.SignUpType.CopyTo(group.SignUpType);
 

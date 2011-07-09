@@ -115,25 +115,32 @@ namespace TaxDataStore
                 }
             }
 
-            foreach (TourGroup grpCtrl in removable)
+            lock (this)
             {
-                this.pnlGroups.Controls.Remove(grpCtrl);
-                grpCtrl.Dispose();
-            }
-            removable.Clear();
+                this.pnlGroups.SuspendLayout();
 
-            foreach (Entities.TourGroup grp in tour.Groups)
-            {
-                TourGroup ctrl = FindInClients(grp);
-                if (ctrl == null)
+                foreach (TourGroup grpCtrl in removable)
                 {
-                    TourGroup client = new TourGroup(grp);
-                    client.Dock = DockStyle.Top;
-                    this.pnlGroups.Controls.Add(client);
+                    this.pnlGroups.Controls.Remove(grpCtrl);
+                    grpCtrl.Dispose();
                 }
-            }
+                removable.Clear();
 
-            SetupClientSize();
+                foreach (Entities.TourGroup grp in tour.Groups)
+                {
+                    TourGroup ctrl = FindInClients(grp);
+                    if (ctrl == null)
+                    {
+                        TourGroup client = new TourGroup(grp);
+                        client.Dock = DockStyle.Top;
+                        this.pnlGroups.Controls.Add(client);
+                    }
+                }
+
+                SetupClientSize();
+
+                this.pnlGroups.ResumeLayout(true);
+            }
         }
 
 

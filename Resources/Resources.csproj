@@ -261,16 +261,16 @@
     <None Include="Resources\database.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\group_state_confirmed.png" />
+    <None Include="Resources\signup_type_office.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\signup_type_mail.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\group_state_reserved.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\signup_type_office.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\signup_type_mail.png" />
+    <None Include="Resources\group_state_confirmed.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

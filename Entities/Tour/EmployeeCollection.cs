@@ -35,6 +35,7 @@ namespace Entities
             }
         }
 
+
         public void UndoDelete(EmployeeCollection originalList)
         {
             foreach (Employee emp in this)
@@ -43,6 +44,20 @@ namespace Entities
             }
 
             this.Clear();
+        }
+
+
+        public new bool Contains(Employee employee)
+        {
+            foreach (Employee emp in this)
+            {
+                if (emp.User == employee.User)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.ComponentModel;
 
+
 namespace Entities
 {
+
     public class User
     {
 
@@ -13,9 +15,11 @@ namespace Entities
         public UserSettings Settings { get; set; }
         public Role Role { get; set; }
         public bool IsAuthenticated { get; set; }
+        public bool IsEmployee { get; set; }
 
         [BrowsableAttribute(false)]
         public Int32 Id { get; set; }
+
 
         public User()
         {
@@ -26,6 +30,7 @@ namespace Entities
             this.IsEnabled = true;
             this.Role = null;
             this.IsAuthenticated = false;
+            this.IsEmployee = false;
         }
 
 
@@ -65,6 +70,7 @@ namespace Entities
 
             this.Settings.Copy(user.Settings);
             this.Role = user.Role;
+            this.IsEmployee = user.IsEmployee;
         }
     }
 }

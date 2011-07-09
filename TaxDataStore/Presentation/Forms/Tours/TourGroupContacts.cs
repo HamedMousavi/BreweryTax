@@ -68,8 +68,13 @@ namespace TaxDataStore
             }
 
             this.fgvMembers.HiddenColumnNames.Add("MemberShip");
+            this.fgvMembers.HiddenColumnNames.Add("Title");
+            this.fgvMembers.HiddenColumnNames.Add("FirstName");
+            this.fgvMembers.HiddenColumnNames.Add("LastName");
+            this.fgvMembers.HiddenColumnNames.Add("Contacts");
             this.fgvMembers.ColumnHeadersVisible = false;
             this.fgvMembers.Margin = new Padding(2, 2, 1, 2);
+
             this.lsvMemberContacts.Margin = new Padding(0, 2, 2, 2);
 
             this.tlpMain.Controls.Add(this.fgvMembers, 0, 1);
@@ -80,6 +85,44 @@ namespace TaxDataStore
 
             this.editToolbar.AddButtonClick += new 
                 EventHandler(editToolbar_AddButtonClick);
+
+            this.editToolbar.EditButtonClick += new 
+                EventHandler(editToolbar_EditButtonClick);
+
+            this.editToolbar.DeleteButtonClick += new 
+                EventHandler(editToolbar_DeleteButtonClick);
+        }
+
+
+        void editToolbar_DeleteButtonClick(object sender, EventArgs e)
+        {
+            Entities.TourMember member = 
+                (Entities.TourMember)this.fgvMembers.SelectedItem;
+
+            if (member != null)
+            {
+                if (member.Id >= 0)
+                {
+                    if (!DomainModel.TourGroupMembers.Delete(this.group, member))
+                    {
+                        return;
+                    }
+                }
+
+                this.group.Members.Remove(member);
+            }
+        }
+
+
+        void editToolbar_EditButtonClick(object sender, EventArgs e)
+        {
+            Entities.TourMember member = 
+                (Entities.TourMember)this.fgvMembers.SelectedItem;
+
+            if (member != null)
+            {
+                Presentation.Controllers.Tours.EditMember(member);
+            }
         }
 
 

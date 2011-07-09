@@ -32,6 +32,7 @@ namespace TaxDataStore.Presentation
         public Color TourGroupServiceNameForeColor { get; set; }
         public Color TourForeColor { get; set; }
         public Color TourBackColor { get; set; }
+        public Color TourGroupBackColor { get; set; }
 
         public Font TourGroupServiceCountFont { get; set; }
         public Font TourGroupServiceNameFont { get; set; }
@@ -69,7 +70,7 @@ namespace TaxDataStore.Presentation
             this.TourGroupServiceNameFont = new System.Drawing.Font("Tahoma", 10.25F, FontStyle.Bold);
 
             this.TourForeColor = Color.White;
-            this.TourBackColor = Color.Gray;
+            this.TourBackColor = Color.SlateGray;//Color.FromArgb(255, 165, 185, 220);
 
             this.TourTitleFont = new System.Drawing.Font("Tahoma", 14.25F, FontStyle.Bold);
 
@@ -77,7 +78,9 @@ namespace TaxDataStore.Presentation
             this.FlatButtonBorderColor = this.TourGroupItemBackColor;
             this.FlatButtonForeColor = GroupPanelTitleColor;
 
-            this.TourListBackColor = System.Drawing.Color.White;
+            this.TourListBackColor = Color.Black;
+            this.TourGroupBackColor = Color.Gainsboro;
         }
+
     }
 }

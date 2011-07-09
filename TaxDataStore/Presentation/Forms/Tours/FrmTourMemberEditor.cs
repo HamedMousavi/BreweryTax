@@ -19,7 +19,7 @@ namespace TaxDataStore
 
         protected ContactsGridView dgvContacts;
         protected ComboBox cbxTitle;
-        protected TourMemberCollection members;
+        protected Entities.TourGroup group;
         protected TourMember member;
         protected TourMember editMember;
 
@@ -85,12 +85,12 @@ namespace TaxDataStore
         private void CreateControls()
         {
             this.lblTitle = new FormLabel(0, "lblTitle", false, "lbl_title");
-            this.lblFirstName = new FormLabel(1, "lblFirstName", false, "lbl_first_name");
-            this.lblLastName = new FormLabel(2, "lblLastName", false, "lbl_last_name");
-            this.lblContacts = new ToolbarLabel(3, "lblContacts", "lbl_contacts");
+            this.lblFirstName = new FormLabel(2, "lblFirstName", false, "lbl_first_name");
+            this.lblLastName = new FormLabel(4, "lblLastName", false, "lbl_last_name");
+            this.lblContacts = new ToolbarLabel(6, "lblContacts", "lbl_contacts");
        
-            this.btnAddContact      = new FlatButton(4, "btnAdd", "add", "add");
-            this.btnRemoveContact   = new FlatButton(5, "btnDelete", "delete", "delete");
+            this.btnAddContact      = new FlatButton(8, "btnAdd", "add", "add");
+            this.btnRemoveContact   = new FlatButton(9, "btnDelete", "delete", "delete");
 
             this.tlpContacts.Controls.Add(this.btnAddContact, 1, 0);
             this.tlpContacts.Controls.Add(this.btnRemoveContact, 2, 0);
@@ -99,13 +99,16 @@ namespace TaxDataStore
             this.tlpMain.Controls.Add(this.lblFirstName, 0, 1);
             this.tlpMain.Controls.Add(this.lblLastName, 0, 2);
             this.tlpContacts.Controls.Add(this.lblContacts, 0, 0);
+
+            this.btnAddContact.Click += new EventHandler(btnAddContact_Click);
+            this.btnRemoveContact.Click += new EventHandler(btnRemoveContact_Click);
         }
 
 
-        public FrmTourMemberEditor(TourMemberCollection members)
+        public FrmTourMemberEditor(Entities.TourGroup group)
             : this()
         {
-            this.members = members;
+            this.group = group;
         }
 
 
@@ -167,18 +170,17 @@ namespace TaxDataStore
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (this.editMember != null && this.members == null)
+            if (DomainModel.TourGroupMembers.Save(this.member, this.group))
             {
-                // Update edit user and database
-                this.member.CopyTo(this.editMember);
-            }
-            else
-            {
-                this.members.Add(this.member);
-            }
+                if (this.editMember != null)
+                {
+                    // Update edit user and database
+                    this.member.CopyTo(this.editMember);
+                }
 
-            this.DialogResult = DialogResult.OK;
-            Close();
+                this.DialogResult = DialogResult.OK;
+                Close();
+            }
         }
 
 

@@ -158,7 +158,7 @@ namespace DomainModel
             TourPayments.Init(settings.SqlConnectionString);
             progress.Value++;
 
-            TourMembers.Init(settings.SqlConnectionString);
+            TourGroupMembers.Init(settings.SqlConnectionString);
             progress.Value++;
 
             TourEmployees.Init(settings.SqlConnectionString);

@@ -7,10 +7,11 @@ namespace TaxDataStore
 
     public partial class TourGroupEmployees : UserControl
     {
-        
+
         private EditToolbar etbButtons;
         private FlatGridView fgvEmployees;
         private BindingSource bstEmployees;
+        private EmployeesMenu mnuEmployees;
 
         protected Entities.TourGroup group;
 
@@ -44,6 +45,9 @@ namespace TaxDataStore
             this.fgvEmployees.ColumnHeadersVisible = false;
             this.fgvEmployees.DataSource = this.bstEmployees;
 
+            this.mnuEmployees = new EmployeesMenu();
+            this.mnuEmployees.ClickAction = OnMenuItemClicked;
+
             if (DomainModel.Application.ResourceManager != null)
             {
                 string title = DomainModel.Application.ResourceManager.GetText("lbl_employees");
@@ -51,8 +55,9 @@ namespace TaxDataStore
                 this.etbButtons.Location = new System.Drawing.Point(0, 0);
                 this.etbButtons.Name = "etbButtons";
                 this.etbButtons.TabIndex = 0;
-                this.etbButtons.Anchor = AnchorStyles.Left | 
+                this.etbButtons.Anchor = AnchorStyles.Left |
                     AnchorStyles.Top | AnchorStyles.Right;
+                this.etbButtons.AddContextMenu = this.mnuEmployees;
 
                 this.tlpMain.Controls.Add(this.etbButtons, 0, 0);
             }
@@ -66,6 +71,8 @@ namespace TaxDataStore
             }
 
             this.tlpMain.Controls.Add(this.fgvEmployees, 0, 1);
+
+            this.etbButtons.DeleteButtonClick += new System.EventHandler(etbButtons_DeleteButtonClick);
         }
 
 
@@ -74,6 +81,35 @@ namespace TaxDataStore
             this.bstEmployees.DataSource = this.group;
             this.bstEmployees.DataMember = "Employees";
             this.bstEmployees.ResetBindings(true);
+        }
+
+
+        public void OnMenuItemClicked(string itemName)
+        {
+            Entities.Employee emp = DomainModel.Employees.GetByName(itemName);
+            if (emp != null)
+            {
+                if (!this.group.Employees.Contains(emp))
+                {
+                    if (DomainModel.TourEmployees.Add(this.group, emp))
+                    {   
+                    }
+                }
+            }
+        }
+
+
+        void etbButtons_DeleteButtonClick(object sender, System.EventArgs e)
+        {
+            Entities.Employee emp = (Entities.Employee)
+                this.fgvEmployees.SelectedItem;
+
+            if (emp != null)
+            {
+                if (DomainModel.TourEmployees.Delete(this.group, emp))
+                {
+                }
+            }
         }
     }
 }

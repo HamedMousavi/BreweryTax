@@ -35,6 +35,7 @@ namespace Entities
                 {
                     this.title = value;
                     RaisePropertyChanged("Title");
+                    RaisePropertyChanged("FormattedValue");
                 }
             }
         }
@@ -52,6 +53,7 @@ namespace Entities
                 {
                     this.firstName = value;
                     RaisePropertyChanged("FirstName");
+                    RaisePropertyChanged("FormattedValue");
                 }
             }
         }
@@ -69,6 +71,7 @@ namespace Entities
                 {
                     this.lastName = value;
                     RaisePropertyChanged("LastName");
+                    RaisePropertyChanged("FormattedValue");
                 }
             }
         }
@@ -125,7 +128,16 @@ namespace Entities
             }
         }
 
+        [BrowsableAttribute(false)]
         public ContactCollection DeletedContacts { get; set; }
+
+        public string FormattedValue
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
 
         #endregion Properties
 
@@ -152,6 +164,18 @@ namespace Entities
 
             this.Contacts.CopyTo(member.Contacts);
             this.DeletedContacts.CopyTo(member.DeletedContacts);
+        }
+
+
+        public override string ToString()
+        {
+            //return base.ToString();
+
+            return string.Format(
+                "{0} {1} {2}",
+                this.title == null ? "" : this.title.Name,
+                this.firstName,
+                this.lastName);
         }
     }
 }

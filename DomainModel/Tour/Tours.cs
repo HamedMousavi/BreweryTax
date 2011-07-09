@@ -23,7 +23,7 @@ namespace DomainModel
         }
 
 
-        private static bool Save(Entities.Tour tour)
+        public static bool Save(Entities.Tour tour)
         {
             bool res = false;
             try
@@ -139,10 +139,6 @@ namespace DomainModel
                 foreach (Entities.Tour tour in tours)
                 {
                     DomainModel.TourGroups.Load(tour);
-                    DomainModel.TourMembers.Load(tour);
-                    DomainModel.TourPayments.Load(tour);
-                    DomainModel.TourCosts.Load(tour);
-                    DomainModel.TourEmployees.Load(tour);
                 }
             }
             catch (Exception ex)
@@ -159,7 +155,7 @@ namespace DomainModel
 
         }
 
-
+        /*
         public static bool SaveChanges(Entities.Tour tour)
         {
             bool res = false;
@@ -187,6 +183,6 @@ namespace DomainModel
             }
 
             return res;
-        }
+        }*/
     }
 }

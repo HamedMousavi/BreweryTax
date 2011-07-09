@@ -35,8 +35,6 @@ namespace TaxDataStore
         {
             InitializeComponent();
 
-            this.BackColor = System.Drawing.Color.DimGray;
-
             SetupControls();
         }
 
@@ -64,6 +62,11 @@ namespace TaxDataStore
             this.tlpMain.Controls.Add(this.ctrlContacts, 1, 0);
             this.tlpMain.Controls.Add(this.ctrlServices, 2, 0);
             this.tlpMain.Controls.Add(this.ctrlEmployees, 3, 0);
+
+            if (Presentation.View.Theme != null)
+            {
+                this.BackColor = Presentation.View.Theme.TourGroupBackColor;
+            }
         }
 
 
@@ -72,10 +75,12 @@ namespace TaxDataStore
             this.ctrlDetail.DataBindings.Clear();
             this.ctrlServices.DataBindings.Clear();
             this.ctrlContacts.DataBindings.Clear();
+            this.ctrlEmployees.DataBindings.Clear();
 
             this.ctrlDetail.DataBindings.Add(new Binding("Group", this, "Group"));
             this.ctrlServices.DataBindings.Add(new Binding("Group", this, "Group"));
             this.ctrlContacts.DataBindings.Add(new Binding("Group", this, "Group"));
+            this.ctrlEmployees.DataBindings.Add(new Binding("Group", this, "Group"));
         }
     }
 }
