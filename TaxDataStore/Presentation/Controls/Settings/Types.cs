@@ -55,6 +55,9 @@ namespace TaxDataStore.Presentation.Controls.Settings
             this.flvclasses.DataSource = DomainModel.Categories.GetAll();
 
             this.clvTypes = new CategoryListView();
+
+            this.btnAddType.Click += new System.EventHandler(btnAddType_Click);
+            this.btnDeleteType.Click += new System.EventHandler(btnDeleteType_Click);
         }
 
 

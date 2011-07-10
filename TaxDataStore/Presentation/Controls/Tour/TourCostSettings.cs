@@ -6,11 +6,10 @@ namespace TaxDataStore.Presentation.Controls
 
     public partial class TourCostSettings : UserControl
     {
-        private ToolbarLabel lblTourPrices;
         private ToolbarLabel lblCostRules;
         private ToolbarLabel lblGroup;
         private ToolbarLabel lblGroupRules;
-        private FlatButton btnEditTourPrice;
+
         private FlatButton btnAddRule;
         private FlatButton btnEditRule;
         private FlatButton btnRemoveRule;
@@ -18,11 +17,11 @@ namespace TaxDataStore.Presentation.Controls
         private FlatButton btnEditGroup;
         private FlatButton btnRemoveGroup;
 
-        protected TourBasePriceGridView dgvTourPrices;
         protected TourCostRulesGridView dgvRules;
         protected TourCostGroupsGridView dgvGroups;
         protected RulesCheckedListBox clbRules;
 
+        protected ServiceSettings serviceSettings;
 
         public TourCostSettings()
         {
@@ -40,11 +39,6 @@ namespace TaxDataStore.Presentation.Controls
             this.btnEditRule.Image = DomainModel.Application.ResourceManager.GetImage("pencil");
             this.btnRemoveRule.Image = DomainModel.Application.ResourceManager.GetImage("delete");
 
-            this.btnEditTourPrice.Image = DomainModel.Application.ResourceManager.GetImage("pencil");
-
-            this.dgvTourPrices = new TourBasePriceGridView();
-            this.tlpTourPriceContainer.Controls.Add(this.dgvTourPrices, 0, 1);
-
             this.dgvRules = new TourCostRulesGridView();
             this.dgvRules.SetDataSource(DomainModel.TourCostRules.GetAll());
             this.tlpCostRules.Controls.Add(this.dgvRules, 0, 1);
@@ -61,15 +55,15 @@ namespace TaxDataStore.Presentation.Controls
 
         private void CreateControls()
         {
+            this.serviceSettings = new ServiceSettings();
+
             this.lblGroup = new ToolbarLabel(0, "lblGroup", "lbl_group");
             this.lblGroupRules = new ToolbarLabel(1, "lblGroupRules", "lbl_group_rules");
-            this.lblTourPrices = new ToolbarLabel(2, "lblTourPrices", "lbl_tour_prices");
             this.lblCostRules = new ToolbarLabel(3, "lblCostRules", "lbl_cost_rules");
             
             this.btnAddGroup = new FlatButton(4, "add", "add", "add");
             this.btnEditGroup = new FlatButton(5, "edit", "pencil", "edit");
             this.btnRemoveGroup = new FlatButton(6, "delete", "delete", "delete");
-            this.btnEditTourPrice = new FlatButton(7, "edit", "pencil", "edit");
             this.btnAddRule = new FlatButton(8, "add", "add", "add");
             this.btnEditRule = new FlatButton(9, "edit", "pencil", "edit");
             this.btnRemoveRule = new FlatButton(10, "delete", "delete", "delete");
@@ -80,12 +74,19 @@ namespace TaxDataStore.Presentation.Controls
             this.tlpCostRuleButtons.Controls.Add(this.btnAddRule, 1, 0);
             this.tlpCostRuleButtons.Controls.Add(this.btnEditRule, 2, 0);
             this.tlpCostRuleButtons.Controls.Add(this.btnRemoveRule, 3, 0);
-            this.tlpButtons.Controls.Add(this.btnEditTourPrice, 1, 0);
 
             this.tlpCostGroups.Controls.Add(this.lblGroupRules, 1, 0);
             this.tlpCostGroupButtons.Controls.Add(this.lblGroup, 0, 0);
             this.tlpCostRuleButtons.Controls.Add(this.lblCostRules, 0, 0);
-            this.tlpButtons.Controls.Add(this.lblTourPrices, 0, 0);
+
+            this.tlpMain.Controls.Add(this.serviceSettings, 0, 0);
+
+            this.btnAddGroup.Click += new System.EventHandler(btnAddGroup_Click);
+            this.btnAddRule.Click += new System.EventHandler(btnAddRule_Click);
+            this.btnEditGroup.Click += new System.EventHandler(btnEditGroup_Click);
+            this.btnEditRule.Click += new System.EventHandler(btnEditRule_Click);
+            this.btnRemoveGroup.Click += new System.EventHandler(btnRemoveGroup_Click);
+            this.btnRemoveRule.Click += new System.EventHandler(btnRemoveRule_Click);
         }
 
 
@@ -108,18 +109,6 @@ namespace TaxDataStore.Presentation.Controls
                     this.clbRules.UpdateBinding();
                 }
             }        
-        }
-
-
-        private void btnEditTourPrice_Click(object sender, System.EventArgs e)
-        {
-            Entities.TourBasePrice price = (Entities.TourBasePrice)
-                this.dgvTourPrices.SelectedItem;
-
-            if (price != null)
-            {
-                Presentation.Controllers.TourFinance.EditBasePrice(price);
-            }
         }
 
 

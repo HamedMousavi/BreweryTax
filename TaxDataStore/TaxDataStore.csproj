@@ -63,13 +63,39 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppUpdateController.cs" />
-    <Compile Include="EditToolbar.cs">
+    <Compile Include="Presentation\Controls\GroupServiceBill.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="EditToolbar.Designer.cs">
+    <Compile Include="Presentation\Controls\GroupServiceBill.Designer.cs">
+      <DependentUpon>GroupServiceBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Controls\GroupServiceDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\GroupServiceDetails.Designer.cs">
+      <DependentUpon>GroupServiceDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Controls\GroupServicePayment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\GroupServicePayment.Designer.cs">
+      <DependentUpon>GroupServicePayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Forms\Tours\FrmGroupServiceEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\Tours\FrmGroupServiceEditor.Designer.cs">
+      <DependentUpon>FrmGroupServiceEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Controllers\GroupServices.cs" />
+    <Compile Include="Presentation\Controls\EditToolbar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\EditToolbar.Designer.cs">
       <DependentUpon>EditToolbar.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Controllers\File.cs" />
+    <Compile Include="Presentation\Controllers\TourServices.cs" />
     <Compile Include="Presentation\Controls\GeneralTypeToolStripItem.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -84,6 +110,18 @@
     </Compile>
     <Compile Include="Presentation\Controls\GeneralTypeMenu.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\SaveButtonBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\SaveButtonBar.Designer.cs">
+      <DependentUpon>SaveButtonBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Controls\Tour\ServiceSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\Tour\ServiceSettings.Designer.cs">
+      <DependentUpon>ServiceSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Forms\Reports\FrmMonthlyReportInfo.cs">
       <SubType>Form</SubType>
@@ -469,7 +507,13 @@
     <Compile Include="Presentation\Forms\Tours\ToursListView.Designer.cs">
       <DependentUpon>ToursListView.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="EditToolbar.resx">
+    <Compile Include="Presentation\Forms\Tours\FrmServiceSettingEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\Tours\FrmServiceSettingEditor.Designer.cs">
+      <DependentUpon>FrmServiceSettingEditor.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Presentation\Controls\EditToolbar.resx">
       <DependentUpon>EditToolbar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Controls\FlexibleDateSelector.resx">
@@ -478,8 +522,14 @@
     <EmbeddedResource Include="Presentation\Controls\FlexibleTimeSelector.resx">
       <DependentUpon>FlexibleTimeSelector.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Controls\GroupServiceDetails.resx">
+      <DependentUpon>GroupServiceDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Controls\JobProgress.resx">
       <DependentUpon>JobProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Controls\SaveButtonBar.resx">
+      <DependentUpon>SaveButtonBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Controls\Tour\RuleConstraintTourDate.resx">
       <DependentUpon>RuleConstraintTourDate.cs</DependentUpon>
@@ -489,6 +539,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Controls\Tour\RuleConstraintTypeSelector.resx">
       <DependentUpon>RuleConstraintTypeSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Controls\Tour\ServiceSettings.resx">
+      <DependentUpon>ServiceSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Forms\Membership\FrmPasswordEditor.resx">
       <DependentUpon>FrmPasswordEditor.cs</DependentUpon>
@@ -513,6 +566,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Forms\Reports\FrmMonthlyReportInfo.resx">
       <DependentUpon>FrmMonthlyReportInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Forms\Tours\FrmGroupServiceEditor.resx">
+      <DependentUpon>FrmGroupServiceEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Forms\Tours\FrmServiceSettingEditor.resx">
+      <DependentUpon>FrmServiceSettingEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Forms\Tours\FrmRuleConstraintEditor.resx">
       <DependentUpon>FrmRuleConstraintEditor.cs</DependentUpon>

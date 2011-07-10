@@ -12,7 +12,7 @@ namespace Entities.Abstract
         TourCostDetailCollection CostDetails { get; set; }
         TourPaymentCollection Payments { get; set; }
         TourReceipt Bill { get; }
-        GeneralType Type { get; }
+        Service Detail { get; }
         string Name { get; }
 
         ITourService Clone();

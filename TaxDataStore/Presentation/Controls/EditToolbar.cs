@@ -22,7 +22,52 @@ namespace TaxDataStore
                 }
             }
         }
-        public ContextMenu AddContextMenu;
+
+
+        protected ContextMenuStrip addContextMenu;
+        public ContextMenuStrip AddContextMenu
+        {
+            get
+            {
+                return this.addContextMenu;
+            }
+
+            set
+            {
+                DetachMenu();
+                this.addContextMenu = value;
+                AttachMenu();
+            }
+        }
+
+
+        private void AttachMenu()
+        {
+            if (this.addContextMenu != null)
+            {
+                this.addContextMenu.Closing += new
+                    ToolStripDropDownClosingEventHandler(addContextMenu_Closing);
+            }
+        }
+
+
+        private void DetachMenu()
+        {
+            if (this.addContextMenu != null)
+            {
+                this.addContextMenu.Closing -= new
+                    ToolStripDropDownClosingEventHandler(addContextMenu_Closing);
+            }
+        }
+
+
+        void addContextMenu_Closing(object sender, ToolStripDropDownClosingEventArgs e)
+        {
+            if (this.autoHide)
+            {
+                ShowEditOptions(false);
+            }
+        }
 
 
         private FlatButton btnAdd;
@@ -103,9 +148,10 @@ namespace TaxDataStore
             {
                 this.AddContextMenu.Show(
                     this.btnAdd,
-                    new Point(this.btnAdd.Location.X, this.btnAdd.Height));
+                    new Point(this.btnAdd.Location.X, this.btnAdd.Height),
+                    ToolStripDropDownDirection.BelowLeft);
             }
-            if (this.autoHide)
+            else if (this.autoHide)
             {
                 ShowEditOptions(false);
             }
@@ -153,7 +199,13 @@ namespace TaxDataStore
             {
                 if (this.autoHide)
                 {
-                    ShowEditOptions(false);
+                    if (this.addContextMenu != null && this.addContextMenu.Visible)
+                    {
+                    }
+                    else
+                    {
+                        ShowEditOptions(false);
+                    }
                 }
             }
         }

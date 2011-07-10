@@ -6,13 +6,13 @@ using Entities.Abstract;
 namespace Entities
 {
 
-    public abstract class TourServiceBase : EntityBase, ITourService
+    public class TourServiceBase : EntityBase, ITourService
     {
 
         #region Fields
 
         protected Int32 id;
-        protected GeneralType type;
+        protected Service serviceType;
         protected TourCostDetailCollection costDetails;
         protected TourPaymentCollection payments;
         protected Abstract.ITourPaymentStrategy paymentStrategy;
@@ -79,19 +79,19 @@ namespace Entities
 
         public TourPaymentCollection DeletedPayments { get; set; }
 
-        public GeneralType Type
+        public Service Detail
         {
             get
             {
-                return this.type;
+                return this.serviceType;
             }
 
             set
             {
-                if (this.type != value)
+                if (this.serviceType != value)
                 {
-                    this.type = value;
-                    RaisePropertyChanged("Type");
+                    this.serviceType = value;
+                    RaisePropertyChanged("Detail");
                 }
             }
         }
@@ -114,6 +114,11 @@ namespace Entities
             }
         }
 
+        public string Name
+        {
+            get { return this.serviceType.Name; }
+        }
+
         #endregion Properties
 
 
@@ -123,6 +128,7 @@ namespace Entities
             this.costDetails = new TourCostDetailCollection();
             this.payments = new TourPaymentCollection();
             this.Bill = new TourReceipt();
+            this.serviceType = new Service();
 
             this.DeletedPayments = new TourPaymentCollection();
 
@@ -150,6 +156,8 @@ namespace Entities
             this.costDetails.CopyTo(service.costDetails);
             this.payments.CopyTo(service.payments);
             this.Bill.CopyTo(service.Bill);
+            this.serviceType.CopyTo(service.Detail);
+
             this.DeletedPayments.CopyTo(service.DeletedPayments);
 
             service.IsDirty = this.IsDirty;
@@ -174,8 +182,14 @@ namespace Entities
         }
 
 
-        public abstract ITourService Clone();
-        
-        public abstract string Name { get; }
+        public ITourService Clone()
+        {
+            TourServiceBase service = new TourServiceBase();
+            CopyTo(service);
+
+            service.IsDirty = this.IsDirty;
+
+            return service;
+        }
     }
 }

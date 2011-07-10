@@ -81,6 +81,8 @@
     <Compile Include="JobProgress.cs" />
     <Compile Include="JobProgressCollection.cs" />
     <Compile Include="ReportInfo.cs" />
+    <Compile Include="Tour\Service.cs" />
+    <Compile Include="Tour\ServiceCollection.cs" />
     <Compile Include="Tour\TourConstraintDateItem.cs" />
     <Compile Include="Money.cs" />
     <Compile Include="MoneyCurrency.cs" />
@@ -121,7 +123,6 @@
     <Compile Include="Membership\User.cs" />
     <Compile Include="Membership\UserCollection.cs" />
     <Compile Include="Membership\UserSettings.cs" />
-    <Compile Include="Tour\TourService\VisitService.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
@@ -147,6 +148,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tour\TourService\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -6,7 +6,7 @@ using Entities;
 namespace TaxDataStore.Presentation.Controls
 {
 
-    public class EmployeesMenu : ContextMenu
+    public class EmployeesMenu : ContextMenuStrip
     {
 
         protected BindingSource bindingsource;
@@ -23,7 +23,8 @@ namespace TaxDataStore.Presentation.Controls
                 ListChangedEventHandler(datasource_ListChanged);
 
             this.bindingsource.DataSource = DomainModel.Employees.GetAll();
-
+            //this.Click += new System.EventHandler(OnMenuItemClick);
+            this.ItemClicked += new ToolStripItemClickedEventHandler(OnItemClicked);
             UpdateItems();
         }
 
@@ -36,29 +37,24 @@ namespace TaxDataStore.Presentation.Controls
 
         private void UpdateItems()
         {
-            this.MenuItems.Clear();
+            this.Items.Clear();
 
             foreach (Employee item in (EmployeeCollection)this.bindingsource.DataSource)
             {
                 // Add to menu
-                this.MenuItems.Add(
-                    new System.Windows.Forms.MenuItem(
-                        item.Name,
-                        OnMenuItemClick));
+                this.Items.Add(
+                    new System.Windows.Forms.ToolStripMenuItem(
+                        item.Name));
             }
         }
 
 
-        private void OnMenuItemClick(object sender, System.EventArgs e)
+        void OnItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            System.Windows.Forms.MenuItem menuItem =
-                (System.Windows.Forms.MenuItem)sender;
-
-            if (menuItem != null)
+            if (e.ClickedItem != null)
             {
-                if (ClickAction!= null) ClickAction(menuItem.Text);
+                if (ClickAction != null) ClickAction(e.ClickedItem.Text);
             }
         }
-
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using TaxDataStore.Presentation.Controls;
 
 
 namespace TaxDataStore
@@ -7,6 +8,8 @@ namespace TaxDataStore
     public partial class TourGroupServices : UserControl
     {
 
+        protected GeneralTypeMenu mnuServiceTypes;
+        protected TourServiceListView tslServices;
         protected Entities.TourGroup group;
 
         public Entities.TourGroup Group
@@ -23,13 +26,11 @@ namespace TaxDataStore
         }
 
 
-        
-        protected TourServiceListView tslServices;
-
 
         public TourGroupServices()
         {
             InitializeComponent();
+
             SetupControls();
             //BindControls();
         }
@@ -44,6 +45,15 @@ namespace TaxDataStore
 
         private void SetupControls()
         {
+            this.mnuServiceTypes = new GeneralTypeMenu(
+                DomainModel.ServiceTypes.GetAll());
+            this.mnuServiceTypes.ClickAction = OnNewServiceTypeClicked;
+            
+            this.editToolbar.AddContextMenu = this.mnuServiceTypes;
+            this.editToolbar.EditButtonClick += new 
+                System.EventHandler(editToolbar_EditButtonClick);
+            this.editToolbar.DeleteButtonClick += new 
+                System.EventHandler(editToolbar_DeleteButtonClick);
 
             if (DomainModel.Application.ResourceManager != null)
             {
@@ -65,6 +75,18 @@ namespace TaxDataStore
         }
 
 
+        void editToolbar_DeleteButtonClick(object sender, System.EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+
+        void editToolbar_EditButtonClick(object sender, System.EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+
         private void ReAttach()
         {
             this.tslServices.DataBindings.Clear();
@@ -73,6 +95,12 @@ namespace TaxDataStore
             {
                 this.tslServices.DataBindings.Add(new Binding("Services", this.group, "Services"));
             }
+        }
+
+
+        public void OnNewServiceTypeClicked(Entities.GeneralType item)
+        {
+            Presentation.Controllers.GroupServices.AddNew(item);
         }
     }
 }

@@ -31,17 +31,11 @@
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.tlpCostGroups = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
             this.tlpCostGroupButtons = new System.Windows.Forms.TableLayoutPanel();
-            this.tlpTourPriceContainer = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
-            this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
             this.tlpCostRules = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
             this.tlpCostRuleButtons = new System.Windows.Forms.TableLayoutPanel();
             this.tlpMain.SuspendLayout();
             this.tlpCostGroups.SuspendLayout();
-            this.tlpCostGroupButtons.SuspendLayout();
-            this.tlpTourPriceContainer.SuspendLayout();
-            this.tlpButtons.SuspendLayout();
             this.tlpCostRules.SuspendLayout();
-            this.tlpCostRuleButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpMain
@@ -51,7 +45,6 @@
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 17F));
             this.tlpMain.Controls.Add(this.tlpCostGroups, 0, 1);
-            this.tlpMain.Controls.Add(this.tlpTourPriceContainer, 0, 0);
             this.tlpMain.Controls.Add(this.tlpCostRules, 1, 0);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
@@ -100,35 +93,6 @@
             this.tlpCostGroupButtons.Size = new System.Drawing.Size(161, 30);
             this.tlpCostGroupButtons.TabIndex = 0;
             // 
-            // tlpTourPriceContainer
-            // 
-            this.tlpTourPriceContainer.BackColor = System.Drawing.Color.White;
-            this.tlpTourPriceContainer.ColumnCount = 1;
-            this.tlpTourPriceContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpTourPriceContainer.Controls.Add(this.tlpButtons, 0, 0);
-            this.tlpTourPriceContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpTourPriceContainer.Location = new System.Drawing.Point(3, 3);
-            this.tlpTourPriceContainer.Name = "tlpTourPriceContainer";
-            this.tlpTourPriceContainer.RowCount = 2;
-            this.tlpTourPriceContainer.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpTourPriceContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpTourPriceContainer.Size = new System.Drawing.Size(157, 252);
-            this.tlpTourPriceContainer.TabIndex = 3;
-            // 
-            // tlpButtons
-            // 
-            this.tlpButtons.ColumnCount = 3;
-            this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpButtons.Location = new System.Drawing.Point(0, 0);
-            this.tlpButtons.Margin = new System.Windows.Forms.Padding(0);
-            this.tlpButtons.Name = "tlpButtons";
-            this.tlpButtons.RowCount = 1;
-            this.tlpButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpButtons.Size = new System.Drawing.Size(156, 30);
-            this.tlpButtons.TabIndex = 2;
-            // 
             // tlpCostRules
             // 
             this.tlpCostRules.BackColor = System.Drawing.Color.White;
@@ -174,15 +138,7 @@
             this.Size = new System.Drawing.Size(466, 516);
             this.tlpMain.ResumeLayout(false);
             this.tlpCostGroups.ResumeLayout(false);
-            this.tlpCostGroups.PerformLayout();
-            this.tlpCostGroupButtons.ResumeLayout(false);
-            this.tlpCostGroupButtons.PerformLayout();
-            this.tlpTourPriceContainer.ResumeLayout(false);
-            this.tlpButtons.ResumeLayout(false);
-            this.tlpButtons.PerformLayout();
             this.tlpCostRules.ResumeLayout(false);
-            this.tlpCostRuleButtons.ResumeLayout(false);
-            this.tlpCostRuleButtons.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -190,8 +146,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpMain;
-        private Presentation.Controls.ContainerLayoutPanel tlpTourPriceContainer;
-        private System.Windows.Forms.TableLayoutPanel tlpButtons;
         private Presentation.Controls.ContainerLayoutPanel tlpCostRules;
         private System.Windows.Forms.TableLayoutPanel tlpCostRuleButtons;
         private Presentation.Controls.ContainerLayoutPanel tlpCostGroups;

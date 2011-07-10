@@ -24,7 +24,7 @@ namespace TaxDataStore.Presentation.Controls
             this.Size = new Size(24, 24);
             this.Anchor = AnchorStyles.Left | AnchorStyles.Top;
             this.TextImageRelation = TextImageRelation.ImageBeforeText;
-            this.SplitMenu = this.ctxMenu;
+            //this.SplitMenu = this.ctxMenu;
             this.ShowSplit = false;
             this.Image = DomainModel.Application.ResourceManager.GetImage("add");
 

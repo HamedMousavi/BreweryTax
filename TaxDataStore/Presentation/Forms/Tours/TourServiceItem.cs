@@ -76,7 +76,7 @@ namespace TaxDataStore
 
         private Image GetServiceImage(ITourService service)
         {
-            switch (service.Type.Id)
+            switch (service.Detail.ServiceType.Id)
             {
                 case 19: // Visit
                     return this.images["visit"];
