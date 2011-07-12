@@ -62,5 +62,11 @@ namespace DomainModel
                 catch { }
             }
         }
+
+
+        public static void Delete(Entities.TourPaymentCollection payments, Entities.TourPayment payment)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

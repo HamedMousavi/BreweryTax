@@ -30,6 +30,7 @@ namespace TaxDataStore
         
         protected FlatGridView fgvMembers;
         protected ContactsListView lsvMemberContacts;
+        protected ContactsMenu mnuContacts;
 
 
         public TourGroupContacts(Entities.TourGroup group)
@@ -82,15 +83,26 @@ namespace TaxDataStore
 
             this.fgvMembers.SelectionChanged += new
                 EventHandler(fgvMembers_SelectionChanged);
-
+            /*
             this.editToolbar.AddButtonClick += new 
-                EventHandler(editToolbar_AddButtonClick);
+                EventHandler(editToolbar_AddButtonClick);*/
 
             this.editToolbar.EditButtonClick += new 
                 EventHandler(editToolbar_EditButtonClick);
 
             this.editToolbar.DeleteButtonClick += new 
                 EventHandler(editToolbar_DeleteButtonClick);
+
+            this.mnuContacts = new ContactsMenu();
+            this.mnuContacts.ClickAction = OnContactMenu;
+            this.mnuContacts.Persons = DomainModel.Phonebook.GetAll();
+            this.editToolbar.AddContextMenu = this.mnuContacts;
+        }
+
+
+        public void OnContactMenu(Entities.TourMember item)
+        {
+
         }
 
 

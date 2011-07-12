@@ -17,6 +17,10 @@ namespace TaxDataStore.Presentation.Controls
             //this.ColumnHeadersVisible = false;
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, FontStyle.Bold);
             this.ForeColor = Color.Black;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.GridColor = System.Drawing.Color.Silver;
+            this.ColumnHeadersBorderStyle = 
+                System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
 
             if (CostDetails != null) this.SetDataSource(CostDetails);
         }

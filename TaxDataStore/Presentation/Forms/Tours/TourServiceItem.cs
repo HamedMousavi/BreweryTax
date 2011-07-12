@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
@@ -32,13 +33,89 @@ namespace TaxDataStore
         {
             if (Presentation.View.Theme != null)
             {
-                this.BackColor = Presentation.View.Theme.TourGroupItemBackColor;
+                this.BackColor = Presentation.View.Theme.TourServiceItemBackColor;
                 this.lblServiceCount.Font = Presentation.View.Theme.TourGroupServiceCountFont;
                 this.lblServiceType.Font = Presentation.View.Theme.TourGroupServiceNameFont;
                 this.lblServiceCount.ForeColor = Presentation.View.Theme.TourGroupServiceCountForeColor;
                 this.lblServiceType.ForeColor = Presentation.View.Theme.TourGroupServiceNameForeColor;
             }
+
+            this.Cursor = Cursors.Hand;
+
+            //this.btnClose.Visible = false;
+            this.btnClose.BackgroundImageLayout = ImageLayout.Zoom;
+            this.btnClose.BackgroundImage = DomainModel.Application.ResourceManager.GetImage("close");
+            this.btnClose.Click += new EventHandler(btnClose_Click);
+
+            this.Disposed += new EventHandler(TourServiceItem_Disposed);
+            AttachMouseEvents(this);
         }
+
+        
+        void TourServiceItem_Disposed(object sender, EventArgs e)
+        {
+            DetachMouseEvents(this);
+        }
+        
+
+        void btnClose_Click(object sender, EventArgs e)
+        {
+            Presentation.Controllers.GroupServices.Delete(this.Service);
+        }
+
+        
+        private void AttachMouseEvents(Control child)
+        {
+            foreach (Control ctrl in child.Controls)
+            {
+                AttachMouseEvents(ctrl);
+            }
+
+            child.MouseEnter += new EventHandler(OnMouseEnter);
+            child.MouseLeave += new EventHandler(OnMouseLeave);
+            if (child != this.btnClose) child.Click += new EventHandler(OnChildClick);
+        }
+
+
+        void OnMouseLeave(object sender, EventArgs e)
+        {
+            if (!this.ClientRectangle.Contains(
+                    this.PointToClient(Control.MousePosition)))
+            {
+                if (this.btnClose.Visible)
+                {
+                    //this.btnClose.Visible = false;
+                }
+            }
+        }
+
+
+        void OnMouseEnter(object sender, EventArgs e)
+        {
+            if (!this.btnClose.Visible)
+            {
+                //this.btnClose.Visible = true;
+            }
+        }
+
+
+        void OnChildClick(object sender, System.EventArgs e)
+        {
+            Presentation.Controllers.GroupServices.Edit(this.Service);
+        }
+
+
+        private void DetachMouseEvents(Control child)
+        {
+            foreach (Control ctrl in child.Controls)
+            {
+                DetachMouseEvents(ctrl);
+            }
+
+            child.MouseEnter -= new EventHandler(OnMouseEnter);
+            child.MouseLeave -= new EventHandler(OnMouseLeave);
+        }
+        
 
 
         private void CreateImages()

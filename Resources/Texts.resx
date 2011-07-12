@@ -567,4 +567,16 @@
   <data name="lbl_services" xml:space="preserve">
     <value>Services</value>
   </data>
+  <data name="lbl_served" xml:space="preserve">
+    <value>Served people</value>
+  </data>
+  <data name="lbl_service_name" xml:space="preserve">
+    <value>Service name</value>
+  </data>
+  <data name="mnu_new_contact" xml:space="preserve">
+    <value>New Contact</value>
+  </data>
+  <data name="mnu_phone_book" xml:space="preserve">
+    <value>Phonebook</value>
+  </data>
 </root>

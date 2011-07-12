@@ -189,7 +189,7 @@ namespace TaxDataStore
             /**/
 
             Int32 height = 
-                this.Tour.Groups.Count * 120 +
+                this.Tour.Groups.Count * 105 +
                 this.tlpTourDetail.Height +
                 this.tlpTourDetail.Margin.Size.Height +
                 this.Margin.Size.Height +

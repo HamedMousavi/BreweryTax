@@ -151,6 +151,8 @@ namespace DomainModel.Repository.Sql
                         }
                     }
                 }
+
+                res = true;
             }
             catch (Exception ex)
             {

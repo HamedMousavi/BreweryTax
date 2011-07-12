@@ -110,7 +110,7 @@ namespace Entities
         }
 
 
-        internal void CopyTo(Service service)
+        public void CopyTo(Service service)
         {
             service.Name = this.name;
             service.Id = this.Id;

@@ -628,6 +628,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Served people.
+        /// </summary>
+        public static string lbl_served {
+            get {
+                return ResourceManager.GetString("lbl_served", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Service name.
+        /// </summary>
+        public static string lbl_service_name {
+            get {
+                return ResourceManager.GetString("lbl_service_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Services.
         /// </summary>
         public static string lbl_services {
@@ -957,6 +975,24 @@ namespace Resources {
         public static string mnu_caption_user_settings {
             get {
                 return ResourceManager.GetString("mnu_caption_user_settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Contact.
+        /// </summary>
+        public static string mnu_new_contact {
+            get {
+                return ResourceManager.GetString("mnu_new_contact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phonebook.
+        /// </summary>
+        public static string mnu_phone_book {
+            get {
+                return ResourceManager.GetString("mnu_phone_book", resourceCulture);
             }
         }
         

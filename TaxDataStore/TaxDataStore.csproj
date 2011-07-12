@@ -63,6 +63,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppUpdateController.cs" />
+    <Compile Include="Presentation\Controls\ContactsMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\ContactToolStripItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Presentation\Controls\GroupServiceBill.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -522,8 +528,14 @@
     <EmbeddedResource Include="Presentation\Controls\FlexibleTimeSelector.resx">
       <DependentUpon>FlexibleTimeSelector.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Controls\GroupServiceBill.resx">
+      <DependentUpon>GroupServiceBill.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Controls\GroupServiceDetails.resx">
       <DependentUpon>GroupServiceDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Controls\GroupServicePayment.resx">
+      <DependentUpon>GroupServicePayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Controls\JobProgress.resx">
       <DependentUpon>JobProgress.cs</DependentUpon>

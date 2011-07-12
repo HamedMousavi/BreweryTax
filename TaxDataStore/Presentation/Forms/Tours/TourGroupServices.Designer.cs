@@ -44,18 +44,22 @@
             this.tlpMain.RowCount = 2;
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMain.Size = new System.Drawing.Size(349, 288);
+            this.tlpMain.Size = new System.Drawing.Size(131, 47);
             this.tlpMain.TabIndex = 0;
             // 
             // editToolbar
             // 
+            this.editToolbar.AddContextMenu = null;
             this.editToolbar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.editToolbar.AutoSize = true;
             this.editToolbar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.editToolbar.Location = new System.Drawing.Point(3, 3);
+            this.editToolbar.ButtonAutohide = true;
+            this.editToolbar.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.editToolbar.Location = new System.Drawing.Point(0, 0);
+            this.editToolbar.Margin = new System.Windows.Forms.Padding(0);
             this.editToolbar.Name = "editToolbar";
-            this.editToolbar.Size = new System.Drawing.Size(343, 29);
+            this.editToolbar.Size = new System.Drawing.Size(131, 18);
             this.editToolbar.TabIndex = 0;
             this.editToolbar.Title = "Title";
             // 
@@ -65,7 +69,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tlpMain);
             this.Name = "TourGroupServices";
-            this.Size = new System.Drawing.Size(349, 288);
+            this.Size = new System.Drawing.Size(131, 47);
             this.tlpMain.ResumeLayout(false);
             this.tlpMain.PerformLayout();
             this.ResumeLayout(false);

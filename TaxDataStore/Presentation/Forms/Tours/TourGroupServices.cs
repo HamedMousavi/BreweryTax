@@ -48,12 +48,10 @@ namespace TaxDataStore
             this.mnuServiceTypes = new GeneralTypeMenu(
                 DomainModel.ServiceTypes.GetAll());
             this.mnuServiceTypes.ClickAction = OnNewServiceTypeClicked;
-            
+
+            this.editToolbar.ShowDelete = false;
+            this.editToolbar.ShowEdit = false;
             this.editToolbar.AddContextMenu = this.mnuServiceTypes;
-            this.editToolbar.EditButtonClick += new 
-                System.EventHandler(editToolbar_EditButtonClick);
-            this.editToolbar.DeleteButtonClick += new 
-                System.EventHandler(editToolbar_DeleteButtonClick);
 
             if (DomainModel.Application.ResourceManager != null)
             {
@@ -75,18 +73,6 @@ namespace TaxDataStore
         }
 
 
-        void editToolbar_DeleteButtonClick(object sender, System.EventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
-
-
-        void editToolbar_EditButtonClick(object sender, System.EventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
-
-
         private void ReAttach()
         {
             this.tslServices.DataBindings.Clear();
@@ -100,7 +86,7 @@ namespace TaxDataStore
 
         public void OnNewServiceTypeClicked(Entities.GeneralType item)
         {
-            Presentation.Controllers.GroupServices.AddNew(item);
+            Presentation.Controllers.GroupServices.AddNew(this.group, item);
         }
     }
 }

@@ -1,53 +1,24 @@
-﻿using Entities;
-using System;
+﻿using System;
+using System.Transactions;
+using Entities.Abstract;
 
 
 namespace DomainModel
 {
 
-    public class Services
+    public class TourGroupServices
     {
 
-        private static ServiceCollection services;
-        private static Repository.Sql.Services repo;
+        private static Repository.Sql.TourGroupServices repo;
 
 
         public static void Init(string sqlConnectionString)
         {
-            repo = new Repository.Sql.Services(sqlConnectionString);
-
-            Load();
+            repo = new Repository.Sql.TourGroupServices(sqlConnectionString);
         }
 
 
-        private static void Load()
-        {
-            services = new ServiceCollection();
-            repo.Load(services);
-        }
-
-
-        public static ServiceCollection GetAll()
-        {
-            return services;
-        }
-
-
-        internal static Service GetByType(GeneralType tourType)
-        {
-            foreach (Service service in services)
-            {
-                if (service.ServiceType.Id == tourType.Id)
-                {
-                    return service;
-                }
-            }
-
-            return null;
-        }
-
-
-        public static bool Save(Service service)
+        public static bool Save(Entities.TourGroup group, Entities.TourServiceBase service)
         {
             bool res = false;
             try
@@ -56,16 +27,23 @@ namespace DomainModel
                 {
                     if (service.Id < 0)
                     {
-                        res = repo.Insert(service);
-
-                        if (!services.Contains(service))
+                        using (TransactionScope ts = new TransactionScope())
                         {
-                            services.Add(service);
+                            res = repo.Insert(group, service);
+                            if (res) res = DomainModel.TourGroupServicePayments.Save(service);
+                            if (res) res = DomainModel.TourGroupServiceCosts.Save(service);
+
+                            if (res) ts.Complete();
+                        }
+
+                        if (!group.Services.Contains(service))
+                        {
+                            group.Services.Add(service);
                         }
                     }
                     else
                     {
-                        res = repo.Update(service);
+                        res = repo.Update(group, service);
                     }
 
                     if (res)
@@ -94,17 +72,19 @@ namespace DomainModel
         }
 
 
-        public static bool Delete(Service service)
+        internal static bool Load(Entities.TourGroup group)
         {
             bool res = false;
-
             try
             {
-                res = repo.Delete(service);
-                if (res)
+                res = repo.Load(group);
+
+                foreach (ITourService service in group.Services)
                 {
-                    services.Remove(service);
+                    if (!(res = DomainModel.TourGroupServicePayments.Load(service))) break;
+                    if (!(res = DomainModel.TourGroupServiceCosts.Load(service))) break;
                 }
+
             }
             catch (Exception ex)
             {
@@ -119,12 +99,6 @@ namespace DomainModel
             }
 
             return res;
-        }
-
-
-        internal static Service GetById(int serviceId)
-        {
-            return services.GetById(serviceId);
         }
     }
 }

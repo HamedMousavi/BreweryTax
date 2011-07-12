@@ -91,7 +91,7 @@ namespace TaxDataStore
             {
                 if (!this.group.Employees.Contains(emp))
                 {
-                    if (DomainModel.TourEmployees.Add(this.group, emp))
+                    if (DomainModel.TourGroupEmployees.Add(this.group, emp))
                     {   
                     }
                 }
@@ -106,7 +106,7 @@ namespace TaxDataStore
 
             if (emp != null)
             {
-                if (DomainModel.TourEmployees.Delete(this.group, emp))
+                if (DomainModel.TourGroupEmployees.Delete(this.group, emp))
                 {
                 }
             }

@@ -44,6 +44,22 @@ namespace DomainModel.Repository.Sql
         }
 
 
+        protected void MapGroupToObject(SqlDataReader reader, object userData)
+        {
+            Entities.TourGroup group = new Entities.TourGroup();
+
+            group.Id = Utils.GetSafeInt32(reader, "GroupId");
+            group.SignUpType = DomainModel.SignUpTypes.GetById(
+                Utils.GetSafeInt32(reader, "SignupTypeId"));
+            group.Status = DomainModel.TourStates.GetById(
+                Utils.GetSafeInt32(reader, "StateTypeId"));
+            group.IsDirty = false;
+
+            Entities.Tour tour = (Entities.Tour)userData;
+            tour.Groups.Add(group);
+        }
+
+
         public bool Insert(Entities.Tour tour, Entities.TourGroup group)
         {
             bool res = false;
@@ -105,22 +121,6 @@ namespace DomainModel.Repository.Sql
             }
 
             return res;
-        }
-
-
-        protected void MapGroupToObject(SqlDataReader reader, object userData)
-        {
-            Entities.TourGroup group = new Entities.TourGroup();
-
-            group.Id = Utils.GetSafeInt32(reader, "GroupId");
-            group.SignUpType = DomainModel.SignUpTypes.GetById(
-                Utils.GetSafeInt32(reader, "SignupTypeId"));
-            group.Status = DomainModel.TourStates.GetById(
-                Utils.GetSafeInt32(reader, "StateTypeId"));
-            group.IsDirty = false;
-
-            Entities.Tour tour = (Entities.Tour)userData;
-            tour.Groups.Add(group);
         }
 
 

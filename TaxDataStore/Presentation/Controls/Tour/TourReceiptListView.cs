@@ -12,7 +12,7 @@ namespace TaxDataStore.Presentation.Controls
     public class TourReceiptListView : ObjectListView
     {
 
-        protected TourControl tour;
+        protected TourReceipt receipt;
         private System.Drawing.Font boldFont;
         private System.Drawing.Font regularFont;
 
@@ -48,7 +48,7 @@ namespace TaxDataStore.Presentation.Controls
             this.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GridLines = false;
             this.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-//            this.UseItemStyleForSubItems = false;
+            //            this.UseItemStyleForSubItems = false;
             this.RowFormatter = ListRowFormatter;
             //this.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
             this.RowHeight = 30;
@@ -61,7 +61,7 @@ namespace TaxDataStore.Presentation.Controls
 
 
         private void AddColumns()
-        {   
+        {
             OLVColumn column;
 
             column = new OLVColumn();
@@ -105,24 +105,13 @@ namespace TaxDataStore.Presentation.Controls
         }
 
 
-        internal void SetDataSource(Entities.Tour tour)
-        {/*
-            this.tour = tour;
-            this.tour.Receipt.Items.ListChanged += new 
-                ListChangedEventHandler(Items_ListChanged);
-
-            this.SetObjects(this.tour.Receipt.Items);
-          */ 
-        }
-
-
         void Items_ListChanged(object sender, ListChangedEventArgs e)
         {
             try
             {
-            //this.SetObjects(this.tour.Receipt.Items);
-            this.AutoResizeColumns(
-                ColumnHeaderAutoResizeStyle.HeaderSize);
+                this.SetObjects(this.receipt.Items);
+                this.AutoResizeColumns(
+                    ColumnHeaderAutoResizeStyle.HeaderSize);
             }
             catch (Exception ex)
             {
@@ -211,17 +200,29 @@ namespace TaxDataStore.Presentation.Controls
             }
         }
 
+
         internal void CleanUp()
         {
             try
             {
-                if (this.tour != null)
-                {/*
-                    this.tour.Bill.Items.ListChanged -= new
-                        ListChangedEventHandler(Items_ListChanged);*/
+                if (this.receipt != null)
+                {
+                    this.receipt.Items.ListChanged -= new
+                        ListChangedEventHandler(Items_ListChanged);
                 }
             }
             catch { }
+        }
+
+
+        internal void SetDataSource(TourReceipt tourReceipt)
+        {
+            this.receipt = tourReceipt;
+            this.receipt.Items.ListChanged += new
+                ListChangedEventHandler(Items_ListChanged);
+
+            this.SetObjects(this.receipt.Items);
+
         }
     }
 }

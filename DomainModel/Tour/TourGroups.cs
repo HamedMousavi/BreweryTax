@@ -28,16 +28,10 @@ namespace DomainModel
                 {
                     DomainModel.TourGroupMembers.Load(group);
 
-                    // load group employees
-                    DomainModel.TourEmployees.Load(group);
+                    DomainModel.TourGroupEmployees.Load(group);
+
+                    DomainModel.TourGroupServices.Load(group);
                 }
-
-
-                // undone: load group services
-                /*
-                DomainModel.TourCosts.Load(tour);
-                DomainModel.TourPayments.Load(tour);
-*/
             }
             catch (Exception ex)
             {

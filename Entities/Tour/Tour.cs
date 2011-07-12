@@ -111,20 +111,7 @@ namespace Entities
             RaisePropertyChanged("Time");
         }
 
-        /*
-        public Tour(TourCostGroupCollection CostGroups)
-            : this()
-        {
-            foreach (TourCostGroup group in CostGroups)
-            {
-                TourCostDetail detail = new TourCostDetail();
-                detail.CostGroup = group;
-
-                this.CostDetails.Add(detail);
-            }
-        }
-        */
-
+        
         public void CopyTo(Tour tour)
         {
             this.Time.CopyTo(tour.Time);

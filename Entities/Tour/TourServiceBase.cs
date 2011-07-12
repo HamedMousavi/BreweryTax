@@ -137,6 +137,19 @@ namespace Entities
         }
 
 
+        public TourServiceBase(TourCostGroupCollection CostGroups)
+            : this()
+        {
+            foreach (TourCostGroup group in CostGroups)
+            {
+                TourCostDetail detail = new TourCostDetail();
+                detail.CostGroup = group;
+
+                this.CostDetails.Add(detail);
+            }
+        }
+
+
         void Payments_ListChanged(object sender, ListChangedEventArgs e)
         {
             RaisePropertyChanged("Payments");
@@ -149,7 +162,7 @@ namespace Entities
         }
 
 
-        protected void CopyTo(TourServiceBase service)
+        public void CopyTo(TourServiceBase service)
         {
             service.id = this.id;
             
@@ -168,16 +181,14 @@ namespace Entities
         {
             get 
             {
-                return 1000;
-                /*
-                if (IsConfirmed)
+                if (costDetails.SignUpCount <= 0)
                 {
                     return costDetails.ParticipantsCount;
                 }
                 else
                 {
                     return costDetails.SignUpCount;
-                }*/
+                }
             }
         }
 

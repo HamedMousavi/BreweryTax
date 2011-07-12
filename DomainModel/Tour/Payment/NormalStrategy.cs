@@ -80,7 +80,7 @@ namespace DomainModel.PaymentStrategies
 
         private void CreateReceipt(ITourService service)
         {
-            Money tourBasePPS = DomainModel.ServiceBasePrices.GetPricePerPerson(service);
+            Money tourBasePPS = service.Detail.PricePerPerson;
 
             int index = 0;
             if (tourBasePPS != null)

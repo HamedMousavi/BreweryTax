@@ -4,7 +4,7 @@
 namespace DomainModel
 {
 
-    public class TourEmployees
+    public class TourGroupEmployees
     {
         private static Repository.Sql.TourEmployees empRepo;
 

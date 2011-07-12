@@ -102,7 +102,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tlpMain);
             this.Name = "TourGroupDetails";
-            this.Size = new System.Drawing.Size(39, 94);
+            this.Size = new System.Drawing.Size(40, 35);
             this.tlpMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxSignupType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxGroupState)).EndInit();

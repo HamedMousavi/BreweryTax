@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.saveButtonBar1 = new TaxDataStore.Presentation.Controls.SaveButtonBar();
+            this.sbbMain = new TaxDataStore.Presentation.Controls.SaveButtonBar();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpgDetails = new System.Windows.Forms.TabPage();
             this.tpgBill = new System.Windows.Forms.TabPage();
@@ -42,7 +42,7 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.saveButtonBar1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.sbbMain, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tabControl1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -55,14 +55,14 @@
             // 
             // saveButtonBar1
             // 
-            this.saveButtonBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.sbbMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveButtonBar1.AutoSize = true;
-            this.saveButtonBar1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.saveButtonBar1.Location = new System.Drawing.Point(3, 230);
-            this.saveButtonBar1.Name = "saveButtonBar1";
-            this.saveButtonBar1.Size = new System.Drawing.Size(278, 29);
-            this.saveButtonBar1.TabIndex = 0;
+            this.sbbMain.AutoSize = true;
+            this.sbbMain.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.sbbMain.Location = new System.Drawing.Point(3, 230);
+            this.sbbMain.Name = "saveButtonBar1";
+            this.sbbMain.Size = new System.Drawing.Size(278, 29);
+            this.sbbMain.TabIndex = 0;
             // 
             // tabControl1
             // 
@@ -129,7 +129,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private Presentation.Controls.SaveButtonBar saveButtonBar1;
+        private Presentation.Controls.SaveButtonBar sbbMain;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpgDetails;
         private System.Windows.Forms.TabPage tpgBill;

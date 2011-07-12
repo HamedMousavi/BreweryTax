@@ -77,18 +77,20 @@ namespace TaxDataStore
 
 
         private bool autoHide;
-        private bool showAdd;
-        private bool showEdit;
-        private bool showDelete;
+
+
+        public bool ShowAdd { get; set; }
+        public bool ShowEdit { get; set; }
+        public bool ShowDelete { get; set; }
 
 
         public EditToolbar()
         {
             InitializeComponent();
 
-            this.showAdd = true;
-            this.showEdit = true;
-            this.showDelete = true;
+            this.ShowAdd = true;
+            this.ShowEdit = true;
+            this.ShowDelete = true;
             this.autoHide = true;
 
             SetupControls();
@@ -98,9 +100,9 @@ namespace TaxDataStore
         public EditToolbar(string title, bool showAdd = true, bool showEdit = true, bool showDelete = true)
             : this()
         {
-            this.showAdd = showAdd;
-            this.showEdit = showEdit;
-            this.showDelete = showDelete;
+            this.ShowAdd = showAdd;
+            this.ShowEdit = showEdit;
+            this.ShowDelete = showDelete;
 
             this.lblTitle.Text = title;
         }
@@ -275,9 +277,9 @@ namespace TaxDataStore
 
         internal void ShowEditOptions(bool show)
         {
-            this.btnAdd.Visible = show & this.showAdd;
-            this.btnEdit.Visible = show & this.showEdit;
-            this.btnDelete.Visible = show & this.showDelete;
+            this.btnAdd.Visible = show & this.ShowAdd;
+            this.btnEdit.Visible = show & this.ShowEdit;
+            this.btnDelete.Visible = show & this.ShowDelete;
         }
     }
 }

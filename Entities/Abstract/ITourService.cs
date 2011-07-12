@@ -14,6 +14,7 @@ namespace Entities.Abstract
         TourReceipt Bill { get; }
         Service Detail { get; }
         string Name { get; }
+        Int32 Id { get; set; }
 
         ITourService Clone();
     }

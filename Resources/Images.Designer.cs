@@ -207,6 +207,13 @@ namespace Resources {
             }
         }
         
+        public static System.Drawing.Bitmap close {
+            get {
+                object obj = ResourceManager.GetObject("close", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         public static System.Drawing.Bitmap closed_lock {
             get {
                 object obj = ResourceManager.GetObject("closed_lock", resourceCulture);
