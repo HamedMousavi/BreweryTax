@@ -75,6 +75,11 @@ namespace TaxDataStore.Presentation.Controls
                 if (service.ServiceType == this.service.Detail.ServiceType)
                 {
                     this.cbxServiceTypes.Items.Add(service);
+                    if (service.Id == this.service.Detail.Id)
+                    {
+                        this.cbxServiceTypes.SelectedItem =
+                            service;
+                    }
                 }
             }
 

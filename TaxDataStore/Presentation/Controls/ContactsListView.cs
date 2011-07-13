@@ -145,7 +145,14 @@ namespace TaxDataStore.Presentation.Controls
 
         void datasource_ListChanged(object sender, System.ComponentModel.ListChangedEventArgs e)
         {
-            this.SetObjects(this.datasource);
+            if (this.datasource == null || this.datasource.Count == 0)
+            {
+                this.SetObjects(null);
+            }
+            else
+            {
+                this.SetObjects(this.datasource);
+            }
         }
     }
 }

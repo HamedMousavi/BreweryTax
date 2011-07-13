@@ -65,31 +65,31 @@ namespace TaxDataStore
                 }
             }
 
-            lock (this)
+            this.SuspendLayout();
+            this.flpTours.SuspendLayout();
+
+            foreach (TourControl tourCtrl in removable)
             {
-                this.flpTours.SuspendLayout();
-
-                foreach (TourControl tourCtrl in removable)
-                {
-                    this.flpTours.Controls.Remove(tourCtrl);
-                    tourCtrl.Dispose();
-                }
-                removable.Clear();
-
-                foreach (Entities.Tour tour in tours)
-                {
-                    TourControl ctrl = FindInClients(tour);
-                    if (ctrl == null)
-                    {
-                        TourControl client = new TourControl(tour);
-                        client.Dock = DockStyle.Top;
-                        this.flpTours.Controls.Add(client);
-                    }
-                }
-
-                this.flpTours.ResumeLayout(true);
+                this.flpTours.Controls.Remove(tourCtrl);
+                tourCtrl.Dispose();
             }
+            removable.Clear();
+
+            foreach (Entities.Tour tour in tours)
+            {
+                TourControl ctrl = FindInClients(tour);
+                if (ctrl == null)
+                {
+                    TourControl client = new TourControl(tour);
+                    client.Dock = DockStyle.Top;
+                    this.flpTours.Controls.Add(client);
+                }
+            }
+
+            this.flpTours.ResumeLayout(true);
+            this.ResumeLayout(true);
         }
+        
 
 
         private TourControl FindInClients(Entities.Tour tour)

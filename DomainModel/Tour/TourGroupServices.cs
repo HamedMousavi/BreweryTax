@@ -25,25 +25,26 @@ namespace DomainModel
             {
                 if (service.IsDirty)
                 {
-                    if (service.Id < 0)
+                    using (TransactionScope ts = new TransactionScope())
                     {
-                        using (TransactionScope ts = new TransactionScope())
+                        if (service.Id < 0)
                         {
                             res = repo.Insert(group, service);
-                            if (res) res = DomainModel.TourGroupServicePayments.Save(service);
-                            if (res) res = DomainModel.TourGroupServiceCosts.Save(service);
-
-                            if (res) ts.Complete();
                         }
-
-                        if (!group.Services.Contains(service))
+                        else
                         {
-                            group.Services.Add(service);
+                            res = repo.Update(service);
                         }
+
+                        if (res) res = DomainModel.TourGroupServicePayments.Save(service);
+                        if (res) res = DomainModel.TourGroupServiceCosts.Save(service);
+
+                        if (res) ts.Complete();
                     }
-                    else
+
+                    if (group != null && !group.Services.Contains(service))
                     {
-                        res = repo.Update(group, service);
+                        group.Services.Add(service);
                     }
 
                     if (res)
@@ -85,6 +86,38 @@ namespace DomainModel
                     if (!(res = DomainModel.TourGroupServiceCosts.Load(service))) break;
                 }
 
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "",
+                        ex.Message);
+                }
+                catch { }
+            }
+
+            return res;
+        }
+
+
+        public static bool Delete(ITourService service)
+        {
+            bool res = true;
+
+            try
+            {
+                using (TransactionScope ts = new TransactionScope())
+                {
+                    if (res) res = DomainModel.TourGroupServicePayments.Delete(service);
+                    if (res) res = DomainModel.TourGroupServiceCosts.Delete(service);
+
+                    if (res) res = repo.Delete(service);
+
+                    if (res) ts.Complete();
+                } 
             }
             catch (Exception ex)
             {

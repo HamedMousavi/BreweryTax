@@ -30,21 +30,26 @@ namespace DomainModel
             {
                 using (TransactionScope ts = new TransactionScope())
                 {
-
+                    // Save changes to member
                     if (member.IsDirty)
                     {
                         if (member.Id < 0)
                         {
                             if (!(res = members.Insert(member))) return res;
-                            if (!(res = groupMembers.Insert(group, member))) return res;
                         }
                         else
                         {
                             if (!(res = members.Update(member))) return res;
                         }
-
                     }
 
+                    // Save member-tour relation
+                    if (group != null)
+                    {
+                        if (!(res = groupMembers.Insert(group, member))) return res;
+                    }
+
+                    // Save contacts
                     foreach (Entities.Contact contact in member.Contacts)
                     {
                         if (contact.IsDirty)
@@ -59,12 +64,13 @@ namespace DomainModel
                             }
                         }
                     }
-
+                    // Save deleted contacts
                     foreach (Entities.Contact contact in member.DeletedContacts)
                     {
                         if (!(res = contacts.Delete(contact))) return res;
                     }
 
+                    // Update cache
                     if (group != null && !group.Members.Contains(member))
                     {
                         group.Members.Add(member);
@@ -98,9 +104,20 @@ namespace DomainModel
                 members.GetByGroup(group);
 
                 // Load each member contacts
-                foreach (Entities.TourMember member in group.Members)
+                for (int i = 0; i < group.Members.Count; i++ )
                 {
-                    contacts.GetByMember(member);
+                    Entities.TourMember member = group.Members[i];
+
+                    Entities.TourMember inPhonebook =
+                        DomainModel.Phonebook.FindById(member.Id);
+                    if (inPhonebook == null)
+                    {
+                        contacts.GetByMember(member);
+                    }
+                    else
+                    {
+                        group.Members[i] = inPhonebook;
+                    }
                 }
             }
             catch (Exception ex)
@@ -124,15 +141,21 @@ namespace DomainModel
             {
                 using (TransactionScope ts = new TransactionScope())
                 {
-                    foreach (Entities.Contact contact in member.Contacts)
+                    if (DomainModel.Phonebook.Contains(member))
                     {
-                        if (!(res = contacts.Delete(contact))) break;
+                        // Remove only relation
+                        if (res) res = groupMembers.Delete(group, member);
                     }
+                    else
+                    {
+                        foreach (Entities.Contact contact in member.Contacts)
+                        {
+                            if (!(res = contacts.Delete(contact))) break;
+                        }
 
-
-                    if (res) res = groupMembers.Delete(group, member);
-                    if (res) res = members.Delete(member);
-
+                        if (res) res = groupMembers.Delete(group, member);
+                        if (res) res = members.Delete(member);
+                    }
                     if (res) ts.Complete();
                 }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
+using TaxDataStore.Presentation;
 
 
 namespace TaxDataStore
@@ -14,6 +15,8 @@ namespace TaxDataStore
 
         protected Panel pnlGroups;
         protected EditToolbar etbGroups;
+        protected FormControlManager ctrlManager;
+
 
         public TourControl(Entities.Tour tour)
         {
@@ -67,10 +70,40 @@ namespace TaxDataStore
         {
             this.Tour = tour;
 
+            this.ctrlManager = new FormControlManager(this.pnlGroups, tour.Groups);
+            this.ctrlManager.CreateControl = CreateTourGroup;
+            this.ctrlManager.ControlsContainItem = TourGroupContainItem;
+            this.ctrlManager.ListContainsControl = ListContainsTourGroup;
+
             tour.Groups.ListChanged += new 
                 ListChangedEventHandler(Groups_ListChanged);
 
             UpdateData();
+        }
+
+        
+        public Control CreateTourGroup(object item)
+        {
+            TourGroup client = new TourGroup((Entities.TourGroup)item);
+            client.Dock = DockStyle.Top;
+
+            return client;
+        }
+
+
+        public bool TourGroupContainItem(object item)
+        {
+            Entities.TourGroup group =
+                (Entities.TourGroup)item;
+
+            return FindInClients(group) != null;
+        }
+
+
+        public bool ListContainsTourGroup(UserControl ctrl)
+        {
+            TourGroup tg = (TourGroup)ctrl;
+            return this.Tour.Groups.Contains(tg.Group);
         }
 
 
@@ -81,10 +114,12 @@ namespace TaxDataStore
             UpdateData();
         }
 
-
+        bool isUpdating = false;
         private void UpdateData(Entities.Tour tour)
         {
             if (IsDisposed) return;
+            if (isUpdating) return;
+            isUpdating = true;
 
             this.lblTourTime.Text = tour.Time.ToString();
             this.lblDetails.Text = string.Format(
@@ -94,7 +129,14 @@ namespace TaxDataStore
                 DomainModel.Application.ResourceManager.GetText("lbl_services"),
                 tour.ServiceCount
                 );
-            
+
+            this.SuspendLayout();
+            this.ctrlManager.Sync();
+            SetupClientSize();
+            this.ResumeLayout(true);
+
+            isUpdating = false;
+            /*
             List<TourGroup> removable = new List<TourGroup>();
 
             foreach (UserControl ctrl in this.pnlGroups.Controls)
@@ -115,32 +157,32 @@ namespace TaxDataStore
                 }
             }
 
-            lock (this)
+
+            this.SuspendLayout();
+            this.pnlGroups.SuspendLayout();
+
+            foreach (TourGroup grpCtrl in removable)
             {
-                this.pnlGroups.SuspendLayout();
-
-                foreach (TourGroup grpCtrl in removable)
-                {
-                    this.pnlGroups.Controls.Remove(grpCtrl);
-                    grpCtrl.Dispose();
-                }
-                removable.Clear();
-
-                foreach (Entities.TourGroup grp in tour.Groups)
-                {
-                    TourGroup ctrl = FindInClients(grp);
-                    if (ctrl == null)
-                    {
-                        TourGroup client = new TourGroup(grp);
-                        client.Dock = DockStyle.Top;
-                        this.pnlGroups.Controls.Add(client);
-                    }
-                }
-
-                SetupClientSize();
-
-                this.pnlGroups.ResumeLayout(true);
+                this.pnlGroups.Controls.Remove(grpCtrl);
+                grpCtrl.Dispose();
             }
+            removable.Clear();
+
+            foreach (Entities.TourGroup grp in tour.Groups)
+            {
+                TourGroup ctrl = FindInClients(grp);
+                if (ctrl == null)
+                {
+                    TourGroup client = new TourGroup(grp);
+                    client.Dock = DockStyle.Top;
+                    this.pnlGroups.Controls.Add(client);
+                }
+            }
+
+            SetupClientSize();
+
+            this.pnlGroups.ResumeLayout(true);
+            this.ResumeLayout(true);*/
         }
 
 

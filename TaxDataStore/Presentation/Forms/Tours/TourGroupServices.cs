@@ -79,7 +79,7 @@ namespace TaxDataStore
 
             if (this.group != null)
             {
-                this.tslServices.DataBindings.Add(new Binding("Services", this.group, "Services"));
+                this.tslServices.DataBindings.Add(new Binding("Group", this, "Group"));
             }
         }
 

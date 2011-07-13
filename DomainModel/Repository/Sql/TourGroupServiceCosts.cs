@@ -126,5 +126,34 @@ namespace DomainModel.Repository.Sql
             ITourService service = (ITourService)userData;
             service.CostDetails.Add(cost);
         }
+
+
+        internal bool Delete(Entities.TourCostDetail cost)
+        {
+            bool res = false;
+
+            try
+            {
+                this.query.Parameters.Clear();
+                this.query.Parameters.Add(new SqlParameter("@CostId", cost.Id));
+
+
+                int affected;
+                res = this.query.ExecuteUpdateProc("TourGroupServiceCostDeleteById", out affected);
+            }
+            catch (Exception ex)
+            {
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "",
+                        ex.Message);
+                }
+                catch { }
+            }
+
+            return res;
+        }
     }
 }

@@ -16,6 +16,8 @@ namespace Entities
         protected ContactCollection contacts;
         protected GeneralType memberShip;
         protected Int32 id;
+        protected bool isInPhonebook;
+        protected bool isEmployee;
 
         #endregion Fields
 
@@ -139,6 +141,40 @@ namespace Entities
             }
         }
 
+        public bool IsInPhonebook
+        {
+            get
+            {
+                return this.isInPhonebook;
+            }
+
+            set
+            {
+                if (this.isInPhonebook != value)
+                {
+                    this.isInPhonebook = value;
+                    RaisePropertyChanged("IsInPhonebook");
+                }
+            }
+        }
+
+        public bool IsEmployee
+        {
+            get
+            {
+                return this.isEmployee;
+            }
+
+            set
+            {
+                if (this.isEmployee != value)
+                {
+                    this.isEmployee = value;
+                    RaisePropertyChanged("IsEmployee");
+                }
+            }
+        }
+
         #endregion Properties
 
 
@@ -160,6 +196,8 @@ namespace Entities
             member.Title = this.Title;
             member.MemberShip = this.MemberShip;
             member.Id = this.Id;
+            member.IsEmployee = this.IsEmployee;
+            member.IsInPhonebook = this.IsInPhonebook;
             member.IsDirty = this.IsDirty;
 
             this.Contacts.CopyTo(member.Contacts);

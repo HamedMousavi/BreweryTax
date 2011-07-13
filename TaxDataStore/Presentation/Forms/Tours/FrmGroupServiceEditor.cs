@@ -1,5 +1,4 @@
-﻿using System.Windows.Forms;
-using TaxDataStore.Presentation.Controls;
+﻿using TaxDataStore.Presentation.Controls;
 
 
 namespace TaxDataStore
@@ -28,11 +27,11 @@ namespace TaxDataStore
         }
 
 
-        public FrmGroupServiceEditor(Entities.TourGroup group, Entities.TourServiceBase service)
+        public FrmGroupServiceEditor(Entities.TourServiceBase service)
         {
-            this.group = group;
             this.editService = service;
 
+            CreateService();
             service.CopyTo(this.service);
 
             Init();
@@ -45,7 +44,6 @@ namespace TaxDataStore
                 DomainModel.TourCostGroups.GetAll());
             this.service.PaymentStrategy = new 
                 DomainModel.PaymentStrategies.NormalStrategy();
-
         }
 
 

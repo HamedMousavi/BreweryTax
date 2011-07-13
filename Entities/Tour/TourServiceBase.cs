@@ -162,12 +162,12 @@ namespace Entities
         }
 
 
-        public void CopyTo(TourServiceBase service)
+        public void CopyTo(ITourService service)
         {
-            service.id = this.id;
+            service.Id = this.id;
             
-            this.costDetails.CopyTo(service.costDetails);
-            this.payments.CopyTo(service.payments);
+            this.costDetails.CopyTo(service.CostDetails);
+            this.payments.CopyTo(service.Payments);
             this.Bill.CopyTo(service.Bill);
             this.serviceType.CopyTo(service.Detail);
 

@@ -59,7 +59,7 @@ namespace DomainModel.Repository.Sql
             {
                 this.query.Parameters.Clear();
 
-                this.query.Parameters.Add(new SqlParameter("@ServiceId", service));
+                this.query.Parameters.Add(new SqlParameter("@ServiceId", service.Id));
                 this.query.Parameters.Add(new SqlParameter("@PaymentTypeId", payment.Type.Id));
                 this.query.Parameters.Add(new SqlParameter("@AmountValue", payment.Amount.Value));
                 this.query.Parameters.Add(new SqlParameter("@AmountUnitId", payment.Amount.Currency.Id));

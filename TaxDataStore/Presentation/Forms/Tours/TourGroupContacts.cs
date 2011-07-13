@@ -73,6 +73,8 @@ namespace TaxDataStore
             this.fgvMembers.HiddenColumnNames.Add("FirstName");
             this.fgvMembers.HiddenColumnNames.Add("LastName");
             this.fgvMembers.HiddenColumnNames.Add("Contacts");
+            this.fgvMembers.HiddenColumnNames.Add("IsInPhonebook");
+            this.fgvMembers.HiddenColumnNames.Add("IsEmployee");
             this.fgvMembers.ColumnHeadersVisible = false;
             this.fgvMembers.Margin = new Padding(2, 2, 1, 2);
 
@@ -102,7 +104,15 @@ namespace TaxDataStore
 
         public void OnContactMenu(Entities.TourMember item)
         {
-
+            if (item == null)
+            {
+                // Add new contact
+                Presentation.Controllers.Tours.AddMember(this.group);
+            }
+            else
+            {
+                DomainModel.TourGroupMembers.Save(item, this.group);
+            }
         }
 
 
@@ -137,11 +147,11 @@ namespace TaxDataStore
             }
         }
 
-
+        /*
         void editToolbar_AddButtonClick(object sender, EventArgs e)
         {
             Presentation.Controllers.Tours.AddMember(this.group);
-        }
+        }*/
 
 
         private void BindControls()
@@ -155,7 +165,13 @@ namespace TaxDataStore
 
         void fgvMembers_SelectionChanged(object sender, EventArgs e)
         {
-            Entities.TourMember member = 
+            UpdateSelectedMemberContacts();
+        }
+
+
+        private void UpdateSelectedMemberContacts()
+        {
+            Entities.TourMember member =
                 (Entities.TourMember)this.fgvMembers.SelectedItem;
 
             if (member != null)

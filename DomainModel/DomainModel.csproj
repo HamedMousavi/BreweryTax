@@ -64,6 +64,7 @@
     <Compile Include="JobProgressController.cs" />
     <Compile Include="Phonebook.cs" />
     <Compile Include="Repository\Excell\MonthlyTourBill.cs" />
+    <Compile Include="Repository\Sql\Phonebook.cs" />
     <Compile Include="Repository\Sql\Services.cs" />
     <Compile Include="Repository\Sql\TourCostRuleConstraintProperties.cs" />
     <Compile Include="Repository\Sql\TourCostRuleConstraints.cs" />

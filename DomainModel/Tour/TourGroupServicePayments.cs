@@ -70,5 +70,21 @@ namespace DomainModel
         {
             return repo.Load(service);
         }
+
+
+        internal static bool Delete(Entities.Abstract.ITourService service)
+        {
+            bool res = true;
+
+            foreach(Entities.TourPayment payment in service.Payments)
+            {
+                if (!(res = repo.Delete(payment)))
+                {
+                    break;
+                }
+            }
+
+            return res;
+        }
     }
 }

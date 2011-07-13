@@ -65,6 +65,9 @@ namespace TaxDataStore.Presentation.Controls
 
         void ContactsMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
+            if (e.ClickedItem == null) return;
+            if (!(e.ClickedItem is ContactToolStripItem)) return;
+
             ContactToolStripItem item =
                 (ContactToolStripItem)e.ClickedItem;
 

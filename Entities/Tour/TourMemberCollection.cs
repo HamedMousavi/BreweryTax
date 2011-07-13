@@ -28,5 +28,19 @@ namespace Entities
 
             this.Clear();
         }
+
+
+        public new bool Contains(TourMember member)
+        {
+            foreach (Entities.TourMember tm in this)
+            {
+                if (member.Id == tm.Id)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

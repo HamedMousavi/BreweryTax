@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using Entities.Abstract;
 
 
 namespace DomainModel.Repository.Sql
@@ -48,7 +49,7 @@ namespace DomainModel.Repository.Sql
         }
 
 
-        internal bool Update(Entities.TourGroup group, Entities.TourServiceBase service)
+        internal bool Update(/*Entities.TourGroup group, */Entities.TourServiceBase service)
         {
             bool res = false;
 
@@ -56,7 +57,7 @@ namespace DomainModel.Repository.Sql
             {
                 this.query.Parameters.Clear();
 
-                this.query.Parameters.Add(new SqlParameter("@GroupId", group.Id));
+                //this.query.Parameters.Add(new SqlParameter("@GroupId", group.Id));
                 this.query.Parameters.Add(new SqlParameter("@ServiceId", service.Detail.Id));
                 this.query.Parameters.Add(new SqlParameter("@GroupServiceId", service.Id));
 
@@ -79,7 +80,7 @@ namespace DomainModel.Repository.Sql
         }
 
 
-        internal bool Delete(Entities.TourServiceBase service)
+        public bool Delete(ITourService service)
         {
             bool res = false;
 

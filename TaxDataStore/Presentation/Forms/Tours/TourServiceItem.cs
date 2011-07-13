@@ -15,6 +15,8 @@ namespace TaxDataStore
         public ITourService Service { get; set; }
 
         protected Dictionary<string, Image> images;
+        private Entities.TourGroup group;
+        private ITourService srv;
 
 
         public TourServiceItem(ITourService service)
@@ -26,6 +28,13 @@ namespace TaxDataStore
             SetupControls();
             CreateImages();
             BindControls(service);
+        }
+
+
+        public TourServiceItem(Entities.TourGroup tourGroup, ITourService service)
+            : this(service)
+        {
+            this.group = tourGroup;
         }
 
 
@@ -60,7 +69,7 @@ namespace TaxDataStore
 
         void btnClose_Click(object sender, EventArgs e)
         {
-            Presentation.Controllers.GroupServices.Delete(this.Service);
+            Presentation.Controllers.GroupServices.Delete(this.group, this.Service);
         }
 
         
@@ -115,7 +124,6 @@ namespace TaxDataStore
             child.MouseEnter -= new EventHandler(OnMouseEnter);
             child.MouseLeave -= new EventHandler(OnMouseLeave);
         }
-        
 
 
         private void CreateImages()

@@ -14,15 +14,23 @@ namespace TaxDataStore.Presentation.Controllers
         }
 
 
-        internal static void Edit(Entities.Abstract.ITourService iTourService)
+        internal static void Edit(Entities.Abstract.ITourService service)
         {
-            throw new System.NotImplementedException();
+            using (FrmGroupServiceEditor frm = new FrmGroupServiceEditor(
+                (Entities.TourServiceBase)service))
+            {
+                frm.ShowDialog();
+            }
         }
 
 
-        internal static void Delete(Entities.Abstract.ITourService iTourService)
+        internal static void Delete(Entities.TourGroup tourGroup, Entities.Abstract.ITourService service)
         {
-            throw new System.NotImplementedException();
+            if (DomainModel.TourGroupServices.Delete(service))
+            {
+                tourGroup.Services.Remove(service);
+            }
         }
+
     }
 }

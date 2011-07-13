@@ -71,12 +71,24 @@ namespace TaxDataStore
                     string.Empty,
                     null));
 
+            this.chbxAddToPhonebook.DataBindings.Add(
+                new Binding(
+                    "Checked",
+                    this.member,
+                    "IsInPhonebook",
+                    false,
+                    DataSourceUpdateMode.OnPropertyChanged,
+                    false,
+                    string.Empty,
+                    null));
 
-            this.tlpMain.Controls.Add(this.cbxTitle, 1, 0);
+            this.tlpMain.Controls.Add(this.cbxTitle, 1, 1);
 
             this.dgvContacts = new ContactsGridView(this.member.Contacts);
             this.tlpContacts.Controls.Add(this.dgvContacts, 0, 1);
             this.tlpContacts.SetColumnSpan(this.dgvContacts, 3);
+
+            this.chbxAddToPhonebook.Checked = this.member.IsInPhonebook;
 
             this.Load += new EventHandler(FrmTourMemberEditor_Load);
         }
@@ -88,16 +100,16 @@ namespace TaxDataStore
             this.lblFirstName = new FormLabel(2, "lblFirstName", false, "lbl_first_name");
             this.lblLastName = new FormLabel(4, "lblLastName", false, "lbl_last_name");
             this.lblContacts = new ToolbarLabel(6, "lblContacts", "lbl_contacts");
-       
-            this.btnAddContact      = new FlatButton(8, "btnAdd", "add", "add");
-            this.btnRemoveContact   = new FlatButton(9, "btnDelete", "delete", "delete");
+
+            this.btnAddContact = new FlatButton(8, "btnAdd", "add", "add");
+            this.btnRemoveContact = new FlatButton(9, "btnDelete", "delete", "delete");
 
             this.tlpContacts.Controls.Add(this.btnAddContact, 1, 0);
             this.tlpContacts.Controls.Add(this.btnRemoveContact, 2, 0);
 
-            this.tlpMain.Controls.Add(this.lblTitle, 0, 0);
-            this.tlpMain.Controls.Add(this.lblFirstName, 0, 1);
-            this.tlpMain.Controls.Add(this.lblLastName, 0, 2);
+            this.tlpMain.Controls.Add(this.lblTitle, 0, 1);
+            this.tlpMain.Controls.Add(this.lblFirstName, 0, 2);
+            this.tlpMain.Controls.Add(this.lblLastName, 0, 3);
             this.tlpContacts.Controls.Add(this.lblContacts, 0, 0);
 
             this.btnAddContact.Click += new EventHandler(btnAddContact_Click);
@@ -172,6 +184,8 @@ namespace TaxDataStore
         {
             if (DomainModel.TourGroupMembers.Save(this.member, this.group))
             {
+                DomainModel.Phonebook.Save(this.member);
+
                 if (this.editMember != null)
                 {
                     // Update edit user and database

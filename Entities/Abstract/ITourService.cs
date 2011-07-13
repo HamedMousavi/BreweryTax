@@ -17,5 +17,7 @@ namespace Entities.Abstract
         Int32 Id { get; set; }
 
         ITourService Clone();
+        bool IsDirty { get; set; }
+        TourPaymentCollection DeletedPayments { get; set; }
     }
 }
