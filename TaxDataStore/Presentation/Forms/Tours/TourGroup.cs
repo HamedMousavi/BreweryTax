@@ -9,6 +9,7 @@ namespace TaxDataStore
     public partial class TourGroup : UserControl
     {
 
+        protected Entities.Tour tour;
         protected Entities.TourGroup group;
 
         public Entities.TourGroup Group
@@ -19,16 +20,29 @@ namespace TaxDataStore
                 if (this.group != value)
                 {
                     this.group = value;
-                    BindControls();
+                    BindControls(this.group);
+                }
+            }
+        }
+        
+        public Entities.Tour Tour
+        {
+            get { return this.tour; }
+            set
+            {
+                if (this.tour != value)
+                {
+                    this.tour = value;
+                    BindControls(this.tour);
                 }
             }
         }
 
 
-        TourGroupDetails ctrlDetail;
-        TourGroupContacts ctrlContacts;
-        TourGroupServices ctrlServices;
-        TourGroupEmployees ctrlEmployees;
+        protected TourGroupDetails ctrlDetail;
+        protected TourGroupContacts ctrlContacts;
+        protected TourGroupServices ctrlServices;
+        protected TourGroupEmployees ctrlEmployees;
 
 
         public TourGroup()
@@ -36,13 +50,6 @@ namespace TaxDataStore
             InitializeComponent();
 
             SetupControls();
-        }
-
-
-        public TourGroup(Entities.TourGroup group)
-            : this()
-        {
-            this.Group = group;
         }
 
 
@@ -67,20 +74,51 @@ namespace TaxDataStore
             {
                 this.BackColor = Presentation.View.Theme.TourGroupBackColor;
             }
+
+            this.ctrlDetail.DeleteGroupClicked += 
+                new EventHandler(ctrlDetail_DeleteGroupClicked);
         }
 
 
-        private void BindControls()
+        void ctrlDetail_DeleteGroupClicked(object sender, EventArgs e)
         {
-            this.ctrlDetail.DataBindings.Clear();
-            this.ctrlServices.DataBindings.Clear();
-            this.ctrlContacts.DataBindings.Clear();
-            this.ctrlEmployees.DataBindings.Clear();
-
-            this.ctrlDetail.DataBindings.Add(new Binding("Group", this, "Group"));
-            this.ctrlServices.DataBindings.Add(new Binding("Group", this, "Group"));
-            this.ctrlContacts.DataBindings.Add(new Binding("Group", this, "Group"));
-            this.ctrlEmployees.DataBindings.Add(new Binding("Group", this, "Group"));
+            if (DomainModel.TourGroups.Delete(this.group))
+            {
+                this.ctrlContacts.Cleanup();
+                this.tour.Groups.Remove(this.group);
+            }
         }
+
+
+        private void BindControls(Entities.TourGroup group)
+        {
+            this.ctrlDetail.Group = group;
+            this.ctrlServices.Group = group;
+            this.ctrlContacts.Group = group;
+            this.ctrlEmployees.Group = group;
+        }
+
+
+        private void BindControls(Entities.Tour tour)
+        {
+            //this.ctrlDetail.Tour = tour;
+            this.ctrlServices.Tour = tour;
+            //this.ctrlContacts.Tour = tour;
+            //this.ctrlEmployees.Tour = tour;
+        }
+
+        /*
+        public event EventHandler DeleteGroupClicked
+        {
+            add
+            {
+                this.ctrlDetail.DeleteGroupClicked += value;
+            }
+
+            remove
+            {
+                this.ctrlDetail.DeleteGroupClicked -= value;
+            }
+        }*/
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
+using TaxDataStore.Presentation;
 
 
 namespace TaxDataStore
@@ -8,6 +9,10 @@ namespace TaxDataStore
 
     public partial class ToursListView : UserControl
     {
+
+        protected FormControlManager ctrlManager;
+        protected Entities.TourCollection Tours { get; set; }
+
 
         public ToursListView(Entities.TourCollection tours)
         {
@@ -24,12 +29,44 @@ namespace TaxDataStore
             {
                 this.BackColor = Presentation.View.Theme.TourListBackColor;
             }
+            this.Disposed += new System.EventHandler(ToursListView_Disposed);
         }
 
 
         private void BindControls(Entities.TourCollection tours)
         {
-            tours.ListChanged += new ListChangedEventHandler(Tours_ListChanged);
+            this.Tours = tours;
+            this.Tours.ListChanged += new ListChangedEventHandler(Tours_ListChanged);
+
+            this.ctrlManager = new FormControlManager(this.flpTours, tours);
+            this.ctrlManager.CreateControl = CreateTour;
+            this.ctrlManager.ControlsContainItem = TourContainItem;
+            this.ctrlManager.ListContainsControl = ListContainsTour;
+        }
+
+
+        public Control CreateTour(object item)
+        {
+            TourControl client = new TourControl((Entities.Tour)item);
+            client.Dock = DockStyle.Top;
+
+            return client;
+        }
+
+
+        public bool TourContainItem(object item)
+        {
+            Entities.Tour tour =
+                (Entities.Tour)item;
+
+            return FindInClients(tour) != null;
+        }
+
+
+        public bool ListContainsTour(UserControl ctrl)
+        {
+            TourControl tourCtrl = (TourControl)ctrl;
+            return this.Tours.Contains(tourCtrl.Tour);
         }
 
 
@@ -37,59 +74,25 @@ namespace TaxDataStore
         {
             if (IsDisposed) return;
 
-            UpdateData((Entities.TourCollection)sender);
+            if (e.ListChangedType == ListChangedType.Reset)
+            {
+                this.ctrlManager.Reset();
+            }
+            else
+            {
+                UpdateData();
+            }
         }
 
 
-        private void UpdateData(Entities.TourCollection tours)
+        public void UpdateData()
         {
-            if (IsDisposed) return;
-
-            List<TourControl> removable = new List<TourControl>();
-
-            foreach (UserControl ctrl in this.flpTours.Controls)
-            {
-                TourControl tourCtrl = ctrl as TourControl;
-                if (tourCtrl != null)
-                {
-                    Entities.Tour tr = tourCtrl.Tour;
-
-                    if (tours.Contains(tr))
-                    {
-                        tourCtrl.UpdateData();
-                    }
-                    else
-                    {
-                        removable.Add(tourCtrl);
-                    }
-                }
-            }
+            if (IsDisposed || Disposing) return;
 
             this.SuspendLayout();
-            this.flpTours.SuspendLayout();
-
-            foreach (TourControl tourCtrl in removable)
-            {
-                this.flpTours.Controls.Remove(tourCtrl);
-                tourCtrl.Dispose();
-            }
-            removable.Clear();
-
-            foreach (Entities.Tour tour in tours)
-            {
-                TourControl ctrl = FindInClients(tour);
-                if (ctrl == null)
-                {
-                    TourControl client = new TourControl(tour);
-                    client.Dock = DockStyle.Top;
-                    this.flpTours.Controls.Add(client);
-                }
-            }
-
-            this.flpTours.ResumeLayout(true);
+            this.ctrlManager.Sync();
             this.ResumeLayout(true);
         }
-        
 
 
         private TourControl FindInClients(Entities.Tour tour)
@@ -107,6 +110,16 @@ namespace TaxDataStore
             }
 
             return null;
+        }
+
+
+        void ToursListView_Disposed(object sender, System.EventArgs e)
+        {
+            if (this.Tours != null)
+            {
+                this.Tours.ListChanged -= 
+                    new ListChangedEventHandler(Tours_ListChanged);
+            }
         }
     }
 }

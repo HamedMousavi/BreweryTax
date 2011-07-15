@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using TaxDataStore.Presentation;
@@ -57,6 +56,28 @@ namespace TaxDataStore
 
             this.tlpTourDetail.Controls.Add(this.etbGroups, 1, 0);
             this.tlpMain.Controls.Add(this.pnlGroups, 0, 1);
+
+            this.Disposed += new EventHandler(TourControl_Disposed);
+
+            this.lblTourTime.Cursor = Cursors.Hand;
+            this.lblTourTime.Click += new EventHandler(lblTourTime_Click);
+
+            this.tlpMain.AutoSize = true;
+            this.tlpMain.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tlpTourDetail.AutoSize = true;
+            this.tlpTourDetail.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
+        }
+
+
+        void lblTourTime_Click(object sender, EventArgs e)
+        {
+            if (this.Tour != null)
+            {
+                Presentation.Controllers.Tours.Edit(this.Tour);
+                UpdateData(true);
+            }
         }
 
 
@@ -68,23 +89,60 @@ namespace TaxDataStore
 
         private void BindControls(Entities.Tour tour)
         {
+            Detach();
             this.Tour = tour;
+            Attach();
 
             this.ctrlManager = new FormControlManager(this.pnlGroups, tour.Groups);
             this.ctrlManager.CreateControl = CreateTourGroup;
             this.ctrlManager.ControlsContainItem = TourGroupContainItem;
             this.ctrlManager.ListContainsControl = ListContainsTourGroup;
 
-            tour.Groups.ListChanged += new 
-                ListChangedEventHandler(Groups_ListChanged);
+            UpdateData(true);
+        }
 
+
+        private void Attach()
+        {
+            if (this.Tour == null) return;
+
+            foreach (Entities.TourGroup group in this.Tour.Groups)
+            {
+                group.Services.ListChanged += 
+                    new ListChangedEventHandler(Services_ListChanged);
+            }
+
+            this.Tour.Groups.ListChanged += new
+                ListChangedEventHandler(Groups_ListChanged);
+        }
+
+
+        private void Detach()
+        {
+            if (this.Tour == null) return;
+
+            foreach (Entities.TourGroup group in this.Tour.Groups)
+            {
+                group.Services.ListChanged -=
+                    new ListChangedEventHandler(Services_ListChanged);
+            }
+
+            this.Tour.Groups.ListChanged -= new 
+                ListChangedEventHandler(Groups_ListChanged);
+        }
+
+
+        void Services_ListChanged(object sender, ListChangedEventArgs e)
+        {
             UpdateData();
         }
 
         
         public Control CreateTourGroup(object item)
         {
-            TourGroup client = new TourGroup((Entities.TourGroup)item);
+            TourGroup client = new TourGroup();
+            client.Group = (Entities.TourGroup)item;
+            client.Tour = this.Tour;
             client.Dock = DockStyle.Top;
 
             return client;
@@ -111,78 +169,14 @@ namespace TaxDataStore
         {
             if (IsDisposed) return;
 
-            UpdateData();
-        }
-
-        bool isUpdating = false;
-        private void UpdateData(Entities.Tour tour)
-        {
-            if (IsDisposed) return;
-            if (isUpdating) return;
-            isUpdating = true;
-
-            this.lblTourTime.Text = tour.Time.ToString();
-            this.lblDetails.Text = string.Format(
-                "{0}: {1}     {2}:{3}",
-                DomainModel.Application.ResourceManager.GetText("lbl_groups"),
-                tour.Groups.Count,
-                DomainModel.Application.ResourceManager.GetText("lbl_services"),
-                tour.ServiceCount
-                );
-
-            this.SuspendLayout();
-            this.ctrlManager.Sync();
-            SetupClientSize();
-            this.ResumeLayout(true);
-
-            isUpdating = false;
-            /*
-            List<TourGroup> removable = new List<TourGroup>();
-
-            foreach (UserControl ctrl in this.pnlGroups.Controls)
+            if (e.ListChangedType == ListChangedType.ItemChanged)
             {
-                TourGroup grpCtrl = ctrl as TourGroup;
-                if (grpCtrl != null)
-                {
-                    Entities.TourGroup grp = grpCtrl.Group;
-
-                    if (tour.Groups.Contains(grp))
-                    {
-                        //grpCtrl.UpdateData();
-                    }
-                    else
-                    {
-                        removable.Add(grpCtrl);
-                    }
-                }
+                UpdateData(false);
             }
-
-
-            this.SuspendLayout();
-            this.pnlGroups.SuspendLayout();
-
-            foreach (TourGroup grpCtrl in removable)
+            else
             {
-                this.pnlGroups.Controls.Remove(grpCtrl);
-                grpCtrl.Dispose();
+                UpdateData(true);
             }
-            removable.Clear();
-
-            foreach (Entities.TourGroup grp in tour.Groups)
-            {
-                TourGroup ctrl = FindInClients(grp);
-                if (ctrl == null)
-                {
-                    TourGroup client = new TourGroup(grp);
-                    client.Dock = DockStyle.Top;
-                    this.pnlGroups.Controls.Add(client);
-                }
-            }
-
-            SetupClientSize();
-
-            this.pnlGroups.ResumeLayout(true);
-            this.ResumeLayout(true);*/
         }
 
 
@@ -204,45 +198,47 @@ namespace TaxDataStore
         }
 
 
-        internal void UpdateData()
+        public void UpdateData(bool updateLayout = false)
         {
-            UpdateData(this.Tour);
+            this.lblTourTime.Text = this.Tour.Time.ToString();
+            this.lblDetails.Text = string.Format(
+                "{0}: {1}     {2}:{3}",
+                DomainModel.Application.ResourceManager.GetText("lbl_groups"),
+                this.Tour.Groups.Count,
+                DomainModel.Application.ResourceManager.GetText("lbl_services"),
+                this.Tour.ServiceCount
+                );
+
+            if (updateLayout)
+            {
+                this.SuspendLayout();
+                this.ctrlManager.Sync();
+                //SetupClientSize();
+                this.ResumeLayout(true);
+            }
         }
 
 
         private void SetupClientSize()
-        {/*
-            Int32 height = 0;
-
-            foreach (Control client in this.rptGroups.Controls)
-            {
-                height += client.Height +
-                    this.rptGroups.Margin.Size.Height;
-
-                //Int32 width =
-                //    this.ClientRectangle.Width -
-                //    this.Margin.Size.Width -
-                //    this.rptGroups.Margin.Size.Width;
-
-                //client.Width = width;
-                //client.MinimumSize = new Size(width, client.Height);
-                //client.MaximumSize = new Size(width, client.Height);
-            }*/
-            /**/
-
-            Int32 height = 
-                this.Tour.Groups.Count * 105 +
+        {
+            Int32 height =
+                this.Tour.Groups.Count * 105+
                 this.tlpTourDetail.Height +
                 this.tlpTourDetail.Margin.Size.Height +
                 this.Margin.Size.Height +
                 this.Padding.Size.Height+
                 this.tlpMain.Margin.Size.Height;
 
-            if (this.Height != height)
+            if (this.Height < height)
             {
                 this.Height = height;
             }
-            //this.pnlGroups.PerformLayout();
+        }
+        
+
+        void TourControl_Disposed(object sender, EventArgs e)
+        {
+            Detach();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
@@ -85,6 +86,9 @@ namespace TaxDataStore
 
             this.mnuGroupState = new GeneralTypeMenu(DomainModel.TourStates.GetAll());
             this.mnuGroupState.ClickAction = OnGroupStateMenu;
+            
+            this.btnClose.BackgroundImageLayout = ImageLayout.Zoom;
+            this.btnClose.BackgroundImage = DomainModel.Application.ResourceManager.GetImage("close");
         }
 
 
@@ -161,6 +165,7 @@ namespace TaxDataStore
             return null;
         }
 
+
         private void pbxGroupState_Click(object sender, System.EventArgs e)
         {
             this.mnuGroupState.Show(
@@ -176,11 +181,6 @@ namespace TaxDataStore
                 this.pbxSignupType,
                 new Point(this.pbxSignupType.Location.X, this.pbxSignupType.Height),
                 ToolStripDropDownDirection.BelowRight);
-        }
-
-        private void btnDeleteGroup_Click(object sender, System.EventArgs e)
-        {
-            DomainModel.TourGroups.Delete(this.group);
         }
 
 
@@ -204,6 +204,20 @@ namespace TaxDataStore
             if (!DomainModel.TourGroups.Save(this.group))
             {
                 this.group.Status = old;
+            }
+        }
+        
+
+        public event EventHandler DeleteGroupClicked
+        {
+            add
+            {
+                this.btnClose.Click += value;
+            }
+
+            remove
+            {
+                this.btnClose.Click -= value;
             }
         }
     }

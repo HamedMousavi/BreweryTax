@@ -22,7 +22,7 @@ namespace Entities
         }
 
 
-        public Int32 SignUpCount
+        public int ServiceCount
         {
             get
             {
@@ -30,23 +30,7 @@ namespace Entities
 
                 foreach (TourCostDetail detail in this)
                 {
-                    sum += detail.SignUpCount;
-                }
-
-                return sum;
-            }
-        }
-
-
-        public Int32 ParticipantsCount
-        {
-            get
-            {
-                Int32 sum = 0;
-
-                foreach (TourCostDetail detail in this)
-                {
-                    sum += detail.ParticipantsCount;
+                    sum += detail.Count;
                 }
 
                 return sum;

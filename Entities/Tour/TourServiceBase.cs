@@ -16,6 +16,7 @@ namespace Entities
         protected TourCostDetailCollection costDetails;
         protected TourPaymentCollection payments;
         protected Abstract.ITourPaymentStrategy paymentStrategy;
+        protected TourGroup baseGroup;
 
         #endregion Fields
 
@@ -68,11 +69,11 @@ namespace Entities
                 {
                     if (this.paymentStrategy != null)
                     {
-                        this.paymentStrategy.UnRegister(this);
+                        this.paymentStrategy.UnRegister();
                     }
 
                     this.paymentStrategy = value;
-                    this.paymentStrategy.Register(this);
+                    this.paymentStrategy.Register();
                 }
             }
         }
@@ -119,6 +120,23 @@ namespace Entities
             get { return this.serviceType.Name; }
         }
 
+        public TourGroup BaseGroup
+        {
+            get
+            {
+                return this.baseGroup;
+            }
+
+            set
+            {
+                if (this.baseGroup != value)
+                {
+                    this.baseGroup = value;
+                    RaisePropertyChanged("BaseGroup");
+                }
+            }
+        }
+        
         #endregion Properties
 
 
@@ -179,16 +197,9 @@ namespace Entities
 
         public int ClientCount
         {
-            get 
+            get
             {
-                if (costDetails.SignUpCount <= 0)
-                {
-                    return costDetails.ParticipantsCount;
-                }
-                else
-                {
-                    return costDetails.SignUpCount;
-                }
+                return costDetails.ServiceCount;
             }
         }
 
@@ -202,5 +213,7 @@ namespace Entities
 
             return service;
         }
+
+
     }
 }

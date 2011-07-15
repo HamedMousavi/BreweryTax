@@ -77,7 +77,6 @@ namespace TaxDataStore
             this.btnDeleteTour = new FlatButton(9, "btnDelete", "delete", "delete");
 
             this.btnAddTour.Click += new EventHandler(btnAddTour_Click);
-            this.btnEditTour.Click += new EventHandler(btnEditTour_Click);
             this.btnDeleteTour.Click += new EventHandler(btnDeleteTour_Click);
 
             this.tlpButtons.Controls.Add(this.btnAddTour, 0, 0);
@@ -104,16 +103,6 @@ namespace TaxDataStore
         }
 
 
-        private void btnEditTour_Click(object sender, EventArgs e)
-        {/*
-            Entities.Tour tour =  (Entities.Tour)this.fgvTours.SelectedItem;
-            if (tour != null)
-            {
-                Presentation.Controllers.Tours.Edit(tour);
-            }*/
-        }
-
-
         private void btnDeleteTour_Click(object sender, EventArgs e)
         {/*
             Entities.Tour tour = (Entities.Tour)this.fgvTours.SelectedItem;
@@ -135,7 +124,11 @@ namespace TaxDataStore
 
         private void UpdateTourList()
         {
+            this.tours.SuspendEvents();
+
             DomainModel.Tours.LoadByDate(this.dtpCurrentDate.Value, this.tours);
+
+            this.tours.ResumeEvents();
         }
     }
 }

@@ -39,17 +39,17 @@ namespace DomainModel
         }
 
 
-        internal bool Matches(Entities.TourCostRule rule, TourCostDetail detail, Entities.Tour tour)
+        internal bool Matches(PaymentStrategyInfo info)
         {
             bool res = true;
 
-            foreach (Entities.TourCostRuleConstraint con in rule.Constraints)
+            foreach (Entities.TourCostRuleConstraint con in info.Rule.Constraints)
             {
                 if (validators.ContainsKey(con.ConstraintType.Id))
                 {
                     ITourRuleConstraintValidator validator =
                         validators[con.ConstraintType.Id];
-                    if (!validator.Matches(tour, detail, con))
+                    if (!validator.Matches(info.Tour, info.Service, info.CostDetail, con))
                     {
                         res = false;
                         break;
@@ -63,39 +63,8 @@ namespace DomainModel
                     break;
                 }
             }
-            
+
             return res;
-        }
-
-
-        internal bool Matches(TourCostRule rule, TourCostDetail detail, ITourService service)
-        {
-            return false;   
-            /*
-            bool res = true;
-
-            foreach (Entities.TourCostRuleConstraint con in rule.Constraints)
-            {
-                if (validators.ContainsKey(con.ConstraintType.Id))
-                {
-                    ITourRuleConstraintValidator validator =
-                        validators[con.ConstraintType.Id];
-                    if (!validator.Matches(service, detail, con))
-                    {
-                        res = false;
-                        break;
-                    }
-
-                    res = true;
-                }
-                else
-                {
-                    res = false;
-                    break;
-                }
-            }
-
-            return res;*/
         }
     }
 }

@@ -68,18 +68,18 @@ namespace DomainModel
             {
                 if (person.IsInPhonebook)
                 {
-                    if (cache.Contains(person))
-                    {
-                        persons.Delete(person);
-                        cache.Remove(person);
-                    }
-                }
-                else
-                {
                     if (!cache.Contains(person))
                     {
                         persons.Insert(person);
                         cache.Add(person);
+                    }
+                }
+                else
+                {
+                    if (cache.Contains(person))
+                    {
+                        persons.Delete(person);
+                        cache.Remove(person);
                     }
                 }
             }

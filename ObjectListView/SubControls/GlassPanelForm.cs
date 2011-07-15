@@ -102,6 +102,8 @@ namespace BrightIdeasSoftware
             if (this.objectListView != null)
                 this.Unbind();
 
+            if (olv == null) return;
+
             this.objectListView = olv;
             this.Overlay = overlay;
             this.mdiClient = null;

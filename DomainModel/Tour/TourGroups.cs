@@ -1,4 +1,6 @@
 ﻿using System;
+using Entities.Abstract;
+using System.Transactions;
 
 
 namespace DomainModel
@@ -26,6 +28,8 @@ namespace DomainModel
                 // load group members
                 foreach (Entities.TourGroup group in tour.Groups)
                 {
+                    group.BaseTour = tour;
+
                     DomainModel.TourGroupMembers.Load(group);
 
                     DomainModel.TourGroupEmployees.Load(group);
@@ -76,10 +80,38 @@ namespace DomainModel
 
             try
             {
-                groups.Delete(group);
+                using (TransactionScope ts = new TransactionScope())
+                {
+                    foreach (Entities.TourMember member in group.Members)
+                    {
+                        if (!(res = DomainModel.TourGroupMembers.Delete(group, member))) return res;
+                    }
+
+                    foreach (Entities.Employee emp in group.Employees)
+                    {
+                        if (!(res = DomainModel.TourGroupEmployees.Delete(group, emp))) return res;
+                    }
+
+                    foreach (ITourService srv in group.Services)
+                    {
+                        if (!(res = DomainModel.TourGroupServices.Delete(srv))) return res;
+                    }
+
+                    if (res) res = groups.Delete(group);
+
+                    ts.Complete();
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "",
+                        ex.Message);
+                }
+                catch { }
             }
 
             return res;

@@ -11,6 +11,8 @@ namespace TaxDataStore
         protected GeneralTypeMenu mnuServiceTypes;
         protected TourServiceListView tslServices;
         protected Entities.TourGroup group;
+        protected Entities.Tour tour;
+
 
         public Entities.TourGroup Group
         {
@@ -20,26 +22,30 @@ namespace TaxDataStore
                 if (this.group != value)
                 {
                     this.group = value;
-                    ReAttach();
+                    this.tslServices.Group = this.group;
                 }
             }
         }
 
-
+        public Entities.Tour Tour
+        {
+            get { return this.tour; }
+            set
+            {
+                if (this.tour != value)
+                {
+                    this.tour = value;
+                    this.tslServices.Tour = this.tour;
+                }
+            }
+        }
+        
 
         public TourGroupServices()
         {
             InitializeComponent();
 
             SetupControls();
-            //BindControls();
-        }
-
-
-        public TourGroupServices(Entities.TourGroup group)
-            :this()
-        {
-            this.Group = group;
         }
 
 
@@ -65,28 +71,15 @@ namespace TaxDataStore
                 this.editToolbar.BackColor = this.BackColor;
             }
 
-
             this.tslServices = new TourServiceListView();
             this.tslServices.Dock = DockStyle.Fill;
             this.tlpMain.Controls.Add(this.tslServices, 0, 1);
-
-        }
-
-
-        private void ReAttach()
-        {
-            this.tslServices.DataBindings.Clear();
-
-            if (this.group != null)
-            {
-                this.tslServices.DataBindings.Add(new Binding("Group", this, "Group"));
-            }
         }
 
 
         public void OnNewServiceTypeClicked(Entities.GeneralType item)
         {
-            Presentation.Controllers.GroupServices.AddNew(this.group, item);
+            Presentation.Controllers.GroupServices.AddNew(this.tour, this.group, item);
         }
     }
 }

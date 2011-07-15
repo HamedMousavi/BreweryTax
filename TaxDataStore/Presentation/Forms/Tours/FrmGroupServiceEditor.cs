@@ -16,34 +16,39 @@ namespace TaxDataStore
         protected GroupServicePayment ctrlPayment;
 
 
-        public FrmGroupServiceEditor(Entities.TourGroup group, Entities.GeneralType serviceType)
+        public FrmGroupServiceEditor(Entities.Tour tour, Entities.TourGroup group, Entities.GeneralType serviceType)
         {
             this.group = group;
 
-            CreateService();
+            CreateService(tour, group);
             this.service.Detail.ServiceType = serviceType;
 
             Init();
         }
 
 
-        public FrmGroupServiceEditor(Entities.TourServiceBase service)
+        public FrmGroupServiceEditor(Entities.Tour tour, Entities.TourGroup group, Entities.TourServiceBase service)
         {
             this.editService = service;
 
-            CreateService();
+            CreateService(tour, group);
             service.CopyTo(this.service);
 
             Init();
         }
 
 
-        private void CreateService()
+        private void CreateService(Entities.Tour tour, Entities.TourGroup group)
         {
             this.service = new Entities.TourServiceBase(
                 DomainModel.TourCostGroups.GetAll());
+
             this.service.PaymentStrategy = new 
-                DomainModel.PaymentStrategies.NormalStrategy();
+                DomainModel.PaymentStrategies.NormalStrategy(
+                    new Entities.PaymentStrategyInfo(
+                        tour, 
+                        group, 
+                        this.service));
         }
 
 

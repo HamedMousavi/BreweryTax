@@ -70,10 +70,7 @@ namespace DomainModel
 
             try
             {
-                if ((res = empRepo.Delete(group, emp)))
-                {
-                    group.Employees.Remove(emp);
-                }
+                res = empRepo.Delete(group, emp);
             }
             catch (Exception ex)
             {

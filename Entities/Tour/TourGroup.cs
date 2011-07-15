@@ -17,11 +17,29 @@ namespace Entities
         protected TourServiceCollection services;
         protected EmployeeCollection employees;
         protected GeneralType status;
+        protected Tour baseTour;
         
         #endregion Fields
 
 
         #region Properties
+
+        public Tour BaseTour
+        {
+            get
+            {
+                return this.baseTour;
+            }
+
+            set
+            {
+                if (this.baseTour != value)
+                {
+                    this.baseTour = value;
+                    RaisePropertyChanged("BaseTour");
+                }
+            }
+        }
 
         public TourMemberCollection Members
         {

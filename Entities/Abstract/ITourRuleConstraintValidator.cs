@@ -5,6 +5,6 @@ namespace Entities.Abstract
 
     public interface ITourRuleConstraintValidator
     {
-        bool Matches(Tour tour, TourCostDetail detail, TourCostRuleConstraint constraint);
+        bool Matches(Entities.Tour tour, ITourService service, TourCostDetail detail, TourCostRuleConstraint constraint);
     }
 }

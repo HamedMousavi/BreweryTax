@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 
 
 namespace Entities
@@ -70,6 +71,7 @@ namespace Entities
             }
         }
 
+        [BrowsableAttribute(false)]
         public Int32 Id
         {
             get
@@ -86,7 +88,23 @@ namespace Entities
                 }
             }
         }
-        
+
+        [BrowsableAttribute(false)]
+        public int Count
+        {
+            get
+            {
+                if (ParticipantsCount <= 0)
+                {
+                    return SignUpCount;
+                }
+                else
+                {
+                    return ParticipantsCount;
+                }
+            }
+        }
+       
         #endregion Properties
 
 
@@ -104,5 +122,6 @@ namespace Entities
             detail.CostGroup = this.CostGroup;
             detail.IsDirty = this.IsDirty;
         }
+
     }
 }

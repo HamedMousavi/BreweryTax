@@ -17,6 +17,8 @@ namespace Entities
 
                 members.Add(memberCopy);
             }
+
+            base.OnListChanged(new ListChangedEventArgs(ListChangedType.Reset, 0));
         }
 
         public void UndoDelete(TourMemberCollection originalList)
@@ -41,6 +43,32 @@ namespace Entities
             }
 
             return false;
+        }
+
+
+        public new bool Remove(TourMember member)
+        {
+            bool res = true;
+
+            TourMember ftm = null;
+
+            foreach (Entities.TourMember tm in this)
+            {
+                if (member.Id == tm.Id)
+                {
+                    ftm = tm;
+                    break;
+                }
+            }
+
+            if (ftm != null)
+            {
+                res = this.Items.Remove(ftm);
+            }
+
+            base.OnListChanged(new ListChangedEventArgs(ListChangedType.ItemDeleted, 0));
+
+            return res;
         }
     }
 }

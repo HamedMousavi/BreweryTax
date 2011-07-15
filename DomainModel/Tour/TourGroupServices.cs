@@ -82,6 +82,7 @@ namespace DomainModel
 
                 foreach (ITourService service in group.Services)
                 {
+                    service.BaseGroup = group;
                     if (!(res = DomainModel.TourGroupServicePayments.Load(service))) break;
                     if (!(res = DomainModel.TourGroupServiceCosts.Load(service))) break;
                 }

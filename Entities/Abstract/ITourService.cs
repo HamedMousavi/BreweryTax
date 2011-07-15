@@ -15,6 +15,7 @@ namespace Entities.Abstract
         Service Detail { get; }
         string Name { get; }
         Int32 Id { get; set; }
+        TourGroup BaseGroup { get; set; }
 
         ITourService Clone();
         bool IsDirty { get; set; }

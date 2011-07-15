@@ -23,6 +23,8 @@ namespace TaxDataStore
                     {
                         this.fgvMembers.SetDataSource(value.Members);
                     }
+
+                    //this.group.va
                 }
             }
         }
@@ -33,19 +35,11 @@ namespace TaxDataStore
         protected ContactsMenu mnuContacts;
 
 
-        public TourGroupContacts(Entities.TourGroup group)
-            : this()
-        {
-            this.Group = group;
-        }
-
-
         public TourGroupContacts()
         {
             InitializeComponent();
 
             SetupControls();
-            BindControls();
         }
 
 
@@ -125,13 +119,11 @@ namespace TaxDataStore
             {
                 if (member.Id >= 0)
                 {
-                    if (!DomainModel.TourGroupMembers.Delete(this.group, member))
+                    if (DomainModel.TourGroupMembers.Delete(this.group, member))
                     {
-                        return;
+                        group.Members.Remove(member);
                     }
                 }
-
-                this.group.Members.Remove(member);
             }
         }
 
@@ -144,21 +136,6 @@ namespace TaxDataStore
             if (member != null)
             {
                 Presentation.Controllers.Tours.EditMember(member);
-            }
-        }
-
-        /*
-        void editToolbar_AddButtonClick(object sender, EventArgs e)
-        {
-            Presentation.Controllers.Tours.AddMember(this.group);
-        }*/
-
-
-        private void BindControls()
-        {
-            if (this.group != null)
-            {
-                this.fgvMembers.DataSource = this.Group.Members;
             }
         }
 
@@ -183,6 +160,16 @@ namespace TaxDataStore
             {
                 this.lsvMemberContacts.SetDataSource(null);
             }
+        }
+
+
+        internal void Cleanup()
+        {
+            this.fgvMembers.SelectionChanged -= new
+                EventHandler(fgvMembers_SelectionChanged);
+
+            this.lsvMemberContacts.Dispose();
+            this.lsvMemberContacts.Visible = false;
         }
     }
 }

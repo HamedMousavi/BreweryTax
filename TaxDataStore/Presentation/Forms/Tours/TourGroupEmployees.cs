@@ -108,6 +108,7 @@ namespace TaxDataStore
             {
                 if (DomainModel.TourGroupEmployees.Delete(this.group, emp))
                 {
+                    group.Employees.Remove(emp);
                 }
             }
         }

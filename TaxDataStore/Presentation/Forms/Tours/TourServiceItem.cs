@@ -12,29 +12,56 @@ namespace TaxDataStore
     public partial class TourServiceItem : UserControl
     {
 
-        public ITourService Service { get; set; }
+        protected ITourService service;
+        public ITourService Service 
+        {
+            get { return this.service; }
+            set
+            {
+                if (this.service != value)
+                {
+                    Detach();
+                    this.service = value;
+                    Attach();
+                }
+            }
+        }
 
         protected Dictionary<string, Image> images;
-        private Entities.TourGroup group;
-        private ITourService srv;
 
-
-        public TourServiceItem(ITourService service)
+        private Entities.Tour tour;
+        public Entities.Tour Tour
         {
-            InitializeComponent();
+            get { return this.tour; }
+            set
+            {
+                if (this.tour != value)
+                {
+                    this.tour = value;
+                }
+            }
+        }
 
-            this.Service = service;
-
-            SetupControls();
-            CreateImages();
-            BindControls(service);
+        private Entities.TourGroup group;
+        public Entities.TourGroup Group
+        {
+            get { return this.group; }
+            set
+            {
+                if (this.group != value)
+                {
+                    this.group = value;
+                }
+            }
         }
 
 
-        public TourServiceItem(Entities.TourGroup tourGroup, ITourService service)
-            : this(service)
+        public TourServiceItem()
         {
-            this.group = tourGroup;
+            InitializeComponent();
+
+            SetupControls();
+            CreateImages();
         }
 
 
@@ -110,7 +137,7 @@ namespace TaxDataStore
 
         void OnChildClick(object sender, System.EventArgs e)
         {
-            Presentation.Controllers.GroupServices.Edit(this.Service);
+            Presentation.Controllers.GroupServices.Edit(this.tour, this.group, this.Service);
         }
 
 
@@ -134,28 +161,36 @@ namespace TaxDataStore
         }
 
 
-        private void BindControls(ITourService service)
+        private void Detach()
         {
-            service.PropertyChanged += new PropertyChangedEventHandler(service_PropertyChanged);
-            UpdateService(service);
+            if (this.service != null)
+            {
+                service.PropertyChanged -= new 
+                    PropertyChangedEventHandler(service_PropertyChanged);
+            }
+        }
+
+
+        private void Attach()
+        {
+            this.service.PropertyChanged += new 
+                PropertyChangedEventHandler(service_PropertyChanged);
+
+            UpdateService();
         }
 
 
         void service_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (string.Equals(e.PropertyName, "ClientCount", System.StringComparison.InvariantCulture) ||
-                string.Equals(e.PropertyName, "Type", System.StringComparison.InvariantCulture))
-            {
-                UpdateService((ITourService)sender);
-            }
+            UpdateService();
         }
 
 
-        private void UpdateService(ITourService service)
+        private void UpdateService()
         {
-            this.lblServiceType.Text = service.Name;
-            this.lblServiceCount.Text = service.ClientCount.ToString();
-            this.pbxServiceType.Image = GetServiceImage(service);
+            this.lblServiceType.Text = this.service.Name;
+            this.lblServiceCount.Text = this.service.ClientCount.ToString();
+            this.pbxServiceType.Image = GetServiceImage(this.service);
         }
 
 
@@ -176,7 +211,7 @@ namespace TaxDataStore
 
         internal void UpdateData()
         {
-             UpdateService(this.Service);
+             UpdateService();
         }
     }
 }

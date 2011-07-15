@@ -5,11 +5,12 @@ namespace Entities.Abstract
 
     public interface ITourPaymentStrategy
     {
+        PaymentStrategyInfo StrategyInfo { get; set; }
 
-        bool UpdateReceipt(ITourService tour);
+        bool UpdateReceipt();
 
-        void Register(ITourService tour);
+        void Register();
 
-        void UnRegister(ITourService tour);
+        void UnRegister();
     }
 }

@@ -43,6 +43,12 @@ namespace DomainModel
                     else
                     {
                         res = toursRepo.Update(tour);
+
+                        if (cache.Contains(tour) &&
+                            (tour.Time.Value.Date - cache.Time.Date).Days != 0)
+                        {
+                            cache.Remove(tour);
+                        }
                     }
 
                     if (res)

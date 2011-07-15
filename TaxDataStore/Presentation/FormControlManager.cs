@@ -1,11 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
 
 namespace TaxDataStore.Presentation
 {
-    public class FormControlManager
+    public class FormControlManager : IDisposable
     {
 
         protected List<Control> remove;
@@ -69,5 +70,15 @@ namespace TaxDataStore.Presentation
             controlsOwner.ResumeLayout(true);
         }
 
+
+        public void Dispose()
+        {
+            
+        }
+
+        internal void Reset()
+        {
+            this.controlsOwner.Controls.Clear();
+        }
     }
 }

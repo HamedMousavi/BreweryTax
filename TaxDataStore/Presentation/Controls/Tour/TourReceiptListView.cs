@@ -57,6 +57,14 @@ namespace TaxDataStore.Presentation.Controls
             AddColumns();
 
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+
+            this.Disposed += new EventHandler(TourReceiptListView_Disposed);
+        }
+
+
+        void TourReceiptListView_Disposed(object sender, EventArgs e)
+        {
+            CleanUp();
         }
 
 
@@ -109,6 +117,8 @@ namespace TaxDataStore.Presentation.Controls
         {
             try
             {
+                if (this.Disposing || this.IsDisposed) return;
+
                 this.SetObjects(this.receipt.Items);
                 this.AutoResizeColumns(
                     ColumnHeaderAutoResizeStyle.HeaderSize);
