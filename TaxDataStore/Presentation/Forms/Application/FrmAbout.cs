@@ -90,7 +90,7 @@ namespace TaxDataStore
 
             this.tbxVersion.Text = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
-            this.pbxAppIcon.Image = DomainModel.Application.ResourceManager.GetImage("beer");
+            this.pbxAppIcon.Image = DomainModel.Application.ResourceManager.GetImage("app_big");
         }
 
 

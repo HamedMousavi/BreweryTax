@@ -36,9 +36,9 @@ namespace TaxDataStore
 
         private void SetupControls()
         {
-            this.lblUserName = new FormLabel(0, "lblUserName", false, "username");
-            this.lblPassword = new FormLabel(1, "lblPassword", false, "password");
-            this.lblLogonProcess = new FormLabel(2, "lblLogonProcess", false, "logon_process");
+            this.lblUserName = new FormLabel(0, "lblUserName", true, "username");
+            this.lblPassword = new FormLabel(1, "lblPassword", true, "password");
+            this.lblLogonProcess = new FormLabel(2, "lblLogonProcess", true, "logon_process");
 
             this.lblLogonProcess.Anchor |= AnchorStyles.Right;
 
@@ -95,13 +95,13 @@ namespace TaxDataStore
 
             this.BackColor = System.Drawing.Color.White;
             this.tlpMain.BackColor = this.BackColor;
-            this.tlpButtons.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tlpButtons.BackColor = Presentation.View.Theme.GroupPanelBackColor;
 
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = Resources.Texts.logon;
             this.lblAppName.Text = Resources.Texts.app_name;
 
-            this.pbxAppIcon.Image = DomainModel.Application.ResourceManager.GetImage("beer_lock");
+            this.pbxAppIcon.Image = DomainModel.Application.ResourceManager.GetImage("lock_big");
         }
 
 

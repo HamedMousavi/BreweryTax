@@ -54,7 +54,7 @@
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpMain.Size = new System.Drawing.Size(40, 35);
+            this.tlpMain.Size = new System.Drawing.Size(47, 38);
             this.tlpMain.TabIndex = 0;
             // 
             // btnClose
@@ -66,7 +66,7 @@
             this.btnClose.Location = new System.Drawing.Point(0, 0);
             this.btnClose.Margin = new System.Windows.Forms.Padding(0);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(16, 16);
+            this.btnClose.Size = new System.Drawing.Size(19, 17);
             this.btnClose.TabIndex = 4;
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnClose.UseVisualStyleBackColor = true;
@@ -79,7 +79,7 @@
             this.pbxSignupType.Location = new System.Drawing.Point(2, -21);
             this.pbxSignupType.Margin = new System.Windows.Forms.Padding(2);
             this.pbxSignupType.Name = "pbxSignupType";
-            this.pbxSignupType.Size = new System.Drawing.Size(36, 32);
+            this.pbxSignupType.Size = new System.Drawing.Size(43, 34);
             this.pbxSignupType.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbxSignupType.TabIndex = 0;
             this.pbxSignupType.TabStop = false;
@@ -90,10 +90,10 @@
             this.pbxGroupState.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.pbxGroupState.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbxGroupState.Location = new System.Drawing.Point(2, 15);
+            this.pbxGroupState.Location = new System.Drawing.Point(2, 17);
             this.pbxGroupState.Margin = new System.Windows.Forms.Padding(2);
             this.pbxGroupState.Name = "pbxGroupState";
-            this.pbxGroupState.Size = new System.Drawing.Size(36, 18);
+            this.pbxGroupState.Size = new System.Drawing.Size(43, 19);
             this.pbxGroupState.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbxGroupState.TabIndex = 2;
             this.pbxGroupState.TabStop = false;
@@ -101,11 +101,11 @@
             // 
             // TourGroupDetails
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tlpMain);
             this.Name = "TourGroupDetails";
-            this.Size = new System.Drawing.Size(40, 35);
+            this.Size = new System.Drawing.Size(47, 38);
             this.tlpMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxSignupType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxGroupState)).EndInit();

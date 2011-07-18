@@ -109,23 +109,16 @@ namespace Resources {
             }
         }
         
+        public static System.Drawing.Bitmap app_big {
+            get {
+                object obj = ResourceManager.GetObject("app_big", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         public static System.Drawing.Bitmap app_settings {
             get {
                 object obj = ResourceManager.GetObject("app_settings", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        public static System.Drawing.Bitmap beer {
-            get {
-                object obj = ResourceManager.GetObject("beer", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        public static System.Drawing.Bitmap beer_lock {
-            get {
-                object obj = ResourceManager.GetObject("beer_lock", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -329,6 +322,13 @@ namespace Resources {
         public static System.Drawing.Bitmap Info {
             get {
                 object obj = ResourceManager.GetObject("Info", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap lock_big {
+            get {
+                object obj = ResourceManager.GetObject("lock_big", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

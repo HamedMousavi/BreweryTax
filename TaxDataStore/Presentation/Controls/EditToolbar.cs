@@ -131,6 +131,7 @@ namespace TaxDataStore
             {
                 this.lblTitle.ForeColor = Presentation.View.Theme.TourForeColor;
             }
+
             ShowEditOptions(false);
 
             this.PerformLayout();

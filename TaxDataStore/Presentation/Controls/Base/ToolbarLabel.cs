@@ -25,7 +25,8 @@ namespace TaxDataStore.Presentation.Controls
             this.TabIndex = tabIndex;
 
             this.Location = new Point(0, 0);
-            this.Size = new Size(50, 15);
+            this.Padding = new Padding(1, 2, 1, 2);
+            this.Size = new Size(50, 25);
 
             this.AutoSize = true;
             this.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Bottom;

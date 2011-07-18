@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Windows.Forms;
 using Entities.Abstract;
 using TaxDataStore.Presentation;
+using TaxDataStore.Presentation.Controls;
 
 
 namespace TaxDataStore
 {
 
-    public partial class TourServiceListView : UserControl
+    public partial class TourServiceListView : TourBaseControl
     {
 
         protected FormControlManager ctrlManager;
@@ -64,6 +64,7 @@ namespace TaxDataStore
             InitializeComponent();
 
             this.BackColor = System.Drawing.Color.White;
+            this.Dock = DockStyle.Fill;
         }
 
 

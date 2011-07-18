@@ -579,4 +579,10 @@
   <data name="mnu_phone_book" xml:space="preserve">
     <value>Phonebook</value>
   </data>
+  <data name="rep_monthly_bill_col_day" xml:space="preserve">
+    <value>Day</value>
+  </data>
+  <data name="rep_monthly_bill_title" xml:space="preserve">
+    <value>Abrechnung für den Monat</value>
+  </data>
 </root>

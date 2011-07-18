@@ -1204,6 +1204,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Day.
+        /// </summary>
+        public static string rep_monthly_bill_col_day {
+            get {
+                return ResourceManager.GetString("rep_monthly_bill_col_day", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abrechnung für den Monat.
+        /// </summary>
+        public static string rep_monthly_bill_title {
+            get {
+                return ResourceManager.GetString("rep_monthly_bill_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Role.
         /// </summary>
         public static string role_name {

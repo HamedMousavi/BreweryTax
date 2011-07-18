@@ -18,6 +18,7 @@ namespace TaxDataStore.Presentation.Controllers
                     // use info and generate report
                     if (DomainModel.Repository.Excell.MonthlyTourBill.Generate(info))
                     {
+                        System.Windows.Forms.MessageBox.Show("Done!");
                     }
                 }
             }

@@ -38,6 +38,7 @@ namespace TaxDataStore.Presentation
         public Font TourGroupServiceCountFont { get; set; }
         public Font TourGroupServiceNameFont { get; set; }
         public Font TourTitleFont { get; set; }
+        public Font TourControlsRegularFont { get; set; }
 
 
         public Theme()
@@ -46,19 +47,19 @@ namespace TaxDataStore.Presentation
             // 255, 195, 205, 225
             //Color.FromArgb(255, 233, 236, 240);
 
-            this.GroupPanelBackColor = Color.FromArgb(255, 233, 236, 240);
-            this.GroupPanelTitleColor = Color.Black;
-            this.GroupPanelTitleFont = new System.Drawing.Font("Tahoma", 9.25F, FontStyle.Bold);
+            this.GroupPanelBackColor = Color.FromArgb(255, 48, 68, 90);
+            this.GroupPanelTitleColor = Color.White;
+            this.GroupPanelTitleFont = new System.Drawing.Font("Verdana", 9.0F, FontStyle.Bold);
 
             this.ToolBarBackColor = Color.FromArgb(255, 225, 223, 216);
             this.ToolBarForeColor = Color.Black;
-            this.ToolBarFont = new System.Drawing.Font("Tahoma", 8.25F, FontStyle.Regular);
+            this.ToolBarFont = new System.Drawing.Font("Verdana", 8.0F, FontStyle.Regular);
 
-            this.FormLabelFont = new System.Drawing.Font("Tahoma", 8.25F, FontStyle.Bold);
-            this.FormFont = new System.Drawing.Font("Tahoma", 9.25F, FontStyle.Regular);
+            this.FormLabelFont = new System.Drawing.Font("Verdana", 8.0F, FontStyle.Bold);
+            this.FormFont = new System.Drawing.Font("Verdana", 8.0F, FontStyle.Regular);
 
             this.FormLabelColor = Color.White;
-            this.FormBackColor = Color.FromArgb(255, 100, 102, 120);
+            this.FormBackColor = Color.FromArgb(255, 48, 68, 90);
 
             this.FormLightLabelColor = Color.Black;
             this.FormLightBackColor = Color.White;
@@ -68,13 +69,13 @@ namespace TaxDataStore.Presentation
             this.TourGroupServiceCountForeColor = Color.Red;
             this.TourGroupServiceNameForeColor = Color.White;
 
-            this.TourGroupServiceCountFont = new System.Drawing.Font("Tahoma", 10.25F, FontStyle.Bold);
-            this.TourGroupServiceNameFont = new System.Drawing.Font("Tahoma", 10.25F, FontStyle.Bold);
+            this.TourGroupServiceCountFont = new System.Drawing.Font("Verdana", 11.0F, FontStyle.Bold);
+            this.TourGroupServiceNameFont = new System.Drawing.Font("Verdana", 9.0F, FontStyle.Bold);
 
             this.TourForeColor = Color.White;
             this.TourBackColor = Color.SlateGray;//Color.FromArgb(255, 165, 185, 220);
 
-            this.TourTitleFont = new System.Drawing.Font("Tahoma", 14.25F, FontStyle.Bold);
+            this.TourTitleFont = new System.Drawing.Font("Verdana", 13.0F, FontStyle.Bold);
 
             this.FlatButtonBackColor = Color.Gray;
             this.FlatButtonBorderColor = this.TourGroupItemBackColor;
@@ -82,7 +83,10 @@ namespace TaxDataStore.Presentation
 
             this.TourListBackColor = Color.Black;
             this.TourGroupBackColor = Color.Gainsboro;
+
+            this.TourControlsRegularFont = new System.Drawing.Font("Verdana", 8.0F, FontStyle.Regular);
         }
+
 
     }
 }

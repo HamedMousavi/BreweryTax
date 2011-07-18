@@ -38,17 +38,17 @@
             this.flpMain.Location = new System.Drawing.Point(0, 0);
             this.flpMain.Margin = new System.Windows.Forms.Padding(0);
             this.flpMain.Name = "flpMain";
-            this.flpMain.Size = new System.Drawing.Size(300, 100);
+            this.flpMain.Size = new System.Drawing.Size(233, 108);
             this.flpMain.TabIndex = 0;
             // 
             // TourServiceListView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.Controls.Add(this.flpMain);
             this.Name = "TourServiceListView";
-            this.Size = new System.Drawing.Size(300, 100);
+            this.Size = new System.Drawing.Size(233, 108);
             this.ResumeLayout(false);
 
         }

@@ -48,7 +48,7 @@
             this.tlpMain.RowCount = 2;
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMain.Size = new System.Drawing.Size(207, 68);
+            this.tlpMain.Size = new System.Drawing.Size(241, 74);
             this.tlpMain.TabIndex = 0;
             // 
             // tlpTourDetail
@@ -68,7 +68,7 @@
             this.tlpTourDetail.Name = "tlpTourDetail";
             this.tlpTourDetail.RowCount = 1;
             this.tlpTourDetail.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpTourDetail.Size = new System.Drawing.Size(207, 13);
+            this.tlpTourDetail.Size = new System.Drawing.Size(241, 14);
             this.tlpTourDetail.TabIndex = 0;
             // 
             // lblTourTime
@@ -77,7 +77,7 @@
             this.lblTourTime.Location = new System.Drawing.Point(0, 0);
             this.lblTourTime.Margin = new System.Windows.Forms.Padding(0);
             this.lblTourTime.Name = "lblTourTime";
-            this.lblTourTime.Size = new System.Drawing.Size(34, 13);
+            this.lblTourTime.Size = new System.Drawing.Size(39, 14);
             this.lblTourTime.TabIndex = 0;
             this.lblTourTime.Text = "00:00";
             // 
@@ -85,22 +85,22 @@
             // 
             this.lblDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDetails.AutoSize = true;
-            this.lblDetails.Location = new System.Drawing.Point(92, 0);
+            this.lblDetails.Location = new System.Drawing.Point(106, 0);
             this.lblDetails.Margin = new System.Windows.Forms.Padding(0);
             this.lblDetails.Name = "lblDetails";
-            this.lblDetails.Size = new System.Drawing.Size(115, 13);
+            this.lblDetails.Size = new System.Drawing.Size(135, 14);
             this.lblDetails.TabIndex = 1;
             this.lblDetails.Text = "Groups(0)   Services(0)";
             // 
             // TourControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tlpMain);
             this.Name = "TourControl";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
-            this.Size = new System.Drawing.Size(207, 72);
+            this.Size = new System.Drawing.Size(241, 78);
             this.tlpMain.ResumeLayout(false);
             this.tlpMain.PerformLayout();
             this.tlpTourDetail.ResumeLayout(false);

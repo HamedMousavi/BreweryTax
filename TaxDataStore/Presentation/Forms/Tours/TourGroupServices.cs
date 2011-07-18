@@ -5,7 +5,7 @@ using TaxDataStore.Presentation.Controls;
 namespace TaxDataStore
 {
 
-    public partial class TourGroupServices : UserControl
+    public partial class TourGroupServices : TourBaseControl
     {
 
         protected GeneralTypeMenu mnuServiceTypes;
@@ -72,8 +72,11 @@ namespace TaxDataStore
             }
 
             this.tslServices = new TourServiceListView();
-            this.tslServices.Dock = DockStyle.Fill;
             this.tlpMain.Controls.Add(this.tslServices, 0, 1);
+
+            this.Dock = DockStyle.Fill;
+            this.tlpMain.Dock = DockStyle.Fill;
+            this.tslServices.Dock = DockStyle.Fill;
         }
 
 

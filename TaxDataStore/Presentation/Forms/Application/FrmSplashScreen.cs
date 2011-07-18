@@ -22,7 +22,7 @@ namespace TaxDataStore
             this.lblVersionNumber.Text = Assembly.GetExecutingAssembly().
                 GetName().Version.ToString();
 
-            this.pbxAppIcon.Image = Resources.Images.beer;
+            this.pbxAppIcon.Image = Resources.Images.app_big;
             //this.pbxLoading.Image = Resources.Images.loading;
         }
 

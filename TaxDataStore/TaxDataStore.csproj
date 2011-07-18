@@ -87,6 +87,12 @@
     <Compile Include="Presentation\Controls\GroupServicePayment.Designer.cs">
       <DependentUpon>GroupServicePayment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\Controls\TourBaseControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\TourBaseControl.Designer.cs">
+      <DependentUpon>TourBaseControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\FormControlManager.cs" />
     <Compile Include="Presentation\Forms\Tours\FrmGroupServiceEditor.cs">
       <SubType>Form</SubType>
@@ -773,7 +779,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" BuildVersion_BuildVersioningStyle="Increment.YearStamp.MonthAndDayStamp.TimeStamp" BuildVersion_ConfigurationName="Release" />
+      <UserProperties BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" BuildVersion_BuildVersioningStyle="None.Increment.None.None" BuildVersion_ConfigurationName="Release" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -48,17 +48,17 @@
             this.tlpMain.Name = "tlpMain";
             this.tlpMain.RowCount = 1;
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMain.Size = new System.Drawing.Size(162, 26);
+            this.tlpMain.Size = new System.Drawing.Size(100, 22);
             this.tlpMain.TabIndex = 0;
             // 
             // cbxUnit
             // 
             this.cbxUnit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbxUnit.FormattingEnabled = true;
-            this.cbxUnit.Location = new System.Drawing.Point(99, 0);
+            this.cbxUnit.Location = new System.Drawing.Point(70, 0);
             this.cbxUnit.Margin = new System.Windows.Forms.Padding(0);
             this.cbxUnit.Name = "cbxUnit";
-            this.cbxUnit.Size = new System.Drawing.Size(63, 22);
+            this.cbxUnit.Size = new System.Drawing.Size(30, 22);
             this.cbxUnit.TabIndex = 4;
             // 
             // tbxValue
@@ -69,7 +69,7 @@
             this.tbxValue.Location = new System.Drawing.Point(0, 0);
             this.tbxValue.Margin = new System.Windows.Forms.Padding(0);
             this.tbxValue.Name = "tbxValue";
-            this.tbxValue.Size = new System.Drawing.Size(99, 22);
+            this.tbxValue.Size = new System.Drawing.Size(70, 22);
             this.tbxValue.TabIndex = 0;
             // 
             // MoneyPicker
@@ -79,7 +79,7 @@
             this.Controls.Add(this.tlpMain);
             this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Name = "MoneyPicker";
-            this.Size = new System.Drawing.Size(162, 26);
+            this.Size = new System.Drawing.Size(100, 22);
             this.tlpMain.ResumeLayout(false);
             this.tlpMain.PerformLayout();
             this.ResumeLayout(false);

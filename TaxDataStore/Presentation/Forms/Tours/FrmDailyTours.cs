@@ -9,13 +9,7 @@ namespace TaxDataStore
     public partial class FrmDailyTours : BaseForm
     {
         private FormLabel lblDate;
-
         private ToolbarLabel lblTours;
-        private ToolbarLabel lblTourMembers;
-        private ToolbarLabel lblEmployees;
-        private ToolbarLabel lblMemberContacts;
-        private ToolbarLabel lblTourCosts;
-        private ToolbarLabel lblNotes;
         private FlatButton btnAddTour;
         private FlatButton btnEditTour;
         private FlatButton btnDeleteTour;
@@ -63,13 +57,8 @@ namespace TaxDataStore
 
         private void CreateControls()
         {
-            this.lblDate = new FormLabel(0, "lblDate", true, "date");
+            this.lblDate = new FormLabel(0, "lblDate", false, "date");
 
-            this.lblTourMembers = new ToolbarLabel(1, "lblTourMembers", "lbl_tour_members");
-            this.lblEmployees = new ToolbarLabel(2, "lblEmployees", "lbl_employees");
-            this.lblNotes = new ToolbarLabel(3, "lblNotes", "lbl_notes");
-            this.lblMemberContacts = new ToolbarLabel(4, "lblMemberContacts", "lbl_member_contacts");
-            this.lblTourCosts = new ToolbarLabel(5, "lblTourCosts", "lbl_tour_costs");
             this.lblTours = new ToolbarLabel(6, "lblTours", "lbl_tours");
 
             this.btnAddTour = new FlatButton(7, "btnAdd", "add", "add");

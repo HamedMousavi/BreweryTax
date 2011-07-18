@@ -110,8 +110,6 @@ namespace Entities
             }
         }
 
-        //public TourMemberCollection DeletedMembers { get; set; }
-
         public TourServiceCollection Services
         {
             get

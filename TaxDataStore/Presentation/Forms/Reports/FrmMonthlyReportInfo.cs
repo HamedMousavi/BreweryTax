@@ -9,9 +9,13 @@ namespace TaxDataStore
     public partial class FrmMonthlyReportInfo : Form
     {
 
+        protected ReportInfo Info { get; set; }
+
         public FrmMonthlyReportInfo(ReportInfo info)
         {
             InitializeComponent();
+
+            this.Info = info;
 
             this.tbxDestination.DataBindings.Add(
                 new Binding(
@@ -51,6 +55,24 @@ namespace TaxDataStore
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            this.Info.StartTime = new DateTime(
+                this.Info.StartTime.Year,
+                this.Info.StartTime.Month,
+                01,
+                0,
+                0,
+                1);
+
+            this.Info.EndTime = new DateTime(
+                DateTime.Now.Year,
+                DateTime.Now.Month,
+                01,
+                0,
+                0,
+                1);
+            this.Info.EndTime = this.Info.EndTime.Date.AddMonths(1);
+            this.Info.EndTime = this.Info.EndTime.Date.AddDays(-1);
+
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
             Close();
         }

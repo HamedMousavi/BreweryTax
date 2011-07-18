@@ -6,7 +6,7 @@ using TaxDataStore.Presentation.Controls;
 namespace TaxDataStore
 {
 
-    public partial class TourGroupContacts : UserControl
+    public partial class TourGroupContacts : TourBaseControl
     {
 
         protected Entities.TourGroup group;
@@ -47,7 +47,11 @@ namespace TaxDataStore
         {
             this.fgvMembers = new FlatGridView();
             this.lsvMemberContacts = new ContactsListView();
-            
+            this.Dock = DockStyle.Fill;
+            this.tlpMain.Dock = DockStyle.Fill;
+            this.fgvMembers.Dock = DockStyle.Fill;
+            this.lsvMemberContacts.Dock = DockStyle.Fill;
+
             if (DomainModel.Application.ResourceManager != null)
             {
                 this.editToolbar.Title = DomainModel.

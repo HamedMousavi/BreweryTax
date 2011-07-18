@@ -2,12 +2,13 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 using TaxDataStore.Presentation;
+using TaxDataStore.Presentation.Controls;
 
 
 namespace TaxDataStore
 {
 
-    public partial class TourControl : UserControl
+    public partial class TourControl : TourBaseControl
     {
 
         public Entities.Tour Tour { get; set; }
@@ -33,6 +34,7 @@ namespace TaxDataStore
             {
                 this.lblDetails.ForeColor = Presentation.View.Theme.TourForeColor;
                 this.lblTourTime.ForeColor = Presentation.View.Theme.TourForeColor;
+                this.lblDetails.Font = Presentation.View.Theme.FormLabelFont;
                 this.lblTourTime.Font = Presentation.View.Theme.TourTitleFont;
                 this.tlpMain.BackColor = Presentation.View.Theme.TourBackColor;
                 this.BackColor = Presentation.View.Theme.TourListBackColor;

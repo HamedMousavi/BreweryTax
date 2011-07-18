@@ -88,22 +88,6 @@ namespace Entities
                 }
             }
         }
-
-        [BrowsableAttribute(false)]
-        public int Count
-        {
-            get
-            {
-                if (ParticipantsCount <= 0)
-                {
-                    return SignUpCount;
-                }
-                else
-                {
-                    return ParticipantsCount;
-                }
-            }
-        }
        
         #endregion Properties
 

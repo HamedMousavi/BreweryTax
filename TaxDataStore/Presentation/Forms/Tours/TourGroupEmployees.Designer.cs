@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
-            this.tlpMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpMain
@@ -42,16 +41,16 @@
             this.tlpMain.RowCount = 2;
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMain.Size = new System.Drawing.Size(150, 150);
+            this.tlpMain.Size = new System.Drawing.Size(175, 162);
             this.tlpMain.TabIndex = 0;
             // 
             // TourGroupEmployees
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tlpMain);
             this.Name = "TourGroupEmployees";
-            this.tlpMain.ResumeLayout(false);
+            this.Size = new System.Drawing.Size(175, 162);
             this.ResumeLayout(false);
 
         }

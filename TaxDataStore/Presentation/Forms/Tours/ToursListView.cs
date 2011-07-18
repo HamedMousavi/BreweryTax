@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Windows.Forms;
 using TaxDataStore.Presentation;
+using TaxDataStore.Presentation.Controls;
 
 
 namespace TaxDataStore
 {
 
-    public partial class ToursListView : UserControl
+    public partial class ToursListView : TourBaseControl
     {
 
         protected FormControlManager ctrlManager;

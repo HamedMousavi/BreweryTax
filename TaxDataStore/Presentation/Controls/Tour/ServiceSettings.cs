@@ -16,7 +16,11 @@ namespace TaxDataStore.Presentation.Controls
             InitializeComponent();
 
             this.Dock = DockStyle.Fill;
-            this.tlpMain.BackColor = System.Drawing.Color.Black;
+            if (Presentation.View.Theme != null)
+            {
+                this.BackColor = Presentation.View.Theme.GroupPanelBackColor;
+                this.tlpMain.BackColor = Presentation.View.Theme.GroupPanelBackColor;
+            }
 
             this.dgvServices = new FlatGridView();
             this.dgvServices.ColumnHeadersVisible = false;

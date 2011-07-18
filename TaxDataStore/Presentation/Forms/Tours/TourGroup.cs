@@ -1,12 +1,12 @@
-﻿using System.Windows.Forms;
-using System.Drawing;
-using System;
+﻿using System;
+using System.Windows.Forms;
+using TaxDataStore.Presentation.Controls;
 
 
 namespace TaxDataStore
 {
 
-    public partial class TourGroup : UserControl
+    public partial class TourGroup : TourBaseControl
     {
 
         protected Entities.Tour tour;

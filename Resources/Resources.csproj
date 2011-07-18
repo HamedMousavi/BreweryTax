@@ -234,9 +234,6 @@
     <None Include="Resources\loading.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\beer_lock.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\flag_green.png" />
   </ItemGroup>
   <ItemGroup>
@@ -274,6 +271,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock_big.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\app_big.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

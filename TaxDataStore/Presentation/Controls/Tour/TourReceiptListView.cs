@@ -15,6 +15,7 @@ namespace TaxDataStore.Presentation.Controls
         protected TourReceipt receipt;
         private System.Drawing.Font boldFont;
         private System.Drawing.Font regularFont;
+        protected float columnPercent;
 
 
         public TourReceiptListView()
@@ -59,6 +60,13 @@ namespace TaxDataStore.Presentation.Controls
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
             this.Disposed += new EventHandler(TourReceiptListView_Disposed);
+            this.SizeChanged += new EventHandler(TourReceiptListView_SizeChanged);
+        }
+
+
+        void TourReceiptListView_SizeChanged(object sender, EventArgs e)
+        {
+            SetColumnWidthPercent(this.columnPercent);
         }
 
 
@@ -110,6 +118,8 @@ namespace TaxDataStore.Presentation.Controls
                 column.IsEditable = false;
                 //column.FillsFreeSpace = false;
             }
+
+            this.columnPercent = 100.0F / this.Columns.Count;
         }
 
 
@@ -120,12 +130,34 @@ namespace TaxDataStore.Presentation.Controls
                 if (this.Disposing || this.IsDisposed) return;
 
                 this.SetObjects(this.receipt.Items);
-                this.AutoResizeColumns(
-                    ColumnHeaderAutoResizeStyle.HeaderSize);
+
+                this.columnPercent = 15;
+                SetColumnWidthPercent(this.columnPercent);
+                /*this.AutoResizeColumns(
+                    ColumnHeaderAutoResizeStyle.HeaderSize);*/
             }
             catch (Exception ex)
             {
             }
+        }
+
+
+        private void SetColumnWidthPercent(double percent)
+        {
+            double width = (this.ClientSize.Width * percent) / 
+                100.0F;
+
+            int colWidth = Convert.ToInt32(Math.Floor(width));
+
+            this.SuspendLayout();
+
+            for (int i = 1; i < this.Columns.Count; i++)
+            {
+                OLVColumn column = (OLVColumn)this.Columns[i];
+                column.Width = colWidth;
+            }
+
+            this.ResumeLayout(true);
         }
 
 
@@ -230,6 +262,8 @@ namespace TaxDataStore.Presentation.Controls
             this.receipt = tourReceipt;
             this.receipt.Items.ListChanged += new
                 ListChangedEventHandler(Items_ListChanged);
+
+            if (this.receipt != null) Items_ListChanged(this.receipt.Items, null);
 
             this.SetObjects(this.receipt.Items);
 

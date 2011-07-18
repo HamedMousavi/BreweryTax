@@ -9,7 +9,7 @@ using TaxDataStore.Presentation.Controls;
 namespace TaxDataStore
 {
 
-    public partial class TourGroupDetails : UserControl
+    public partial class TourGroupDetails : TourBaseControl
     {
 
         protected Entities.TourGroup group;

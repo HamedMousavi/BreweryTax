@@ -87,11 +87,13 @@ namespace DomainModel.PaymentStrategies
             int index = 0;
             if (tourBasePPS != null)
             {
+                bool isConfirmed = this.StrategyInfo.Service.CostDetails.IsConfirmed;
+
                 foreach (TourCostDetail detail in this.StrategyInfo.Service.CostDetails)
                 {
                     this.StrategyInfo.CostDetail = detail;
                     TourReceiptItem item = new TourReceiptItem();
-                    Int32 quantity = detail.Count;
+                    Int32 quantity = isConfirmed ? detail.ParticipantsCount : detail.SignUpCount;
 
                     item.Index = index;
                     item.ParentIndex = -1;

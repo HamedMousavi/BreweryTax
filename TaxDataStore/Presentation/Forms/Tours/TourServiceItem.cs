@@ -4,12 +4,13 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using Entities.Abstract;
+using TaxDataStore.Presentation.Controls;
 
 
 namespace TaxDataStore
 {
 
-    public partial class TourServiceItem : UserControl
+    public partial class TourServiceItem : TourBaseControl
     {
 
         protected ITourService service;

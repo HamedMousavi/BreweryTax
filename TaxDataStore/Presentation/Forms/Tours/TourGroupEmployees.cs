@@ -5,7 +5,7 @@ using TaxDataStore.Presentation.Controls;
 namespace TaxDataStore
 {
 
-    public partial class TourGroupEmployees : UserControl
+    public partial class TourGroupEmployees : TourBaseControl
     {
 
         private EditToolbar etbButtons;

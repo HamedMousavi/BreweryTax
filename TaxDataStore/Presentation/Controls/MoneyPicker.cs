@@ -64,7 +64,7 @@ namespace TaxDataStore.Presentation.Controls
                         this,
                         "ValueEditor",
                         false,
-                        DataSourceUpdateMode.OnPropertyChanged,
+                        DataSourceUpdateMode.OnValidation,
                         0.0m,
                         string.Empty,
                         null));
