@@ -31,7 +31,7 @@ namespace DomainModel
         }
 
 
-        internal static GeneralType GetById(int tourTypeId)
+        public static GeneralType GetById(int tourTypeId)
         {
             return cache.GetById(tourTypeId);
         }

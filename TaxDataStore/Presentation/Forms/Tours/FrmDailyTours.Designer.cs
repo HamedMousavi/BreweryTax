@@ -32,7 +32,6 @@ namespace TaxDataStore
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.tlpToursContainer = new TaxDataStore.Presentation.Controls.ContainerLayoutPanel();
             this.tlpToursToolbar = new System.Windows.Forms.TableLayoutPanel();
-            this.rtbComments = new System.Windows.Forms.RichTextBox();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
             this.tlpDate = new System.Windows.Forms.TableLayoutPanel();
             this.dtpCurrentDate = new System.Windows.Forms.DateTimePicker();
@@ -47,7 +46,6 @@ namespace TaxDataStore
             // 
             this.tlpMain.ColumnCount = 1;
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpMain.Controls.Add(this.tlpToursContainer, 0, 1);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
@@ -78,14 +76,14 @@ namespace TaxDataStore
             // 
             this.tlpToursToolbar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.tlpToursToolbar.ColumnCount = 6;
+            this.tlpToursToolbar.ColumnCount = 7;
             this.tlpToursToolbar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpToursToolbar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpToursToolbar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpToursToolbar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpToursToolbar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpToursToolbar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpToursToolbar.Controls.Add(this.rtbComments, 5, 0);
+            this.tlpToursToolbar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpToursToolbar.Controls.Add(this.tlpButtons, 4, 0);
             this.tlpToursToolbar.Controls.Add(this.tlpDate, 2, 0);
             this.tlpToursToolbar.Location = new System.Drawing.Point(0, 0);
@@ -95,18 +93,6 @@ namespace TaxDataStore
             this.tlpToursToolbar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpToursToolbar.Size = new System.Drawing.Size(643, 32);
             this.tlpToursToolbar.TabIndex = 6;
-            // 
-            // rtbComments
-            // 
-            this.rtbComments.BackColor = System.Drawing.Color.White;
-            this.rtbComments.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtbComments.Location = new System.Drawing.Point(526, 3);
-            this.rtbComments.Name = "rtbComments";
-            this.rtbComments.ReadOnly = true;
-            this.rtbComments.Size = new System.Drawing.Size(74, 26);
-            this.rtbComments.TabIndex = 1;
-            this.rtbComments.Text = "";
-            this.rtbComments.Visible = false;
             // 
             // tlpButtons
             // 
@@ -189,7 +175,6 @@ namespace TaxDataStore
         private System.Windows.Forms.DateTimePicker dtpCurrentDate;
         private System.Windows.Forms.TableLayoutPanel tlpButtons;
         private System.Windows.Forms.TableLayoutPanel tlpDate;
-        private System.Windows.Forms.RichTextBox rtbComments;
         private System.Windows.Forms.TableLayoutPanel tlpTours;
     }
 }

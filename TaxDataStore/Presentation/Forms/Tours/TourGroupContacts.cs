@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 using TaxDataStore.Presentation.Controls;
 
@@ -11,6 +12,7 @@ namespace TaxDataStore
 
         protected Entities.TourGroup group;
 
+
         public Entities.TourGroup Group 
         {
             get { return this.group; }
@@ -18,7 +20,10 @@ namespace TaxDataStore
             {
                 if (this.group != value)
                 {
+                    Detach(this.group);
                     this.group = value;
+                    Attach(value);
+
                     if (this.fgvMembers != null && value !=null && value.Members != null)
                     {
                         this.fgvMembers.SetDataSource(value.Members);
@@ -36,6 +41,7 @@ namespace TaxDataStore
 
 
         public TourGroupContacts()
+            : base()
         {
             InitializeComponent();
 
@@ -83,6 +89,7 @@ namespace TaxDataStore
 
             this.fgvMembers.SelectionChanged += new
                 EventHandler(fgvMembers_SelectionChanged);
+            
             /*
             this.editToolbar.AddButtonClick += new 
                 EventHandler(editToolbar_AddButtonClick);*/
@@ -97,6 +104,32 @@ namespace TaxDataStore
             this.mnuContacts.ClickAction = OnContactMenu;
             this.mnuContacts.Persons = DomainModel.Phonebook.GetAll();
             this.editToolbar.AddContextMenu = this.mnuContacts;
+        }
+
+
+        private void Attach(Entities.TourGroup group)
+        {
+            if (group != null && group.Members != null)
+            {
+                group.Members.ListChanged += new
+                    ListChangedEventHandler(Members_ListChanged);
+            }
+        }
+
+
+        private void Detach(Entities.TourGroup group)
+        {
+            if (group != null && group.Members != null)
+            {
+                group.Members.ListChanged -= new 
+                    ListChangedEventHandler(Members_ListChanged);
+            }
+        }
+
+
+        void Members_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            this.fgvMembers.UpdateBinding();
         }
 
 
@@ -126,6 +159,8 @@ namespace TaxDataStore
                     if (DomainModel.TourGroupMembers.Delete(this.group, member))
                     {
                         group.Members.Remove(member);
+                        //this.fgvMembers.SelectLastItem();
+                        this.fgvMembers.Focus();
                     }
                 }
             }

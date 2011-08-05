@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿
 
 namespace TaxDataStore.Presentation.Controllers
 {
@@ -30,7 +26,10 @@ namespace TaxDataStore.Presentation.Controllers
 
         internal static void Delete(Entities.Service service)
         {
-            DomainModel.Services.Delete(service);
+            if (Controllers.MessageBox.ConfirmDelete())
+            {
+                DomainModel.Services.Delete(service);
+            }
         }
     }
 }

@@ -340,6 +340,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back to workbench.
+        /// </summary>
+        public static string lbl_back_to_workbench {
+            get {
+                return ResourceManager.GetString("lbl_back_to_workbench", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Categories.
         /// </summary>
         public static string lbl_category {
@@ -556,11 +565,11 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Participants count.
+        ///   Looks up a localized string similar to Participants.
         /// </summary>
-        public static string lbl_participant_count {
+        public static string lbl_participants {
             get {
-                return ResourceManager.GetString("lbl_participant_count", resourceCulture);
+                return ResourceManager.GetString("lbl_participants", resourceCulture);
             }
         }
         
@@ -1141,6 +1150,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Record will be deleted permanently. Are you sure you want to remove this item?.
+        /// </summary>
+        public static string msg_del_confirm_text {
+            get {
+                return ResourceManager.GetString("msg_del_confirm_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm delete.
+        /// </summary>
+        public static string msg_del_confirm_title {
+            get {
+                return ResourceManager.GetString("msg_del_confirm_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         public static string name {
@@ -1263,6 +1290,15 @@ namespace Resources {
         public static string select_user {
             get {
                 return ResourceManager.GetString("select_user", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Service type is not selected. Please choose a type and try again..
+        /// </summary>
+        public static string stat_err_type_empty {
+            get {
+                return ResourceManager.GetString("stat_err_type_empty", resourceCulture);
             }
         }
         
@@ -1461,6 +1497,69 @@ namespace Resources {
         public static string users {
             get {
                 return ResourceManager.GetString("users", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click to edit your contacts..
+        /// </summary>
+        public static string wbi_desc_addressbook {
+            get {
+                return ResourceManager.GetString("wbi_desc_addressbook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click to see daily tours and services schedules and details..
+        /// </summary>
+        public static string wbi_desc_calendar {
+            get {
+                return ResourceManager.GetString("wbi_desc_calendar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click to adjust settings..
+        /// </summary>
+        public static string wbi_desc_floppy {
+            get {
+                return ResourceManager.GetString("wbi_desc_floppy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click to read your messages..
+        /// </summary>
+        public static string wbi_desc_notepad {
+            get {
+                return ResourceManager.GetString("wbi_desc_notepad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click to generate reports..
+        /// </summary>
+        public static string wbi_desc_reports {
+            get {
+                return ResourceManager.GetString("wbi_desc_reports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click to search in tours..
+        /// </summary>
+        public static string wbi_desc_search {
+            get {
+                return ResourceManager.GetString("wbi_desc_search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click to edit your work hours..
+        /// </summary>
+        public static string wbi_desc_workhours {
+            get {
+                return ResourceManager.GetString("wbi_desc_workhours", resourceCulture);
             }
         }
     }

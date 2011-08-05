@@ -303,8 +303,8 @@
   <data name="lbl_employees" xml:space="preserve">
     <value>Employees</value>
   </data>
-  <data name="lbl_participant_count" xml:space="preserve">
-    <value>Participants count</value>
+  <data name="lbl_participants" xml:space="preserve">
+    <value>Participants</value>
   </data>
   <data name="lbl_signup_count" xml:space="preserve">
     <value>Sign up count</value>
@@ -584,5 +584,38 @@
   </data>
   <data name="rep_monthly_bill_title" xml:space="preserve">
     <value>Abrechnung für den Monat</value>
+  </data>
+  <data name="msg_del_confirm_text" xml:space="preserve">
+    <value>Record will be deleted permanently. Are you sure you want to remove this item?</value>
+  </data>
+  <data name="msg_del_confirm_title" xml:space="preserve">
+    <value>Confirm delete</value>
+  </data>
+  <data name="stat_err_type_empty" xml:space="preserve">
+    <value>Service type is not selected. Please choose a type and try again.</value>
+  </data>
+  <data name="wbi_desc_notepad" xml:space="preserve">
+    <value>Click to read your messages.</value>
+  </data>
+  <data name="wbi_desc_calendar" xml:space="preserve">
+    <value>Click to see daily tours and services schedules and details.</value>
+  </data>
+  <data name="wbi_desc_addressbook" xml:space="preserve">
+    <value>Click to edit your contacts.</value>
+  </data>
+  <data name="wbi_desc_workhours" xml:space="preserve">
+    <value>Click to edit your work hours.</value>
+  </data>
+  <data name="wbi_desc_floppy" xml:space="preserve">
+    <value>Click to adjust settings.</value>
+  </data>
+  <data name="wbi_desc_reports" xml:space="preserve">
+    <value>Click to generate reports.</value>
+  </data>
+  <data name="wbi_desc_search" xml:space="preserve">
+    <value>Click to search in tours.</value>
+  </data>
+  <data name="lbl_back_to_workbench" xml:space="preserve">
+    <value>Back to workbench</value>
   </data>
 </root>

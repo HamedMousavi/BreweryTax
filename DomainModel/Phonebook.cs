@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Transactions;
 
 
 namespace DomainModel
@@ -10,6 +11,7 @@ namespace DomainModel
         private static Entities.TourMemberCollection cache;
         private static Repository.Sql.Phonebook persons;
         private static Repository.Sql.PersonContacts contacts;
+        private static Repository.Sql.TourGroupMembers members;
 
 
         public static void Init(string sqlConnectionString)
@@ -18,6 +20,7 @@ namespace DomainModel
 
             persons = new Repository.Sql.Phonebook(sqlConnectionString);
             contacts = new Repository.Sql.PersonContacts(sqlConnectionString);
+            members = new Repository.Sql.TourGroupMembers(sqlConnectionString);
 
             LoadAll();
         }
@@ -108,6 +111,44 @@ namespace DomainModel
             }
 
             return null;
+        }
+
+
+        public static bool Delete(Entities.TourMember person)
+        {
+            bool res = true;
+            try
+            {
+                using (TransactionScope ts = new TransactionScope())
+                {
+                    foreach (Entities.Contact contact in person.Contacts)
+                    {
+                        if (!(res = contacts.Delete(contact))) break;
+                    }
+
+                    if (res) res = persons.Delete(person);
+
+                    if (res) res = members.Delete(person);
+
+                    if (res) ts.Complete();
+                }
+
+                if (res) cache.Remove(person);
+            }
+            catch (Exception ex)
+            {
+                res = false;
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "",
+                        ex.Message);
+                }
+                catch { }
+            }
+
+            return res;
         }
     }
 }

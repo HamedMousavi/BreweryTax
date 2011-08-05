@@ -197,9 +197,6 @@
     <None Include="Resources\plus.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\beer.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
@@ -229,9 +226,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\calculator-gray.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\loading.gif" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\flag_green.png" />
@@ -277,6 +271,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\app_big.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notepad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addressbook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\workhours.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\floppy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reports.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\office_lamp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-turn-180-left.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

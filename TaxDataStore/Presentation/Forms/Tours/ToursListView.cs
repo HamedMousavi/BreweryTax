@@ -15,6 +15,7 @@ namespace TaxDataStore
 
 
         public ToursListView(Entities.TourCollection tours)
+            : base()
         {
             InitializeComponent();
 
@@ -40,7 +41,7 @@ namespace TaxDataStore
 
             this.ctrlManager = new FormControlManager(this.flpTours, tours);
             this.ctrlManager.CreateControl = CreateTour;
-            this.ctrlManager.ControlsContainItem = TourContainItem;
+            this.ctrlManager.FindControl = TourFindControl;
             this.ctrlManager.ListContainsControl = ListContainsTour;
         }
 
@@ -54,12 +55,12 @@ namespace TaxDataStore
         }
 
 
-        public bool TourContainItem(object item)
+        public Control TourFindControl(object item)
         {
             Entities.Tour tour =
                 (Entities.Tour)item;
 
-            return FindInClients(tour) != null;
+            return FindInClients(tour);
         }
 
 

@@ -75,5 +75,11 @@ namespace DomainModel
             this.StatusController.UpdateStatus(
                 new StatusController.Entities.StatusInfo(0, 0, type, 0, null, text));
         }
+
+
+        public void Reset()
+        {
+            this.StatusController.UpdateStatus(this.readyState);
+        }
     }
 }

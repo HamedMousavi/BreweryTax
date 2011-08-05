@@ -78,16 +78,33 @@ namespace TaxDataStore
 
         void sbbMain_SaveButtonClick(object sender, System.EventArgs e)
         {
-            if (DomainModel.TourGroupServices.Save(this.group, this.service))
+            if (this.service.Detail == null ||
+                this.service.Detail.Id < 0 ||
+                this.service.Detail.ServiceType == null ||
+                this.service.Detail.ServiceType.Id < 0)
             {
-                if (this.editService != null)
+                try
                 {
-                    this.service.CopyTo(this.editService);
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "stat_err_type_empty",
+                        string.Empty);
                 }
+                catch { }
             }
+            else
+            {
+                if (DomainModel.TourGroupServices.Save(this.group, this.service))
+                {
+                    if (this.editService != null)
+                    {
+                        this.service.CopyTo(this.editService);
+                    }
+                }
 
-            this.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.Close();
+                this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                this.Close();
+            }
         }
     }
 }

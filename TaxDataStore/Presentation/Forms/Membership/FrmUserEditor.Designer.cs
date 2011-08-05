@@ -38,6 +38,7 @@ namespace TaxDataStore
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSave = new TaxDataStore.Presentation.Controls.ButtonBase();
             this.btnCancel = new TaxDataStore.Presentation.Controls.ButtonBase();
+            this.chbxIsEmployee = new System.Windows.Forms.CheckBox();
             this.tlpMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -47,16 +48,18 @@ namespace TaxDataStore
             this.tlpMain.ColumnCount = 2;
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMain.Controls.Add(this.chbxIsEnabled, 0, 0);
-            this.tlpMain.Controls.Add(this.tbxName, 1, 1);
-            this.tlpMain.Controls.Add(this.cbxLanguage, 1, 3);
-            this.tlpMain.Controls.Add(this.tbxPassword, 1, 2);
-            this.tlpMain.Controls.Add(this.cbxRole, 1, 4);
-            this.tlpMain.Controls.Add(this.tableLayoutPanel1, 0, 6);
+            this.tlpMain.Controls.Add(this.chbxIsEnabled, 0, 1);
+            this.tlpMain.Controls.Add(this.tbxName, 1, 2);
+            this.tlpMain.Controls.Add(this.cbxLanguage, 1, 4);
+            this.tlpMain.Controls.Add(this.tbxPassword, 1, 3);
+            this.tlpMain.Controls.Add(this.cbxRole, 1, 5);
+            this.tlpMain.Controls.Add(this.tableLayoutPanel1, 0, 7);
+            this.tlpMain.Controls.Add(this.chbxIsEmployee, 0, 0);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Name = "tlpMain";
-            this.tlpMain.RowCount = 7;
+            this.tlpMain.RowCount = 8;
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -64,8 +67,7 @@ namespace TaxDataStore
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpMain.Size = new System.Drawing.Size(321, 195);
+            this.tlpMain.Size = new System.Drawing.Size(325, 222);
             this.tlpMain.TabIndex = 0;
             // 
             // chbxIsEnabled
@@ -76,9 +78,9 @@ namespace TaxDataStore
             this.chbxIsEnabled.Checked = true;
             this.chbxIsEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tlpMain.SetColumnSpan(this.chbxIsEnabled, 2);
-            this.chbxIsEnabled.Location = new System.Drawing.Point(3, 3);
+            this.chbxIsEnabled.Location = new System.Drawing.Point(3, 29);
             this.chbxIsEnabled.Name = "chbxIsEnabled";
-            this.chbxIsEnabled.Size = new System.Drawing.Size(315, 20);
+            this.chbxIsEnabled.Size = new System.Drawing.Size(319, 20);
             this.chbxIsEnabled.TabIndex = 9;
             this.chbxIsEnabled.Text = "Enabled";
             this.chbxIsEnabled.UseVisualStyleBackColor = true;
@@ -87,9 +89,9 @@ namespace TaxDataStore
             // 
             this.tbxName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxName.Location = new System.Drawing.Point(3, 29);
+            this.tbxName.Location = new System.Drawing.Point(3, 55);
             this.tbxName.Name = "tbxName";
-            this.tbxName.Size = new System.Drawing.Size(315, 23);
+            this.tbxName.Size = new System.Drawing.Size(319, 23);
             this.tbxName.TabIndex = 1;
             // 
             // cbxLanguage
@@ -97,18 +99,18 @@ namespace TaxDataStore
             this.cbxLanguage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.cbxLanguage.FormattingEnabled = true;
-            this.cbxLanguage.Location = new System.Drawing.Point(3, 87);
+            this.cbxLanguage.Location = new System.Drawing.Point(3, 113);
             this.cbxLanguage.Name = "cbxLanguage";
-            this.cbxLanguage.Size = new System.Drawing.Size(315, 24);
+            this.cbxLanguage.Size = new System.Drawing.Size(319, 24);
             this.cbxLanguage.TabIndex = 5;
             // 
             // tbxPassword
             // 
             this.tbxPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxPassword.Location = new System.Drawing.Point(3, 58);
+            this.tbxPassword.Location = new System.Drawing.Point(3, 84);
             this.tbxPassword.Name = "tbxPassword";
-            this.tbxPassword.Size = new System.Drawing.Size(315, 23);
+            this.tbxPassword.Size = new System.Drawing.Size(319, 23);
             this.tbxPassword.TabIndex = 3;
             this.tbxPassword.UseSystemPasswordChar = true;
             // 
@@ -117,9 +119,9 @@ namespace TaxDataStore
             this.cbxRole.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.cbxRole.FormattingEnabled = true;
-            this.cbxRole.Location = new System.Drawing.Point(3, 117);
+            this.cbxRole.Location = new System.Drawing.Point(3, 143);
             this.cbxRole.Name = "cbxRole";
-            this.cbxRole.Size = new System.Drawing.Size(315, 24);
+            this.cbxRole.Size = new System.Drawing.Size(319, 24);
             this.cbxRole.TabIndex = 7;
             // 
             // tableLayoutPanel1
@@ -127,6 +129,7 @@ namespace TaxDataStore
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.AutoSize = true;
+            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tlpMain.SetColumnSpan(this.tableLayoutPanel1, 2);
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -134,18 +137,18 @@ namespace TaxDataStore
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.btnSave, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnCancel, 2, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 163);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 190);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(321, 32);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(325, 32);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
             // btnSave
             // 
             this.btnSave.AutoSize = true;
-            this.btnSave.Location = new System.Drawing.Point(162, 3);
+            this.btnSave.Location = new System.Drawing.Point(166, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 26);
             this.btnSave.TabIndex = 0;
@@ -156,7 +159,7 @@ namespace TaxDataStore
             // btnCancel
             // 
             this.btnCancel.AutoSize = true;
-            this.btnCancel.Location = new System.Drawing.Point(243, 3);
+            this.btnCancel.Location = new System.Drawing.Point(247, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 26);
             this.btnCancel.TabIndex = 1;
@@ -164,11 +167,21 @@ namespace TaxDataStore
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // chbxIsEmployee
+            // 
+            this.chbxIsEmployee.AutoSize = true;
+            this.chbxIsEmployee.Location = new System.Drawing.Point(3, 3);
+            this.chbxIsEmployee.Name = "chbxIsEmployee";
+            this.chbxIsEmployee.Size = new System.Drawing.Size(92, 20);
+            this.chbxIsEmployee.TabIndex = 10;
+            this.chbxIsEmployee.Text = "IsEmployee";
+            this.chbxIsEmployee.UseVisualStyleBackColor = true;
+            // 
             // FrmUserEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(321, 195);
+            this.ClientSize = new System.Drawing.Size(325, 222);
             this.Controls.Add(this.tlpMain);
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -198,6 +211,7 @@ namespace TaxDataStore
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private ButtonBase btnSave;
         private ButtonBase btnCancel;
+        private System.Windows.Forms.CheckBox chbxIsEmployee;
 
     }
 }

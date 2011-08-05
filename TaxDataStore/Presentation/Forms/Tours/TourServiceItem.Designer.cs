@@ -48,14 +48,13 @@
             this.tlpMain.Controls.Add(this.lblServiceCount, 3, 0);
             this.tlpMain.Controls.Add(this.lblServiceType, 2, 0);
             this.tlpMain.Controls.Add(this.btnClose, 0, 0);
+            this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Margin = new System.Windows.Forms.Padding(0);
-            this.tlpMain.MaximumSize = new System.Drawing.Size(150, 28);
-            this.tlpMain.MinimumSize = new System.Drawing.Size(150, 28);
             this.tlpMain.Name = "tlpMain";
             this.tlpMain.RowCount = 1;
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMain.Size = new System.Drawing.Size(150, 28);
+            this.tlpMain.Size = new System.Drawing.Size(165, 28);
             this.tlpMain.TabIndex = 0;
             // 
             // pbxServiceType
@@ -74,10 +73,10 @@
             this.lblServiceCount.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblServiceCount.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblServiceCount.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblServiceCount.Location = new System.Drawing.Point(110, 2);
+            this.lblServiceCount.Location = new System.Drawing.Point(119, 2);
             this.lblServiceCount.Margin = new System.Windows.Forms.Padding(2);
             this.lblServiceCount.Name = "lblServiceCount";
-            this.lblServiceCount.Size = new System.Drawing.Size(38, 24);
+            this.lblServiceCount.Size = new System.Drawing.Size(44, 24);
             this.lblServiceCount.TabIndex = 0;
             this.lblServiceCount.Text = "0";
             this.lblServiceCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -90,7 +89,7 @@
             this.lblServiceType.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.lblServiceType.Location = new System.Drawing.Point(50, 0);
             this.lblServiceType.Name = "lblServiceType";
-            this.lblServiceType.Size = new System.Drawing.Size(55, 28);
+            this.lblServiceType.Size = new System.Drawing.Size(64, 28);
             this.lblServiceType.TabIndex = 1;
             this.lblServiceType.Text = "Mini";
             this.lblServiceType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -115,10 +114,10 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tlpMain);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.MaximumSize = new System.Drawing.Size(150, 28);
-            this.MinimumSize = new System.Drawing.Size(150, 28);
+            this.MaximumSize = new System.Drawing.Size(165, 28);
+            this.MinimumSize = new System.Drawing.Size(165, 28);
             this.Name = "TourServiceItem";
-            this.Size = new System.Drawing.Size(150, 28);
+            this.Size = new System.Drawing.Size(165, 28);
             this.tlpMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxServiceType)).EndInit();
             this.ResumeLayout(false);

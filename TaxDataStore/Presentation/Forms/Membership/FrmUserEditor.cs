@@ -22,15 +22,16 @@ namespace TaxDataStore
         {
             InitializeComponent();
 
-            this.lblName = new FormLabel(0, "lblName", false, "username");
-            this.lblLanguage = new FormLabel(1, "lblLanguage", false, "language");
-            this.lblPassword = new FormLabel(2, "lblPassword", false, "password");
-            this.lblRole = new FormLabel(3, "lblRole", false, "role_name");
+            this.lblName = new FormLabel(0, "lblName", true, "username");
+            this.lblLanguage = new FormLabel(2, "lblLanguage", true, "language");
+            this.lblPassword = new FormLabel(4, "lblPassword", true, "password");
+            this.lblRole = new FormLabel(6, "lblRole", true, "role_name");
 
-            this.tlpMain.Controls.Add(this.lblName, 0, 1);
-            this.tlpMain.Controls.Add(this.lblLanguage, 0, 3);
-            this.tlpMain.Controls.Add(this.lblRole, 0, 4);
-            this.tlpMain.Controls.Add(this.lblPassword, 0, 2);
+            this.tlpMain.Controls.Add(this.lblName, 0, 2);
+            this.tlpMain.Controls.Add(this.lblPassword, 0, 3);
+            this.tlpMain.Controls.Add(this.lblLanguage, 0, 4);
+            this.tlpMain.Controls.Add(this.lblRole, 0, 5);
+            this.tlpMain.BackColor = System.Drawing.Color.White;
 
             if (user == null)
             {
@@ -113,6 +114,17 @@ namespace TaxDataStore
                     "Checked",
                     this.user,
                     "IsEnabled",
+                    false,
+                    DataSourceUpdateMode.OnPropertyChanged,
+                    false,
+                    string.Empty,
+                    null));
+
+            this.chbxIsEmployee.DataBindings.Add(
+                new Binding(
+                    "Checked",
+                    this.user,
+                    "IsEmployee",
                     false,
                     DataSourceUpdateMode.OnPropertyChanged,
                     false,

@@ -21,5 +21,18 @@ namespace Entities
                 return sum;
             }
         }
+
+
+        internal Int32 GetServiceCountExcept(GeneralType serviceType)
+        {
+            Int32 sum = 0;
+
+            foreach (Entities.TourGroup group in this)
+            {
+                sum += group.Services.GetClientCountExcept(serviceType);
+            }
+
+            return sum;
+        }
     }
 }

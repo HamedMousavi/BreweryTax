@@ -10,6 +10,10 @@ namespace TaxDataStore
     public partial class EditToolbar : UserControl
     {
 
+        public bool ShowAdd { get; set; }
+        public bool ShowEdit { get; set; }
+        public bool ShowDelete { get; set; }
+
         public bool ButtonAutohide 
         {
             get { return this.autoHide; }
@@ -23,8 +27,6 @@ namespace TaxDataStore
             }
         }
 
-
-        protected ContextMenuStrip addContextMenu;
         public ContextMenuStrip AddContextMenu
         {
             get
@@ -39,50 +41,68 @@ namespace TaxDataStore
                 AttachMenu();
             }
         }
-
-
-        private void AttachMenu()
+        
+        public event EventHandler AddButtonClick
         {
-            if (this.addContextMenu != null)
+            add
             {
-                this.addContextMenu.Closing += new
-                    ToolStripDropDownClosingEventHandler(addContextMenu_Closing);
+                this.btnAdd.Click += value;
+            }
+
+            remove
+            {
+                this.btnAdd.Click -= value;
+            }
+        }
+        
+        public event EventHandler DeleteButtonClick
+        {
+            add
+            {
+                this.btnDelete.Click += value;
+            }
+
+            remove
+            {
+                this.btnDelete.Click -= value;
+            }
+        }
+        
+        public event EventHandler EditButtonClick
+        {
+            add
+            {
+                this.btnEdit.Click += value;
+            }
+
+            remove
+            {
+                this.btnEdit.Click -= value;
+            }
+        }
+        
+        public string Title
+        {
+            get
+            {
+                return this.lblTitle.Text;
+            }
+
+            set
+            {
+                this.lblTitle.Text = value;
             }
         }
 
 
-        private void DetachMenu()
-        {
-            if (this.addContextMenu != null)
-            {
-                this.addContextMenu.Closing -= new
-                    ToolStripDropDownClosingEventHandler(addContextMenu_Closing);
-            }
-        }
-
-
-        void addContextMenu_Closing(object sender, ToolStripDropDownClosingEventArgs e)
-        {
-            if (this.autoHide)
-            {
-                ShowEditOptions(false);
-            }
-        }
-
+        protected ContextMenuStrip addContextMenu;
 
         private FlatButton btnAdd;
         private FlatButton btnEdit;
         private FlatButton btnDelete;
         private ToolbarLabel lblTitle;
-
-
         private bool autoHide;
-
-
-        public bool ShowAdd { get; set; }
-        public bool ShowEdit { get; set; }
-        public bool ShowDelete { get; set; }
-
+        
 
         public EditToolbar()
         {
@@ -127,6 +147,10 @@ namespace TaxDataStore
             this.tlpMain.AutoSize = true;
             this.tlpMain.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 
+            this.lblTitle.Anchor = AnchorStyles.Top |
+                AnchorStyles.Left | AnchorStyles.Bottom;
+            this.lblTitle.TextAlign = ContentAlignment.MiddleLeft;
+
             if (Presentation.View.Theme != null)
             {
                 this.lblTitle.ForeColor = Presentation.View.Theme.TourForeColor;
@@ -142,6 +166,35 @@ namespace TaxDataStore
 
             this.Disposed += new EventHandler(EditToolbar_Disposed);
             AttachMouseEvents(this);
+        }
+
+
+        private void AttachMenu()
+        {
+            if (this.addContextMenu != null)
+            {
+                this.addContextMenu.Closing += new
+                    ToolStripDropDownClosingEventHandler(addContextMenu_Closing);
+            }
+        }
+
+
+        private void DetachMenu()
+        {
+            if (this.addContextMenu != null)
+            {
+                this.addContextMenu.Closing -= new
+                    ToolStripDropDownClosingEventHandler(addContextMenu_Closing);
+            }
+        }
+
+
+        void addContextMenu_Closing(object sender, ToolStripDropDownClosingEventArgs e)
+        {
+            if (this.autoHide)
+            {
+                ShowEditOptions(false);
+            }
         }
 
 
@@ -217,62 +270,6 @@ namespace TaxDataStore
         void OnMouseEnter(object sender, EventArgs e)
         {
             ShowEditOptions(true);
-        }
-
-
-        public event EventHandler AddButtonClick
-        {
-            add
-            {
-                this.btnAdd.Click += value;
-            }
-
-            remove
-            {
-                this.btnAdd.Click -= value;
-            }
-        }
-
-
-        public event EventHandler DeleteButtonClick
-        {
-            add
-            {
-                this.btnDelete.Click += value;
-            }
-
-            remove
-            {
-                this.btnDelete.Click -= value;
-            }
-        }
-
-
-        public event EventHandler EditButtonClick
-        {
-            add
-            {
-                this.btnEdit.Click += value;
-            }
-
-            remove
-            {
-                this.btnEdit.Click -= value;
-            }
-        }
-
-
-        public string Title
-        {
-            get
-            {
-                return this.lblTitle.Text;
-            }
-
-            set
-            {
-                this.lblTitle.Text = value;
-            }
         }
 
 

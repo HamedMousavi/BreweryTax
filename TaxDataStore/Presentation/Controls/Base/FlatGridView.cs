@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System;
 
 
 namespace TaxDataStore.Presentation.Controls
@@ -125,14 +126,20 @@ namespace TaxDataStore.Presentation.Controls
         {
             get
             {
-                if (this.DataSource != null &&
-                    this.BindingContext != null &&
-                    this.BindingContext[this.DataSource] != null)
+                try
                 {
-                    if (this.BindingContext[this.DataSource].Count <= 0 ||
-                        this.BindingContext[this.DataSource].Position < 0) return null;
+                    if (this.DataSource != null &&
+                        this.BindingContext != null &&
+                        this.BindingContext[this.DataSource] != null)
+                    {
+                        if (this.BindingContext[this.DataSource].Count <= 0 ||
+                            this.BindingContext[this.DataSource].Position < 0) return null;
 
-                    return this.BindingContext[this.DataSource].Current;
+                        return this.BindingContext[this.DataSource].Current;
+                    }
+                }
+                catch (Exception ex)
+                {
                 }
 
                 return null;
@@ -209,6 +216,16 @@ namespace TaxDataStore.Presentation.Controls
                 StatusController.Abstract.StatusTypes.Error,
                 (Int32)StatusCodes.Errors.Codes.DataError,
                 null, e.Exception.ToString()));*/
+        }
+
+
+        public void SelectLastItem()
+        {
+            if (this.Rows.Count > 0)
+            {
+                this.Rows[this.Rows.Count - 1].Selected = false;
+                this.Rows[this.Rows.Count - 1].Selected = true;
+            }
         }
     }
 }

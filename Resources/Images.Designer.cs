@@ -81,6 +81,13 @@ namespace Resources {
             }
         }
         
+        public static System.Drawing.Bitmap addressbook {
+            get {
+                object obj = ResourceManager.GetObject("addressbook", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         public static System.Drawing.Bitmap alarm_clock__minus {
             get {
                 object obj = ResourceManager.GetObject("alarm_clock__minus", resourceCulture);
@@ -123,6 +130,13 @@ namespace Resources {
             }
         }
         
+        public static System.Drawing.Bitmap arrow_turn_180_left {
+            get {
+                object obj = ResourceManager.GetObject("arrow_turn_180_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         public static System.Drawing.Bitmap bottle {
             get {
                 object obj = ResourceManager.GetObject("bottle", resourceCulture);
@@ -147,6 +161,13 @@ namespace Resources {
         public static System.Drawing.Bitmap calculator_gray {
             get {
                 object obj = ResourceManager.GetObject("calculator_gray", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap calendar {
+            get {
+                object obj = ResourceManager.GetObject("calendar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -284,6 +305,13 @@ namespace Resources {
             }
         }
         
+        public static System.Drawing.Bitmap floppy {
+            get {
+                object obj = ResourceManager.GetObject("floppy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         public static System.Drawing.Bitmap gear {
             get {
                 object obj = ResourceManager.GetObject("gear", resourceCulture);
@@ -382,6 +410,13 @@ namespace Resources {
             }
         }
         
+        public static System.Drawing.Bitmap notepad {
+            get {
+                object obj = ResourceManager.GetObject("notepad", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         public static System.Drawing.Bitmap pencil {
             get {
                 object obj = ResourceManager.GetObject("pencil", resourceCulture);
@@ -392,6 +427,20 @@ namespace Resources {
         public static System.Drawing.Bitmap plus {
             get {
                 object obj = ResourceManager.GetObject("plus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap reports {
+            get {
+                object obj = ResourceManager.GetObject("reports", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap search {
+            get {
+                object obj = ResourceManager.GetObject("search", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -434,6 +483,13 @@ namespace Resources {
         public static System.Drawing.Bitmap users {
             get {
                 object obj = ResourceManager.GetObject("users", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap workhours {
+            get {
+                object obj = ResourceManager.GetObject("workhours", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

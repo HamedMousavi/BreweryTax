@@ -39,9 +39,10 @@ namespace TaxDataStore
                 }
             }
         }
-        
+
 
         public TourGroupServices()
+            : base()
         {
             InitializeComponent();
 

@@ -13,6 +13,7 @@ namespace DomainModel.PaymentStrategies
         public PaymentStrategyInfo StrategyInfo { get; set; }
         private PaymentStrategyInfoCollection services;
         private PaymentRuleValidator ruleValidator;
+        private bool calculating;
 
 
         public NormalStrategy(PaymentStrategyInfo info)
@@ -20,11 +21,15 @@ namespace DomainModel.PaymentStrategies
             this.StrategyInfo = info;
             this.services = new PaymentStrategyInfoCollection();
             this.ruleValidator = new PaymentRuleValidator();
+            this.calculating = false;
         }
 
 
         public bool UpdateReceipt()
         {
+            if (this.calculating) return false;
+            this.calculating = true;
+
             bool res = true;
 
             // Prevent event firing again while changing list
@@ -61,6 +66,7 @@ namespace DomainModel.PaymentStrategies
             // attach back to tour
             Attach();
 
+            this.calculating = false;
             return res;
         }
 

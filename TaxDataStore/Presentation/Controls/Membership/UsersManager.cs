@@ -83,6 +83,11 @@ namespace TaxDataStore
             this.tlpMain.Controls.Add(this.lsvUsers, 0, 1);
             this.lsvUsers.MouseUp += new MouseEventHandler(lsvUsers_MouseUp);
             this.lsvUsers.SelectedIndexChanged += new EventHandler(lsvUsers_SelectedIndexChanged);
+
+            this.btnAddUser.Click += new EventHandler(btnAddUser_Click);
+            this.btnDeleteUser.Click += new EventHandler(btnDeleteUser_Click);
+            this.btnEditUser.Click += new EventHandler(btnEditUser_Click);
+            this.btnEnableUser.Click += new EventHandler(btnEnableUser_Click);
         }
 
 

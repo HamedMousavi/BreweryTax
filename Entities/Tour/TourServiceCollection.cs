@@ -34,5 +34,21 @@ namespace Entities
                 return sum;
             }
         }
+
+
+        internal int GetClientCountExcept(GeneralType serviceType)
+        {
+            Int32 sum = 0;
+
+            foreach (ITourService service in this)
+            {
+                if (service.Detail.ServiceType.Id != serviceType.Id)
+                {
+                    sum += service.ClientCount;
+                }
+            }
+
+            return sum;
+        }
     }
 }

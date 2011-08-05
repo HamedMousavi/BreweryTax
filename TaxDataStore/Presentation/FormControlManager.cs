@@ -19,8 +19,8 @@ namespace TaxDataStore.Presentation
         public delegate Control CreateControlDelegate(object item);
         public CreateControlDelegate CreateControl { get; set; }
 
-        public delegate bool ControlsContainItemDelegate(object item);
-        public ControlsContainItemDelegate ControlsContainItem { get; set; }
+        public delegate Control FindControlDelegate(object item);
+        public FindControlDelegate FindControl { get; set; }
 
         public delegate bool ListContainsControlDelegate(UserControl ctrl);
         public ListContainsControlDelegate ListContainsControl { get; set; }
@@ -38,31 +38,34 @@ namespace TaxDataStore.Presentation
 
         public void Sync()
         {
-            this.remove.Clear();
-            foreach (UserControl ctrl in this.controlsOwner.Controls)
-            {
-                if (!ListContainsControl(ctrl))
-                {
-                    this.remove.Add(ctrl);
-                }
-            }
-
             this.add.Clear();
             foreach (object item in this.items)
             {
-                if (!ControlsContainItem(item))
+                Control control = FindControl(item);
+                if (control != null)
+                {
+                    this.add.Add(control);
+                }
+                else
                 {
                     this.add.Add(CreateControl(item));
                 }
             }
 
+            this.remove.Clear();
+            foreach (Control control in this.controlsOwner.Controls)
+            {
+                if (!this.add.Contains(control))
+                {
+                    this.remove.Add(control);
+                }
+            }
 
             controlsOwner.SuspendLayout();
 
-            foreach (Control ctrl in this.remove)
+            foreach (Control control in this.remove)
             {
-                this.controlsOwner.Controls.Remove(ctrl);
-                ctrl.Dispose();
+                this.controlsOwner.Controls.Remove(control);
             }
 
             this.controlsOwner.Controls.AddRange(this.add.ToArray());

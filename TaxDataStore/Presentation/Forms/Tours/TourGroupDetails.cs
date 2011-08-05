@@ -59,6 +59,7 @@ namespace TaxDataStore
 
 
         public TourGroupDetails()
+            : base()
         {
             InitializeComponent();
 

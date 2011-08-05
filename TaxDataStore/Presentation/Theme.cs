@@ -75,7 +75,7 @@ namespace TaxDataStore.Presentation
             this.TourForeColor = Color.White;
             this.TourBackColor = Color.SlateGray;//Color.FromArgb(255, 165, 185, 220);
 
-            this.TourTitleFont = new System.Drawing.Font("Verdana", 13.0F, FontStyle.Bold);
+            this.TourTitleFont = new System.Drawing.Font("Tahoma", 14.0F, FontStyle.Bold);
 
             this.FlatButtonBackColor = Color.Gray;
             this.FlatButtonBorderColor = this.TourGroupItemBackColor;

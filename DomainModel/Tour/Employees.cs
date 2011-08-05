@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Entities;
+﻿using Entities;
+
 
 namespace DomainModel
 {
+
     public class Employees
     {
 
@@ -18,7 +17,7 @@ namespace DomainModel
 
             foreach (User user in users)
             {
-                cache.Add(new Employee(user));
+                if (user.IsEmployee) cache.Add(new Employee(user));
             }
         }
 

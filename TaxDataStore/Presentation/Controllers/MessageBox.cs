@@ -18,7 +18,20 @@ namespace TaxDataStore.Presentation.Controllers
 
         internal static bool ConfirmDelete()
         {
-            return true;
+            string message = DomainModel.Application.ResourceManager.GetText("msg_del_confirm_text");
+            string title = DomainModel.Application.ResourceManager.GetText("msg_del_confirm_title");
+
+            if (System.Windows.Forms.MessageBox.Show(
+                message,
+                title,
+                System.Windows.Forms.MessageBoxButtons.YesNo,
+                System.Windows.Forms.MessageBoxIcon.Question) ==
+                System.Windows.Forms.DialogResult.Yes)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         internal static bool ConfirmRestart()

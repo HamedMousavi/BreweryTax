@@ -58,7 +58,7 @@
             this.cbxUnit.Location = new System.Drawing.Point(70, 0);
             this.cbxUnit.Margin = new System.Windows.Forms.Padding(0);
             this.cbxUnit.Name = "cbxUnit";
-            this.cbxUnit.Size = new System.Drawing.Size(30, 22);
+            this.cbxUnit.Size = new System.Drawing.Size(50, 22);
             this.cbxUnit.TabIndex = 4;
             // 
             // tbxValue
@@ -69,7 +69,7 @@
             this.tbxValue.Location = new System.Drawing.Point(0, 0);
             this.tbxValue.Margin = new System.Windows.Forms.Padding(0);
             this.tbxValue.Name = "tbxValue";
-            this.tbxValue.Size = new System.Drawing.Size(70, 22);
+            this.tbxValue.Size = new System.Drawing.Size(20, 22);
             this.tbxValue.TabIndex = 0;
             // 
             // MoneyPicker

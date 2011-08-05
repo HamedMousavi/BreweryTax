@@ -37,7 +37,7 @@ namespace DomainModel
                         if (!cache.Contains(tour) &&
                             (tour.Time.Value.Date - cache.Time.Date).Days == 0)
                         {
-                            cache.Add(tour);
+                            InsertInCache(tour);
                         }
                     }
                     else
@@ -48,6 +48,10 @@ namespace DomainModel
                             (tour.Time.Value.Date - cache.Time.Date).Days != 0)
                         {
                             cache.Remove(tour);
+                        }
+                        else
+                        {
+                            UpdateInCache(tour);
                         }
                     }
 
@@ -77,6 +81,43 @@ namespace DomainModel
         }
 
 
+        private static Int32 GetIndexInCache(Entities.Tour tour)
+        {
+            int index = 0;
+
+            foreach (Entities.Tour item in cache)
+            {
+                if (tour != item)
+                {
+                    if (tour.Time.Value > item.Time.Value) break;
+                    index++;
+                }
+            }
+
+            return index;
+        }
+        
+        
+        private static void UpdateInCache(Entities.Tour tour)
+        {
+            int index = GetIndexInCache(tour);
+
+            if (index != cache.IndexOf(tour))
+            {
+                cache.Remove(tour);
+                cache.Insert(index, tour);
+            }
+        }
+
+
+        private static void InsertInCache(Entities.Tour tour)
+        {
+            int index = GetIndexInCache(tour);
+
+            cache.Insert(index, tour);
+        }
+
+
         private static void UndoDeleteCaches(Entities.Tour tour)
         {
             // Clean deleted items cause they saved with no problem
@@ -103,22 +144,35 @@ namespace DomainModel
         }
 
 
-        public static void Delete(Entities.Tour tour)
+        public static bool Delete(Entities.Tour tour)
         {
+            bool res = true;
+
             try
             {
                 using (TransactionScope ts = new TransactionScope())
                 {
-                    if (toursRepo.Delete(tour))
+                    foreach (Entities.TourGroup group in tour.Groups)
                     {
-                        ts.Complete();
+                        if (!(res = DomainModel.TourGroups.Delete(group))) break;
+                    }
 
-                        if (cache.Contains(tour)) cache.Remove(tour);
+                    if (res)
+                    {
+                        res = toursRepo.Delete(tour);
+
+                        if (res)
+                        {
+                            ts.Complete();
+                            if (cache.Contains(tour)) cache.Remove(tour);
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
+                res = false;
+
                 try
                 {
                     DomainModel.Application.Status.Update(
@@ -129,6 +183,7 @@ namespace DomainModel
                 catch { }
             }
 
+            return res;
         }
 
 

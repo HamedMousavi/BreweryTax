@@ -14,12 +14,15 @@ namespace DomainModel.Repository.Sql
 
         public string ConnectionString { get; set; }
         private CultureCollection cultures;
+        protected QueryHelper query;
 
 
         public Users(string sqlCnnStr, CultureCollection cultures)
         {
-            ConnectionString = sqlCnnStr;
             this.cultures = cultures;
+            ConnectionString = sqlCnnStr;
+
+            this.query = new QueryHelper(sqlCnnStr);
         }
 
 
@@ -53,6 +56,7 @@ namespace DomainModel.Repository.Sql
                                 user.Culture = cultures[Utils.GetSafeString(reader, "UserLocale")];
                                 user.IsEnabled = Utils.GetSafeBoolean(reader, "IsEnabled");
                                 user.Role = Membership.Roles.GetById(Utils.GetSafeInt32(reader, "RoleId"));
+                                user.IsEmployee = Utils.GetSafeBoolean(reader, "IsEmployee");
                                 Membership.UserSettings.LoadById(user);
 
                                 users.Add(user);       
@@ -70,35 +74,34 @@ namespace DomainModel.Repository.Sql
         {
             bool res = false;
 
-            ICrypt crypto = new SimpleCrypt();
-
-            using (SqlConnection cnn = new SqlConnection(ConnectionString))
+            try
             {
-                string query =
-                    "INSERT INTO Users" +
-                    " (UserName, UserPass, UserLocale, IsEnabled, RoleId)" +
-                    " VALUES " +
-                    " (@UserName, @UserPass, @UserLocale, @IsEnabled, @RoleId);"+
-                    " SELECT SCOPE_IDENTITY();";
+            
+                ICrypt crypto = new SimpleCrypt();
 
-                using (SqlCommand cmd = new SqlCommand(query, cnn))
+                this.query.Parameters.Clear();
+
+                this.query.Parameters.Add(new SqlParameter("@UserName", crypto.Encrypt(user.Name)));
+                this.query.Parameters.Add(new SqlParameter("@UserPass", crypto.Encrypt(user.Password)));
+                this.query.Parameters.Add(new SqlParameter("@UserLocale", user.Culture.CultureName));
+                this.query.Parameters.Add(new SqlParameter("@IsEnabled", user.IsEnabled));
+                this.query.Parameters.Add(new SqlParameter("@RoleId", user.Role.Id));
+                this.query.Parameters.Add(new SqlParameter("@IsEmployee", user.IsEmployee));
+
+                int id;
+                res = this.query.ExecuteInsertProc("UsersAdd", out id);
+                user.Id = id;
+            }
+            catch (Exception ex)
+            {
+                try
                 {
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Parameters.Add(new SqlParameter("@UserName", crypto.Encrypt(user.Name)));
-                    cmd.Parameters.Add(new SqlParameter("@UserPass", crypto.Encrypt(user.Password)));
-                    cmd.Parameters.Add(new SqlParameter("@UserLocale", user.Culture.CultureName));
-                    cmd.Parameters.Add(new SqlParameter("@IsEnabled", user.IsEnabled));
-                    cmd.Parameters.Add(new SqlParameter("@RoleId", user.Role.Id));
-
-                    cnn.Open();
-
-                    object uid = cmd.ExecuteScalar();
-                    if (uid != null)
-                    {
-                        user.Id = Convert.ToInt32(uid);
-                        res = true;
-                    }
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "",
+                        ex.Message);
                 }
+                catch { }
             }
 
             return res;
@@ -109,33 +112,33 @@ namespace DomainModel.Repository.Sql
         {
             bool res = false;
 
-            ICrypt crypto = new SimpleCrypt();
-
-            using (SqlConnection cnn = new SqlConnection(ConnectionString))
+            try
             {
-                string query =
-                    "UPDATE Users" +
-                    " SET UserName = @UserName, UserPass = @UserPass," +
-                    " UserLocale = @UserLocale, IsEnabled = @IsEnabled," +
-                    " RoleId = @RoleId " +
-                    " WHERE UserId = @UserId";
+                ICrypt crypto = new SimpleCrypt();
 
-                using (SqlCommand cmd = new SqlCommand(query, cnn))
+                this.query.Parameters.Clear();
+
+                this.query.Parameters.Add(new SqlParameter("@UserName", crypto.Encrypt(user.Name)));
+                this.query.Parameters.Add(new SqlParameter("@UserPass", crypto.Encrypt(user.Password)));
+                this.query.Parameters.Add(new SqlParameter("@UserLocale", user.Culture.CultureName));
+                this.query.Parameters.Add(new SqlParameter("@IsEnabled", user.IsEnabled));
+                this.query.Parameters.Add(new SqlParameter("@RoleId", user.Role.Id));
+                this.query.Parameters.Add(new SqlParameter("@IsEmployee", user.IsEmployee));
+                this.query.Parameters.Add(new SqlParameter("@UserId", user.Id));
+
+                int affected;
+                res = this.query.ExecuteUpdateProc("UsersUpdateById", out affected);
+            }
+            catch (Exception ex)
+            {
+                try
                 {
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Parameters.Add(new SqlParameter("@UserName", crypto.Encrypt(user.Name)));
-                    cmd.Parameters.Add(new SqlParameter("@UserPass", crypto.Encrypt(user.Password)));
-                    cmd.Parameters.Add(new SqlParameter("@UserLocale", user.Culture.CultureName));
-                    cmd.Parameters.Add(new SqlParameter("@IsEnabled", user.IsEnabled));
-                    cmd.Parameters.Add(new SqlParameter("@RoleId", user.Role.Id));
-                    cmd.Parameters.Add(new SqlParameter("@UserId", user.Id));
-
-                    cnn.Open();
-
-                    int affected = cmd.ExecuteNonQuery();
-
-                    res = (affected > 0);
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "",
+                        ex.Message);
                 }
+                catch { }
             }
 
             return res;

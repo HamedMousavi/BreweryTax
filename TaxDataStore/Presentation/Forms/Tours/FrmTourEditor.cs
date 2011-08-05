@@ -11,8 +11,8 @@ namespace TaxDataStore
 
         private FormLabel lblDate;
         private FormLabel lblTime;
-        private FormLabel lblComments;
-        private RichTextBox rtbComments;
+        //private FormLabel lblComments;
+        //private RichTextBox rtbComments;
 
         private DateTimePicker dtpDate;
         private DateTimePicker dtpTime;
@@ -35,7 +35,7 @@ namespace TaxDataStore
         {
             this.lblDate = new FormLabel(0, "lblDate", false, "lbl_date");
             this.lblTime = new FormLabel(2, "lblTime", false, "lbl_time");
-            this.lblComments = new FormLabel(4, "lblComments", false, "lbl_comments");
+            //this.lblComments = new FormLabel(4, "lblComments", false, "lbl_comments");
 
             this.dtpDate = new DateTimePicker();
             this.dtpDate.Anchor = ((AnchorStyles)(((AnchorStyles.Top | AnchorStyles.Left)
@@ -53,19 +53,19 @@ namespace TaxDataStore
             this.dtpTime.ShowUpDown = true;
             this.dtpTime.TabIndex = 3;
 
-            this.rtbComments = new RichTextBox();
-            this.rtbComments.BorderStyle = BorderStyle.FixedSingle;
-            this.rtbComments.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbComments.Name = "rtbComments";
-            this.rtbComments.TabIndex = 5;
-            this.rtbComments.Text = "";
+            //this.rtbComments = new RichTextBox();
+            //this.rtbComments.BorderStyle = BorderStyle.FixedSingle;
+            //this.rtbComments.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.rtbComments.Name = "rtbComments";
+            //this.rtbComments.TabIndex = 5;
+            //this.rtbComments.Text = "";
 
             this.tlpMain.Controls.Add(this.lblDate, 0, 1);
             this.tlpMain.Controls.Add(this.dtpDate, 1, 1);
             this.tlpMain.Controls.Add(this.lblTime, 0, 2);
             this.tlpMain.Controls.Add(this.dtpTime, 1, 2);
-            this.tlpMain.Controls.Add(this.lblComments, 0, 3);
-            this.tlpMain.Controls.Add(this.rtbComments, 1, 3);
+            //this.tlpMain.Controls.Add(this.lblComments, 0, 3);
+            //this.tlpMain.Controls.Add(this.rtbComments, 1, 3);
         }
 
 
@@ -108,6 +108,7 @@ namespace TaxDataStore
         private void BindControls()
         {
             this.tour = new Entities.Tour();
+            this.tour.IsDirty = true;
             
             this.dtpTime.DataBindings.Add(
                 new Binding(
@@ -131,7 +132,7 @@ namespace TaxDataStore
                     string.Empty,
                     null));
 
-
+            /*
             this.rtbComments.DataBindings.Add(
                 new Binding(
                     "Text",
@@ -141,7 +142,7 @@ namespace TaxDataStore
                     DataSourceUpdateMode.OnPropertyChanged,
                     0.00M,
                     string.Empty,
-                    null));
+                    null));*/
         }
 
 

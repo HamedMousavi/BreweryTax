@@ -27,9 +27,12 @@ namespace TaxDataStore.Presentation.Controllers
 
         internal static void Delete(Entities.TourGroup tourGroup, Entities.Abstract.ITourService service)
         {
-            if (DomainModel.TourGroupServices.Delete(service))
+            if (Controllers.MessageBox.ConfirmDelete())
             {
-                tourGroup.Services.Remove(service);
+                if (DomainModel.TourGroupServices.Delete(service))
+                {
+                    tourGroup.Services.Remove(service);
+                }
             }
         }
 

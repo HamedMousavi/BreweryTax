@@ -31,7 +31,7 @@ namespace TaxDataStore.Presentation.Controls
                     false,
                     "ServiceType");
             this.dgvServices.Columns.Add(col);
-
+            this.dgvServices.Font = Presentation.View.Theme.FormLabelFont;
 
             this.etbServices = new EditToolbar(
                 DomainModel.Application.ResourceManager.GetText("lbl_services")

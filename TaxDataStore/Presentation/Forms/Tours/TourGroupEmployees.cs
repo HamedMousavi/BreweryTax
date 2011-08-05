@@ -30,6 +30,7 @@ namespace TaxDataStore
 
 
         public TourGroupEmployees()
+            : base()
         {
             InitializeComponent();
 

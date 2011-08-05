@@ -63,6 +63,47 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppUpdateController.cs" />
+    <Compile Include="FrmAddressbook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddressbook.Designer.cs">
+      <DependentUpon>FrmAddressbook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Controllers\Desktop.cs" />
+    <Compile Include="Presentation\Controllers\Phonebook.cs" />
+    <Compile Include="Presentation\Controls\WorkbenchAddressBook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\WorkbenchCalendar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\WorkbenchFloppy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\WorkbenchItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\WorkbenchMessagePad.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\WorkbenchReports.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\WorkbenchSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\WorkbenchViewButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\WorkbenchWorklog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\Application\FrmDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\Application\FrmDesktop.Designer.cs">
+      <DependentUpon>FrmDesktop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\Controls\ContactsMenu.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -526,6 +567,9 @@
     <Compile Include="Presentation\Forms\Tours\FrmServiceSettingEditor.Designer.cs">
       <DependentUpon>FrmServiceSettingEditor.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmAddressbook.resx">
+      <DependentUpon>FrmAddressbook.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Controls\EditToolbar.resx">
       <DependentUpon>EditToolbar.cs</DependentUpon>
     </EmbeddedResource>
@@ -561,6 +605,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Controls\Tour\ServiceSettings.resx">
       <DependentUpon>ServiceSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Forms\Application\FrmDesktop.resx">
+      <DependentUpon>FrmDesktop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Forms\Membership\FrmPasswordEditor.resx">
       <DependentUpon>FrmPasswordEditor.cs</DependentUpon>
@@ -734,6 +781,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\wood.jpg" />
     <Content Include="tour.ico" />
   </ItemGroup>
   <ItemGroup>

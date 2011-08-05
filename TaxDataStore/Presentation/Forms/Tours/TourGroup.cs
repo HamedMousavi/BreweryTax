@@ -46,6 +46,7 @@ namespace TaxDataStore
 
 
         public TourGroup()
+            : base()
         {
             InitializeComponent();
 
@@ -82,7 +83,7 @@ namespace TaxDataStore
 
         void ctrlDetail_DeleteGroupClicked(object sender, EventArgs e)
         {
-            if (DomainModel.TourGroups.Delete(this.group))
+            if (Presentation.Controllers.Tours.DeleteGroup(this.group))
             {
                 this.ctrlContacts.Cleanup();
                 this.tour.Groups.Remove(this.group);
@@ -106,19 +107,5 @@ namespace TaxDataStore
             //this.ctrlContacts.Tour = tour;
             //this.ctrlEmployees.Tour = tour;
         }
-
-        /*
-        public event EventHandler DeleteGroupClicked
-        {
-            add
-            {
-                this.ctrlDetail.DeleteGroupClicked += value;
-            }
-
-            remove
-            {
-                this.ctrlDetail.DeleteGroupClicked -= value;
-            }
-        }*/
     }
 }

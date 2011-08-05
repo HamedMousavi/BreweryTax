@@ -38,13 +38,12 @@
             this.tlpMain.ColumnCount = 1;
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpMain.Controls.Add(this.editToolbar, 0, 0);
-            this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Name = "tlpMain";
             this.tlpMain.RowCount = 2;
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMain.Size = new System.Drawing.Size(153, 51);
+            this.tlpMain.Size = new System.Drawing.Size(131, 47);
             this.tlpMain.TabIndex = 0;
             // 
             // editToolbar
@@ -62,17 +61,17 @@
             this.editToolbar.ShowAdd = true;
             this.editToolbar.ShowDelete = true;
             this.editToolbar.ShowEdit = true;
-            this.editToolbar.Size = new System.Drawing.Size(153, 18);
+            this.editToolbar.Size = new System.Drawing.Size(131, 22);
             this.editToolbar.TabIndex = 0;
             this.editToolbar.Title = "Title";
             // 
             // TourGroupServices
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tlpMain);
             this.Name = "TourGroupServices";
-            this.Size = new System.Drawing.Size(153, 51);
+            this.Size = new System.Drawing.Size(131, 47);
             this.tlpMain.ResumeLayout(false);
             this.tlpMain.PerformLayout();
             this.ResumeLayout(false);

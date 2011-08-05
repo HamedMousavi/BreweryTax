@@ -57,6 +57,8 @@ namespace TaxDataStore.Presentation.Controls
             this.HighlightForegroundColor = this.ForeColor;
 
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+
+            this.Disposed += new EventHandler(ContactsListView_Disposed);
         }
 
 
@@ -145,13 +147,32 @@ namespace TaxDataStore.Presentation.Controls
 
         void datasource_ListChanged(object sender, System.ComponentModel.ListChangedEventArgs e)
         {
-            if (this.datasource == null || this.datasource.Count == 0)
+            if (this.IsDisposed || this.Disposing)
             {
-                this.SetObjects(null);
+                return;
             }
-            else
+
+            try
             {
-                this.SetObjects(this.datasource);
+                if (this.datasource == null || this.datasource.Count == 0)
+                {
+                    this.SetObjects(null);
+                }
+                else
+                {
+                    this.SetObjects(this.datasource);
+                }
+            }
+            catch { }
+        }
+
+
+        void ContactsListView_Disposed(object sender, EventArgs e)
+        {
+            if (this.datasource != null)
+            {
+                this.datasource.ListChanged -= new
+                    ListChangedEventHandler(datasource_ListChanged);
             }
         }
     }

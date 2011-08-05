@@ -11,7 +11,7 @@ namespace TaxDataStore
     public partial class FrmAbout : BaseForm
     {
 
-        private FormLabel lblAppName;
+        private System.Windows.Forms.Label lblAppName;
         private FormLabel lblCopyright;
         private FormLabel lblRegistrationCaption;
         private FormLabel lblVersionCaption;
@@ -50,7 +50,19 @@ namespace TaxDataStore
 
         private void CreateControls()
         {
-            this.lblAppName = new FormLabel(0, "lblAppName", true, "");
+            // 
+            // lblAppName
+            // 
+            this.lblAppName = new System.Windows.Forms.Label();
+            this.lblAppName.AutoSize = true;
+            this.lblAppName.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAppName.Location = new System.Drawing.Point(3, 216);
+            this.lblAppName.Name = "lblAppName";
+            this.lblAppName.Size = new System.Drawing.Size(194, 39);
+            this.lblAppName.TabIndex = 4;
+            this.lblAppName.Text = "Settlement";
+            // 
+
             this.lblRegistrationCaption = new FormLabel(1, "lblRegistrationCaption", true, "");
             this.lblCopyright = new FormLabel(2, "lblCopyright", true, "");
             this.lblSupportCaption = new FormLabel(3, "lblSupportCaption", true, "");
@@ -88,7 +100,7 @@ namespace TaxDataStore
             this.btnUnInstallService.Text = Resources.Texts.update_remove_service;
             this.btnInstallService.Text = Resources.Texts.update_install_service;
 
-            this.tbxVersion.Text = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            this.lblVersion.Text = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
             this.pbxAppIcon.Image = DomainModel.Application.ResourceManager.GetImage("app_big");
         }
@@ -122,30 +134,30 @@ namespace TaxDataStore
 
             if (time == null || !time.HasValue)
             {
-                this.tbxLastUpdateCheck.Text = string.Empty;
+                this.lblLastUpdateCheck.Text = string.Empty;
             }
             else
             {
-                this.tbxLastUpdateCheck.Text = time.Value.ToLocalTime().ToString("HH:mm");
+                this.lblLastUpdateCheck.Text = time.Value.ToLocalTime().ToString("HH:mm");
             }
 
             if (updateExists)
             {
-                this.tbxNewVersionState.Text = Resources.Texts.new_version_exists;
-                this.tbxNewVersionDetails.Text = details;
+                this.lblNewVersionState.Text = Resources.Texts.new_version_exists;
+                this.lblNewVersionDetails.Text = details;
 
                 this.tlpUpdates.Controls.Remove(this.btnInstallUpdate);
                 this.tlpUpdates.Controls.Add(this.btnDownloadUpdate, 2, 4);
             }
             else
             {
-                this.tbxNewVersionState.Text = Resources.Texts.program_is_up_to_date;
-                this.tbxNewVersionDetails.Text = string.Empty;
+                this.lblNewVersionState.Text = Resources.Texts.program_is_up_to_date;
+                this.lblNewVersionDetails.Text = string.Empty;
             }
 
             if (downloadIsComplete)
             {
-                this.tbxNewVersionState.Text = Resources.Texts.new_version_is_ready_to_install;
+                this.lblNewVersionState.Text = Resources.Texts.new_version_is_ready_to_install;
 
                 this.tlpUpdates.Controls.Remove(this.btnDownloadUpdate);
                 this.tlpUpdates.Controls.Add(this.btnInstallUpdate, 2, 4);

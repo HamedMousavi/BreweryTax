@@ -34,15 +34,15 @@ namespace TaxDataStore
             this.tlpControls = new System.Windows.Forms.TableLayoutPanel();
             this.gpxUpdates = new System.Windows.Forms.GroupBox();
             this.tlpUpdates = new System.Windows.Forms.TableLayoutPanel();
-            this.btnCheckNow = new ButtonBase();
-            this.btnUnInstallService = new ButtonBase();
-            this.btnInstallUpdate = new ButtonBase();
-            this.btnDownloadUpdate = new ButtonBase();
-            this.tbxVersion = new System.Windows.Forms.TextBox();
-            this.tbxLastUpdateCheck = new System.Windows.Forms.TextBox();
-            this.tbxNewVersionState = new System.Windows.Forms.TextBox();
-            this.tbxNewVersionDetails = new System.Windows.Forms.TextBox();
-            this.btnInstallService = new ButtonBase();
+            this.btnCheckNow = new TaxDataStore.Presentation.Controls.ButtonBase();
+            this.btnUnInstallService = new TaxDataStore.Presentation.Controls.ButtonBase();
+            this.btnInstallUpdate = new TaxDataStore.Presentation.Controls.ButtonBase();
+            this.btnDownloadUpdate = new TaxDataStore.Presentation.Controls.ButtonBase();
+            this.btnInstallService = new TaxDataStore.Presentation.Controls.ButtonBase();
+            this.lblVersion = new System.Windows.Forms.Label();
+            this.lblLastUpdateCheck = new System.Windows.Forms.Label();
+            this.lblNewVersionState = new System.Windows.Forms.Label();
+            this.lblNewVersionDetails = new System.Windows.Forms.Label();
             this.pbxAppIcon = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tbxOwner = new System.Windows.Forms.TextBox();
@@ -97,9 +97,9 @@ namespace TaxDataStore
             this.gpxUpdates.Controls.Add(this.tlpUpdates);
             this.gpxUpdates.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gpxUpdates.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.gpxUpdates.Location = new System.Drawing.Point(3, 42);
+            this.gpxUpdates.Location = new System.Drawing.Point(3, 3);
             this.gpxUpdates.Name = "gpxUpdates";
-            this.gpxUpdates.Size = new System.Drawing.Size(407, 258);
+            this.gpxUpdates.Size = new System.Drawing.Size(407, 297);
             this.gpxUpdates.TabIndex = 4;
             this.gpxUpdates.TabStop = false;
             this.gpxUpdates.Text = "Updates";
@@ -114,11 +114,11 @@ namespace TaxDataStore
             this.tlpUpdates.Controls.Add(this.btnUnInstallService, 2, 2);
             this.tlpUpdates.Controls.Add(this.btnInstallUpdate, 2, 5);
             this.tlpUpdates.Controls.Add(this.btnDownloadUpdate, 2, 4);
-            this.tlpUpdates.Controls.Add(this.tbxVersion, 1, 1);
-            this.tlpUpdates.Controls.Add(this.tbxLastUpdateCheck, 1, 3);
-            this.tlpUpdates.Controls.Add(this.tbxNewVersionState, 1, 4);
-            this.tlpUpdates.Controls.Add(this.tbxNewVersionDetails, 1, 5);
             this.tlpUpdates.Controls.Add(this.btnInstallService, 2, 1);
+            this.tlpUpdates.Controls.Add(this.lblVersion, 1, 1);
+            this.tlpUpdates.Controls.Add(this.lblLastUpdateCheck, 1, 3);
+            this.tlpUpdates.Controls.Add(this.lblNewVersionState, 1, 4);
+            this.tlpUpdates.Controls.Add(this.lblNewVersionDetails, 1, 5);
             this.tlpUpdates.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpUpdates.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.tlpUpdates.Location = new System.Drawing.Point(3, 17);
@@ -130,19 +130,20 @@ namespace TaxDataStore
             this.tlpUpdates.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpUpdates.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpUpdates.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpUpdates.Size = new System.Drawing.Size(401, 238);
+            this.tlpUpdates.Size = new System.Drawing.Size(401, 277);
             this.tlpUpdates.TabIndex = 0;
             // 
             // btnCheckNow
             // 
+            this.btnCheckNow.AutoSize = true;
             this.btnCheckNow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(152)))), ((int)(((byte)(54)))));
             this.btnCheckNow.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(136)))), ((int)(((byte)(38)))));
             this.btnCheckNow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCheckNow.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btnCheckNow.ForeColor = System.Drawing.Color.White;
-            this.btnCheckNow.Location = new System.Drawing.Point(260, 71);
+            this.btnCheckNow.Location = new System.Drawing.Point(260, 75);
             this.btnCheckNow.Name = "btnCheckNow";
-            this.btnCheckNow.Size = new System.Drawing.Size(138, 23);
+            this.btnCheckNow.Size = new System.Drawing.Size(138, 25);
             this.btnCheckNow.TabIndex = 3;
             this.btnCheckNow.Text = "Check now";
             this.btnCheckNow.UseVisualStyleBackColor = false;
@@ -150,14 +151,15 @@ namespace TaxDataStore
             // 
             // btnUnInstallService
             // 
+            this.btnUnInstallService.AutoSize = true;
             this.btnUnInstallService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(152)))), ((int)(((byte)(54)))));
             this.btnUnInstallService.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(136)))), ((int)(((byte)(38)))));
             this.btnUnInstallService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUnInstallService.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btnUnInstallService.ForeColor = System.Drawing.Color.White;
-            this.btnUnInstallService.Location = new System.Drawing.Point(260, 42);
+            this.btnUnInstallService.Location = new System.Drawing.Point(260, 44);
             this.btnUnInstallService.Name = "btnUnInstallService";
-            this.btnUnInstallService.Size = new System.Drawing.Size(138, 23);
+            this.btnUnInstallService.Size = new System.Drawing.Size(138, 25);
             this.btnUnInstallService.TabIndex = 7;
             this.btnUnInstallService.Text = "UnInstall";
             this.btnUnInstallService.UseVisualStyleBackColor = false;
@@ -165,14 +167,15 @@ namespace TaxDataStore
             // 
             // btnInstallUpdate
             // 
+            this.btnInstallUpdate.AutoSize = true;
             this.btnInstallUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(152)))), ((int)(((byte)(54)))));
             this.btnInstallUpdate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(136)))), ((int)(((byte)(38)))));
             this.btnInstallUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInstallUpdate.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btnInstallUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnInstallUpdate.Location = new System.Drawing.Point(260, 129);
+            this.btnInstallUpdate.Location = new System.Drawing.Point(260, 137);
             this.btnInstallUpdate.Name = "btnInstallUpdate";
-            this.btnInstallUpdate.Size = new System.Drawing.Size(138, 23);
+            this.btnInstallUpdate.Size = new System.Drawing.Size(138, 25);
             this.btnInstallUpdate.TabIndex = 6;
             this.btnInstallUpdate.Text = "Install";
             this.btnInstallUpdate.UseVisualStyleBackColor = false;
@@ -180,78 +183,23 @@ namespace TaxDataStore
             // 
             // btnDownloadUpdate
             // 
+            this.btnDownloadUpdate.AutoSize = true;
             this.btnDownloadUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(152)))), ((int)(((byte)(54)))));
             this.btnDownloadUpdate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(136)))), ((int)(((byte)(38)))));
             this.btnDownloadUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDownloadUpdate.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btnDownloadUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnDownloadUpdate.Location = new System.Drawing.Point(260, 100);
+            this.btnDownloadUpdate.Location = new System.Drawing.Point(260, 106);
             this.btnDownloadUpdate.Name = "btnDownloadUpdate";
-            this.btnDownloadUpdate.Size = new System.Drawing.Size(138, 23);
+            this.btnDownloadUpdate.Size = new System.Drawing.Size(138, 25);
             this.btnDownloadUpdate.TabIndex = 5;
             this.btnDownloadUpdate.Text = "Download";
             this.btnDownloadUpdate.UseVisualStyleBackColor = false;
             this.btnDownloadUpdate.Click += new System.EventHandler(this.btnDownloadUpdate_Click);
             // 
-            // tbxVersion
-            // 
-            this.tbxVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxVersion.BackColor = System.Drawing.Color.White;
-            this.tbxVersion.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbxVersion.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tbxVersion.Location = new System.Drawing.Point(105, 13);
-            this.tbxVersion.Multiline = true;
-            this.tbxVersion.Name = "tbxVersion";
-            this.tbxVersion.ReadOnly = true;
-            this.tbxVersion.Size = new System.Drawing.Size(149, 23);
-            this.tbxVersion.TabIndex = 8;
-            // 
-            // tbxLastUpdateCheck
-            // 
-            this.tbxLastUpdateCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxLastUpdateCheck.BackColor = System.Drawing.Color.White;
-            this.tbxLastUpdateCheck.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbxLastUpdateCheck.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tbxLastUpdateCheck.Location = new System.Drawing.Point(105, 71);
-            this.tbxLastUpdateCheck.Multiline = true;
-            this.tbxLastUpdateCheck.Name = "tbxLastUpdateCheck";
-            this.tbxLastUpdateCheck.ReadOnly = true;
-            this.tbxLastUpdateCheck.Size = new System.Drawing.Size(149, 23);
-            this.tbxLastUpdateCheck.TabIndex = 8;
-            // 
-            // tbxNewVersionState
-            // 
-            this.tbxNewVersionState.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxNewVersionState.BackColor = System.Drawing.Color.White;
-            this.tbxNewVersionState.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbxNewVersionState.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tbxNewVersionState.Location = new System.Drawing.Point(105, 100);
-            this.tbxNewVersionState.Multiline = true;
-            this.tbxNewVersionState.Name = "tbxNewVersionState";
-            this.tbxNewVersionState.ReadOnly = true;
-            this.tbxNewVersionState.Size = new System.Drawing.Size(149, 23);
-            this.tbxNewVersionState.TabIndex = 8;
-            // 
-            // tbxNewVersionDetails
-            // 
-            this.tbxNewVersionDetails.BackColor = System.Drawing.Color.White;
-            this.tbxNewVersionDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbxNewVersionDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbxNewVersionDetails.Location = new System.Drawing.Point(105, 129);
-            this.tbxNewVersionDetails.Multiline = true;
-            this.tbxNewVersionDetails.Name = "tbxNewVersionDetails";
-            this.tbxNewVersionDetails.ReadOnly = true;
-            this.tbxNewVersionDetails.Size = new System.Drawing.Size(149, 106);
-            this.tbxNewVersionDetails.TabIndex = 8;
-            // 
             // btnInstallService
             // 
+            this.btnInstallService.AutoSize = true;
             this.btnInstallService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(203)))), ((int)(((byte)(78)))));
             this.btnInstallService.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(183)))), ((int)(((byte)(58)))));
             this.btnInstallService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -259,11 +207,50 @@ namespace TaxDataStore
             this.btnInstallService.ForeColor = System.Drawing.Color.White;
             this.btnInstallService.Location = new System.Drawing.Point(260, 13);
             this.btnInstallService.Name = "btnInstallService";
-            this.btnInstallService.Size = new System.Drawing.Size(138, 23);
+            this.btnInstallService.Size = new System.Drawing.Size(138, 25);
             this.btnInstallService.TabIndex = 7;
             this.btnInstallService.Text = "Install";
             this.btnInstallService.UseVisualStyleBackColor = false;
             this.btnInstallService.Visible = false;
+            // 
+            // lblVersion
+            // 
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblVersion.Location = new System.Drawing.Point(3, 10);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(251, 31);
+            this.lblVersion.TabIndex = 9;
+            this.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblLastUpdateCheck
+            // 
+            this.lblLastUpdateCheck.AutoSize = true;
+            this.lblLastUpdateCheck.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblLastUpdateCheck.Location = new System.Drawing.Point(3, 72);
+            this.lblLastUpdateCheck.Name = "lblLastUpdateCheck";
+            this.lblLastUpdateCheck.Size = new System.Drawing.Size(251, 31);
+            this.lblLastUpdateCheck.TabIndex = 10;
+            this.lblLastUpdateCheck.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblNewVersionState
+            // 
+            this.lblNewVersionState.AutoSize = true;
+            this.lblNewVersionState.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblNewVersionState.Location = new System.Drawing.Point(3, 103);
+            this.lblNewVersionState.Name = "lblNewVersionState";
+            this.lblNewVersionState.Size = new System.Drawing.Size(251, 31);
+            this.lblNewVersionState.TabIndex = 11;
+            this.lblNewVersionState.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblNewVersionDetails
+            // 
+            this.lblNewVersionDetails.AutoSize = true;
+            this.lblNewVersionDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblNewVersionDetails.Location = new System.Drawing.Point(3, 134);
+            this.lblNewVersionDetails.Name = "lblNewVersionDetails";
+            this.lblNewVersionDetails.Size = new System.Drawing.Size(251, 143);
+            this.lblNewVersionDetails.TabIndex = 12;
             // 
             // pbxAppIcon
             // 
@@ -302,7 +289,7 @@ namespace TaxDataStore
             this.tbxOwner.BackColor = System.Drawing.Color.White;
             this.tbxOwner.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbxOwner.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tbxOwner.Location = new System.Drawing.Point(93, 3);
+            this.tbxOwner.Location = new System.Drawing.Point(3, 3);
             this.tbxOwner.Name = "tbxOwner";
             this.tbxOwner.ReadOnly = true;
             this.tbxOwner.Size = new System.Drawing.Size(176, 14);
@@ -313,7 +300,7 @@ namespace TaxDataStore
             this.lbtnProducer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
             this.lbtnProducer.AutoSize = true;
-            this.lbtnProducer.Location = new System.Drawing.Point(93, 20);
+            this.lbtnProducer.Location = new System.Drawing.Point(3, 20);
             this.lbtnProducer.Name = "lbtnProducer";
             this.lbtnProducer.Size = new System.Drawing.Size(100, 29);
             this.lbtnProducer.TabIndex = 9;
@@ -338,7 +325,6 @@ namespace TaxDataStore
             this.Text = "About program";
             this.tlpMain.ResumeLayout(false);
             this.tlpControls.ResumeLayout(false);
-            this.tlpControls.PerformLayout();
             this.gpxUpdates.ResumeLayout(false);
             this.tlpUpdates.ResumeLayout(false);
             this.tlpUpdates.PerformLayout();
@@ -360,13 +346,13 @@ namespace TaxDataStore
         private ButtonBase btnInstallUpdate;
         private ButtonBase btnUnInstallService;
         private System.Windows.Forms.PictureBox pbxAppIcon;
-        private System.Windows.Forms.TextBox tbxVersion;
-        private System.Windows.Forms.TextBox tbxLastUpdateCheck;
-        private System.Windows.Forms.TextBox tbxNewVersionState;
-        private System.Windows.Forms.TextBox tbxNewVersionDetails;
         private ButtonBase btnInstallService;
         private System.Windows.Forms.TextBox tbxOwner;
         private System.Windows.Forms.LinkLabel lbtnProducer;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label lblVersion;
+        private System.Windows.Forms.Label lblLastUpdateCheck;
+        private System.Windows.Forms.Label lblNewVersionState;
+        private System.Windows.Forms.Label lblNewVersionDetails;
     }
 }

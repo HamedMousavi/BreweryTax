@@ -11,7 +11,18 @@ namespace TaxDataStore
     public partial class TourControl : TourBaseControl
     {
 
-        public Entities.Tour Tour { get; set; }
+        protected Entities.Tour tour;
+        public Entities.Tour Tour 
+        {
+            get { return this.tour; }
+            set 
+            {
+                if (this.tour != value)
+                {
+                    BindControls(value);
+                }
+            }
+        }
 
         protected Panel pnlGroups;
         protected EditToolbar etbGroups;
@@ -19,6 +30,7 @@ namespace TaxDataStore
 
 
         public TourControl(Entities.Tour tour)
+            : base()
         {
             InitializeComponent();
 
@@ -49,11 +61,11 @@ namespace TaxDataStore
                 AnchorStyles.Top | AnchorStyles.Right;
 
             this.etbGroups = new EditToolbar(
-                DomainModel.Application.ResourceManager.
-                GetText("lbl_groups"), true, false, false);
+                GetGroupEditTitle(),true, false, false);
+
             this.etbGroups.ButtonAutohide = false;
             this.etbGroups.Anchor = AnchorStyles.Left |
-                AnchorStyles.Top | AnchorStyles.Right;
+                AnchorStyles.Bottom | AnchorStyles.Right;
             this.etbGroups.AddButtonClick += new EventHandler(Groups_AddButtonClick);
 
             this.tlpTourDetail.Controls.Add(this.etbGroups, 1, 0);
@@ -64,12 +76,24 @@ namespace TaxDataStore
             this.lblTourTime.Cursor = Cursors.Hand;
             this.lblTourTime.Click += new EventHandler(lblTourTime_Click);
 
+            this.btnClose.BackgroundImageLayout = ImageLayout.Zoom;
+            this.btnClose.BackgroundImage = DomainModel.Application.ResourceManager.GetImage("close");
+
             this.tlpMain.AutoSize = true;
             this.tlpMain.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tlpTourDetail.AutoSize = true;
             this.tlpTourDetail.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
+        }
+
+
+        private string GetGroupEditTitle()
+        {
+            return string.Format(
+                "{0}({1})",
+                DomainModel.Application.ResourceManager.GetText("lbl_groups"),
+                this.Tour == null? 0 : this.Tour.Groups.Count);
         }
 
 
@@ -85,19 +109,24 @@ namespace TaxDataStore
 
         void Groups_AddButtonClick(object sender, EventArgs e)
         {
-            Presentation.Controllers.Tours.AddGroup(this.Tour);
+            Entities.TourGroup group = Presentation.Controllers.Tours.AddGroup(this.Tour);
+            if (group != null)
+            {
+                group.Services.ListChanged +=
+                    new ListChangedEventHandler(Services_ListChanged);
+            }
         }
 
 
         private void BindControls(Entities.Tour tour)
         {
             Detach();
-            this.Tour = tour;
+            this.tour = tour;
             Attach();
 
             this.ctrlManager = new FormControlManager(this.pnlGroups, tour.Groups);
             this.ctrlManager.CreateControl = CreateTourGroup;
-            this.ctrlManager.ControlsContainItem = TourGroupContainItem;
+            this.ctrlManager.FindControl = TourGroupFindControl;
             this.ctrlManager.ListContainsControl = ListContainsTourGroup;
 
             UpdateData(true);
@@ -151,12 +180,12 @@ namespace TaxDataStore
         }
 
 
-        public bool TourGroupContainItem(object item)
+        public Control TourGroupFindControl(object item)
         {
             Entities.TourGroup group =
                 (Entities.TourGroup)item;
 
-            return FindInClients(group) != null;
+            return FindInClients(group);
         }
 
 
@@ -204,12 +233,12 @@ namespace TaxDataStore
         {
             this.lblTourTime.Text = this.Tour.Time.ToString();
             this.lblDetails.Text = string.Format(
-                "{0}: {1}     {2}:{3}",
-                DomainModel.Application.ResourceManager.GetText("lbl_groups"),
-                this.Tour.Groups.Count,
-                DomainModel.Application.ResourceManager.GetText("lbl_services"),
-                this.Tour.ServiceCount
+                "{0}({1})",
+                DomainModel.Application.ResourceManager.GetText("lbl_participants"),
+                this.Tour.GetServiceCountExcept(DomainModel.ServiceTypes.GetById(20))// Exclude (20 = Drink)
                 );
+
+            this.etbGroups.Title = GetGroupEditTitle();
 
             if (updateLayout)
             {
@@ -219,28 +248,19 @@ namespace TaxDataStore
                 this.ResumeLayout(true);
             }
         }
-
-
-        private void SetupClientSize()
-        {
-            Int32 height =
-                this.Tour.Groups.Count * 105+
-                this.tlpTourDetail.Height +
-                this.tlpTourDetail.Margin.Size.Height +
-                this.Margin.Size.Height +
-                this.Padding.Size.Height+
-                this.tlpMain.Margin.Size.Height;
-
-            if (this.Height < height)
-            {
-                this.Height = height;
-            }
-        }
         
 
         void TourControl_Disposed(object sender, EventArgs e)
         {
             Detach();
+        }
+
+
+        void btnClose_Click(object sender, System.EventArgs e)
+        {
+            if (Presentation.Controllers.Tours.DeleteTour(this.tour))
+            {
+            }
         }
     }
 }

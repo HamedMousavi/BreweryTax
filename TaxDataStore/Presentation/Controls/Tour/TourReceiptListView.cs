@@ -133,8 +133,6 @@ namespace TaxDataStore.Presentation.Controls
 
                 this.columnPercent = 15;
                 SetColumnWidthPercent(this.columnPercent);
-                /*this.AutoResizeColumns(
-                    ColumnHeaderAutoResizeStyle.HeaderSize);*/
             }
             catch (Exception ex)
             {

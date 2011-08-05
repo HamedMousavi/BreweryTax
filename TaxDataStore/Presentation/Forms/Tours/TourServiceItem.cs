@@ -58,6 +58,7 @@ namespace TaxDataStore
 
 
         public TourServiceItem()
+            : base()
         {
             InitializeComponent();
 

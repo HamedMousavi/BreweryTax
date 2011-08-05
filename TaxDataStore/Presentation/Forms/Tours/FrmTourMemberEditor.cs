@@ -90,7 +90,10 @@ namespace TaxDataStore
 
             this.chbxAddToPhonebook.Checked = this.member.IsInPhonebook;
 
-            this.Load += new EventHandler(FrmTourMemberEditor_Load);
+            this.cbxTitle.DataSource = DomainModel.PersonTitleTypes.GetAll();
+            this.cbxTitle.DisplayMember = "Name";
+            this.member.Title = this.cbxTitle.Items
+                [this.cbxTitle.SelectedIndex] as GeneralType;
         }
 
 
@@ -129,15 +132,8 @@ namespace TaxDataStore
         {
             this.editMember = member;
             this.editMember.CopyTo(this.member);
-        }
 
-
-        void FrmTourMemberEditor_Load(object sender, EventArgs e)
-        {
-            this.cbxTitle.DataSource = DomainModel.PersonTitleTypes.GetAll();
-            this.cbxTitle.DisplayMember = "Name";
-            this.member.Title = this.cbxTitle.Items
-                [this.cbxTitle.SelectedIndex] as GeneralType;
+            //this.cbxTitle.SelectedItem = this.member.Title;
         }
 
 
@@ -202,6 +198,25 @@ namespace TaxDataStore
         {
             this.DialogResult = DialogResult.Cancel;
             Close();
+        }
+
+        
+        public bool AlwaysInAddressbook
+        {
+            get
+            {
+                return !this.chbxAddToPhonebook.Visible;
+            }
+
+            set
+            {
+                this.chbxAddToPhonebook.Visible = !value;
+
+                if (value)
+                {
+                    this.member.IsInPhonebook = true;
+                }
+            }
         }
     }
 }

@@ -127,12 +127,18 @@ namespace Entities
         }
 
 
-        public object ServiceCount
+        public int ServiceCount
         {
             get
             {
                 return this.groups.ServiceCount;
             }
+        }
+
+
+        public int GetServiceCountExcept(GeneralType serviceType)
+        {
+            return this.groups.GetServiceCountExcept(serviceType);
         }
     }
 }

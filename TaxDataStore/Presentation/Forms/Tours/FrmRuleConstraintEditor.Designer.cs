@@ -49,7 +49,7 @@
             this.tlpMain.RowCount = 2;
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpMain.Size = new System.Drawing.Size(393, 283);
+            this.tlpMain.Size = new System.Drawing.Size(500, 300);
             this.tlpMain.TabIndex = 0;
             // 
             // tlpButtons
@@ -57,6 +57,7 @@
             this.tlpButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpButtons.AutoSize = true;
+            this.tlpButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tlpButtons.ColumnCount = 5;
             this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -67,19 +68,20 @@
             this.tlpButtons.Controls.Add(this.btnNext, 2, 0);
             this.tlpButtons.Controls.Add(this.btnBack, 1, 0);
             this.tlpButtons.Controls.Add(this.btnSave, 3, 0);
-            this.tlpButtons.Location = new System.Drawing.Point(0, 254);
+            this.tlpButtons.Location = new System.Drawing.Point(0, 270);
             this.tlpButtons.Margin = new System.Windows.Forms.Padding(0);
             this.tlpButtons.Name = "tlpButtons";
             this.tlpButtons.RowCount = 1;
             this.tlpButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpButtons.Size = new System.Drawing.Size(393, 29);
+            this.tlpButtons.Size = new System.Drawing.Size(500, 30);
             this.tlpButtons.TabIndex = 0;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(315, 3);
+            this.btnCancel.AutoSize = true;
+            this.btnCancel.Location = new System.Drawing.Point(422, 3);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(75, 24);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -87,9 +89,10 @@
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(153, 3);
+            this.btnNext.AutoSize = true;
+            this.btnNext.Location = new System.Drawing.Point(260, 3);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.Size = new System.Drawing.Size(75, 24);
             this.btnNext.TabIndex = 1;
             this.btnNext.Text = "Next >";
             this.btnNext.UseVisualStyleBackColor = true;
@@ -97,9 +100,10 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(72, 3);
+            this.btnBack.AutoSize = true;
+            this.btnBack.Location = new System.Drawing.Point(179, 3);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.Size = new System.Drawing.Size(75, 24);
             this.btnBack.TabIndex = 0;
             this.btnBack.Text = "< Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -107,9 +111,10 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(234, 3);
+            this.btnSave.AutoSize = true;
+            this.btnSave.Location = new System.Drawing.Point(341, 3);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(75, 24);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -132,6 +137,7 @@
             this.tlpMain.ResumeLayout(false);
             this.tlpMain.PerformLayout();
             this.tlpButtons.ResumeLayout(false);
+            this.tlpButtons.PerformLayout();
             this.ResumeLayout(false);
 
         }

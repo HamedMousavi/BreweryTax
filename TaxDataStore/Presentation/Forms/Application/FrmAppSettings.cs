@@ -85,6 +85,9 @@ namespace TaxDataStore
 
             this.ctrlTypes = new Presentation.Controls.Settings.Types();
             this.tbpCategories.Controls.Add(this.ctrlTypes);
+
+
+            this.tlpMain.Controls.Add(new WorkbenchViewButton(), 1, 0);
         }
     }
 }

@@ -282,8 +282,8 @@
   <data name="lbl_notes" xml:space="preserve">
     <value>Notes</value>
   </data>
-  <data name="lbl_participant_count" xml:space="preserve">
-    <value>Participants count</value>
+  <data name="lbl_participants" xml:space="preserve">
+    <value>Participants</value>
   </data>
   <data name="lbl_payment_amount" xml:space="preserve">
     <value>Amount</value>
@@ -584,5 +584,14 @@
   </data>
   <data name="user_is_enabled" xml:space="preserve">
     <value>User is enabled</value>
+  </data>
+  <data name="msg_del_confirm_text" xml:space="preserve">
+    <value>Record will be deleted permanently. Are you sure you want to remove this item?</value>
+  </data>
+  <data name="msg_del_confirm_title" xml:space="preserve">
+    <value>Confirm delete</value>
+  </data>
+  <data name="stat_err_type_empty" xml:space="preserve">
+    <value>Service type is not selected. Please choose a type and try again.</value>
   </data>
 </root>

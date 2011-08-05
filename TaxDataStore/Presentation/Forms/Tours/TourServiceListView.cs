@@ -60,6 +60,7 @@ namespace TaxDataStore
 
 
         public TourServiceListView()
+            : base()
         {
             InitializeComponent();
 
@@ -75,7 +76,7 @@ namespace TaxDataStore
 
             this.ctrlManager = new FormControlManager(this.flpMain, this.Group.Services);
             this.ctrlManager.CreateControl = CreateService;
-            this.ctrlManager.ControlsContainItem = ServiceContainItem;
+            this.ctrlManager.FindControl = ServiceFindControl;
             this.ctrlManager.ListContainsControl = ListContainsService;
 
             UpdateData();
@@ -95,12 +96,12 @@ namespace TaxDataStore
         }
 
 
-        public bool ServiceContainItem(object item)
+        public Control ServiceFindControl(object item)
         {
             ITourService service =
                 (ITourService)item;
 
-            return FindInClients(service) != null;
+            return FindInClients(service);
         }
 
 

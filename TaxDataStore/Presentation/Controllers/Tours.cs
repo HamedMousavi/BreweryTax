@@ -65,7 +65,7 @@ namespace TaxDataStore.Presentation.Controllers
         }
 
 
-        internal static void AddGroup(Entities.Tour tour)
+        internal static Entities.TourGroup AddGroup(Entities.Tour tour)
         {
             Entities.TourGroup group = new Entities.TourGroup();
             group.Status = DomainModel.TourStates.GetByIndex(0);
@@ -75,7 +75,10 @@ namespace TaxDataStore.Presentation.Controllers
             if (!DomainModel.TourGroups.Save(tour))
             {
                 tour.Groups.Remove(group);
+                return null;
             }
+
+            return group;
         }
 
 
@@ -85,6 +88,28 @@ namespace TaxDataStore.Presentation.Controllers
             {
                 frm.ShowDialog();
             }
+        }
+
+
+        internal static bool DeleteTour(Entities.Tour tour)
+        {
+            if (Controllers.MessageBox.ConfirmDelete())
+            {
+                return DomainModel.Tours.Delete(tour);
+            }
+
+            return false;
+        }
+
+
+        internal static bool DeleteGroup(Entities.TourGroup group)
+        {
+            if (Controllers.MessageBox.ConfirmDelete())
+            {
+                return DomainModel.TourGroups.Delete(group);
+            }
+
+            return false;
         }
     }
 }

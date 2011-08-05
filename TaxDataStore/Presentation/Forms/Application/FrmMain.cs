@@ -20,8 +20,8 @@ namespace TaxDataStore
             InitializeComponent();
 
             SetupMainWindow();
-            SetupMenuBar();
-            SetupToolBar();
+            //SetupMenuBar();
+            //SetupToolBar();
             SetupStatusBar();
             SetupFormManager();
             SetupCurrentWindow();
@@ -88,6 +88,8 @@ namespace TaxDataStore
 
             this.ScreenManager = new Presentation.SccreenManager();
             this.ScreenManager.Attach(this, DomainModel.Application.User);
+
+            this.MinimumSize = new System.Drawing.Size(800, 600);
         }
 
 
@@ -123,7 +125,7 @@ namespace TaxDataStore
 
         private void SetupCurrentWindow()
         {
-            Presentation.Controllers.Tours.Today();
+            Presentation.Controllers.Desktop.Workbench();
         }
 
     }

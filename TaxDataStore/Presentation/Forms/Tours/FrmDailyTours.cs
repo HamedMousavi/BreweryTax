@@ -41,7 +41,7 @@ namespace TaxDataStore
 
             bstMaster = new BindingSource();
             bstMaster.DataSource = this.tours;
-
+            /*
             this.rtbComments.DataBindings.Add(
                 new Binding(
                     "Text",
@@ -51,7 +51,7 @@ namespace TaxDataStore
                     DataSourceUpdateMode.OnPropertyChanged,
                     string.Empty,
                     string.Empty,
-                    null));
+                    null));*/
         }
 
 
@@ -79,10 +79,13 @@ namespace TaxDataStore
 
         private void SetupControls()
         {
+            this.Dock = DockStyle.Fill;
             this.tlvTours = new ToursListView(this.tours);
 
             this.tlvTours.Dock = DockStyle.Fill;
             this.tlpTours.Controls.Add(this.tlvTours);
+
+            this.tlpToursToolbar.Controls.Add(new WorkbenchViewButton(), 6, 0);
         }
 
 

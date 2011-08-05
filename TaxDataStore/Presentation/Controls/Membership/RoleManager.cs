@@ -81,6 +81,10 @@ namespace TaxDataStore
 
             this.lsvRoles.MouseUp += new MouseEventHandler(lsvRoles_MouseUp);
             this.lsvRoles.SelectedIndexChanged += new EventHandler(lsvRoles_SelectedIndexChanged);
+
+            this.btnAddRole.Click += new EventHandler(btnAddRole_Click);
+            this.btnDeleteRole.Click += new EventHandler(btnDeleteRole_Click);
+            this.btnEditRole.Click += new EventHandler(btnEditRole_Click);
         }
 
 
