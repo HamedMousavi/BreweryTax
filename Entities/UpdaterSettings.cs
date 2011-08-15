@@ -5,10 +5,6 @@ namespace Entities
 
     public class UpdaterSettings
     {
-
-        public string DirectoryName { get; set; }
-
-
         public string UpdateUri { get; set; }
 
 

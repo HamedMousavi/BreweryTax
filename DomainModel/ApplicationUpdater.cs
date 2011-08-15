@@ -5,7 +5,6 @@ namespace DomainModel
 {
     public class ApplicationUpdater
     {
-        private static UpdaterSettings settings;
         private static Repository.ApplicationUpdater repo;
 
 

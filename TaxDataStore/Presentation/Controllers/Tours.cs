@@ -4,20 +4,20 @@
 namespace TaxDataStore.Presentation.Controllers
 {
 
-    public class Tours
+    public static class Tours
     {
 
-        private static FrmDailyTours frmDailyTours;
+        private static FrmDailyTours _frmDailyTours;
 
         
         internal static void Today()
         {
-            if (frmDailyTours == null)
+            if (_frmDailyTours == null)
             {
-                frmDailyTours = new FrmDailyTours();
+                _frmDailyTours = new FrmDailyTours();
             }
 
-            View.MainWindow.ClientFormManager.DisplayClientForm(frmDailyTours);
+            View.MainWindow.ClientFormManager.DisplayClientForm(_frmDailyTours);
         }
 
 

@@ -2,22 +2,24 @@
 using System.Windows.Forms;
 using Entities;
 
+
 namespace TaxDataStore.Presentation.Controls
 {
 
-    public class TasksCheckedListBox : CheckedListBox
+    public class UsersCheckedListBox : CheckedListBox
     {
 
-        public Role Role { get; set; }
+        public UserCollection SelectedUsers { get; set; }
 
 
-        public TasksCheckedListBox()
+        public UsersCheckedListBox()
         {
             CheckOnClick = true;
             FormattingEnabled = true;
-            Name = "chlbxTasks";
+            Name = "chlbxUsers";
             IntegralHeight = false;
             BorderStyle = BorderStyle.None;
+            SelectedUsers = new UserCollection();
 
             BindData();
         }
@@ -25,7 +27,7 @@ namespace TaxDataStore.Presentation.Controls
 
         private void BindData()
         {
-            DataSource = DomainModel.Membership.Tasks.GetAll();
+            DataSource = DomainModel.Membership.Users.GetAll();
             DisplayMember = "Name";
             ValueMember = "Id";
         }
@@ -51,15 +53,15 @@ namespace TaxDataStore.Presentation.Controls
 
         private void MarkSelectedItems()
         {
-            if (Role == null) return;
+            if (SelectedUsers == null) return;
 
             ItemCheck -= OnItemCheck;
 
             int index = 0;
-            TaskCollection tasks = DomainModel.Membership.Tasks.GetAll();
-            foreach (Task task in tasks)
+            UserCollection users = DomainModel.Membership.Users.GetAll();
+            foreach (User user in users)
             {
-                if (Role.Tasks.Contains(task))
+                if (SelectedUsers.Contains(user))
                 {
                     SetItemCheckState(index, CheckState.Checked);
                 }
@@ -77,23 +79,17 @@ namespace TaxDataStore.Presentation.Controls
 
         protected void OnItemCheck(object sender, ItemCheckEventArgs e)
         {
-            Task item = (Task)Items[e.Index];
+            User item = (User) Items[e.Index];
 
             if (item != null)
             {
                 if (e.NewValue == CheckState.Checked)
                 {
-                    if (DomainModel.Membership.Roles.AddTaskToRole(Role, item))
-                    {
-                        Role.Tasks.Add(item);
-                    }
+                    SelectedUsers.Add(item);
                 }
                 else if (e.NewValue == CheckState.Unchecked)
                 {
-                    if (DomainModel.Membership.Roles.RemoveTaskFromRole(Role, item))
-                    {
-                        Role.Tasks.Remove(item);
-                    }
+                    SelectedUsers.Remove(item);
                 }
             }
         }

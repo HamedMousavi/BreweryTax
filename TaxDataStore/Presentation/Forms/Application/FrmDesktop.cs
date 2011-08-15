@@ -46,12 +46,12 @@ namespace TaxDataStore
             //this.tlpMain.Controls.Add(this.search, 0, 1);
 
             this.tlpMain.Controls.Add(this.messagePad, 0, 3);
-            this.tlpMain.Controls.Add(this.worklog, 1, 3);
+            //this.tlpMain.Controls.Add(this.worklog, 1, 3);
             this.tlpMain.Controls.Add(this.addressBook, 3, 3);
 
 
             this.tlpMain.SetColumnSpan(this.tourCalendar, 2);
-            this.tlpMain.SetColumnSpan(this.worklog, 2);
+            //this.tlpMain.SetColumnSpan(this.worklog, 2);
 
             this.tlpMain.SetRowSpan(this.search, 2);
             //this.tlpMain.SetRowSpan(, 2);

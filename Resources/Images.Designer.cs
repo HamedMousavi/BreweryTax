@@ -319,6 +319,13 @@ namespace Resources {
             }
         }
         
+        public static System.Drawing.Bitmap Get_Mail {
+            get {
+                object obj = ResourceManager.GetObject("Get_Mail", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         public static System.Drawing.Bitmap globe_green {
             get {
                 object obj = ResourceManager.GetObject("globe_green", resourceCulture);
@@ -371,6 +378,20 @@ namespace Resources {
         public static System.Drawing.Bitmap mail {
             get {
                 object obj = ResourceManager.GetObject("mail", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap mails {
+            get {
+                object obj = ResourceManager.GetObject("mails", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap mails_stack {
+            get {
+                object obj = ResourceManager.GetObject("mails_stack", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -441,6 +462,13 @@ namespace Resources {
         public static System.Drawing.Bitmap search {
             get {
                 object obj = ResourceManager.GetObject("search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap Send_Mail {
+            get {
+                object obj = ResourceManager.GetObject("Send_Mail", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

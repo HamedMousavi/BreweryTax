@@ -1,6 +1,7 @@
 ﻿using System.Windows.Forms;
 using TaxDataStore.Presentation.Controls;
 using System;
+using TaxDataStore.Presentation.Controls;
 
 
 namespace TaxDataStore
@@ -16,7 +17,7 @@ namespace TaxDataStore
         private FlatButton btnDeleteRole;
 
         protected RolesListView lsvRoles;
-        protected Presentation.Controls.TasksCheckedListBox chlbxTasks;
+        protected TasksCheckedListBox chlbxTasks;
 
 
         public RoleManager()

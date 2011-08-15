@@ -66,6 +66,10 @@
     <Compile Include="CategoryClassCollection.cs" />
     <Compile Include="CategorySubCollection.cs" />
     <Compile Include="CategorySub.cs" />
+    <Compile Include="Mail.cs" />
+    <Compile Include="MailCollection.cs" />
+    <Compile Include="MailEvent.cs" />
+    <Compile Include="MailEventCollection.cs" />
     <Compile Include="PaymentStrategyInfo.cs" />
     <Compile Include="PaymentStrategyInfoCollection.cs" />
     <Compile Include="Tour\ConstraintTourDate.cs" />

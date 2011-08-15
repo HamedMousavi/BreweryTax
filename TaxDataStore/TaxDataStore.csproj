@@ -63,39 +63,64 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppUpdateController.cs" />
-    <Compile Include="FrmAddressbook.cs">
+    <Compile Include="Presentation\Controls\UsersCheckedListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\FrmMailBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAddressbook.Designer.cs">
+    <Compile Include="Presentation\Forms\FrmMailBox.Designer.cs">
+      <DependentUpon>FrmMailBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Forms\FrmMailComposer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\FrmMailComposer.Designer.cs">
+      <DependentUpon>FrmMailComposer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Controllers\Mails.cs" />
+    <Compile Include="Presentation\Controls\Mailbox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\Mailbox.Designer.cs">
+      <DependentUpon>Mailbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Controls\MailsListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\FrmAddressbook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\FrmAddressbook.Designer.cs">
       <DependentUpon>FrmAddressbook.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Controllers\Desktop.cs" />
     <Compile Include="Presentation\Controllers\Phonebook.cs" />
-    <Compile Include="Presentation\Controls\WorkbenchAddressBook.cs">
+    <Compile Include="Presentation\Controls\Workbench\WorkbenchAddressBook.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\WorkbenchCalendar.cs">
+    <Compile Include="Presentation\Controls\Workbench\WorkbenchCalendar.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\WorkbenchFloppy.cs">
+    <Compile Include="Presentation\Controls\Workbench\WorkbenchFloppy.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\WorkbenchItem.cs">
+    <Compile Include="Presentation\Controls\Workbench\WorkbenchItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\WorkbenchMessagePad.cs">
+    <Compile Include="Presentation\Controls\Workbench\WorkbenchMessagePad.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\WorkbenchReports.cs">
+    <Compile Include="Presentation\Controls\Workbench\WorkbenchReports.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\WorkbenchSearch.cs">
+    <Compile Include="Presentation\Controls\Workbench\WorkbenchSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\WorkbenchViewButton.cs">
+    <Compile Include="Presentation\Controls\Workbench\WorkbenchViewButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\WorkbenchWorklog.cs">
+    <Compile Include="Presentation\Controls\Workbench\WorkbenchWorklog.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Presentation\Forms\Application\FrmDesktop.cs">
@@ -104,34 +129,34 @@
     <Compile Include="Presentation\Forms\Application\FrmDesktop.Designer.cs">
       <DependentUpon>FrmDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Controls\ContactsMenu.cs">
+    <Compile Include="Presentation\Controls\Contact\ContactsMenu.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\ContactToolStripItem.cs">
+    <Compile Include="Presentation\Controls\Contact\ContactToolStripItem.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\GroupServiceBill.cs">
+    <Compile Include="Presentation\Controls\Tour\GroupServiceBill.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\GroupServiceBill.Designer.cs">
+    <Compile Include="Presentation\Controls\Tour\GroupServiceBill.Designer.cs">
       <DependentUpon>GroupServiceBill.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Controls\GroupServiceDetails.cs">
+    <Compile Include="Presentation\Controls\Tour\GroupServiceDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\GroupServiceDetails.Designer.cs">
+    <Compile Include="Presentation\Controls\Tour\GroupServiceDetails.Designer.cs">
       <DependentUpon>GroupServiceDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Controls\GroupServicePayment.cs">
+    <Compile Include="Presentation\Controls\Tour\GroupServicePayment.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\GroupServicePayment.Designer.cs">
+    <Compile Include="Presentation\Controls\Tour\GroupServicePayment.Designer.cs">
       <DependentUpon>GroupServicePayment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Controls\TourBaseControl.cs">
+    <Compile Include="Presentation\Controls\Tour\TourBaseControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\TourBaseControl.Designer.cs">
+    <Compile Include="Presentation\Controls\Tour\TourBaseControl.Designer.cs">
       <DependentUpon>TourBaseControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\FormControlManager.cs" />
@@ -142,33 +167,33 @@
       <DependentUpon>FrmGroupServiceEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Controllers\GroupServices.cs" />
-    <Compile Include="Presentation\Controls\EditToolbar.cs">
+    <Compile Include="Presentation\Controls\Shared\EditToolbar.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\EditToolbar.Designer.cs">
+    <Compile Include="Presentation\Controls\Shared\EditToolbar.Designer.cs">
       <DependentUpon>EditToolbar.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Controllers\File.cs" />
     <Compile Include="Presentation\Controllers\TourServices.cs" />
-    <Compile Include="Presentation\Controls\GeneralTypeToolStripItem.cs">
+    <Compile Include="Presentation\Controls\Shared\GeneralTypeToolStripItem.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\JobProgress.cs">
+    <Compile Include="Presentation\Controls\Shared\JobProgress.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\JobProgress.Designer.cs">
+    <Compile Include="Presentation\Controls\Shared\JobProgress.Designer.cs">
       <DependentUpon>JobProgress.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Controls\MainWindow\StatusLabelAppUpdate.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\GeneralTypeMenu.cs">
+    <Compile Include="Presentation\Controls\Shared\GeneralTypeMenu.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\SaveButtonBar.cs">
+    <Compile Include="Presentation\Controls\Shared\SaveButtonBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\SaveButtonBar.Designer.cs">
+    <Compile Include="Presentation\Controls\Shared\SaveButtonBar.Designer.cs">
       <DependentUpon>SaveButtonBar.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Controls\Tour\ServiceSettings.cs">
@@ -184,19 +209,19 @@
       <DependentUpon>FrmMonthlyReportInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Controllers\TourReports.cs" />
-    <Compile Include="Presentation\Controls\FlexibleDateSelector.cs">
+    <Compile Include="Presentation\Controls\Shared\FlexibleDateSelector.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\FlexibleDateSelector.Designer.cs">
+    <Compile Include="Presentation\Controls\Shared\FlexibleDateSelector.Designer.cs">
       <DependentUpon>FlexibleDateSelector.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Controls\FlexibleTimeSelector.cs">
+    <Compile Include="Presentation\Controls\Shared\FlexibleTimeSelector.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\FlexibleTimeSelector.Designer.cs">
+    <Compile Include="Presentation\Controls\Shared\FlexibleTimeSelector.Designer.cs">
       <DependentUpon>FlexibleTimeSelector.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Controls\RuleConstraintBaseUserControl.cs">
+    <Compile Include="Presentation\Controls\Tour\RuleConstraintBaseUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Presentation\Controls\Tour\RuleConstraintTourDate.cs">
@@ -241,7 +266,7 @@
     <Compile Include="Presentation\Controls\Base\FormLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\ContactsListView.cs">
+    <Compile Include="Presentation\Controls\Contact\ContactsListView.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Presentation\Forms\Tours\FrmTourPaymentEditor.cs">
@@ -261,7 +286,7 @@
     <Compile Include="Presentation\Controls\Settings\CategoryListView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\GeneralTypeTextEditor.cs">
+    <Compile Include="Presentation\Controls\Shared\GeneralTypeTextEditor.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Presentation\Controls\Settings\Database.cs">
@@ -337,9 +362,6 @@
     </Compile>
     <Compile Include="Presentation\Controllers\TourFinance.cs" />
     <Compile Include="Presentation\Controls\Settings\GeneralTypeDataGridViewColumn.cs" />
-    <Compile Include="Presentation\Controls\Tour\TourBasePriceGridView.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Presentation\Controls\Tour\TourCostSettings.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -363,19 +385,13 @@
     <Compile Include="Presentation\Controls\ContactsGrid\ContactsGridView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\EmployeesGridView.cs">
+    <Compile Include="Presentation\Controls\Employees\EmployeesGridView.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Presentation\Controls\ContactsGrid\ImageComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\MembersGridView.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Presentation\Controls\Tour\PaymentsGridView.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Presentation\Controls\TypeComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Presentation\Forms\Tours\FrmTourEditor.cs">
@@ -390,16 +406,16 @@
     <Compile Include="Presentation\Forms\Membership\FrmUserSettings.Designer.cs">
       <DependentUpon>FrmUserSettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Controls\MoneyPicker.cs">
+    <Compile Include="Presentation\Controls\Shared\MoneyPicker.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\MoneyPicker.Designer.cs">
+    <Compile Include="Presentation\Controls\Shared\MoneyPicker.Designer.cs">
       <DependentUpon>MoneyPicker.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Controls\EmployeesMenu.cs">
+    <Compile Include="Presentation\Controls\Employees\EmployeesMenu.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\EmployeesSplitButton.cs">
+    <Compile Include="Presentation\Controls\Employees\EmployeesSplitButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Presentation\Controls\Base\FlatGridView.cs">
@@ -567,31 +583,40 @@
     <Compile Include="Presentation\Forms\Tours\FrmServiceSettingEditor.Designer.cs">
       <DependentUpon>FrmServiceSettingEditor.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FrmAddressbook.resx">
+    <EmbeddedResource Include="Presentation\Forms\FrmMailBox.resx">
+      <DependentUpon>FrmMailBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Forms\FrmMailComposer.resx">
+      <DependentUpon>FrmMailComposer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Controls\Mailbox.resx">
+      <DependentUpon>Mailbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Forms\FrmAddressbook.resx">
       <DependentUpon>FrmAddressbook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\Controls\EditToolbar.resx">
+    <EmbeddedResource Include="Presentation\Controls\Shared\EditToolbar.resx">
       <DependentUpon>EditToolbar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\Controls\FlexibleDateSelector.resx">
+    <EmbeddedResource Include="Presentation\Controls\Shared\FlexibleDateSelector.resx">
       <DependentUpon>FlexibleDateSelector.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\Controls\FlexibleTimeSelector.resx">
+    <EmbeddedResource Include="Presentation\Controls\Shared\FlexibleTimeSelector.resx">
       <DependentUpon>FlexibleTimeSelector.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\Controls\GroupServiceBill.resx">
+    <EmbeddedResource Include="Presentation\Controls\Tour\GroupServiceBill.resx">
       <DependentUpon>GroupServiceBill.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\Controls\GroupServiceDetails.resx">
+    <EmbeddedResource Include="Presentation\Controls\Tour\GroupServiceDetails.resx">
       <DependentUpon>GroupServiceDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\Controls\GroupServicePayment.resx">
+    <EmbeddedResource Include="Presentation\Controls\Tour\GroupServicePayment.resx">
       <DependentUpon>GroupServicePayment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\Controls\JobProgress.resx">
+    <EmbeddedResource Include="Presentation\Controls\Shared\JobProgress.resx">
       <DependentUpon>JobProgress.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\Controls\SaveButtonBar.resx">
+    <EmbeddedResource Include="Presentation\Controls\Shared\SaveButtonBar.resx">
       <DependentUpon>SaveButtonBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Controls\Tour\RuleConstraintTourDate.resx">
@@ -666,7 +691,7 @@
     <EmbeddedResource Include="Presentation\Forms\Tours\FrmTourEditor.resx">
       <DependentUpon>FrmTourEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\Controls\MoneyPicker.resx">
+    <EmbeddedResource Include="Presentation\Controls\Shared\MoneyPicker.resx">
       <DependentUpon>MoneyPicker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Forms\Tours\FrmDailyTours.resx">
@@ -827,7 +852,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" BuildVersion_BuildVersioningStyle="None.Increment.None.None" BuildVersion_ConfigurationName="Release" />
+      <UserProperties BuildVersion_ConfigurationName="Release" BuildVersion_BuildVersioningStyle="None.Increment.None.None" BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

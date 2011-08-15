@@ -10,6 +10,7 @@ namespace TaxDataStore.Presentation.Controls
             : base("notepad")
         {
             this.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
+            this.ClickAction = Presentation.Controllers.Mails.Today;
         }
     }
 }

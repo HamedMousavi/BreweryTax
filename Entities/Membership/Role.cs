@@ -6,9 +6,6 @@ namespace Entities
 
     public class Role
     {
-        public string DisplayName { get; set; }
-
-
         public string Name { get; set; }
         public Int32 Id { get; set; }
         public Int32 Priority { get; set; }

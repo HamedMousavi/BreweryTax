@@ -3,7 +3,7 @@
 namespace DomainModel.Membership
 {
 
-    public class UserSettings
+    public static class UserSettings
     {
         private static Entities.Abstract.Repository.IUserSettings repo;
 

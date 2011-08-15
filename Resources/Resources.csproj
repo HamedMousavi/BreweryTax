@@ -299,6 +299,18 @@
   <ItemGroup>
     <None Include="Resources\arrow-turn-180-left.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mails-stack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mails.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Get Mail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Send Mail.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
