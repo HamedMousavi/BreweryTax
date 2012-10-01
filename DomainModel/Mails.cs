@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Transactions;
 using Entities;
 
 
@@ -70,7 +71,76 @@ namespace DomainModel
 
         public static bool Send(Mail mail, UserCollection recipients)
         {
-            throw new NotImplementedException();
+            bool res;
+
+            try
+            {
+                using (TransactionScope ts = new TransactionScope())
+                {
+                    // Insert mail
+                    res = _mailsRepo.InsertMail(mail);
+
+                    // Insert Send event
+                    if (res)
+                    {
+                        var me = new MailEvent
+                        {
+                            EventTime = DateTime.Now,
+                            EventUser = DomainModel.Application.User,
+                            EventType = MailEventTypes.GetById(21) // Send
+                        };
+
+                        res = _mailsRepo.InsertEvent(mail, me);
+                        if (res)
+                        {
+                            mail.EventLog.Add(me);
+                        }
+                    }
+
+                    // Insert Receieve events
+                    foreach (User user in recipients)
+                    {
+                        var me = new MailEvent
+                        {
+                            EventTime = DateTime.Now,
+                            EventUser = user,
+                            EventType = MailEventTypes.GetById(22) // Receive
+                        };
+
+                        if (!(res = _mailsRepo.InsertEvent(mail, me)))
+                        {
+                            break;
+                        }
+
+                        mail.EventLog.Add(me);
+                    }
+
+                    if (res)
+                    {
+                        ts.Complete();
+
+                    }
+                    else
+                    {
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                res = false;
+
+                try
+                {
+                    DomainModel.Application.Status.Update(
+                        StatusController.Abstract.StatusTypes.Error,
+                        "",
+                        ex.Message);
+                }
+                catch (Exception)
+                { }
+            }
+
+            return res;
         }
     }
 }

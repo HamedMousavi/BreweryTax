@@ -84,6 +84,7 @@
     <Compile Include="Tour\TourRuleConstraints.cs" />
     <Compile Include="Tour\Payment\TourDateConstraintMapper.cs" />
     <Compile Include="Tour\Payment\TourTimeConstraintMapper.cs" />
+    <Compile Include="Types\MailEventTypes.cs" />
     <Compile Include="Types\ServiceTypes.cs" />
     <Compile Include="Types\TourCostConstraintTypes.cs" />
     <Compile Include="Tour\Payment\PaymentRuleValidator.cs" />

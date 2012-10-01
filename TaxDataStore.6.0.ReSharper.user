@@ -1,68 +1,68 @@
 <Configuration>
   <RecentFiles>
     <RecentFiles>
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/d:MainWindow/f:Toolbar.cs" caret="2107" fromTop="24" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controllers/f:Tours.cs" caret="1767" fromTop="69" />
-      <File id="13BB5104-B8FE-4213-A38B-B89AFD37FA43/d:Membership/f:UserSettings.cs" caret="67" fromTop="5" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/d:Contact/f:ContactsListView.cs" caret="5726" fromTop="61" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="4658" fromTop="37" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:Mailbox.Designer.cs" caret="7875" fromTop="23" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Forms/f:FrmMailBox.Designer.cs" caret="920" fromTop="0" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Forms/d:Tours/f:FrmDailyTours.cs" caret="3358" fromTop="24" />
-      <File id="13BB5104-B8FE-4213-A38B-B89AFD37FA43/d:Tour/f:Tours.cs" caret="6093" fromTop="40" />
-      <File id="13BB5104-B8FE-4213-A38B-B89AFD37FA43/d:Repository/d:Sql/f:Tours.cs" caret="3612" fromTop="21" />
-      <File id="13BB5104-B8FE-4213-A38B-B89AFD37FA43/d:Repository/d:Sql/f:Utils.cs" caret="2640" fromTop="27" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/f:FormControlManager.cs" caret="1540" fromTop="33" />
-      <File id="3F27A938-24F2-4AB3-B3DC-FCA877D80DED/f:MailCollection.cs" caret="72" fromTop="4" />
       <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/d:Shared/f:EditToolbar.cs" caret="1034" fromTop="44" />
-      <File id="13BB5104-B8FE-4213-A38B-B89AFD37FA43/f:Application.cs" caret="3328" fromTop="29" />
       <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/d:Settings/f:CategoryVirtualListDataSource.cs" caret="0" fromTop="0" />
       <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/d:Settings/f:CategoryListView.cs" caret="536" fromTop="23" />
       <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/d:Shared/f:MoneyPicker.cs" caret="1728" fromTop="24" />
       <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controllers/f:Mails.cs" caret="565" fromTop="26" />
-      <File id="13BB5104-B8FE-4213-A38B-B89AFD37FA43/d:Repository/d:Sql/f:Mails.cs" caret="1603" fromTop="27" />
       <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/d:Membership/f:RoleManager.cs" caret="127" fromTop="3" />
       <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/d:Membership/f:TasksCheckedListBox.cs" caret="2474" fromTop="29" />
       <File id="3F27A938-24F2-4AB3-B3DC-FCA877D80DED/d:Membership/f:Role.cs" caret="61" fromTop="6" />
       <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/d:Tour/f:RulesCheckedListBox.cs" caret="112" fromTop="0" />
       <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Forms/f:FrmMailComposer.Designer.cs" caret="0" fromTop="0" />
       <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Forms/f:FrmMailComposer.cs" caret="1502" fromTop="27" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Forms/f:FrmMailBox.cs" caret="966" fromTop="33" />
       <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:UsersCheckedListBox.cs" caret="1231" fromTop="1" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:Mailbox.cs" caret="1909" fromTop="18" />
-      <File id="13BB5104-B8FE-4213-A38B-B89AFD37FA43/f:Mails.cs" caret="1513" fromTop="14" />
+      <File id="13BB5104-B8FE-4213-A38B-B89AFD37FA43/d:Tour/f:TourRuleConstraints.cs" caret="0" fromTop="0" />
+      <File id="13BB5104-B8FE-4213-A38B-B89AFD37FA43/d:Tour/f:Tours.cs" caret="0" fromTop="0" />
+      <File id="13BB5104-B8FE-4213-A38B-B89AFD37FA43/d:Tour/f:Services.cs" caret="0" fromTop="0" />
+      <File id="13BB5104-B8FE-4213-A38B-B89AFD37FA43/d:Tour/f:TourBasePrices.cs" caret="0" fromTop="0" />
+      <File id="13BB5104-B8FE-4213-A38B-B89AFD37FA43/d:Tour/f:TourCostRule.cs" caret="2006" fromTop="38" />
+      <File id="13BB5104-B8FE-4213-A38B-B89AFD37FA43/d:Repository/d:Sql/f:Tours.cs" caret="369" fromTop="17" />
+      <File id="3F27A938-24F2-4AB3-B3DC-FCA877D80DED/f:MailEvent.cs" caret="61" fromTop="6" />
+      <File id="13BB5104-B8FE-4213-A38B-B89AFD37FA43/d:Types/f:ContactMediaTypes.cs" caret="0" fromTop="0" />
+      <File id="13BB5104-B8FE-4213-A38B-B89AFD37FA43/d:Types/f:CostTypes.cs" caret="75" fromTop="6" />
+      <File id="13BB5104-B8FE-4213-A38B-B89AFD37FA43/d:Types/f:MailEventTypes.cs" caret="96" fromTop="8" />
+      <File id="13BB5104-B8FE-4213-A38B-B89AFD37FA43/f:Application.cs" caret="3466" fromTop="0" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Forms/f:FrmMailBox.cs" caret="966" fromTop="33" />
+      <File id="18FEDA0C-D147-4286-B39A-01204808106A/f:ObjectListView.cs" caret="337045" fromTop="20" />
+      <File id="18FEDA0C-D147-4286-B39A-01204808106A/f:OLVColumn.cs" caret="52104" fromTop="32" />
+      <File id="13BB5104-B8FE-4213-A38B-B89AFD37FA43/d:Repository/d:Sql/f:Mails.cs" caret="478" fromTop="21" />
+      <File id="13BB5104-B8FE-4213-A38B-B89AFD37FA43/f:Mails.cs" caret="1762" fromTop="3" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:Mailbox.cs" caret="185" fromTop="9" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="5276" fromTop="17" />
     </RecentFiles>
     <RecentEdits>
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Forms/f:FrmMailComposer.cs" caret="1755" fromTop="24" />
-      <File id="13BB5104-B8FE-4213-A38B-B89AFD37FA43/f:Mails.cs" caret="1723" fromTop="30" />
-      <File id="13BB5104-B8FE-4213-A38B-B89AFD37FA43/f:Mails.cs" caret="939" fromTop="24" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/d:Membership/f:TasksCheckedListBox.cs" caret="2484" fromTop="104" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/d:Membership/f:TasksCheckedListBox.cs" caret="107" fromTop="4" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/d:Membership/f:TasksCheckedListBox.cs" caret="216" fromTop="10" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/d:Membership/f:TasksCheckedListBox.cs" caret="427" fromTop="19" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/d:Membership/f:TasksCheckedListBox.cs" caret="660" fromTop="26" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/d:Membership/f:TasksCheckedListBox.cs" caret="951" fromTop="24" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/d:Membership/f:TasksCheckedListBox.cs" caret="1163" fromTop="24" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/d:Membership/f:TasksCheckedListBox.cs" caret="1359" fromTop="24" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/d:Membership/f:TasksCheckedListBox.cs" caret="1691" fromTop="24" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/d:Membership/f:TasksCheckedListBox.cs" caret="1834" fromTop="24" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/d:Membership/f:TasksCheckedListBox.cs" caret="2040" fromTop="30" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/d:Membership/f:TasksCheckedListBox.cs" caret="2380" fromTop="39" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/d:Membership/f:RoleManager.cs" caret="127" fromTop="3" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:UsersCheckedListBox.cs" caret="2298" fromTop="100" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:UsersCheckedListBox.cs" caret="669" fromTop="19" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:UsersCheckedListBox.cs" caret="218" fromTop="5" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:UsersCheckedListBox.cs" caret="1467" fromTop="27" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:UsersCheckedListBox.cs" caret="2091" fromTop="33" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:UsersCheckedListBox.cs" caret="178" fromTop="10" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Forms/f:FrmMailComposer.cs" caret="1835" fromTop="23" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Forms/f:FrmMailComposer.cs" caret="465" fromTop="21" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Forms/f:FrmMailComposer.cs" caret="283" fromTop="13" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Forms/f:FrmMailComposer.cs" caret="1543" fromTop="24" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:UsersCheckedListBox.cs" caret="1214" fromTop="7" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:UsersCheckedListBox.cs" caret="2296" fromTop="45" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:UsersCheckedListBox.cs" caret="1886" fromTop="41" />
-      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:UsersCheckedListBox.cs" caret="532" fromTop="17" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="5035" fromTop="23" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="4605" fromTop="8" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="5696" fromTop="22" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="5755" fromTop="26" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="5919" fromTop="23" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="5932" fromTop="24" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="6149" fromTop="34" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="5943" fromTop="16" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="6579" fromTop="42" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="2737" fromTop="23" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="2746" fromTop="30" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="2737" fromTop="26" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="2299" fromTop="24" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="2737" fromTop="33" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="2698" fromTop="35" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="2544" fromTop="26" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="2489" fromTop="24" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="2196" fromTop="15" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="2196" fromTop="11" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="2489" fromTop="29" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="2599" fromTop="26" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:Mailbox.cs" caret="953" fromTop="25" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="3792" fromTop="19" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="2978" fromTop="15" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="3470" fromTop="30" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="3055" fromTop="24" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="3224" fromTop="16" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="1882" fromTop="26" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="6360" fromTop="26" />
+      <File id="5C71F04E-B5A2-4331-BCBB-C5D02B3107E8/d:Presentation/d:Controls/f:MailsListView.cs" caret="5602" fromTop="23" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
@@ -87,10 +87,10 @@
     <ItemStatistics item="CSharpCodeCompletionContext">
       <Item value="Mail`0" priority="91" />
       <Item value="List" priority="31" />
-      <Item value="private" priority="191" />
-      <Item value="new" priority="287" />
+      <Item value="private" priority="223" />
+      <Item value="new" priority="351" />
       <Item value="MailsListView" priority="28" />
-      <Item value="this" priority="383" />
+      <Item value="this" priority="575" />
       <Item value="bindingSource" priority="31" />
       <Item value="Binding" priority="57" />
       <Item value="tlpMails" priority="26" />
@@ -98,11 +98,11 @@
       <Item value="public" priority="31" />
       <Item value="object" priority="31" />
       <Item value="value" priority="95" />
-      <Item value="if" priority="127" />
-      <Item value="null" priority="95" />
-      <Item value="_bindingSource" priority="31" />
+      <Item value="if" priority="287" />
+      <Item value="null" priority="255" />
+      <Item value="_bindingSource" priority="223" />
       <Item value="SystemColors`0" priority="22" />
-      <Item value="DomainModel" priority="63" />
+      <Item value="DomainModel" priority="127" />
       <Item value="Tour" priority="49" />
       <Item value="Payment" priority="26" />
       <Item value="TourDateConstraintMapper`0" priority="26" />
@@ -110,12 +110,12 @@
       <Item value="_todayMails" priority="63" />
       <Item value="MailCollection`0" priority="31" />
       <Item value="out" priority="31" />
-      <Item value="mails" priority="159" />
+      <Item value="mails" priority="223" />
       <Item value="ParallelMergeOptions`0" priority="31" />
       <Item value="newMails" priority="63" />
-      <Item value="foreach" priority="31" />
-      <Item value="in" priority="31" />
-      <Item value="mail" priority="31" />
+      <Item value="foreach" priority="63" />
+      <Item value="in" priority="63" />
+      <Item value="mail" priority="223" />
       <Item value="Presentation" priority="31" />
       <Item value="Controllers" priority="22" />
       <Item value="Mails`0" priority="53" />
@@ -130,17 +130,51 @@
       <Item value="Cancel" priority="16" />
       <Item value="Close`0" priority="63" />
       <Item value="OK" priority="16" />
-      <Item value="UserCollection`0" priority="63" />
+      <Item value="UserCollection`0" priority="95" />
       <Item value="SelectedUsers" priority="58" />
       <Item value="System" priority="26" />
       <Item value="DockStyle`0" priority="22" />
       <Item value="chlbxRecipients" priority="26" />
       <Item value="tlpControls" priority="26" />
       <Item value="UserCollection" priority="28" />
+      <Item value="res" priority="191" />
+      <Item value="false" priority="31" />
+      <Item value="return" priority="95" />
+      <Item value="GeneralType`0" priority="31" />
+      <Item value="recipients" priority="31" />
+      <Item value="_mailsRepo" priority="63" />
+      <Item value="break" priority="31" />
+      <Item value="Application`0" priority="26" />
+      <Item value="Types`0" priority="26" />
+      <Item value="DateTime`0" priority="63" />
+      <Item value="eventType" priority="31" />
+      <Item value="MailEvent`0" priority="95" />
+      <Item value="e" priority="31" />
+      <Item value="mailEvent" priority="31" />
+      <Item value="id" priority="31" />
+      <Item value="MailEvent" priority="28" />
+      <Item value="me" priority="95" />
+      <Item value="etbMailList" priority="31" />
+      <Item value="int" priority="31" />
+      <Item value="index" priority="63" />
+      <Item value="try" priority="31" />
+      <Item value="SelectedIndex" priority="122" />
+      <Item value="SelectedObject" priority="31" />
+      <Item value="RowHeight" priority="31" />
+      <Item value="SelectObject`0" priority="95" />
+      <Item value="ShowFocusCues" priority="31" />
+      <Item value="true" priority="31" />
+      <Item value="Focus`0" priority="63" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:TaxDataStore.Presentation.Controls.MailsListView">
       <Item value="SetDataSource`0" priority="26" />
       <Item value="DataBindings" priority="26" />
+      <Item value="SelectedIndexChanged" priority="54" />
+      <Item value="SelectedItem" priority="27" />
+      <Item value="Items" priority="26" />
+      <Item value="SelectedIndex" priority="27" />
+      <Item value="SelectedObject" priority="27" />
+      <Item value="Focus`0" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:TaxDataStore.Presentation.Controls.Mailbox">
       <Item value="DataBindings" priority="26" />
@@ -151,7 +185,12 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Windows.Forms.BindingSource">
       <Item value="ListChanged" priority="26" />
-      <Item value="DataSource" priority="80" />
+      <Item value="DataSource" priority="161" />
+      <Item value="MovePrevious`0" priority="26" />
+      <Item value="CurrencyManager" priority="50" />
+      <Item value="Current" priority="53" />
+      <Item value="Position" priority="26" />
+      <Item value="IndexOf`0" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Windows.Forms.ControlBindingsCollection">
       <Item value="Add`0" priority="53" />
@@ -173,19 +212,22 @@
       <Item value="Load" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.DateTime">
-      <Item value="Now" priority="26" />
+      <Item value="Now" priority="80" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Entities.Mail">
-      <Item value="Title" priority="49" />
-      <Item value="Text" priority="49" />
+      <Item value="Title" priority="72" />
+      <Item value="Text" priority="76" />
+      <Item value="Id" priority="26" />
+      <Item value="EventLog" priority="53" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Entities.MailCollection">
       <Item value="Contains`0" priority="26" />
       <Item value="Add`0" priority="26" />
       <Item value="Remove`0" priority="22" />
+      <Item value="Count" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:TaxDataStore.EditToolbar">
-      <Item value="AddButtonClick" priority="26" />
+      <Item value="AddButtonClick" priority="53" />
       <Item value="DeleteButtonClick" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:TaxDataStore.FrmMailComposer">
@@ -207,6 +249,23 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.Windows.Forms.DockStyle">
       <Item value="Fill" priority="22" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DomainModel.Repository.Sql.Mails">
+      <Item value="InsertEvent`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@DomainModel.Application">
+      <Item value="User" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Entities.MailEventCollection">
+      <Item value="Add`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Entities.MailEvent">
+      <Item value="EventTime" priority="76" />
+      <Item value="EventUser" priority="53" />
+      <Item value="EventType" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Entities.GeneralType">
+      <Item value="Id" priority="26" />
     </ItemStatistics>
   </CompletionStatisticsManager>
 </Configuration>

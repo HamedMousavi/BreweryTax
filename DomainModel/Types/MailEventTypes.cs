@@ -4,16 +4,16 @@
 namespace DomainModel
 {
 
-    public static class PaymentTypes
+    public static class MailEventTypes
     {
 
-        private static Repository.Sql.Types repo;
-        private static GeneralTypeCollection cache;
+        private static Repository.Sql.Types _repo;
+        private static GeneralTypeCollection _cache;
 
 
         public static void Init(string sqlConnectionString, Entities.Culture culture)
         {
-            repo = new Repository.Sql.Types(sqlConnectionString);
+            _repo = new Repository.Sql.Types(sqlConnectionString);
 
             LoadAll(culture);
         }
@@ -21,19 +21,19 @@ namespace DomainModel
 
         private static void LoadAll(Culture culture)
         {
-            cache = repo.GetByName("PaymentType", culture.Id);
+            _cache = _repo.GetByName("MailEventTypes", culture.Id);
         }
 
 
         public static GeneralTypeCollection GetAll()
         {
-            return cache;
+            return _cache;
         }
 
 
         internal static GeneralType GetById(int tourTypeId)
         {
-            return cache.GetById(tourTypeId);
+            return _cache.GetById(tourTypeId);
         }
     }
 }

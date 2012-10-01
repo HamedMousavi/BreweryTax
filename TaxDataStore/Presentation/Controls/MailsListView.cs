@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Windows.Forms;
 using BrightIdeasSoftware;
+using Entities;
 
 
 namespace TaxDataStore.Presentation.Controls
@@ -10,7 +12,9 @@ namespace TaxDataStore.Presentation.Controls
 
     public sealed class MailsListView : ObjectListView
     {
-        private Entities.MailCollection _datasource;
+        private BindingSource _bindingSource;
+        //private Entities.MailCollection _datasource;
+
 
         private OLVColumn _columnType;
         private OLVColumn _columnValue;
@@ -52,6 +56,7 @@ namespace TaxDataStore.Presentation.Controls
             BorderStyle = System.Windows.Forms.BorderStyle.None;
             GridLines = false;
             HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            RowHeight = 26;
 
             //this.HighlightBackgroundColor = this.BackColor;
             //this.HighlightForegroundColor = this.ForeColor;
@@ -59,35 +64,56 @@ namespace TaxDataStore.Presentation.Controls
             ((ISupportInitialize)(this)).EndInit();
 
             Disposed += OnListDisposed;
+            this.SelectedIndexChanged += MailsListViewSelectedIndexChanged;
+        }
+
+
+        void MailsListViewSelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_bindingSource != null && 
+                    _bindingSource.DataSource != null &&
+                    SelectedObject != null)
+                {
+                    int index = _bindingSource.IndexOf(SelectedObject);
+
+                    _bindingSource.Position = index;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
 
         private void AddColumns()
         {
             _columnType = new OLVColumn
-                              {
-                                  Text = "",
-                                  Name = "",
-                                  AspectName = "IsSent",
-                                  TextAlign = System.Windows.Forms.HorizontalAlignment.Left,
-                                  ImageGetter = MailTypeImageGetter,
-                                  AspectToStringConverter = MailTypeTextGetter,
-                                  IsEditable = false,
-                                  FillsFreeSpace = false,
-                                  Width = 20
-                              };
+            {
+                Text = "",
+                Name = "",
+                AspectName = "IsSent",
+                TextAlign = HorizontalAlignment.Left,
+                ImageGetter = MailTypeImageGetter,
+                AspectToStringConverter = MailTypeTextGetter,
+                IsEditable = false,
+                FillsFreeSpace = false,
+                Width = 32
+            };
 
             Columns.Add(_columnType);
 
             _columnValue = new OLVColumn
-                               {
-                                   Text = "",
-                                   Name = "Title",
-                                   AspectName = "Title",
-                                   TextAlign = System.Windows.Forms.HorizontalAlignment.Left,
-                                   IsEditable = false,
-                                   FillsFreeSpace = true
-                               };
+            {
+                Text = "",
+                Name = "Title",
+                AspectName = "Title",
+                TextAlign = HorizontalAlignment.Left,
+                IsEditable = false,
+                FillsFreeSpace = true
+            };
 
             Font = Presentation.View.Theme.FormLabelFont;
 
@@ -97,7 +123,7 @@ namespace TaxDataStore.Presentation.Controls
 
         private Object MailTypeImageGetter(Object rowObject)
         {
-            Entities.Mail mail = (Entities.Mail)rowObject;
+            Mail mail = (Entities.Mail)rowObject;
             if (_mediaImages != null && mail != null)
             {
                 if (_mediaImages.ContainsKey(mail.IsSent))
@@ -126,7 +152,7 @@ namespace TaxDataStore.Presentation.Controls
                                };
         }
 
-
+        /*
         public void SetDataSource(Entities.MailCollection mails)
         {
             if (_datasource != null)
@@ -141,7 +167,7 @@ namespace TaxDataStore.Presentation.Controls
             }
 
             SetObjects(mails);
-        }
+        }*/
 
 
         void DatasourceListChanged(object sender, ListChangedEventArgs e)
@@ -153,14 +179,21 @@ namespace TaxDataStore.Presentation.Controls
 
             try
             {
-                if (_datasource == null || _datasource.Count == 0)
+
+                if (_bindingSource != null && _bindingSource.DataSource != null)
                 {
-                    SetObjects(null);
+                    MailCollection mails = (MailCollection) _bindingSource.DataSource;
+                    if (mails.Count > 0)
+                    {
+                        SetObjects(mails);
+                        SelectObject(mails[0]);
+                        Focus();
+
+                        return;
+                    }
                 }
-                else
-                {
-                    SetObjects(_datasource);
-                }
+
+                SetObjects(null);
             }
             catch (Exception)
             { }
@@ -169,9 +202,32 @@ namespace TaxDataStore.Presentation.Controls
 
         void OnListDisposed(object sender, EventArgs e)
         {
-            if (_datasource != null)
+            UnwireBindings();
+        }
+
+
+        internal void SetBinding(BindingSource bindingSource)
+        {
+            if (bindingSource == null) return;
+
+            UnwireBindings();
+
+            _bindingSource = bindingSource;
+
+            if (_bindingSource != null)
             {
-                _datasource.ListChanged -= DatasourceListChanged;
+                _bindingSource.ListChanged += DatasourceListChanged;
+            }
+
+            SetObjects((MailCollection)_bindingSource.DataSource);
+        }
+
+
+        private void UnwireBindings()
+        {
+            if (_bindingSource != null)
+            {
+                _bindingSource.ListChanged -= DatasourceListChanged;
             }
         }
     }

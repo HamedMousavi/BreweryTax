@@ -26,12 +26,12 @@ namespace TaxDataStore.Presentation.Controls
                 }
 
                 lblTile.DataBindings.Clear();
-                lblTile.DataBindings.Add(new Binding("Text", DataSource, "Title", false, DataSourceUpdateMode.OnPropertyChanged, string.Empty, string.Empty, null));
+                lblTile.DataBindings.Add(new Binding("Text", _bindingSource, "Title", false, DataSourceUpdateMode.OnPropertyChanged, string.Empty, string.Empty, null));
 
                 tbxContent.DataBindings.Clear();
-                tbxContent.DataBindings.Add(new Binding("Text", DataSource, "Text", false, DataSourceUpdateMode.OnPropertyChanged, string.Empty, string.Empty, null));
+                tbxContent.DataBindings.Add(new Binding("Text", _bindingSource, "Text", false, DataSourceUpdateMode.OnPropertyChanged, string.Empty, string.Empty, null));
 
-                _lsvMails.SetObjects(_bindingSource);
+                _lsvMails.SetBinding(_bindingSource);
             }
         }
 
@@ -54,7 +54,16 @@ namespace TaxDataStore.Presentation.Controls
 
             etbMail.AddButtonClick += etbMail_AddButtonClick;
             etbMail.DeleteButtonClick += etbMail_DeleteButtonClick;
+
+            etbMailList.AddButtonClick += etbMailList_AddButtonClick;
         }
+
+
+        void etbMailList_AddButtonClick(object sender, System.EventArgs e)
+        {
+            Presentation.Controllers.Mails.Compose();
+        }
+
 
         void etbMail_DeleteButtonClick(object sender, System.EventArgs e)
         {
@@ -64,7 +73,7 @@ namespace TaxDataStore.Presentation.Controls
 
         void etbMail_AddButtonClick(object sender, System.EventArgs e)
         {
-            Presentation.Controllers.Mails.Compose();
+            throw new System.NotImplementedException();
         }
     }
 }
